@@ -52,7 +52,10 @@ router.post('/verify', async (req, res) => {
   if (result.anthropic === 'valid' || result.elevenlabs === 'valid') {
     db.prepare('UPDATE users SET keys_verified_at = datetime("now") WHERE id = ?').run(req.user.id)
   }
-  res.json(result)
+  res.json({
+    anthropic: { valid: result.anthropic === 'valid', status: result.anthropic },
+    elevenLabs: { valid: result.elevenlabs === 'valid', status: result.elevenlabs },
+  })
 })
 
 export default router
