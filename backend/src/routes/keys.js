@@ -8,13 +8,13 @@ const router = Router()
 router.use(requireAuth)
 
 router.post('/', (req, res) => {
-  const { anthropicKey, elevenlabsKey } = req.body || {}
+  const { anthropicKey, elevenLabsKey } = req.body || {}
   if (anthropicKey !== undefined) {
     const enc = anthropicKey ? encryptKey(anthropicKey) : null
     db.prepare('UPDATE users SET anthropic_key_enc = ?, keys_verified_at = NULL WHERE id = ?').run(enc, req.user.id)
   }
-  if (elevenlabsKey !== undefined) {
-    const enc = elevenlabsKey ? encryptKey(elevenlabsKey) : null
+  if (elevenLabsKey !== undefined) {
+    const enc = elevenLabsKey ? encryptKey(elevenLabsKey) : null
     db.prepare('UPDATE users SET elevenlabs_key_enc = ?, keys_verified_at = NULL WHERE id = ?').run(enc, req.user.id)
   }
   res.json({ ok: true })
@@ -39,9 +39,9 @@ router.post('/verify', async (req, res) => {
     result.anthropic = 'not_set'
   }
   // Test ElevenLabs
-  if (req.user.elevenlabsKey) {
+  if (req.user.elevenLabsKey) {
     try {
-      const r = await fetch('https://api.elevenlabs.io/v1/voices', { headers: { 'xi-api-key': req.user.elevenlabsKey } })
+      const r = await fetch('https://api.elevenlabs.io/v1/voices', { headers: { 'xi-api-key': req.user.elevenLabsKey } })
       result.elevenlabs = r.ok ? 'valid' : 'invalid'
     } catch {
       result.elevenlabs = 'error'

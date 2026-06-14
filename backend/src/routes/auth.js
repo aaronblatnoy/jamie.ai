@@ -19,7 +19,7 @@ router.post('/signup', async (req, res) => {
   const userId = uuidv4()
   db.prepare('INSERT INTO users (id, email, password_hash) VALUES (?, ?, ?)').run(userId, email.toLowerCase(), passwordHash)
   const token = issueSession(userId)
-  res.status(201).json({ token, user: { id: userId, email: email.toLowerCase(), hasAnthropicKey: false, hasElevenlabsKey: false } })
+  res.status(201).json({ token, user: { id: userId, email: email.toLowerCase(), hasAnthropicKey: false, hasElevenLabsKey: false } })
 })
 
 router.post('/login', async (req, res) => {
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
   const valid = await bcrypt.compare(password, user.password_hash)
   if (!valid) return res.status(401).json({ error: 'invalid email or password' })
   const token = issueSession(user.id)
-  res.json({ token, user: { id: user.id, email: user.email, hasAnthropicKey: !!user.anthropic_key_enc, hasElevenlabsKey: !!user.elevenlabs_key_enc } })
+  res.json({ token, user: { id: user.id, email: user.email, hasAnthropicKey: !!user.anthropic_key_enc, hasElevenLabsKey: !!user.elevenlabs_key_enc } })
 })
 
 router.post('/logout', requireAuth, (req, res) => {
@@ -41,7 +41,7 @@ router.post('/logout', requireAuth, (req, res) => {
 })
 
 router.get('/me', requireAuth, (req, res) => {
-  res.json({ id: req.user.id, email: req.user.email, hasAnthropicKey: req.user.hasAnthropicKey, hasElevenlabsKey: req.user.hasElevenlabsKey, keysVerifiedAt: req.user.keysVerifiedAt })
+  res.json({ id: req.user.id, email: req.user.email, hasAnthropicKey: req.user.hasAnthropicKey, hasElevenLabsKey: req.user.hasElevenLabsKey, keysVerifiedAt: req.user.keysVerifiedAt })
 })
 
 export default router

@@ -119,12 +119,12 @@ export default function VerifyStep({ anthropicKey, elevenLabsKey, onFixKeys }) {
     setElevenLabsResult(null);
     confettiFired.current = false;
 
-    const body = {
-      anthropicKey,
-      elevenLabsKey: elevenLabsKey || null,
-    };
+    // Save keys to DB first, then verify from DB.
+    const saveBody = { anthropicKey };
+    if (elevenLabsKey !== null) saveBody.elevenLabsKey = elevenLabsKey;
+    await apiPost('/api/user/keys', saveBody);
 
-    const { ok, data } = await apiPost('/api/user/keys/verify', body);
+    const { ok, data } = await apiPost('/api/user/keys/verify', {});
 
     if (!ok || !data) {
       // Network failure — treat both as failed so user can retry

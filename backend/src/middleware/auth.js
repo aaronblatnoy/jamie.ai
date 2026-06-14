@@ -10,10 +10,10 @@ export function requireAuth(req, res, next) {
     id: session.uid,
     email: session.email,
     anthropicKey: session.anthropic_key_enc ? decryptKey(session.anthropic_key_enc) : null,
-    elevenlabsKey: session.elevenlabs_key_enc ? decryptKey(session.elevenlabs_key_enc) : null,
+    elevenLabsKey: session.elevenlabs_key_enc ? decryptKey(session.elevenlabs_key_enc) : null,
     keysVerifiedAt: session.keys_verified_at,
     hasAnthropicKey: !!session.anthropic_key_enc,
-    hasElevenlabsKey: !!session.elevenlabs_key_enc,
+    hasElevenLabsKey: !!session.elevenlabs_key_enc,
   }
   next()
 }

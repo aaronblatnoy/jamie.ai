@@ -73,12 +73,14 @@ function KeyRow({ keyType, label, placeholder, isSet, verifiedAt, onSuccess }) {
     setRowStatus(null);
     setRowError('');
 
-    const body =
+    const saveBody =
       keyType === 'anthropic'
         ? { anthropicKey: keyValue.trim() }
         : { elevenLabsKey: keyValue.trim() };
 
-    const { ok, data } = await apiPost('/api/user/keys/verify', body);
+    // Save first, then verify from DB.
+    await apiPost('/api/user/keys', saveBody);
+    const { ok, data } = await apiPost('/api/user/keys/verify', {});
 
     if (!ok) {
       setRowStatus('fail');
