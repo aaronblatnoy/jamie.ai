@@ -14,6 +14,7 @@ import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 
 import { AuthProvider } from './context/AuthContext.jsx';
 import { useAuth } from './hooks/useAuth.js';
+import ErrorBoundary from './components/ui/ErrorBoundary.jsx';
 
 // Screens
 import LandingPage      from './screens/LandingPage.jsx';
@@ -76,13 +77,19 @@ export default function App() {
         {/* Public routes */}
         <Route
           path="/"
-          element={<LandingPage />}
+          element={
+            <ErrorBoundary>
+              <LandingPage />
+            </ErrorBoundary>
+          }
         />
         <Route
           path="/signup"
           element={
             <AuthRoute>
-              <SignUpScreen />
+              <ErrorBoundary>
+                <SignUpScreen />
+              </ErrorBoundary>
             </AuthRoute>
           }
         />
@@ -90,22 +97,66 @@ export default function App() {
           path="/signin"
           element={
             <AuthRoute>
-              <SignInScreen />
+              <ErrorBoundary>
+                <SignInScreen />
+              </ErrorBoundary>
             </AuthRoute>
           }
         />
 
         {/* Auth-required: key setup + settings */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/setup-keys" element={<ApiKeySetup />} />
-          <Route path="/settings"   element={<AccountSettings />} />
+          <Route
+            path="/setup-keys"
+            element={
+              <ErrorBoundary>
+                <ApiKeySetup />
+              </ErrorBoundary>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ErrorBoundary>
+                <AccountSettings />
+              </ErrorBoundary>
+            }
+          />
 
           {/* Protected /app nested layout */}
           <Route path="/app" element={<ProtectedLayout />}>
-            <Route index             element={<ModeSelect />} />
-            <Route path="configure"  element={<SessionConfig />} />
-            <Route path="interview"  element={<InterviewScreen />} />
-            <Route path="summary"    element={<SummaryScreen />} />
+            <Route
+              index
+              element={
+                <ErrorBoundary>
+                  <ModeSelect />
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="configure"
+              element={
+                <ErrorBoundary>
+                  <SessionConfig />
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="interview"
+              element={
+                <ErrorBoundary>
+                  <InterviewScreen />
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="summary"
+              element={
+                <ErrorBoundary>
+                  <SummaryScreen />
+                </ErrorBoundary>
+              }
+            />
           </Route>
         </Route>
 

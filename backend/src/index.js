@@ -17,13 +17,27 @@ api.get("/health", (_req, res) => {
   res.json({ ok: true });
 });
 
-// ── WIRE POINT: future route mounts go here ──────────────────────────────────
-// P1: import questionsRouter from "./routes/questions.js";
-//     api.use("/question", questionsRouter);
-// P2: import evaluateRouter from "./routes/evaluate.js";
-//     api.use("/evaluate", evaluateRouter);
-// P3: import ttsRouter from "./routes/tts.js";
-//     api.use("/tts", ttsRouter);
+// ── Auth routes (no auth required) ───────────────────────────────────────────
+import authRouter from "./routes/auth.js";
+api.use("/auth", authRouter);
+
+// ── User key management (requireAuth is applied inside keysRouter) ────────────
+import keysRouter from "./routes/keys.js";
+api.use("/user/keys", keysRouter);
+
+// ── Auth middleware ───────────────────────────────────────────────────────────
+import { requireAuth } from "./middleware/auth.js";
+
+// ── Route mounts (protected) ──────────────────────────────────────────────────
+// P1 (mounted):
+import questionsRouter from "./routes/questions.js";
+api.use("/question", requireAuth, questionsRouter);
+// P2 (mounted):
+import evaluateRouter from "./routes/evaluate.js";
+api.use("/evaluate", requireAuth, evaluateRouter);
+// P3 (mounted):
+import ttsRouter from "./routes/tts.js";
+api.use("/tts", requireAuth, ttsRouter);
 // ─────────────────────────────────────────────────────────────────────────────
 
 app.use("/api", api);

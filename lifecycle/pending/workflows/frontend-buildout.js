@@ -108,7 +108,7 @@ This is the LAST sequential foundation phase; P3/P4/P5/P9 import api.js + useAut
           'PHASE 3 — AUTH SCREENS: LANDING, SIGN UP, SIGN IN (plan lines ~231-311).',
           `Replace the P1 stubs with real screens: src/screens/LandingPage.jsx (3.1 — wordmark, hero H1/subhead, 3 value-prop glyph items, two CTAs -> /signup & /signin, footer cost line), src/screens/SignUpScreen.jsx (3.2 — email/password/confirm, on-submit inline validation, login()+navigate('/setup-keys') on 201, 409 handling, link to /signin), src/screens/SignInScreen.jsx (3.3 — email/password, on 200 navigate /app or /setup-keys per hasAnthropicKey, 401 message, forgot-password contact note). Use apiPost from lib/api.js and login() from useAuth. Touch ONLY these three screen files.`,
         ),
-        { label: 'p3-auth-screens', phase: 'P3 Auth screens', schema: buildSchema, model: 'sonnet', isolation: 'worktree' },
+        { label: 'p3-auth-screens', phase: 'P3 Auth screens', schema: buildSchema, model: 'sonnet' },
       ),
     () =>
       agent(
@@ -116,7 +116,7 @@ This is the LAST sequential foundation phase; P3/P4/P5/P9 import api.js + useAut
           'PHASE 4 — API KEY SETUP WIZARD (plan lines ~314-452).',
           `Build the wizard: src/screens/ApiKeySetup.jsx (4.1 shell, step 1|2|3 + anthropicKey/elevenLabsKey state), src/components/setup/StepIndicator.jsx (4.2), src/components/ui/PasswordInput.jsx (4.3 — reusable masked input with inline SVG eye toggle; used here AND by P9 settings — match the exact prop API: value,onChange,placeholder,label,name,autoComplete), src/components/setup/KeyStep.jsx (4.4 anthropic + 4.5 elevenlabs variants incl. explicit Skip -> elevenLabsKey=null), src/components/setup/VerifyStep.jsx (4.6 — POST /api/user/keys/verify on mount, status table, canvas-confetti on all-valid, [Start Practicing] refreshes /api/auth/me + login() then navigate('/app'), invalid -> [Fix my keys] pre-fills passed key & clears failed one + [Try again]). Use apiPost + canvas-confetti. Touch ONLY these wizard files + PasswordInput.`,
         ),
-        { label: 'p4-key-wizard', phase: 'P4 API-key wizard', schema: buildSchema, model: 'sonnet', isolation: 'worktree' },
+        { label: 'p4-key-wizard', phase: 'P4 API-key wizard', schema: buildSchema, model: 'sonnet' },
       ),
     () =>
       agent(
@@ -124,7 +124,7 @@ This is the LAST sequential foundation phase; P3/P4/P5/P9 import api.js + useAut
           'PHASE 5 — MODE SELECT SCREEN (plan lines ~455-493).',
           `Replace the stub src/screens/ModeSelect.jsx with the real screen: 5.1 header (wordmark + gear -> /settings), 5.2 three mode cards (IB/RX/Behavioral, glyph + title + sub-label + one-line desc + [Start ->]) where card AND button navigate to /app/configure?mode=ib|rx|behavioral (URL param so back/deep-link work), 5.3 voice-status note keyed on user.hasElevenLabsKey (link to /settings when off). Read user from useAuth. Touch ONLY ModeSelect.jsx.`,
         ),
-        { label: 'p5-mode-select', phase: 'P5 Mode select', schema: buildSchema, model: 'sonnet', isolation: 'worktree' },
+        { label: 'p5-mode-select', phase: 'P5 Mode select', schema: buildSchema, model: 'sonnet' },
       ),
     () =>
       agent(
@@ -134,7 +134,7 @@ This is the LAST sequential foundation phase; P3/P4/P5/P9 import api.js + useAut
 - 9.1 header + back-to-practice link. 9.2 API Keys section: two rows (Anthropic, ElevenLabs) with verified status + relativeTime(verifiedAt) helper (plain JS thresholds per 9.2: just now / N minutes/hours/days ago / ISO), inline accordion [Update]/[Add] -> <PasswordInput> + [Save & Verify] -> POST /api/user/keys/verify -> inline ✓/✗ -> on success GET /api/auth/me + login() to refresh context. 9.3 Password section: current/new/confirm PasswordInputs + [Update Password] -> POST /api/auth/password (200 success toast, 401 inline error, validate >=8 + match). 9.4 Account section (.divider) [Sign Out] btn-danger -> logout(). 9.5 Toast: ToastContext + useToast hook (or lightweight singleton), bottom-right, auto-dismiss 4s, success/error/info variants.
 - IMPORT src/components/ui/PasswordInput.jsx (built by P4) — do NOT create your own copy; depend on the exact path. Touch ONLY AccountSettings.jsx + ui/Toast.jsx.`,
         ),
-        { label: 'p9-settings', phase: 'P9 Account settings', schema: buildSchema, model: 'sonnet', isolation: 'worktree' },
+        { label: 'p9-settings', phase: 'P9 Account settings', schema: buildSchema, model: 'sonnet' },
       ),
   ]);
 
@@ -177,7 +177,7 @@ This is the LAST sequential foundation phase; P3/P4/P5/P9 import api.js + useAut
 - 7.6 controls Skip (NO result recorded, count unaffected — skip-erasure) / Repeat / End session. 7.7 JamieBlob 4 visual states via CSS (+ optional AnalyserNode amplitude on listening, fall back to pulse if mic denied).
 Assume score 0.0–1.0. Touch ONLY InterviewScreen.jsx + the 6 interview/ components.`,
         ),
-        { label: 'p7-interview', phase: 'P7 Interview loop', schema: buildSchema, model: 'sonnet', isolation: 'worktree' },
+        { label: 'p7-interview', phase: 'P7 Interview loop', schema: buildSchema, model: 'sonnet' },
       ),
     () =>
       agent(
@@ -185,7 +185,7 @@ Assume score 0.0–1.0. Touch ONLY InterviewScreen.jsx + the 6 interview/ compon
           'PHASE 8 — SUMMARY SCREEN (plan lines ~690-737).',
           `Build src/screens/SummaryScreen.jsx: 8.1 read location.state (results,mode,config); null -> navigate('/app'). 8.2 header (Session Complete + mode + date) + overall score ring (mean*100, conic-gradient/SVG arc, color thresholds >=70 green / 40-69 amber / <40 red). 8.3 category breakdown table (IB/RX, sorted weakest-first) or STAR-dimension averages (behavioral). 8.4 weak-areas amber box (<50%). 8.5 most-missed key points top-5 with counts, collapsed toggle (IB/RX). 8.6 [Practice Again] -> /app/configure?mode=, [Change Mode] -> /app, [Export Summary] -> client-side Blob .txt download (jamie-session-{mode}-{date}.txt). 8.7 skip-erasure assert comment, empty-results graceful "No questions completed", NaN guard -> "--". Assume score 0.0–1.0. Touch ONLY SummaryScreen.jsx.`,
         ),
-        { label: 'p8-summary', phase: 'P8 Summary', schema: buildSchema, model: 'sonnet', isolation: 'worktree' },
+        { label: 'p8-summary', phase: 'P8 Summary', schema: buildSchema, model: 'sonnet' },
       ),
   ]);
 

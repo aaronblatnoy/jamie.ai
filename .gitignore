@@ -2,3 +2,15 @@ node_modules/
 .env
 dist/
 .DS_Store
+
+# Database — contains user PII (emails, hashed passwords, encrypted API keys)
+*.db
+*.db-shm
+*.db-wal
+
+# Guide PDFs — copyrighted source material, not for public distribution
+guides/
+
+# Generated question banks — derived from copyrighted guides
+# Users should generate their own by running the parse workflows with their own PDFs
+questions/

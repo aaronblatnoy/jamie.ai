@@ -69,16 +69,20 @@ A2. Canonical IB category list = manifest.json. The authoritative IB slug
     advanced/ma, basic/lbo, advanced/lbo, brain-teasers). The stale bare dirs
     accounting/, dcf/, valuation/, lbo/, ma/, fit/ have been deleted.
     (Verified: manifest now uses basic/<category> and advanced/<category> slugs.)
-A3. RX data is not yet populated. The RX category dirs exist but contain no
-    questions.json (verified: questions/rx/*/questions.json glob matches
-    nothing). RX slugs (from dir names): accounting-and-financial-statements,
-    bond-math-and-valuation, capital-structure-and-debt-instruments,
-    chapter-11-and-plan-of-reorganization, credit-and-covenant-analysis,
-    distressed-investing-and-trading, out-of-court-restructuring,
-    recovery-and-waterfall-analysis, rx-overview-and-advisory. The loader
-    MUST treat a missing/empty questions.json as "zero questions for that
-    slug" -- never throw. RX has NO basic/advanced split and NO manifest.json,
-    so RX "all categories" = enumerate the rx/ subdirectories at request time.
+A3. RX data uses a difficulty-first layout matching the 400-mi IB structure.
+    questions/rx/ has two immediate subdirs: basic/ and advanced/, each
+    containing 9 category subdirs with questions.json files. 313 questions
+    total. RX slugs are path-style (e.g. "basic/overview", "advanced/bond-math").
+    Full slug list (18 total): basic/overview, basic/capital-structure,
+    basic/accounting, basic/bond-math, basic/credit-analysis, basic/chapter-11,
+    basic/out-of-court, basic/recovery, basic/distressed-investing,
+    advanced/overview, advanced/capital-structure, advanced/accounting,
+    advanced/bond-math, advanced/credit-analysis, advanced/chapter-11,
+    advanced/out-of-court, advanced/recovery, advanced/distressed-investing.
+    The authoritative slug list is questions/rx/taxonomy.json categories[].slug
+    (mirrors how IB uses manifest.json sections[].slug). The loader reads
+    taxonomy.json for RX — NOT by enumerating subdirectories. loadCategory()
+    handles path slugs like "basic/accounting" correctly via path join.
 A4. TWO ElevenLabs voices, not one. The request text says one voice
     (ELEVENLABS_VOICE_ID), but the on-disk .env.example has
     ELEVENLABS_VOICE_ID_IB and ELEVENLABS_VOICE_ID_RX. We follow the
