@@ -4,21 +4,13 @@
 //        output_format), NO assistant prefill.
 import Anthropic from "@anthropic-ai/sdk";
 
-// ── Lazy singleton ────────────────────────────────────────────────────────────
-let _client = null;
-
-function getClient() {
-  if (!_client) {
-    // Read env lazily — dotenv is loaded first in index.js; safe to read here.
-    const apiKey = process.env.ANTHROPIC_API_KEY;
-    if (!apiKey) {
-      const err = new Error("ANTHROPIC_API_KEY is not set");
-      err.code = "MISSING_API_KEY";
-      throw err;
-    }
-    _client = new Anthropic({ apiKey });
+function getClient(apiKey) {
+  if (!apiKey) {
+    const err = new Error("Anthropic API key not set for this user");
+    err.code = "MISSING_API_KEY";
+    throw err;
   }
-  return _client;
+  return new Anthropic({ apiKey });
 }
 
 // ── Eval schema ───────────────────────────────────────────────────────────────
@@ -54,8 +46,8 @@ const EVAL_SCHEMA = {
  * @returns {Promise<{hit:string[], missed:string[], feedback_line:string, score:number}>}
  * @throws {EvalParseError} on JSON parse / shape validation failure (-> 502).
  */
-export async function evaluateAnswer({ system, question, key_points, user_answer }) {
-  const client = getClient(); // INV1: key read lazily here, not at import time
+export async function evaluateAnswer({ apiKey, system, question, key_points, user_answer }) {
+  const client = getClient(apiKey);
 
   // Build a clearly labeled user message so Claude can identify each field.
   const keyPointsBullets = Array.isArray(key_points)

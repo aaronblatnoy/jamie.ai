@@ -51,6 +51,10 @@ router.post(
   asyncHandler(async (req, res) => {
     const { question, key_points, user_answer, mode } = req.body ?? {};
 
+    if (!req.user.anthropicKey) {
+      return res.status(402).json({ error: "anthropic_key_required" });
+    }
+
     // ── Input validation — 400s ────────────────────────────────────────────────
     if (!question || typeof question !== "string" || question.trim() === "") {
       return res.status(400).json({ error: "question is required" });
@@ -84,7 +88,7 @@ router.post(
     // ── Call Claude ───────────────────────────────────────────────────────────
     let result;
     try {
-      result = await evaluateAnswer({ system, question, key_points: kp, user_answer });
+      result = await evaluateAnswer({ apiKey: req.user.anthropicKey, system, question, key_points: kp, user_answer });
     } catch (err) {
       // INV1: log a sanitized message — NEVER log the key, raw SDK payload, or model answer.
       if (err instanceof EvalParseError) {

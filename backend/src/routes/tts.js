@@ -16,10 +16,13 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "text is required" });
   }
 
-  // Read env lazily (dotenv loads before any import, but we stay explicit)
   const voiceIb = process.env.ELEVENLABS_VOICE_ID_IB;
   const voiceRx = process.env.ELEVENLABS_VOICE_ID_RX;
-  const apiKey = process.env.ELEVENLABS_API_KEY;
+  const apiKey = req.user.elevenLabsKey;
+
+  if (!apiKey) {
+    return res.status(402).json({ error: "elevenlabs_key_required" });
+  }
 
   // A4: voice selection — explicit override > mode-selected > IB default
   const voice =
