@@ -3,6 +3,11 @@ import "dotenv/config";
 
 import express from "express";
 import cors from "cors";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+import { existsSync } from "fs";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
@@ -41,6 +46,16 @@ api.use("/tts", requireAuth, ttsRouter);
 // ─────────────────────────────────────────────────────────────────────────────
 
 app.use("/api", api);
+
+// ── Serve React frontend static files (production) ────────────────────────────
+const distPath = join(__dirname, "../../frontend/dist");
+if (existsSync(distPath)) {
+  app.use(express.static(distPath));
+  // SPA fallback — any non-API route returns index.html
+  app.get("*", (_req, res) => {
+    res.sendFile(join(distPath, "index.html"));
+  });
+}
 
 // 4-arg error middleware (Express 4 — the 4 params make Express recognize it)
 // eslint-disable-next-line no-unused-vars
