@@ -1,0 +1,217 @@
+[
+  {
+    "id": "mi-accounting-advanced-001",
+    "question": "How is GAAP accounting different from tax accounting?",
+    "model_answer": "There are three main differences: (1) GAAP is accrual-based, meaning revenue and expenses are recognized when earned or incurred, whereas tax accounting is cash-based, recognizing items when cash actually changes hands. (2) GAAP uses straight-line depreciation or a few other accepted methods, whereas tax accounting uses accelerated depreciation methods (e.g., MACRS) to front-load deductions. (3) GAAP is more complex and more accurately tracks assets and liabilities on the balance sheet, whereas tax accounting is only concerned with revenue and expenses in the current period and what income tax you currently owe.",
+    "key_points": [
+      "GAAP is accrual-based; tax accounting is cash-based",
+      "GAAP uses straight-line depreciation; tax uses accelerated depreciation (e.g., MACRS)",
+      "GAAP tracks assets and liabilities more comprehensively; tax accounting focuses only on current-period taxable income",
+      "These differences create temporary timing mismatches that give rise to deferred tax assets and liabilities"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-advanced-002",
+    "question": "Walk me through how you create a revenue model for a company.",
+    "model_answer": "There are two approaches: a bottoms-up build and a tops-down build. In a bottoms-up build, you start with individual products or customers, estimate the average sale value or customer value, and then estimate the growth rate in sales and sale values to tie everything together. In a tops-down build, you start with big-picture metrics like overall market size, then estimate the company's market share and how that will change in coming years, and multiply to arrive at revenue. Of the two methods, the bottoms-up build is more common and is taken more seriously because estimating big-picture market-size numbers is almost impossible to do with precision.",
+    "key_points": [
+      "Two methods: bottoms-up and tops-down",
+      "Bottoms-up: start with individual products/customers, estimate average sale value, then growth rates",
+      "Tops-down: start with total market size, estimate market share, multiply to get revenue",
+      "Bottoms-up is preferred and more credible because top-down market sizing is very imprecise",
+      "Both methods require forward-looking growth rate assumptions"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-advanced-003",
+    "question": "Walk me through how you create an expense model for a company.",
+    "model_answer": "For a true bottoms-up build, you start with each different department of the company, the number of employees in each, the average salary, bonuses, and benefits, and then make assumptions about how those grow going forward. Usually you assume the number of employees is tied to revenue growth, and then you assume growth rates for salary, bonuses, benefits, and other metrics. Cost of Goods Sold should be tied directly to Revenue, and each unit produced should incur an expense. Other items such as rent, Capital Expenditures, and miscellaneous expenses are either linked to the company's internal plans (e.g., building expansion plans if available), or tied to Revenue for a simpler model.",
+    "key_points": [
+      "Bottoms-up: break down by department, headcount, average salary/bonus/benefits",
+      "Employee count is typically assumed to grow with revenue",
+      "Apply growth rate assumptions for salary, bonuses, benefits going forward",
+      "COGS tied directly to revenue \u2014 each unit produced incurs a cost",
+      "Rent, CapEx, and misc. expenses linked to company plans or modeled as a % of revenue"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-advanced-004",
+    "question": "Let's say we're trying to create these models but don't have enough information or the company doesn't tell us enough in its filings \u2014 what do we do?",
+    "model_answer": "Use estimates. For revenue, if you don't have enough information to look at separate product lines or divisions, you can simply assume a straightforward growth rate into future years. For expenses, if you don't have employee-level detail, you can assume that major expenses like SG&A are a fixed percentage of revenue and carry that assumption forward into future periods.",
+    "key_points": [
+      "Use estimates when granular data is unavailable",
+      "Revenue: assume a simple overall growth rate if product-line detail is missing",
+      "Expenses: model major line items like SG&A as a % of revenue",
+      "Carry percentage assumptions forward across the projection period",
+      "This top-down simplification is acceptable when bottom-up data is inaccessible"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-advanced-005",
+    "question": "Walk me through the major items in Shareholders' Equity.",
+    "model_answer": "Common items in Shareholders' Equity include: (1) Common Stock \u2014 simply the par value of however much stock the company has issued. (2) Retained Earnings \u2014 how much of the company's cumulative Net Income it has saved up over time (not paid out as dividends). (3) Additional Paid-In Capital (APIC) \u2014 tracks how much stock-based compensation has been issued, how much new stock employees exercising options have created, and how much over par value a company raises in an IPO or other equity offering. (4) Treasury Stock \u2014 the dollar amount of shares that the company has bought back (a negative number, reducing equity). (5) Accumulated Other Comprehensive Income (AOCI) \u2014 a catch-all that includes items that don't fit anywhere else, such as the effect of foreign currency exchange rate changes.",
+    "key_points": [
+      "Common Stock: par value of all shares issued",
+      "Retained Earnings: cumulative net income saved up over time, net of dividends",
+      "Additional Paid-In Capital (APIC): stock-based comp, option exercises, amounts raised above par in equity offerings",
+      "Treasury Stock: dollar value of shares repurchased (reduces equity, shown as negative)",
+      "Accumulated Other Comprehensive Income (AOCI): catch-all for items like FX translation adjustments"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-advanced-006",
+    "question": "Walk me through what flows into Retained Earnings.",
+    "model_answer": "Retained Earnings equals the old (prior period) Retained Earnings balance, plus this year's Net Income, minus any Dividends Issued during the period. In formula form: Retained Earnings = Old Retained Earnings Balance + Net Income \u2013 Dividends Issued. If calculating the current year's Retained Earnings, you take last year's ending balance, add this year's Net Income, and subtract however much the company paid out in dividends.",
+    "key_points": [
+      "Formula: Retained Earnings = Prior Retained Earnings + Net Income \u2013 Dividends Issued",
+      "Starts with the prior period ending balance",
+      "Net Income increases Retained Earnings",
+      "Dividends paid out reduce Retained Earnings",
+      "Retained Earnings accumulates over the life of the company"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-advanced-007",
+    "question": "Walk me through what flows into Additional Paid-In Capital (APIC).",
+    "model_answer": "APIC equals the old APIC balance, plus this year's Stock-Based Compensation expense, plus the value of new stock created by employees exercising options during the year. In formula form: APIC = Old APIC + Stock-Based Compensation + Value of Stock Created by Option Exercises. You take the prior year balance, add the current year's stock-based compensation number, and then add in the value of any new shares created when employees exercise their stock options.",
+    "key_points": [
+      "Formula: APIC = Old APIC + Stock-Based Compensation + Value of Stock from Option Exercises",
+      "Stock-based compensation expense flows into APIC each period",
+      "When employees exercise options, the value of new shares created increases APIC",
+      "Also captures amounts raised above par value in equity offerings (IPO, secondary offerings)",
+      "APIC is a cumulative running balance on the balance sheet"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-advanced-008",
+    "question": "What is the Statement of Shareholders' Equity and why do we use it?",
+    "model_answer": "The Statement of Shareholders' Equity shows all of the major items that comprise Shareholders' Equity \u2014 Common Stock, Retained Earnings, APIC, Treasury Stock, and AOCI \u2014 and how we arrive at each of those balances using the numbers and activity elsewhere in the financial statements. It is not used heavily in most analyses, but it can be helpful when analyzing companies with unusual stock-based compensation arrangements and stock option situations, where you need to understand exactly how equity accounts are moving.",
+    "key_points": [
+      "Shows all components of Shareholders' Equity and how each balance changes period-to-period",
+      "Reconciles opening and closing balances for Common Stock, Retained Earnings, APIC, Treasury Stock, AOCI",
+      "Less commonly used than the three core financial statements",
+      "Most useful when analyzing companies with complex stock-based compensation or option activity",
+      "Ties together activity from the Income Statement and Cash Flow Statement into the equity section"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-advanced-009",
+    "question": "What are deferred tax assets/liabilities and how do they arise?",
+    "model_answer": "Deferred tax assets and liabilities arise because of temporary differences between what a company can deduct for cash tax purposes versus what they can deduct for book (GAAP) tax purposes. A Deferred Tax Liability (DTL) arises when you have a tax expense recorded on the Income Statement but haven't actually paid that tax in cash yet \u2014 for example, when book depreciation is slower than accelerated tax depreciation, so taxable income is lower now (less cash tax paid) but you'll owe more later. A Deferred Tax Asset (DTA) arises when you pay taxes in cash but haven't expensed them on the Income Statement yet. DTAs and DTLs are most commonly created in M&A deals through asset write-ups and write-downs: an asset write-up creates a deferred tax liability (you'll depreciate the written-up asset for book purposes but can't deduct it for taxes), while a write-down creates a deferred tax asset.",
+    "key_points": [
+      "Arise from temporary differences between cash tax and book tax treatment",
+      "Deferred Tax Liability: tax expense on IS but cash not yet paid (e.g., accelerated tax depreciation > book depreciation)",
+      "Deferred Tax Asset: taxes paid in cash but not yet expensed on the IS",
+      "Most common in M&A via asset write-ups (create DTL) and write-downs (create DTA)",
+      "Differences are temporary \u2014 they reverse over time as the timing mismatch unwinds"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-advanced-010",
+    "question": "What are examples of non-recurring charges we need to add back to a company's EBIT / EBITDA when looking at its financial statements?",
+    "model_answer": "Common non-recurring charges that are added back to EBIT/EBITDA include: Restructuring Charges, Goodwill Impairment, Asset Write-Downs, Bad Debt Expenses, Legal Expenses, Disaster Expenses, and Changes in Accounting Procedures. Importantly, to qualify as an add-back for EBITDA/EBIT purposes, the charge must affect Operating Income on the Income Statement \u2014 if a charge appears below the operating income line, it is not added back. Also note that Depreciation, Amortization, and sometimes Stock-Based Compensation are also added back to calculate EBITDA/EBIT, but these are not 'non-recurring charges' \u2014 they are non-cash charges that every company incurs regularly each year.",
+    "key_points": [
+      "Non-recurring add-backs: Restructuring Charges, Goodwill Impairment, Asset Write-Downs, Bad Debt Expenses, Legal Expenses, Disaster Expenses, Changes in Accounting Procedures",
+      "Must affect Operating Income (above-the-line) to qualify as an EBIT/EBITDA add-back",
+      "Charges below the operating income line are NOT added back",
+      "D&A and Stock-Based Compensation are also added back but are non-cash charges, not non-recurring charges",
+      "The distinction matters: non-recurring vs. non-cash are separate categories of add-backs"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-advanced-011",
+    "question": "How do you project Balance Sheet items like Accounts Receivable and Accrued Expenses in a 3-statement model?",
+    "model_answer": "Normally you make very simple assumptions and express these items as percentages of relevant income statement line items \u2014 revenue, operating expenses, or cost of goods sold. Standard linkages include: Accounts Receivable as a % of revenue; Deferred Revenue as a % of revenue; Accounts Payable as a % of COGS; and Accrued Expenses as a % of operating expenses or SG&A. You calculate the historical percentage for each item, and then either carry the same percentages forward into future years or assume slight changes depending on the company's business trajectory.",
+    "key_points": [
+      "Project working capital items as percentages of relevant income statement drivers",
+      "Accounts Receivable: % of revenue",
+      "Deferred Revenue: % of revenue",
+      "Accounts Payable: % of COGS",
+      "Accrued Expenses: % of operating expenses or SG&A",
+      "Either hold percentages constant or assume slight changes going forward",
+      "Changes in these balances flow into the Cash Flow Statement via changes in working capital"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-advanced-012",
+    "question": "How should you project Depreciation and Capital Expenditures?",
+    "model_answer": "The simple way is to project each as a percentage of revenue or as a percentage of the prior period's PP&E balance. The more complex way is to create a detailed PP&E schedule that splits out different asset categories by their useful lives, assumes straight-line depreciation over each asset's useful life, and then forecasts capital expenditures based on what the company has invested historically. The complex schedule gives a more accurate picture but requires more detailed data from the company's filings.",
+    "key_points": [
+      "Simple method: project D&A and CapEx as a % of revenue or prior-period PP&E balance",
+      "Complex method: build a full PP&E schedule with assets categorized by useful life",
+      "Complex method uses straight-line depreciation over each asset's useful life",
+      "CapEx in the complex method is estimated based on the company's historical investment patterns",
+      "CapEx increases PP&E; Depreciation reduces it \u2014 both roll forward on the balance sheet",
+      "Simple % of revenue approach is common in most interview/modeling contexts"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-advanced-013",
+    "question": "How do Net Operating Losses (NOLs) affect a company's 3 statements?",
+    "model_answer": "The quick-and-dirty approach: reduce Taxable Income by the portion of NOLs usable each year, apply the same tax rate, and subtract the resulting lower tax number from Pretax Income (which stays the same) \u2014 this just reduces cash taxes paid. The proper approach is to create a book vs. cash tax schedule. You calculate Taxable Income based on available NOLs, then separately calculate what you would have paid in taxes without the NOLs. The difference between book taxes (without NOLs) and actual cash taxes (with NOLs) is booked as an increase to the Deferred Tax Liability on the Balance Sheet. This method correctly reflects that you're saving on cash flow \u2014 since the DTL, a liability, is rising \u2014 while properly separating the NOL impact into book taxes versus cash taxes on the financial statements.",
+    "key_points": [
+      "NOLs reduce taxable income, lowering cash taxes paid in the current period",
+      "Quick method: reduce taxable income by NOLs used, apply tax rate, compute lower cash tax",
+      "Proper method: build a book vs. cash tax schedule",
+      "Book taxes are calculated as if NOLs didn't exist; cash taxes reflect the NOL benefit",
+      "The difference (tax saving from NOLs) is recorded as an increase in Deferred Tax Liability on the Balance Sheet",
+      "Rising DTL reflects that cash taxes saved today will eventually reverse",
+      "Income Statement shows book tax expense; Cash Flow Statement reflects actual cash taxes paid"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-advanced-014",
+    "question": "What's the difference between capital leases and operating leases?",
+    "model_answer": "Operating leases are used for short-term leasing of equipment and property and do not involve any transfer of ownership. Operating lease expenses appear simply as operating expenses on the Income Statement, with no balance sheet impact beyond the lease expense. Capital leases are used for longer-term items and give the lessee ownership rights; they depreciate over time and incur interest payments, and are counted as debt on the balance sheet. A lease is classified as a capital lease if any one of four conditions is true: (1) there is a transfer of ownership at the end of the term; (2) there is an option to purchase the asset at a bargain price at the end of the term; (3) the term of the lease is greater than 75% of the useful life of the asset; or (4) the present value of the lease payments is greater than 90% of the asset's fair market value.",
+    "key_points": [
+      "Operating lease: short-term, no ownership, expensed as operating expenses on the IS, no debt on balance sheet",
+      "Capital lease: long-term, grants ownership rights, counted as debt, asset is depreciated and interest is charged",
+      "4 conditions that make a lease a capital lease: (1) ownership transfers at end, (2) bargain purchase option, (3) lease term > 75% of asset useful life, (4) PV of payments > 90% of asset fair market value",
+      "Only one of the four conditions needs to be true for capital lease classification",
+      "Capital leases appear on both sides of the balance sheet (asset and liability)",
+      "Operating lease expenses reduce EBITDA; capital lease depreciation and interest are treated separately"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-advanced-015",
+    "question": "Why would the Depreciation & Amortization number on the Income Statement be different from what's on the Cash Flow Statement?",
+    "model_answer": "This happens when D&A is embedded in other Income Statement line items rather than broken out as its own separate line. For example, D&A may be rolled into COGS, SG&A, or other operating expense categories rather than listed explicitly. When this occurs, the Income Statement shows a lower (or zero) standalone D&A figure, but the Cash Flow Statement adds back the full D&A amount as a non-cash charge. You need to use the Cash Flow Statement's D&A figure when calculating EBITDA in this situation, because otherwise you would be undercounting D&A and overstating EBITDA.",
+    "key_points": [
+      "Occurs when D&A is embedded within other IS line items (COGS, SG&A) rather than shown separately",
+      "The Income Statement may show little or no standalone D&A line in this case",
+      "The Cash Flow Statement always adds back the full D&A as a non-cash item",
+      "Must use the CFS D&A figure when calculating EBITDA to avoid undercounting D&A",
+      "Using only the IS D&A in this scenario overstates EBITDA"
+    ],
+    "category": "accounting-advanced",
+    "difficulty": 3
+  }
+]

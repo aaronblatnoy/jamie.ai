@@ -1,0 +1,669 @@
+=====================================================================
+BUILDOUT PHASE PLAN: jamie.ai Backend (Express + Claude + ElevenLabs)
+Generated: 2026-06-14
+Scope: Stand up the stateless Node.js ESM backend that serves IB/RX
+       interview questions, evaluates spoken answers via Claude
+       (claude-opus-4-8, adaptive thinking, structured JSON), and
+       proxies ElevenLabs TTS — keeping all API keys server-side.
+=====================================================================
+
+NOTE: This file supersedes an earlier thinner draft that assumed a
+"behavioral" mode and consolidated backend/src/data/*.json banks. Neither
+matches the current repo: there is no behavioral data on disk, and the live
+data layout is per-category files under questions/{400-mi,rx}/. This plan
+is grounded in the VERIFIED on-disk state (see Assumptions).
+
+## 0. CONTEXT & GOALS
+
+Problem statement
+-----------------
+jamie.ai is an AI-powered mock investment-banking interviewer. The
+frontend (separate, not in scope) asks questions out loud, transcribes
+the user's spoken answer in the browser (Web Speech API), and needs a
+backend to (a) serve a random unseen question from a category filter,
+(b) score the transcribed answer against the question's key_points using
+Claude, and (c) turn text into speech via ElevenLabs. The backend is a
+thin, stateless proxy — session state lives entirely on the client.
+
+Success criteria (measurable)
+-----------------------------
+- `npm run dev` boots an Express server on PORT (default 3001) with no
+  unhandled-rejection or import errors.
+- `GET /api/question?mode=ib` returns a single JSON question object with
+  exactly the keys { id, question, key_points, category, difficulty } and
+  HTTP 200; never leaks model_answer.
+- `GET /api/question?mode=ib&categories=basic/accounting&difficulty=1&exclude=mi-accounting-basic-001`
+  returns a difficulty-1 basic/accounting question whose id is not the
+  excluded one; returns `{ done: true }` (HTTP 200) when the filtered,
+  de-excluded pool is empty.
+- `POST /api/evaluate` with a valid body returns
+  `{ hit: string[], missed: string[], feedback_line: string, score: number }`
+  with score in [0,100], parsed from Claude's structured output, HTTP 200.
+- `POST /api/tts` with `{ text }` streams `Content-Type: audio/mpeg` bytes
+  back; a bad/missing ElevenLabs key yields a clean 5xx JSON error, not a
+  crash.
+- No endpoint ever returns ANTHROPIC_API_KEY or ELEVENLABS_API_KEY, and
+  neither is logged.
+
+Non-goals (explicitly out of scope)
+-----------------------------------
+- Frontend (React/Vite), STT, audio playback, session/score persistence.
+- Auth / rate limiting / multi-tenant concerns (single-user local tool).
+- A database. Questions are read from JSON on disk on demand.
+- Guide parsing / PDF ingestion (questions are already generated).
+- Deployment / Docker / CI.
+- A "behavioral" mode (no behavioral data exists on disk; only ib/rx).
+
+Assumptions made (VERIFIED against the repo unless noted)
+---------------------------------------------------------
+A1. Data path mapping. The frontend passes mode=ib|rx, but IB data lives on
+    disk under questions/400-mi/, not questions/ib/. The backend MUST map
+    mode -> directory: ib -> 400-mi, rx -> rx. (Verified:
+    questions/400-mi/basic/accounting/questions.json is 45KB; questions/ib/
+    does not exist.)
+A2. Canonical IB category list = manifest.json. The authoritative IB slug
+    set is the sections[].slug array in questions/400-mi/manifest.json (13
+    sections: basic/accounting, advanced/accounting,
+    basic/enterprise-equity-value, advanced/enterprise-equity-value,
+    basic/valuation, advanced/valuation, basic/dcf, advanced/dcf, basic/ma,
+    advanced/ma, basic/lbo, advanced/lbo, brain-teasers). The stale bare dirs
+    accounting/, dcf/, valuation/, lbo/, ma/, fit/ have been deleted.
+    (Verified: manifest now uses basic/<category> and advanced/<category> slugs.)
+A3. RX data is not yet populated. The RX category dirs exist but contain no
+    questions.json (verified: questions/rx/*/questions.json glob matches
+    nothing). RX slugs (from dir names): accounting-and-financial-statements,
+    bond-math-and-valuation, capital-structure-and-debt-instruments,
+    chapter-11-and-plan-of-reorganization, credit-and-covenant-analysis,
+    distressed-investing-and-trading, out-of-court-restructuring,
+    recovery-and-waterfall-analysis, rx-overview-and-advisory. The loader
+    MUST treat a missing/empty questions.json as "zero questions for that
+    slug" -- never throw. RX has NO basic/advanced split and NO manifest.json,
+    so RX "all categories" = enumerate the rx/ subdirectories at request time.
+A4. TWO ElevenLabs voices, not one. The request text says one voice
+    (ELEVENLABS_VOICE_ID), but the on-disk .env.example has
+    ELEVENLABS_VOICE_ID_IB and ELEVENLABS_VOICE_ID_RX. We follow the
+    .env.example (it is the source of truth). POST /api/tts accepts an
+    optional voice_id override; when absent it selects by an optional mode
+    in the body (ib->_IB, rx->_RX), falling back to _IB. Flagged in OPEN
+    QUESTIONS.
+A5. SDK is @anthropic-ai/sdk ^0.52.0 (from package.json) and is NOT yet
+    installed (no node_modules). npm install is Phase 0. 0.52 predates the
+    messages.parse() helper, so we use
+    messages.create({ output_config: { format: { type:"json_schema", schema }}})
+    and JSON.parse the first text block. (The output_format top-level param
+    is deprecated; use output_config.format.)
+A6. CLAUDE.md describes an older architecture (consolidated
+    backend/src/data/ib-questions.json) that does NOT match the current
+    on-disk reality (per-category files under questions/). We follow the
+    REQUEST + actual data layout (per-category, on-demand read from
+    questions/), not the stale CLAUDE.md paragraph. backend/src/data/ is
+    left empty/unused. Flagged in OPEN QUESTIONS.
+A7. Claude config (locked by project rule + claude-api guidance): model
+    claude-opus-4-8, thinking:{type:"adaptive"}. No assistant prefill (400s
+    on this model). max_tokens ~2048 is ample for the small JSON result;
+    non-streaming is fine (well under the ~16K streaming threshold).
+
+=====================================================================
+
+## 1. ARCHITECTURE OVERVIEW
+
+How this fits into the existing system
+--------------------------------------
+This is the only backend. It sits between the React frontend and two
+external APIs (Anthropic, ElevenLabs). It reads question JSON straight from
+the repo's questions/ tree (sibling of backend/). No DB, no queue, no auth.
+
+Affected services
+-----------------
+- api (Express) — NEW, this whole plan.
+- db — none.   worker — none.   web — out of scope (consumes endpoints).
+- shared — the on-disk questions/ tree is the shared data source (read only).
+
+Data flow (per question round-trip)
+-----------------------------------
+  [frontend] --GET /api/question?mode&categories&difficulty&exclude-->
+  [questions.js] --reads--> questions/{400-mi|rx}/{slug}/questions.json
+       |  filter difficulty, drop excluded ids, pick 1 at random
+       v
+  {id,question,key_points,category,difficulty}  (model_answer stripped)
+
+  [frontend] --POST /api/evaluate {question,key_points,user_answer,mode}-->
+  [evaluate.js] --loads prompts/{mode}-system.txt--> [Anthropic SDK]
+       |  claude-opus-4-8, adaptive thinking, output_config.format
+       v
+  {hit,missed,feedback_line,score}
+
+  [frontend] --POST /api/tts {text,voice_id?,mode?}-->
+  [tts.js] --fetch--> ElevenLabs stream --pipe--> audio/mpeg bytes
+
+Invariants this plan must preserve
+----------------------------------
+- INV1 (KEY SECRECY): ANTHROPIC_API_KEY / ELEVENLABS_API_KEY never appear
+  in any response body, header, or log line. All external calls server-side.
+- INV2 (STATELESSNESS): backend holds no per-session state; exclude comes
+  from the client each call.
+- INV3 (NO MODEL-ANSWER LEAK): GET /api/question strips model_answer.
+- INV4 (MODE->PATH MAPPING): every read goes through ib->400-mi / rx->rx;
+  no route hardcodes a raw mode as a dir name.
+- INV5 (ESM ONLY): import/export throughout (package.json "type":"module").
+  node:fs/promises; resolve paths via fileURLToPath(import.meta.url), no
+  __dirname.
+- INV6 (CLAUDE CONFIG): claude-opus-4-8 + thinking:{type:"adaptive"},
+  structured output via output_config.format, never a prefill.
+
+=====================================================================
+
+## 2. AFFECTED SURFACE AREA
+
+Files to CREATE (full paths)
+----------------------------
+- /Users/aaron_7nh0yzm/jamie.ai/backend/src/index.js
+- /Users/aaron_7nh0yzm/jamie.ai/backend/src/lib/questions-store.js
+- /Users/aaron_7nh0yzm/jamie.ai/backend/src/lib/anthropic.js
+- /Users/aaron_7nh0yzm/jamie.ai/backend/src/routes/questions.js
+- /Users/aaron_7nh0yzm/jamie.ai/backend/src/routes/evaluate.js
+- /Users/aaron_7nh0yzm/jamie.ai/backend/src/routes/tts.js
+- /Users/aaron_7nh0yzm/jamie.ai/backend/src/prompts/ib-system.txt
+- /Users/aaron_7nh0yzm/jamie.ai/backend/src/prompts/rx-system.txt
+- /Users/aaron_7nh0yzm/jamie.ai/backend/.env   (local, gitignored, NOT committed)
+
+Files to MODIFY
+---------------
+- /Users/aaron_7nh0yzm/jamie.ai/backend/package.json — VERIFY only
+  ("type":"module" + scripts already present; likely no edit). Add
+  .gitignore (node_modules/, .env) at backend/ or repo root if missing.
+
+Migrations required: None (no DB).
+
+New env vars / config
+---------------------
+- Already in /Users/aaron_7nh0yzm/jamie.ai/.env.example: ANTHROPIC_API_KEY,
+  ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID_IB, ELEVENLABS_VOICE_ID_RX,
+  PORT=3001. No NEW vars introduced.
+
+New dependencies
+----------------
+- None beyond existing: @anthropic-ai/sdk ^0.52.0, cors ^2.8.5,
+  dotenv ^16.4.5, express ^4.19.2. ElevenLabs via global fetch (Node 18+).
+  Verify Node >= 18 at Phase 0.
+
+=====================================================================
+
+## 3. PHASES
+
+Vertical slices, each independently runnable. P0 boots the server. P1
+(questions) needs only on-disk data. P2 (evaluate) and P3 (tts) are leaf
+endpoints depending only on P0 + their own prompt/env. P4 is prompts
+(consumed by P2, authored independently). P5 is end-to-end verification.
+
+-------------------------------------------------------------------
+### PHASE 0: Bootstrap — server boots, /api/health green
+   Prerequisites: none
+   Deliverables:
+      - npm install done; backend/src/index.js (Express + cors + json
+        parser + /api router + GET /api/health -> {ok:true} + listen(PORT)
+        + 4-arg error middleware); backend/.env from .env.example;
+        .gitignore (node_modules/, .env).
+   Steps:
+      1. cd backend && npm install; confirm @anthropic-ai/sdk resolves.
+      2. node -v >= 18 (global fetch + node: specifiers).
+      3. index.js: import "dotenv/config" FIRST; express(); app.use(cors());
+         app.use(express.json()); /api router; GET /api/health; PORT =
+         process.env.PORT || 3001; listen; 4-arg error handler -> {error}.
+      4. backend/.env with real keys for QA.
+      5. .gitignore ignores node_modules/ and .env.
+   Validation:
+      - npm run dev boots, logs "listening on 3001".
+      - curl -s localhost:3001/api/health -> {"ok":true}.
+      - git status hides node_modules/ and .env.
+   Risks / Edge cases:
+      - dotenv loaded after a module reads env -> undefined keys. Mitigation:
+        import dotenv config at the very top; read env lazily in handlers/
+        client singletons, not at imported-module top level.
+      - Express 4 async errors uncaught -> unhandled rejection. Mitigation:
+        asyncHandler() or try/catch + next(err).
+   Subagent orchestration:
+      - Execution shape: [SINGLE]
+      - REQUIRED subagent_type: general-purpose
+      - REQUIRED model: sonnet
+      - Run in background: no (gates every later phase)
+      - Brief template:
+        "Execute Phase 0 of /Users/aaron_7nh0yzm/jamie.ai/lifecycle/pending/plans/backend-buildout.txt.
+         Your slice: npm install + backend/src/index.js (Express ESM
+         skeleton: cors, json parser, /api/health, error middleware, listen
+         on PORT) + backend/.env from .env.example + .gitignore. Read
+         Section 1 (INV1,INV5), Section 2, Phase 0. Touch only
+         backend/src/index.js, backend/.env, backend/.gitignore; run npm
+         install in backend/. Validation: npm run dev boots and curl
+         localhost:3001/api/health returns {\"ok\":true}. Evidence: paste
+         curl output + boot log line. Print one-line summary and exit."
+
+-------------------------------------------------------------------
+### PHASE 1: GET /api/question — question serving
+   Prerequisites: Phase 0
+   Deliverables:
+      - backend/src/lib/questions-store.js; backend/src/routes/questions.js;
+        router mounted in index.js.
+   Steps:
+      1. questions-store.js:
+         - MODE_DIR = { ib:"400-mi", rx:"rx" }. Reject unknown mode.
+         - QUESTIONS_ROOT = <repo>/questions via fileURLToPath(import.meta.url)
+           -> ../../../questions (backend/src/lib -> repo root). Confirm depth.
+         - listCategories(mode): ib -> read 400-mi/manifest.json,
+           sections[].slug (fallback: non-empty subdirs); rx -> enumerate
+           questions/rx/ subdirectories (no manifest).
+         - loadCategory(mode,slug): readFile questions/<dir>/<slug>/questions.json;
+           on ENOENT / empty / parse error -> return [] (never throw). Cache
+           parsed arrays in a module Map keyed `${mode}/${slug}`.
+      2. questions.js GET /api/question:
+         - Parse mode (req, ib|rx), categories(csv?), difficulty(1|2|3?),
+           exclude(csv ids?).
+         - Categories = provided INTERSECT listCategories(mode), else all.
+           Ignore unknown slugs silently.
+         - Concatenate loadCategory() across chosen categories. Filter by
+           difficulty if present; drop excluded ids.
+         - Empty pool -> {done:true}. Else random pick; return ONLY
+           {id,question,key_points,category,difficulty} (INV3 strips
+           model_answer).
+      3. Mount at /api/question in index.js.
+   Validation:
+      - ib -> 5-key object, no model_answer.
+      - ib&categories=basic/accounting&difficulty=1 -> difficulty-1 q.
+      - grow exclude until {done:true}.
+      - rx -> {done:true} TODAY (empty), real q once data lands, no 500.
+      - mode=bogus -> 400.
+   Risks / Edge cases:
+      - QUESTIONS_ROOT depth wrong -> all empty. Mitigation: log resolved
+        root at boot; assert manifest reads.
+      - RX empty TODAY: {done:true} correct, not a bug.
+      - Stale bare dirs deleted; manifest uses basic/<category> slugs (A2).
+      - basic/accounting/basic/valuation ~34 each: trivial; cache avoids
+        re-parse.
+   Subagent orchestration:
+      - Execution shape: [SEQUENTIAL — depends on Phase 0]
+      - REQUIRED subagent_type: general-purpose
+      - REQUIRED model: sonnet
+      - Run in background: no (Phase 5 needs it)
+      - Brief template:
+        "Execute Phase 1 of /Users/aaron_7nh0yzm/jamie.ai/lifecycle/pending/plans/backend-buildout.txt.
+         Your slice: backend/src/lib/questions-store.js (mode->dir map,
+         manifest-driven ib categories, empty-file-tolerant loader, cache) +
+         backend/src/routes/questions.js (GET /api/question with
+         categories/difficulty/exclude filtering, random pick, {done:true}
+         fallback, model_answer stripped); mount it. Read Section 1
+         (INV2,INV3,INV4), Assumptions A1-A3, Phase 1. Touch only those two
+         new files + a mount line in backend/src/index.js. Validation: the
+         four curl checks pass (ib 5-key no model_answer; rx {done:true};
+         bogus mode 400). Evidence: paste ib/rx/bogus curl outputs. Print
+         one-line summary and exit."
+
+-------------------------------------------------------------------
+### PHASE 2: POST /api/evaluate — Claude scoring
+   Prerequisites: Phase 0 (consumes Phase 4 prompts; run P4 first ideally)
+   Deliverables:
+      - backend/src/lib/anthropic.js (client singleton + EVAL_SCHEMA +
+        evaluateAnswer wrapper); backend/src/routes/evaluate.js; mounted.
+   Steps:
+      1. anthropic.js:
+         - import Anthropic; lazy getClient() singleton (reads
+           ANTHROPIC_API_KEY).
+         - EVAL_SCHEMA (object, additionalProperties:false): hit array<string>,
+           missed array<string>, feedback_line string, score integer;
+           required all four. (0.52 schema may not enforce numeric min/max;
+           clamp score server-side.)
+         - evaluateAnswer({system,question,key_points,user_answer}):
+             messages.create({ model:"claude-opus-4-8", max_tokens:2048,
+               thinking:{type:"adaptive"}, system,
+               output_config:{format:{type:"json_schema",schema:EVAL_SCHEMA}},
+               messages:[{role:"user", content:<labeled question + bulleted
+                          key_points + candidate answer>}] })
+             NO assistant prefill (A7/INV6). Parse first text block,
+             JSON.parse, validate shape, clamp score to [0,100], coerce
+             hit/missed to arrays; on parse failure throw typed error -> 502.
+      2. evaluate.js POST /api/evaluate:
+         - Validate {question,key_points[],user_answer,mode}. 400 if missing
+           question/user_answer or mode not in {ib,rx}.
+         - readFile prompts/${mode}-system.txt (cache). Call evaluateAnswer.
+           Return {hit,missed,feedback_line,score}. asyncHandler; upstream
+           errors -> 502 generic (INV1: no key / no raw SDK error leak).
+      3. Mount in index.js.
+   Validation:
+      - Real key: partial answer -> {hit,missed,feedback_line,score} in
+        [0,100], missed non-empty; strong answer -> higher score, missed
+        ~empty. Omit user_answer -> 400. mode=bogus -> 400. No thinking text
+        / raw SDK payload in response.
+   Risks / Edge cases:
+      - 0.52 lacks messages.parse(): use output_config.format + manual parse
+        (A5). Extra prose around JSON: format guarantees first text block is
+        the object; still guard JSON.parse -> 502. Prefill -> 400; never add
+        an assistant turn (INV6). Long user_answer fine (2048 is OUTPUT cap).
+        Adaptive thinking latency acceptable.
+   Subagent orchestration:
+      - Execution shape: [SEQUENTIAL — depends on Phase 0; consumes Phase 4]
+      - REQUIRED subagent_type: general-purpose
+      - REQUIRED model: sonnet
+      - Run in background: no
+      - Brief template:
+        "Execute Phase 2 of /Users/aaron_7nh0yzm/jamie.ai/lifecycle/pending/plans/backend-buildout.txt.
+         Your slice: backend/src/lib/anthropic.js (lazy Anthropic singleton,
+         EVAL_SCHEMA, evaluateAnswer() model claude-opus-4-8,
+         thinking:{type:'adaptive'}, output_config.format, NO prefill, manual
+         JSON.parse + score clamp) + backend/src/routes/evaluate.js (POST
+         /api/evaluate, body validation, loads prompts/{mode}-system.txt, 502
+         on upstream failure); mount it. Read Section 1 (INV1,INV6),
+         Assumptions A5/A7, Phase 2. Touch only those two new files + a mount
+         line in backend/src/index.js. Validation: partial answer returns
+         {hit,missed,feedback_line,score} in [0,100], missed non-empty;
+         missing user_answer -> 400. Evidence: paste two POST responses
+         (partial + strong) and the 400. Print one-line summary and exit."
+
+-------------------------------------------------------------------
+### PHASE 3: POST /api/tts — ElevenLabs proxy (audio/mpeg stream)
+   Prerequisites: Phase 0
+   Deliverables:
+      - backend/src/routes/tts.js; mounted in index.js.
+   Steps:
+      1. tts.js POST /api/tts:
+         - Body {text(req), voice_id?, mode?}. 400 if no text.
+         - voice = voice_id || (mode==="rx" ? ELEVENLABS_VOICE_ID_RX :
+           ELEVENLABS_VOICE_ID_IB) || ELEVENLABS_VOICE_ID_IB. (A4)
+         - fetch ELEVENLABS .../text-to-speech/${voice}/stream, POST,
+           headers xi-api-key + Content-Type json + Accept audio/mpeg, body
+           {text, model_id:"eleven_turbo_v2_5" (configurable),
+            voice_settings:{stability:0.5, similarity_boost:0.75}}.
+         - upstream !ok: log SANITIZED msg (never key); 502 {error:"tts_failed"}.
+         - ok: res Content-Type audio/mpeg; Readable.fromWeb(upstream.body)
+           .pipe(res) (import { Readable } from "node:stream"). Handle client
+           disconnect / stream error (res.on('close') -> destroy reader).
+      2. Mount in index.js.
+   Validation:
+      - POST {text,mode:'ib'} --output /tmp/out.mp3; `file` reports MPEG/MP3,
+        size > 0. Missing text -> 400. Bad ELEVENLABS key -> 502 JSON (no
+        crash, no key leak). Header Content-Type: audio/mpeg.
+   Risks / Edge cases:
+      - Web->Node stream bridge needs Readable.fromWeb (Node 18/20). Invalid
+        voice id -> upstream 4xx -> map to 502. Backpressure/abort: destroy
+        upstream reader on res close. Single-voice request vs two-voice disk:
+        use _IB/_RX per A4 (OPEN QUESTIONS).
+   Subagent orchestration:
+      - Execution shape: [SINGLE]  (depends only on Phase 0; parallel-OK)
+      - REQUIRED subagent_type: general-purpose
+      - REQUIRED model: sonnet
+      - Run in background: no
+      - Brief template:
+        "Execute Phase 3 of /Users/aaron_7nh0yzm/jamie.ai/lifecycle/pending/plans/backend-buildout.txt.
+         Your slice: backend/src/routes/tts.js (POST /api/tts, ElevenLabs
+         /stream proxy via global fetch, voice from voice_id||mode->
+         ELEVENLABS_VOICE_ID_IB/_RX, Readable.fromWeb pipe to audio/mpeg, 502
+         on upstream failure with NO key leak); mount it. Read Section 1
+         (INV1), Assumption A4, Phase 3. Touch only backend/src/routes/tts.js
+         + a mount line in backend/src/index.js. Validation: POST
+         {text,mode:'ib'} yields a >0-byte MPEG (verify with `file`); missing
+         text -> 400. Evidence: paste `file /tmp/out.mp3` output + 400 body.
+         Print one-line summary and exit."
+
+-------------------------------------------------------------------
+### PHASE 4: System prompts — Jamie IB & RX personas
+   Prerequisites: none (authored independently; consumed by Phase 2)
+   Deliverables:
+      - backend/src/prompts/ib-system.txt; backend/src/prompts/rx-system.txt
+   Steps:
+      1. ib-system.txt — Jamie, professional/direct/no-fluff IB interviewer.
+         Instruct the model to: score the answer ONLY against the supplied
+         key_points (the rubric); hit[] = covered points, missed[] = not
+         covered; feedback_line = ONE spoken sentence (read aloud by TTS, no
+         markdown/lists); score = integer 0-100 (coverage + correctness);
+         ALWAYS return the JSON object, no preamble.
+      2. rx-system.txt — same structure, restructuring persona: more
+         technically demanding tone, rewards depth on distressed concepts
+         (chapter 11, recovery/waterfall, covenants, capital structure). Same
+         JSON contract.
+      Note: claude-opus-4-8 follows instructions literally; avoid
+      "CRITICAL/YOU MUST" over-prescription. Don't re-spell the schema in
+      prose beyond a short reminder — output_config.format enforces it.
+   Validation:
+      - Files non-empty; readFile from evaluate.js succeeds. Each names
+        "Jamie", states hit/missed/feedback/score rubric + JSON-only, no
+        prefill scaffolding. Phase 5 confirms mode behavior differs sensibly.
+   Risks / Edge cases:
+      - model_answer is NOT sent to evaluate (only key_points) — prompt
+        scores against key_points only. Cap feedback_line to one sentence.
+   Subagent orchestration:
+      - Execution shape: [PARALLEL FANOUT OK — 2 siblings]  (ib + rx disjoint;
+        can run concurrently with Phase 1 & 3)
+      - REQUIRED subagent_type: general-purpose
+      - REQUIRED model: sonnet  (rubric prose, above haiku's bar)
+      - Run in background: no
+      - Brief template (per sibling):
+        "Execute Phase 4 of /Users/aaron_7nh0yzm/jamie.ai/lifecycle/pending/plans/backend-buildout.txt.
+         Your slice: write backend/src/prompts/<MODE>-system.txt — Jamie
+         <IB|RX> interviewer scoring a candidate answer against supplied
+         key_points, returning {hit[],missed[],feedback_line,score 0-100} as
+         JSON only, feedback one spoken sentence. Read Phase 4 and INV6.
+         Touch only that one .txt file. Validation: non-empty, names Jamie,
+         states rubric + JSON-only, no over-prescription. Evidence: print the
+         file's first 6 lines. Print one-line summary and exit."
+
+-------------------------------------------------------------------
+### PHASE 5: End-to-end verification + smoke
+   Prerequisites: Phases 0,1,2,3,4
+   Deliverables:
+      - A smoke run hitting all four endpoints (optional
+        backend/scripts/smoke.sh capturing the curls).
+   Steps:
+      1. npm run dev with populated backend/.env.
+      2. /api/health -> {ok:true}.
+      3. /api/question?mode=ib (+ category/difficulty/exclude) -> shape ok,
+         model_answer absent, {done:true} when exhausted.
+      4. /api/question?mode=rx -> {done:true} (RX empty today).
+      5. /api/evaluate ib question + partial answer -> sensible scored JSON;
+         strong answer -> higher score.
+      6. /api/tts {text,mode:ib} -> audio/mpeg, >0 bytes.
+      7. Grep logs: NO api key, NO model_answer leaked (INV1, INV3).
+   Validation:
+      - All steps pass; document outputs. If keys absent, report key-gated
+        steps.
+   Risks / Edge cases:
+      - Real external API cost/latency: keep to a couple calls. Missing keys
+        -> evaluate/tts partially unverifiable; report which.
+   Subagent orchestration:
+      - Execution shape: [SEQUENTIAL — depends on Phases 0-4]
+      - REQUIRED subagent_type: consensus-verification-duo
+            Rationale: integration gate confirming INV1 (key secrecy) and
+            INV3 (no answer-key leak) — security invariants where a single
+            self-reviewing agent rationalizing "looks fine" is the failure
+            mode. The adversarial duo independently checks bodies/logs for
+            leaked secrets and the JSON contract. If unavailable, the
+            executor must ESCALATE, not self-review.
+      - REQUIRED model: opus  (final integration + security gate)
+      - Run in background: yes (external API calls; non-blocking once earlier
+        phases green)
+      - Brief template:
+        "Execute Phase 5 of /Users/aaron_7nh0yzm/jamie.ai/lifecycle/pending/plans/backend-buildout.txt.
+         Your slice: boot the backend and smoke all four endpoints
+         (/api/health, /api/question ib+rx+filters, /api/evaluate
+         partial+strong, /api/tts), then ADVERSARIALLY verify INV1 (no
+         ANTHROPIC/ELEVENLABS key in any body/header/log), INV3 (no
+         model_answer in /api/question), and the evaluate JSON contract
+         (hit/missed arrays, feedback_line string, score 0-100). Read
+         Sections 0-2 and Phase 5. Modify source only to fix a confirmed
+         invariant break (and note it). Validation: every endpoint returns
+         its contract; no secret/answer-key leaks. Evidence: per-endpoint
+         snippets + grep results proving no key/model_answer in logs/bodies.
+         Print one-line PASS/FAIL summary and exit."
+
+=====================================================================
+
+## 4. DATA MODEL CHANGES
+- None. No DB/schema/migration/RLS. questions/ JSON is read-only input.
+  On disk: { id, question, model_answer, key_points[], category, difficulty }
+  Returned by GET /api/question (model_answer stripped):
+            { id, question, key_points[], category, difficulty }
+
+=====================================================================
+
+## 5. API CONTRACT
+
+GET /api/question
+  Query: mode=ib|rx (req); categories=csv (opt); difficulty=1|2|3 (opt);
+         exclude=csv ids (opt). Auth: none.
+  200: { id, question, key_points: string[], category, difficulty }
+       OR { done: true } when pool empty/exhausted.
+  400: { error } for missing/invalid mode.
+
+POST /api/evaluate
+  Body: { question, key_points: string[], user_answer, mode:"ib"|"rx" }.
+  Auth: none.
+  200: { hit: string[], missed: string[], feedback_line: string,
+         score: number (0-100 int) }.
+  400: missing question/user_answer or bad mode.
+  502: Claude upstream/parse failure (no key / raw SDK leak).
+
+POST /api/tts
+  Body: { text, voice_id?, mode?:"ib"|"rx" }. Auth: none.
+  200: binary audio, Content-Type: audio/mpeg (streamed).
+  400: text missing.   502: { error:"tts_failed" } (no key leak).
+
+GET /api/health (Phase 0)  -> 200 { ok: true }.
+
+Modified endpoints: none (greenfield).
+
+=====================================================================
+
+## 6. WORKER / QUEUE CHANGES
+- None. No background jobs, queue, or schedule.
+
+=====================================================================
+
+## 7. FRONTEND CHANGES
+- Out of scope. The frontend consumes the four endpoints. Informational:
+  the client owns the exclude list (served ids), per-question scores, and
+  category breakdowns — backend is stateless (INV2).
+
+=====================================================================
+
+## 8. TESTING STRATEGY
+Unit (OPTIONAL; backend/test/, node:test):
+- questions-store: mode->dir map; manifest category load (ib); empty/missing
+  -> [] (rx); difficulty + exclude filters; random pick = 5-key object no
+  model_answer; {done:true} on empty.
+- anthropic.evaluateAnswer: mocked client returning known JSON -> assert
+  parse + score clamp; malformed JSON -> throws. (Project rule: don't mock
+  the REAL external API for the integration check — see Phase 5; mocks fine
+  for pure parse logic.)
+Integration: Phase 5 smoke (real server; evaluate/tts gated on real keys).
+Manual QA checklist:
+- [ ] npm run dev boots, /api/health ok
+- [ ] /api/question ib returns 5-key object, no model_answer
+- [ ] category+difficulty+exclude behave; {done:true} at exhaustion
+- [ ] /api/question rx -> {done:true} now; real Q once RX data lands
+- [ ] /api/evaluate valid scored JSON for partial vs strong answers
+- [ ] /api/tts playable audio/mpeg
+- [ ] no key or model_answer in any body/header/log
+
+=====================================================================
+
+## 9. ROLLOUT & OBSERVABILITY
+- Feature flags: none (local single-user tool).
+- Logging: method+path+status per request; resolved QUESTIONS_ROOT once at
+  boot; SANITIZED upstream errors for evaluate/tts (status + short message,
+  NEVER the key / full SDK error).
+- Rollback: greenfield — git revert / delete new files; each phase
+  independently revertible.
+
+=====================================================================
+
+## 10. OPEN QUESTIONS
+Q1 (voices): request says ONE voice (ELEVENLABS_VOICE_ID); .env.example has
+    TWO (_IB/_RX). Plan follows .env.example, selects by mode with optional
+    voice_id override. CONFIRM, or collapse to a single voice var.
+Q2 (architecture doc drift): CLAUDE.md describes consolidated
+    backend/src/data/{ib,rx}-questions.json banks; live data is per-category
+    under questions/{400-mi,rx}/{slug}/questions.json. Plan follows live
+    layout. CONFIRM CLAUDE.md is stale (optionally update it), or that a
+    build step should consolidate into backend/src/data/.
+Q3 (RX data readiness): RX dirs empty today; /api/question?mode=rx returns
+    {done:true} until questions.json appears. CONFIRM the RX generation
+    workflow writes questions.json with the SAME object shape as IB.
+Q4 (TTS model_id / voice_settings): plan defaults to Turbo + neutral
+    settings. CONFIRM preferred ElevenLabs model_id and stability/similarity,
+    or expose as env vars.
+Q5 (behavioral mode): an earlier draft assumed a third "behavioral" mode.
+    No behavioral data on disk; request only specifies ib/rx. Behavioral is
+    OUT OF SCOPE here. CONFIRM whether wanted later (the mode->dir mapper +
+    category enumerator extend cleanly to a third mode).
+
+=====================================================================
+
+## 11. ESTIMATED EFFORT
+- P0 bootstrap: S | P1 questions: M | P2 evaluate: M | P3 tts: S |
+  P4 prompts x2: S | P5 verify: M
+Critical path: P0 -> P1 -> P5  (and P0 -> P2 -> P5). P3 and P4 off the
+critical path, parallelizable. Total: roughly M overall.
+
+=====================================================================
+
+## 12. EXECUTOR ORCHESTRATION GUIDE
+For phase-plan-executor (or any builder agent driving this plan).
+
+### 12.1 Parallelism map
+  Phase | Execution            | Siblings | Depends on  | Model  | Subagent type
+  P0    | SINGLE               | —        | none        | sonnet | general-purpose
+  P1    | SEQUENTIAL           | —        | P0          | sonnet | general-purpose
+  P2    | SEQUENTIAL           | —        | P0 (uses P4)| sonnet | general-purpose
+  P3    | SINGLE (parallel ok) | —        | P0          | sonnet | general-purpose
+  P4    | PARALLEL FANOUT      | 2        | none        | sonnet | general-purpose
+  P5    | SEQUENTIAL           | —        | P0-P4       | opus   | consensus-verification-duo
+
+  DAG sketch:
+        P0 ─┬─► P1 ─────────────┐
+            ├─► P2 ◄── P4 ──┐    │
+            └─► P3 ─────────┤    │
+        P4 (no dep) ────────┴────┼─► P5
+                                 ▲
+        (P1, P3, P4 may run concurrently after P0; P2 waits only on P0 but
+         should consume P4's prompt files for meaningful validation.)
+
+### 12.2 Cross-phase work consolidation
+  - SHARED FILE: P1/P2/P3 each add a mount line to backend/src/index.js. Do
+    NOT let them edit index.js in true parallel — serialize the index.js
+    edits, or have the executor apply the three one-line mounts itself after
+    the three route files exist.
+  - P1 and P2 read different files in backend/src/lib/ — no collision.
+  - P4's two prompt files are disjoint — safe true parallel.
+  - questions-store reads manifest + per-category files once and caches —
+    no cross-phase re-read concern (single process).
+
+### 12.3 Model-mix budget
+  Target: 0% fable / ~17% opus (P5 only) / ~83% sonnet / 0% haiku.
+  - No fable — nothing frontier-grade here.
+  - Opus reserved for P5 (security/integration gate).
+  - Route code -> sonnet. No haiku: prompt files carry rubric logic.
+
+### 12.4 Estimated wall-clock
+  Best case (parallel): P0, then {P1 ∥ P3 ∥ P4}, then P2 (after P4), then
+    P5 — ~4 sequential waves.
+  Strictly serial: P0->P1->P2->P3->P4->P5, 6 phases.
+  Critical path: P0 -> P2 (needs P4) -> P5, OR P0 -> P1 -> P5.
+
+### 12.5 Failure recovery policy
+  - P0: retry up to 2x (npm install flakiness); persistent failure ->
+    escalate (registry/Node-version).
+  - P1: retry up to 2x — likeliest is QUESTIONS_ROOT path depth; fix and
+    re-run. Manifest read failure -> escalate.
+  - P2: retry up to 1x. 400 from API (prefill/output_config) -> fix per INV6
+    and retry. ANTHROPIC_API_KEY absent -> mark validation key-gated,
+    continue.
+  - P3: retry up to 1x. ELEVENLABS key absent -> mark key-gated.
+  - P4: retry up to 2x — pure authoring, non-flaky.
+  - P5: CONFIRMED invariant break (key or model_answer leak) -> PAUSE and
+    escalate (security regression needs sign-off).
+  - Default if unspecified: pause and escalate.
+
+### 12.6 Audit trail location
+  Per-phase evidence: runtime/audits/backend-buildout/phase-<id>.md
+  Final rollup:       runtime/audits/backend-buildout/FINAL.md
+
+=====================================================================
+END OF PLAN
+=====================================================================

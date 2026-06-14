@@ -1,0 +1,344 @@
+[
+  {
+    "id": "mi-ma-basic-001",
+    "question": "What's the difference between a merger and an acquisition?",
+    "model_answer": "There's always a buyer and a seller in any M&A deal \u2014 the difference between 'merger' and 'acquisition' is more semantic than anything. In a merger the companies are close to the same size, whereas in an acquisition the buyer is significantly larger.",
+    "key_points": [
+      "Distinction is largely semantic \u2014 both involve a buyer and a seller",
+      "Merger: companies are close to the same size",
+      "Acquisition: buyer is significantly larger than the seller"
+    ],
+    "category": "ma-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-ma-basic-002",
+    "question": "Why would a company want to acquire another company?",
+    "model_answer": "Several possible reasons: The buyer wants to gain market share by buying a competitor. The buyer needs to grow more quickly and sees an acquisition as a way to do that. The buyer believes the seller is undervalued. The buyer wants to acquire the seller's customers so it can up-sell and cross-sell to them. The buyer thinks the seller has a critical technology, intellectual property or some other 'secret sauce' it can use to significantly enhance its business. The buyer believes it can achieve significant synergies and therefore make the deal accretive for its shareholders.",
+    "key_points": [
+      "Gain market share by acquiring a competitor",
+      "Accelerate growth faster than organic expansion allows",
+      "Target is undervalued \u2014 opportunity to buy cheap",
+      "Acquire the seller's customer base for up-sell/cross-sell",
+      "Obtain critical technology, IP, or proprietary 'secret sauce'",
+      "Realize synergies (revenue or cost) that make the deal accretive"
+    ],
+    "category": "ma-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-ma-basic-003",
+    "question": "What are synergies, and can you provide a few examples?",
+    "model_answer": "Synergies refer to cases where 2 + 2 = 5 (or 6, or 7\u2026) in an acquisition \u2014 basically, the buyer gets more value out of an acquisition than what the financials would predict. There are 2 types: revenue synergies and cost (or expense) synergies. Revenue Synergies: the combined company can cross-sell products to new customers or up-sell new products to existing customers. It might also be able to expand into new geographies as a result of the deal. Cost Synergies: the combined company can consolidate buildings and administrative staff and can lay off redundant employees. It might also be able to shut down redundant stores or locations.",
+    "key_points": [
+      "Synergies = combined entity creates more value than the sum of the two standalone companies",
+      "Two types: revenue synergies and cost (expense) synergies",
+      "Revenue synergies examples: cross-selling products, up-selling to existing customers, geographic expansion",
+      "Cost synergies examples: consolidating facilities, eliminating redundant headcount, shutting duplicate locations",
+      "Synergies make a deal more likely to be accretive and justify paying a higher purchase price"
+    ],
+    "category": "ma-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-ma-basic-004",
+    "question": "Walk me through a basic merger model.",
+    "model_answer": "A merger model is used to analyze the financial profiles of 2 companies, the purchase price and how the purchase is made, and determines whether the buyer's EPS increases or decreases. Step 1 is making assumptions about the acquisition \u2014 the price and whether it was cash, stock or debt or some combination of those. Next, you determine the valuations and shares outstanding of the buyer and seller and project out an Income Statement for each one. Finally, you combine the Income Statements, adding up line items such as Revenue and Operating Expenses, and adjusting for Foregone Interest on Cash and Interest Paid on Debt in the Combined Pre-Tax Income line; you apply the buyer's Tax Rate to get the Combined Net Income, and then divide by the new share count to determine the combined EPS.",
+    "key_points": [
+      "Purpose: analyze financial profiles of 2 companies, purchase price, and method of payment to determine EPS impact",
+      "Step 1: make assumptions about price and form of consideration (cash, stock, debt, or mix)",
+      "Step 2: determine valuations and shares outstanding for buyer and seller; project Income Statements for each",
+      "Step 3: combine Income Statements \u2014 add Revenue and Operating Expenses",
+      "Adjust Combined Pre-Tax Income for Foregone Interest on Cash and Interest Paid on Debt",
+      "Apply buyer's tax rate to get Combined Net Income",
+      "Divide by new share count to get combined EPS",
+      "Key output: whether the deal is accretive (EPS rises) or dilutive (EPS falls)"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-005",
+    "question": "Why would an acquisition be dilutive?",
+    "model_answer": "An acquisition is dilutive if the additional amount of Net Income the seller contributes is not enough to offset the buyer's foregone interest on cash, additional interest paid on debt, and the effects of issuing additional shares. Acquisition effects \u2014 such as amortization of intangibles \u2014 can also make an acquisition dilutive.",
+    "key_points": [
+      "Dilution occurs when seller's incremental Net Income does not offset the costs of the deal",
+      "Three main costs: foregone interest on cash used, additional interest on debt raised, and dilution from new shares issued",
+      "Amortization of acquired intangibles is an additional factor that can cause dilution",
+      "Key test: does seller's earnings contribution exceed the combined financing costs?"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-006",
+    "question": "Is there a rule of thumb for calculating whether an acquisition will be accretive or dilutive?",
+    "model_answer": "If the deal involves just cash and debt, you can sum up the interest expense for debt and the foregone interest on cash, then compare it against the seller's Pre-Tax Income. If the seller's Pre-Tax Income exceeds these combined costs, the deal is likely accretive. For an all-stock deal you can use a shortcut based on P/E multiples (see question on P/E rule of thumb). But if the deal involves cash, stock, and debt, there's no quick rule-of-thumb you can use unless you're lightning fast with mental math.",
+    "key_points": [
+      "Cash/debt deal: sum interest on debt + foregone interest on cash, compare to seller's Pre-Tax Income",
+      "If seller's Pre-Tax Income > combined interest costs, likely accretive",
+      "All-stock deal: use P/E multiple shortcut (buyer higher P/E than seller = accretive)",
+      "Mixed cash/stock/debt deal: no simple rule of thumb \u2014 requires full model",
+      "Rule of thumb breaks down when deal structure is complex"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-007",
+    "question": "What is the rule of thumb for assessing whether an M&A deal will be accretive or dilutive?",
+    "model_answer": "In an all-stock deal, if the buyer has a higher P/E than the seller, it will be accretive; if the buyer has a lower P/E, it will be dilutive. On an intuitive level, if you're paying more for earnings than what the market values your own earnings at, you can guess that it will be dilutive; and likewise, if you're paying less for earnings than what the market values your own earnings at, you can guess that it would be accretive.",
+    "key_points": [
+      "Rule only applies cleanly to all-stock deals",
+      "Buyer P/E > seller P/E in all-stock deal = accretive",
+      "Buyer P/E < seller P/E in all-stock deal = dilutive",
+      "Intuition: paying more for target's earnings than market pays for yours is dilutive",
+      "Paying less for target's earnings than market pays for yours is accretive"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-008",
+    "question": "What are the complete effects of an acquisition?",
+    "model_answer": "1. Foregone Interest on Cash \u2014 the buyer loses the interest it would have otherwise earned if it uses cash for the acquisition. 2. Additional Interest on Debt \u2014 the buyer pays additional Interest Expense if it uses debt. 3. Additional Shares Outstanding \u2014 if the buyer pays with stock, it must issue additional shares. 4. Combined Financial Statements \u2014 after the acquisition, the seller's financials are added to the buyer's. 5. Creation of Goodwill & Other Intangibles \u2014 these Balance Sheet items that represent a 'premium' paid to a company's 'fair value' also get created. Note: there are additional effects covered in advanced questions, but these five are sufficient to mention in interviews.",
+    "key_points": [
+      "Foregone Interest on Cash: opportunity cost of using cash \u2014 lost interest income",
+      "Additional Interest on Debt: incremental interest expense if debt is used",
+      "Additional Shares Outstanding: share count increases if stock consideration is used, diluting EPS",
+      "Combined Financial Statements: seller's revenue, expenses, and other line items are added to buyer's",
+      "Creation of Goodwill & Other Intangibles: premium over fair market value creates new Balance Sheet assets",
+      "These five effects are the standard interview-level answer; advanced effects exist beyond these"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-009",
+    "question": "If a company were capable of paying 100% in cash for another company, why would it choose NOT to do so?",
+    "model_answer": "It might be saving its cash for something else, or it might be concerned about running low if business takes a turn for the worst. Its stock may also be trading at an all-time high and it might be eager to use that instead \u2014 in finance terms this would be 'more expensive,' but a lot of executives value having a safety cushion in the form of a large cash balance. Using stock also preserves cash for other uses such as capital expenditures, dividends, or future acquisitions.",
+    "key_points": [
+      "Preserving cash as a safety cushion against future business downturns",
+      "Saving cash for other strategic uses (capex, dividends, future acquisitions)",
+      "Stock may be trading at an all-time high, making it an attractive currency even if theoretically more expensive",
+      "Executives often value liquidity and a large cash balance over theoretical cost optimization",
+      "Risk mitigation: avoid depleting cash reserves that may be needed operationally"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-010",
+    "question": "Why would a strategic acquirer typically be willing to pay more for a company than a private equity firm would?",
+    "model_answer": "Because the strategic acquirer can realize revenue and cost synergies that the private equity firm cannot, unless the PE firm combines the company with a complementary portfolio company. Those synergies boost the effective valuation for the target company, allowing the strategic buyer to justify a higher purchase price.",
+    "key_points": [
+      "Strategic acquirers can capture revenue synergies (cross-sell, new geographies) that PE firms cannot",
+      "Strategic acquirers can capture cost synergies (consolidate operations, cut redundant headcount) that PE firms typically cannot",
+      "Synergies increase the effective value of the target to a strategic buyer, justifying a higher price",
+      "PE firms can only realize similar synergies if they merge the target with an existing portfolio company",
+      "Strategic premium reflects the incremental value creation unavailable to financial buyers"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-011",
+    "question": "Why do Goodwill & Other Intangibles get created in an acquisition?",
+    "model_answer": "These represent the value over the 'fair market value' of the seller that the buyer has paid. You calculate the number by subtracting the book value of a company from its equity purchase price. More specifically, Goodwill and Other Intangibles represent things like the value of customer relationships, brand names and intellectual property \u2014 valuable, but not true financial Assets that show up on the Balance Sheet.",
+    "key_points": [
+      "Goodwill & Other Intangibles = equity purchase price minus book value of the target",
+      "They represent the premium paid above the fair market value of identifiable net assets",
+      "Economically represent intangible value: customer relationships, brand names, intellectual property",
+      "These are real value drivers but are not recorded as standard financial assets on the Balance Sheet prior to acquisition",
+      "Created to reconcile the difference between what was paid and what was on the books"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-012",
+    "question": "What is the difference between Goodwill and Other Intangible Assets?",
+    "model_answer": "Goodwill typically stays the same over many years and is not amortized. It changes only if there's goodwill impairment (or another acquisition). Other Intangible Assets, by contrast, are amortized over several years and affect the Income Statement by hitting the Pre-Tax Income line. There's also a difference in terms of what they each represent, but bankers rarely go into that level of detail \u2014 accountants and valuation specialists worry about assigning each one to specific items.",
+    "key_points": [
+      "Goodwill is not amortized \u2014 it stays constant unless there is a goodwill impairment charge or a new acquisition",
+      "Other Intangible Assets are amortized over their useful lives (several years)",
+      "Amortization of Other Intangibles hits the Pre-Tax Income line on the Income Statement",
+      "Goodwill impairment is a non-cash charge that reduces Goodwill and hits the Income Statement",
+      "Bankers focus on the accounting treatment distinction; detailed allocation to specific intangibles is done by accountants/valuation specialists"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-013",
+    "question": "How are synergies used in merger models?",
+    "model_answer": "Revenue Synergies: Normally you add these to the Revenue figure for the combined company and then assume a certain margin on the Revenue \u2014 this additional Revenue then flows through the rest of the combined Income Statement. Cost Synergies: Normally you reduce the combined COGS or Operating Expenses by this amount, which in turn boosts the combined Pre-Tax Income and thus Net Income, raising the EPS and making the deal more accretive.",
+    "key_points": [
+      "Revenue synergies are added to combined Revenue and flow through the Income Statement at an assumed margin",
+      "Cost synergies reduce combined COGS or Operating Expenses",
+      "Cost synergy reduction boosts Pre-Tax Income and Net Income",
+      "Higher Net Income from cost synergies raises EPS and increases accretion",
+      "Both types of synergies improve the combined company's earnings profile"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-014",
+    "question": "Are revenue or cost synergies more important?",
+    "model_answer": "No one in M&A takes revenue synergies seriously because they're so hard to predict. Cost synergies are taken a bit more seriously because it's more straightforward to see how buildings and locations might be consolidated and how many redundant employees might be eliminated. That said, the chances of any synergies actually being realized are almost 0, so few take them seriously at all.",
+    "key_points": [
+      "Revenue synergies are largely dismissed in practice \u2014 too difficult to predict with confidence",
+      "Cost synergies are taken more seriously \u2014 easier to quantify (facilities, headcount reductions)",
+      "Even cost synergies rarely materialize fully in practice",
+      "Bankers model synergies but deal makers understand the near-zero probability of full realization",
+      "Synergies are used to justify valuations but treated skeptically by sophisticated practitioners"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-015",
+    "question": "All else being equal, which method would a company prefer to use when acquiring another company \u2014 cash, stock, or debt?",
+    "model_answer": "Assuming the buyer had unlimited resources, it would always prefer to use cash when buying another company. Cash is 'cheaper' than debt because interest rates on cash are usually under 5% whereas debt interest rates are almost always higher than that \u2014 thus, foregone interest on cash is almost always less than additional interest paid on debt for the same amount of cash/debt. Cash is also less 'risky' than debt because there's no chance the buyer might fail to raise sufficient funds from investors. Stock is generally the most 'expensive' way to finance a transaction \u2014 the Cost of Equity is almost always higher than the Cost of Debt. Cash is also less risky than stock because the buyer's share price could change dramatically once the acquisition is announced.",
+    "key_points": [
+      "Preferred order (assuming unlimited resources): cash first",
+      "Cash is cheaper than debt: foregone interest rate on cash (under 5%) is typically less than debt interest rates",
+      "Cash is less risky than debt: no risk of failing to raise funds from investors",
+      "Stock is the most expensive financing method: Cost of Equity > Cost of Debt",
+      "Stock carries price risk: buyer's share price can change dramatically upon announcement",
+      "Cash avoids dilution of existing shareholders",
+      "Debt adds leverage risk; cash preserves balance sheet flexibility better"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-016",
+    "question": "How much debt could a company issue in a merger or acquisition?",
+    "model_answer": "Generally you would look at Comparable Companies and Precedent Transactions to determine this. You would use the combined company's LTM (Last Twelve Months) EBITDA figure, find the median Debt/EBITDA ratio of whatever companies you're looking at, and apply that to your own EBITDA figure to get a rough idea of how much debt you could raise. You would also look at 'Debt Comps' for companies in the same industry and see what types of debt and how many tranches they have used.",
+    "key_points": [
+      "Use Comparable Companies and Precedent Transactions as benchmarks",
+      "Key metric: combined company's LTM EBITDA",
+      "Find median Debt/EBITDA ratio from comps and apply to combined EBITDA to estimate debt capacity",
+      "Also review Debt Comps to understand typical debt types and tranche structures in the industry",
+      "Debt capacity is industry- and company-specific \u2014 no universal fixed multiple"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-017",
+    "question": "How do you determine the Purchase Price for the target company in an acquisition?",
+    "model_answer": "You use the same valuation methodologies already discussed (comparable companies, precedent transactions, DCF). If the seller is a public company, you would pay more attention to the premium paid over the current share price to make sure it's 'sufficient' (generally in the 15-30% range) to win shareholder approval. For private sellers, more weight is placed on the traditional methodologies.",
+    "key_points": [
+      "Use standard valuation methodologies: comparable companies, precedent transactions, DCF",
+      "For public targets: must assess the takeover premium over current share price",
+      "Typical premium range: 15-30% above current share price to secure shareholder approval",
+      "For private targets: greater reliance on traditional valuation methodologies (no observable share price)",
+      "Premium must be sufficient to win target shareholder votes while still being value-creating for the buyer"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-018",
+    "question": "Let's say a company overpays for another company \u2014 what typically happens afterwards and can you give any recent examples?",
+    "model_answer": "There would be an incredibly high amount of Goodwill & Other Intangibles created if the price is far above the fair market value of the company. Depending on how the acquisition goes, there might be a large goodwill impairment charge later on if the company decides it overpaid. A recent example is the eBay/Skype deal, in which eBay paid a huge premium and extremely high multiple for Skype. It created excess Goodwill & Other Intangibles, and eBay later ended up writing down much of the value and taking a large quarterly loss as a result.",
+    "key_points": [
+      "Overpaying creates very high Goodwill & Other Intangibles on the Balance Sheet",
+      "If the acquisition underperforms expectations, a goodwill impairment charge is likely",
+      "Goodwill impairment hits the Income Statement, causing a large write-down and loss",
+      "Example: eBay/Skype \u2014 eBay paid an extreme premium, created excess Goodwill, later wrote it down taking a large quarterly loss",
+      "Impairment signals to the market that management overpaid and the deal destroyed value"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-019",
+    "question": "Why do most mergers and acquisitions fail?",
+    "model_answer": "M&A is 'easier said than done.' In practice it's very difficult to acquire and integrate a different company, actually realize synergies, and also turn the acquired company into a profitable division. Many deals are also done for the wrong reasons, such as CEO ego or pressure from shareholders. Any deal done without both parties' best interests in mind is likely to fail.",
+    "key_points": [
+      "Integration is extremely difficult in practice \u2014 cultures, systems, and operations are hard to combine",
+      "Synergies rarely materialize as projected",
+      "Turning an acquired company into a profitable division is operationally challenging",
+      "Many deals are driven by CEO ego or shareholder pressure rather than sound strategic rationale",
+      "Deals not aligned with both parties' genuine best interests are prone to failure",
+      "Gap between model projections and real-world execution is the root cause of most failures"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-020",
+    "question": "What role does a merger model play in deal negotiations?",
+    "model_answer": "The model is used as a sanity check and is used to test various assumptions. A company would never decide to do a deal based on the output of a model. It might say, 'Ok, the model tells us this deal could work and be moderately accretive \u2014 it's worth exploring more.' It would never say, 'This model predicts 21% accretion \u2014 we should definitely acquire them now!' Emotions, ego and personalities play a far bigger role in M&A (and any type of negotiation) than numbers do.",
+    "key_points": [
+      "Merger model serves as a sanity check, not a decision-making tool",
+      "Used to test assumptions and explore whether a deal could work",
+      "Companies never execute deals solely based on model output",
+      "A model showing accretion is a reason to explore further, not to commit",
+      "Emotions, ego, and personalities drive M&A decisions more than quantitative outputs",
+      "Model output is a necessary but far from sufficient input into deal negotiations"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-021",
+    "question": "What types of sensitivities would you look at in a merger model? What variables would you look at?",
+    "model_answer": "The most common variables to look at are Purchase Price, % Stock/Cash/Debt, Revenue Synergies, and Expense Synergies. Sometimes you also look at different operating sensitivities, like Revenue Growth or EBITDA Margin, but it's more common to build these into your model as different scenarios instead. You might look at sensitivity tables showing the EPS accretion/dilution at different ranges for the Purchase Price vs. Cost Synergies, Purchase Price vs. Revenue Synergies, or Purchase Price vs. % Cash (and so on).",
+    "key_points": [
+      "Primary variables: Purchase Price, % Stock/Cash/Debt mix, Revenue Synergies, Expense (Cost) Synergies",
+      "Secondary variables: Revenue Growth, EBITDA Margin (more commonly built as scenarios rather than sensitivity tables)",
+      "Key sensitivity tables: EPS accretion/dilution across ranges of Purchase Price vs. Cost Synergies",
+      "Other common tables: Purchase Price vs. Revenue Synergies, Purchase Price vs. % Cash",
+      "Sensitivity analysis shows how robust or fragile the deal's accretion/dilution is across different assumptions"
+    ],
+    "category": "ma-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-basic-022",
+    "question": "A company with a higher P/E acquires one with a lower P/E \u2014 is this accretive or dilutive?",
+    "model_answer": "Trick question. You can't tell unless you also know that it's an all-stock deal. If it's an all-cash or all-debt deal, the P/E multiples of the buyer and seller don't matter because no stock is being issued. Generally getting more earnings for less is good and is more likely to be accretive, but there's no hard-and-fast rule unless it's an all-stock deal.",
+    "key_points": [
+      "This is a trick question \u2014 P/E comparison alone is insufficient",
+      "Must know the deal is all-stock for the P/E rule of thumb to apply",
+      "In cash or debt deals, P/E multiples are irrelevant \u2014 no shares issued",
+      "In all-stock deals: buyer higher P/E than seller = accretive; buyer lower P/E = dilutive",
+      "Intuition: paying less for earnings than market values your own earnings suggests accretion, but not guaranteed"
+    ],
+    "category": "ma-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-basic-023",
+    "question": "Is there anything else 'intangible' besides Goodwill & Other Intangibles that could also impact the combined company?",
+    "model_answer": "Yes. You could also have a Purchased In-Process R&D Write-off and a Deferred Revenue Write-off. The first refers to any Research & Development projects that were purchased in the acquisition but which have not been completed yet. The logic is that unfinished R&D projects require significant resources to complete, and as such, the 'expense' must be recognized as part of the acquisition. The second refers to cases where the seller has collected cash for a service but not yet recorded it as revenue, and the buyer must write down the value of the Deferred Revenue to avoid 'double-counting' revenue.",
+    "key_points": [
+      "Purchased In-Process R&D Write-off: unfinished R&D projects acquired must be expensed immediately because they require resources to complete",
+      "Deferred Revenue Write-off: seller's deferred revenue (cash collected but not yet recognized as revenue) must be written down by the buyer to prevent double-counting",
+      "Both items are acquisition-related charges beyond Goodwill and Other Intangibles",
+      "In-Process R&D write-off reduces Pre-Tax Income in the period of acquisition",
+      "Deferred Revenue write-down means the buyer will recognize less revenue from pre-sold services than the seller would have"
+    ],
+    "category": "ma-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-basic-024",
+    "question": "A buyer pays $100 million for the seller in an all-stock deal, but a day later the market decides it's only worth $50 million. What happens?",
+    "model_answer": "The buyer's share price would fall by whatever per-share dollar amount corresponds to the $50 million loss in value. Note that it would not necessarily be cut in half. Depending on how the deal was structured, the seller would effectively only be receiving half of what it had originally negotiated. This illustrates one of the major risks of all-stock deals: sudden changes in share price could dramatically impact valuation.",
+    "key_points": [
+      "Buyer's share price falls by the per-share equivalent of the $50 million value loss",
+      "Share price does not necessarily halve \u2014 the drop depends on the buyer's total share count",
+      "Seller ends up receiving only ~$50 million of value instead of the negotiated $100 million",
+      "This illustrates the key risk of all-stock deals: share price volatility directly impacts deal value",
+      "In cash deals, the seller receives a fixed dollar amount regardless of subsequent market moves"
+    ],
+    "category": "ma-basic",
+    "difficulty": 3
+  }
+]

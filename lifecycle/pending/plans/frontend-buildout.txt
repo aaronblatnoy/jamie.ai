@@ -1,0 +1,1099 @@
+JAMIE.AI — FRONTEND BUILDOUT PLAN
+==================================
+Status: PENDING
+Created: 2026-06-14
+Updated: 2026-06-14 (v2 — added user accounts + API key setup)
+
+------------------------------------------------------------------------
+OVERVIEW
+------------------------------------------------------------------------
+
+Build out the React frontend from scratch. frontend/src/ is currently
+empty — only index.html, package.json, and vite.config.js exist.
+
+The app targets finance students with no assumed technical knowledge.
+Tone throughout: professional, direct, reassuring. Think "filling out
+a brokerage account form" — familiar, clear, no jargon surprises.
+
+Critically: users bring their own Anthropic and ElevenLabs API keys.
+The app owner pays nothing for AI costs. Key setup must be approachable
+for non-technical people who have never used an API before.
+
+Stack:
+  - React 18 + Vite (already scaffolded)
+  - React Router v6 (URL-based routing — replaces earlier state-machine
+    approach to support deep-links, back-button, and auth redirects)
+  - Plain CSS with CSS custom properties (no Tailwind — keeps dep count
+    minimal; dark theme via custom props)
+  - canvas-confetti (key verification celebration)
+  - No Redux, no Zustand — React context + useReducer
+
+Full app flow:
+  Landing → Sign Up / Sign In → API Key Setup (if keys not set)
+  → Mode Select → Session Config → Interview → Feedback → Summary
+
+Auth: JWT session token in localStorage. All API calls include
+  Authorization: Bearer {token} header. Each user's API keys are
+  stored server-side encrypted; the backend decrypts them on-the-fly
+  when proxying Claude and ElevenLabs calls. The frontend never
+  handles raw API keys except during the setup wizard form inputs.
+
+Backend API is assumed on localhost:3001; Vite's proxy config already
+forwards /api/* there.
+
+------------------------------------------------------------------------
+EXISTING FILE INVENTORY
+------------------------------------------------------------------------
+
+EXISTS (do not overwrite):
+  frontend/index.html      — mounts #root, loads /src/main.jsx
+  frontend/package.json    — React 18, Vite; needs dep additions (Phase 1)
+  frontend/vite.config.js  — already proxies /api → localhost:3001
+
+CREATE everything under frontend/src/ (directory is currently empty).
+
+------------------------------------------------------------------------
+PHASE 1 — SCAFFOLD: DEPS, ROUTING, CSS, ENTRY POINT
+------------------------------------------------------------------------
+
+Goal: install dependencies, create the entry point and router, define
+the CSS design system, stub every screen. Nothing is functional yet —
+just a navigable shell.
+
+1.1  Add dependencies
+     npm install react-router-dom canvas-confetti
+
+1.2  Create frontend/src/main.jsx
+     - ReactDOM.createRoot(document.getElementById('root'))
+     - Render <BrowserRouter><App /></BrowserRouter>
+     - Import './index.css'
+
+1.3  Create frontend/src/App.jsx
+     Route table (React Router v6 <Routes>):
+       /                      → <LandingPage>          (public)
+       /signup                → <SignUpScreen>         (public; redirect /app if authed)
+       /signin                → <SignInScreen>         (public; redirect /app if authed)
+       /setup-keys            → <ApiKeySetup>          (requires auth token)
+       /app                   → <ProtectedLayout>
+         /app/ (index)        →   <ModeSelect>
+         /app/configure       →   <SessionConfig>
+         /app/interview       →   <InterviewScreen>
+         /app/summary         →   <SummaryScreen>
+       /settings              → <AccountSettings>      (requires auth token)
+       *                      → navigate('/') (catch-all)
+
+     <ProtectedRoute>: reads token from AuthContext; if no token,
+       <Navigate to="/signin" replace />.
+     <AuthRoute>: if token present, <Navigate to="/app" replace />.
+
+1.4  Create frontend/src/index.css
+     CSS custom properties on :root:
+       --color-bg:               #0f1117
+       --color-surface:          #1a1d27
+       --color-surface-raised:   #22263a
+       --color-border:           #2a2d3a
+       --color-accent:           #4f6ef7
+       --color-accent-hover:     #3d5ae0
+       --color-success:          #22c55e
+       --color-error:            #ef4444
+       --color-warning:          #f59e0b
+       --color-text-primary:     #f1f5f9
+       --color-text-secondary:   #94a3b8
+       --color-text-muted:       #475569
+       --font-sans:              'Inter', system-ui, -apple-system, sans-serif
+       --radius:                 8px
+       --radius-lg:              12px
+       --shadow-sm:              0 1px 3px rgba(0,0,0,0.4)
+       --shadow-md:              0 4px 16px rgba(0,0,0,0.5)
+       --transition:             150ms ease
+
+     Global base: body gets bg, text, font. Box-sizing: border-box reset.
+
+     Shared utility classes (used by all screens):
+       .btn-primary      — filled accent button
+       .btn-secondary    — outlined accent button
+       .btn-ghost        — transparent, subtle hover
+       .btn-danger       — ghost with red text (sign out etc.)
+       .input-field      — text/password input, full width
+       .card             — surface-color panel with border + radius-lg + shadow
+       .form-group       — label + input stack with gap
+       .label            — small uppercase muted label
+       .link             — accent-colored inline link
+       .error-text       — small red validation message
+       .success-text     — small green inline confirmation
+       .divider          — horizontal rule in border-color
+       .spinner          — pure CSS rotating ring (used in Spinner component)
+
+1.5  Stub every screen as a <div> with an <h1> so routing is immediately
+     verifiable. Real content built in subsequent phases.
+
+1.6  Validation
+     - npm run dev boots; / shows "Landing" stub; all routes navigable.
+     - npm run build exits 0.
+
+------------------------------------------------------------------------
+PHASE 2 — AUTH CONTEXT, useAuth HOOK, API CLIENT
+------------------------------------------------------------------------
+
+Goal: centralize auth state, provide a typed API client that includes
+the Bearer token automatically, and bootstrap session state on page load.
+
+2.1  Create frontend/src/context/AuthContext.jsx
+
+     Context shape:
+       { user, token, isLoading, login(token, user), logout() }
+
+     user shape (mirrors what backend returns on login/register/me):
+       { id, email, hasAnthropicKey, hasElevenLabsKey,
+         anthropicKeyVerifiedAt, elevenLabsKeyVerifiedAt }
+
+     <AuthProvider> behavior on mount:
+       1. Read token = localStorage.getItem('jamie_token')
+       2. If token: call GET /api/auth/me with Authorization: Bearer {token}
+            - 200 → set { user, token } in state; isLoading = false
+            - 401 / network error → clear localStorage; isLoading = false
+       3. No token → isLoading = false immediately
+
+     login(token, user):
+       localStorage.setItem('jamie_token', token)
+       Set { user, token } in state
+
+     logout():
+       POST /api/auth/logout (best-effort; don't block on failure)
+       localStorage.removeItem('jamie_token')
+       Set { user: null, token: null } in state
+       navigate('/')
+
+     While isLoading=true, render a full-screen spinner to avoid
+     layout flash (prevents flickering between Landing and /app).
+
+2.2  Create frontend/src/hooks/useAuth.js
+     Re-export useContext(AuthContext) with a guard:
+       if context is undefined, throw Error('useAuth must be inside AuthProvider')
+
+2.3  Create frontend/src/lib/api.js
+     apiFetch(path, options = {}):
+       - Always uses relative path (no hard-coded host — Vite proxy handles it)
+       - Reads token from localStorage
+       - Merges Authorization: Bearer {token} if token present
+       - Sets Content-Type: application/json if body present
+       - Returns { ok, status, data } — never throws on 4xx/5xx;
+         returns { ok: false } so callers can branch cleanly
+       - On network failure: returns { ok: false, status: 0, data: null }
+
+     Named wrappers:
+       apiGet(path)           → apiFetch(path, { method: 'GET' })
+       apiPost(path, body)    → apiFetch(path, { method: 'POST', body: JSON.stringify(body) })
+
+2.4  Required backend routes (new — not in backend-buildout.txt):
+     POST /api/auth/register { email, password }
+       → 201 { token, user }
+       → 400 invalid input
+       → 409 email already exists
+
+     POST /api/auth/login { email, password }
+       → 200 { token, user }
+       → 400 invalid input
+       → 401 wrong credentials
+
+     GET  /api/auth/me  (Bearer)
+       → 200 { user }
+       → 401 invalid/expired token
+
+     POST /api/auth/logout  (Bearer)
+       → 200 { ok: true }
+
+     POST /api/auth/password { currentPassword, newPassword }  (Bearer)
+       → 200 { ok: true }
+       → 401 wrong current password
+
+     POST /api/user/keys/verify { anthropicKey?, elevenLabsKey? }  (Bearer)
+       → 200 { anthropic: { valid, error? }, elevenLabs: { valid, error? } | null }
+       Action: test each key with a minimal API call; encrypt + store valid
+       keys server-side; update user hasAnthropicKey, hasElevenLabsKey,
+       and *KeyVerifiedAt timestamps.
+
+     Note: existing /api/evaluate and /api/tts routes must also be updated
+     to decrypt and use the authenticated user's stored keys rather than
+     .env keys — each user's session uses their own keys.
+
+     User model additions needed in backend:
+       email                 TEXT UNIQUE NOT NULL
+       password_hash         TEXT NOT NULL
+       anthropic_key_enc     TEXT (encrypted at rest)
+       elevenlabs_key_enc    TEXT (encrypted at rest, nullable)
+       has_anthropic_key     BOOL DEFAULT false
+       has_elevenlabs_key    BOOL DEFAULT false
+       anthropic_key_verified_at   TIMESTAMP
+       elevenlabs_key_verified_at  TIMESTAMP
+
+------------------------------------------------------------------------
+PHASE 3 — AUTH SCREENS: LANDING, SIGN UP, SIGN IN
+------------------------------------------------------------------------
+
+Goal: build the three pre-auth screens. These are the first thing a
+new user sees. Tone: clean, confident, not startup-hype.
+
+3.1  Landing Page — frontend/src/screens/LandingPage.jsx
+
+     Full-viewport dark page. No navbar needed.
+
+     Structure (centered column, max-width 720px, vertically centered):
+
+     Wordmark: "jamie" in accent color, small, top of card
+               (plain text — no image asset needed)
+
+     Hero:
+       H1: "Practice IB interviews with an AI that actually
+            knows the M&I guide."
+       Subhead: "Ask any technical question. Get real feedback on
+                 what you hit and what you missed."
+
+     Value prop — 3 items (icon glyph + one-liner):
+       📚  "400 M&I questions across accounting, valuation, DCF, M&A, and LBO"
+       🎙  "Speaks out loud. You answer out loud. Real interview feel."
+       📊  "See exactly which key points you hit and missed, every time."
+       (Unicode glyphs only — no icon library)
+
+     CTA row (two buttons, side-by-side):
+       [Create Account]  → navigate('/signup')  (btn-primary)
+       [Sign In]         → navigate('/signin')  (btn-secondary)
+
+     Footer line (small, muted):
+       "You bring your own API keys — about $0.05 per session.
+        No subscription. No surprise bills."
+
+     No links beyond the two CTAs.
+
+3.2  Sign Up Screen — frontend/src/screens/SignUpScreen.jsx
+
+     Centered card (.card) on dark bg. Logo wordmark above card.
+     Header inside card: "Create your account"
+
+     Form:
+       Email             type=email, autocomplete=username
+       Password          type=password, autocomplete=new-password
+       Confirm Password  type=password, autocomplete=new-password
+
+     Inline validation (on submit, not on-change to avoid annoyance):
+       - Email: must match basic email format
+       - Password: minimum 8 characters
+       - Passwords: must match
+       Show .error-text below the offending field only.
+
+     [Create Account]  btn-primary, full-width
+       - Shows spinner inside button while in-flight
+       - On 201: call login(token, user) → navigate('/setup-keys')
+       - On 409: show "An account with this email already exists."
+         with link "Sign in instead →"
+       - On other error: "Something went wrong — please try again."
+
+     Below button: "Already have an account? Sign in →"  (link to /signin)
+
+3.3  Sign In Screen — frontend/src/screens/SignInScreen.jsx
+
+     Centered card. Logo wordmark above. Header: "Welcome back"
+
+     Form:
+       Email     type=email, autocomplete=username
+       Password  type=password, autocomplete=current-password
+
+     [Sign In]  btn-primary, full-width
+       - On 200: call login(token, user)
+           If user.hasAnthropicKey → navigate('/app')
+           Else → navigate('/setup-keys')
+       - On 401: "Incorrect email or password."
+       - On other error: "Something went wrong — please try again."
+
+     Below: "New here? Create an account →"  (link to /signup)
+
+     Small muted note below that: "Forgot password? Contact hello@jamie.ai"
+     (no automated reset flow in MVP)
+
+------------------------------------------------------------------------
+PHASE 4 — API KEY SETUP WIZARD
+------------------------------------------------------------------------
+
+Goal: guide non-technical finance students through getting and pasting
+their own API keys. Critical UX — this is where most users will need
+the most hand-holding. Tone: professional, like filling out a brokerage
+account form.
+
+Files:
+  frontend/src/screens/ApiKeySetup.jsx          (wizard shell)
+  frontend/src/components/setup/StepIndicator.jsx
+  frontend/src/components/setup/KeyStep.jsx     (shared Step 1 + 2)
+  frontend/src/components/setup/VerifyStep.jsx  (Step 3)
+  frontend/src/components/ui/PasswordInput.jsx  (shared across wizard + settings)
+
+4.1  Wizard shell (ApiKeySetup.jsx)
+     - Centered card layout, max-width 560px
+     - Tracks: { step: 1|2|3, anthropicKey: '', elevenLabsKey: '' }
+       in local state
+     - Renders <StepIndicator step={step} total={3} />
+     - Renders the active step component passing key values + callbacks
+
+4.2  StepIndicator component
+     Three numbered circles connected by a horizontal line.
+     States per circle:
+       Pending:   outlined circle, muted text
+       Active:    filled accent circle, primary text, subtle glow
+       Complete:  filled accent circle with ✓ checkmark
+     Animated transition on step advance (CSS transition on border/bg).
+
+4.3  PasswordInput component (frontend/src/components/ui/PasswordInput.jsx)
+     Reusable across the wizard and Account Settings.
+     - type toggles between 'password' (masked) and 'text' (revealed)
+     - Show/hide toggle button to the right of the input (eye icon via
+       SVG inline — a simple open-eye / closed-eye path, no dep)
+     - Accepts: value, onChange, placeholder, label, name, autoComplete
+     - Renders .form-group with label above and the input+toggle inline
+
+4.4  Step 1 — Anthropic API Key (KeyStep variant="anthropic")
+
+     Headline: "Get your Anthropic API key"
+
+     Numbered instruction list (readable prose):
+       1. Go to console.anthropic.com and create a free account if you
+          don't have one.
+       2. Add a payment method. You'll be charged directly by Anthropic —
+          roughly $0.05–$0.10 per session of 10 questions.
+       3. In the left sidebar, click "API Keys" → "Create Key."
+       4. Give it any name (e.g. "Jamie"), then copy it.
+
+     Cost callout (styled aside with left accent border):
+       "Typical session: $0.05–$0.10. You are charged by Anthropic
+        directly — Jamie.ai takes nothing from your API usage."
+
+     <PasswordInput> field:
+       label="Paste your Anthropic API key"
+       placeholder="sk-ant-..."
+
+     Security note (small, .text-muted):
+       "Your key is encrypted on our servers and never shared, never
+        logged, and never used for anything other than your own sessions."
+
+     Navigation: [Next →]  (btn-primary, right-aligned)
+       Disabled until key field non-empty.
+       Does NOT validate the key here — Step 3 does that.
+
+4.5  Step 2 — ElevenLabs API Key (KeyStep variant="elevenlabs")
+
+     Headline: "Set up Jamie's voice (optional)"
+
+     Subhead (muted):
+       "ElevenLabs gives Jamie a realistic voice. Skip this if you
+        prefer text-only feedback — you can always add it later in
+        Settings."
+
+     Numbered instruction list:
+       1. Go to elevenlabs.io and create a free account.
+       2. Free tier includes 10,000 characters/month — about 2–3 full
+          interview sessions.
+       3. Click your profile photo → "Profile" → "API Keys."
+       4. Click "Create API Key," name it, and copy it.
+
+     <PasswordInput> field:
+       label="Paste your ElevenLabs API key (optional)"
+       placeholder="sk_..."
+
+     Security note: same wording as Step 1 (same .security-note class).
+
+     Navigation (three buttons in a row):
+       [← Back]        btn-ghost, left
+       [Skip for now]  btn-secondary, center → advance to Step 3 with
+                         elevenLabsKey = null (explicit skip, not empty string)
+       [Next →]        btn-primary, right → advance to Step 3
+
+4.6  Step 3 — Verify & Done (VerifyStep)
+
+     Headline: "Verifying your keys..."
+
+     On mount, immediately call:
+       POST /api/user/keys/verify
+         { anthropicKey: state.anthropicKey,
+           elevenLabsKey: state.elevenLabsKey || null }
+       (null elevenLabsKey = user skipped it)
+
+     While in-flight:
+       Centered spinner + "Checking your keys, one moment..."
+
+     After response, show a status table (two rows):
+
+       Anthropic API Key   ✓ Verified   (--color-success, green)
+                        OR ✗ Invalid    (--color-error, red)
+
+       ElevenLabs API Key  ✓ Verified   (green)
+                        OR ✗ Invalid    (red)
+                        OR —  Skipped   (muted, if elevenLabsKey was null)
+
+     If error message returned per key, show it below that row in
+     small error-text:
+       Anthropic error example: "This key was rejected by Anthropic.
+         Make sure you copied the full key starting with sk-ant-"
+       ElevenLabs error example: "Key not recognized. Check your
+         ElevenLabs profile page for the correct key."
+
+     ALL PROVIDED KEYS VALID (or ElevenLabs skipped):
+       Fire canvas-confetti burst (1.5s, centered, two-color)
+       Show "You're all set! Let's start practicing."
+       [Start Practicing →]  btn-primary → navigate('/app')
+         Also refresh user via GET /api/auth/me and call login() with
+         updated user object so hasAnthropicKey reflects true.
+
+     ANY PROVIDED KEY INVALID:
+       Show [← Fix my keys]  btn-secondary
+         → go back to Step 1
+         → pre-fill the field of ANY key that passed (so user doesn't
+           re-enter it); clear only the failed key's field
+       Show [Try again]  btn-ghost
+         → re-call /api/user/keys/verify with the same values
+           (useful if it was a transient network error)
+       Do NOT navigate away until all provided keys pass.
+
+------------------------------------------------------------------------
+PHASE 5 — MODE SELECT SCREEN
+------------------------------------------------------------------------
+
+Goal: home screen after auth. Pick IB, RX, or Behavioral. Quick access
+to account settings in the corner.
+
+File: frontend/src/screens/ModeSelect.jsx
+
+5.1  Header bar (minimal, max-width matches content):
+     Left:  "jamie" wordmark (plain text, accent color)
+     Right: gear icon button (⚙ Unicode or inline SVG)
+              → navigate('/settings')
+              title="Account & API keys"
+
+5.2  Main content (centered):
+     H1: "What do you want to practice?"
+
+     Three mode cards — CSS grid, auto-fit min 220px (stacks on mobile):
+     Each card:
+       Large icon glyph at top (📊 / 🔄 / 🤝)
+       Mode title: "Investment Banking" / "Restructuring" / "Behavioral"
+       Sub-label (muted): "400 M&I Questions" / "RX Advisory & Distressed"
+                           / "Fit & Leadership"
+       One-line description:
+         IB:         "Accounting, valuation, DCF, M&A, LBO"
+         RX:         "Chapter 11, recovery waterfall, bond math, covenants"
+         Behavioral: "STAR-format questions for senior fit rounds"
+       [Start →]  btn-primary at bottom of card
+
+     Clicking the card OR its button navigates to:
+       /app/configure?mode=ib  (or rx, behavioral)
+     Use URL param so the back button and deep links work.
+
+5.3  Voice status note (small, muted, below cards):
+     If !user.hasElevenLabsKey:
+       "Voice mode is off — add your ElevenLabs key in Settings to
+        enable Jamie's voice."  (link to /settings)
+     If user.hasElevenLabsKey:
+       No note (or a subtle "🎙 Voice enabled" indicator).
+
+------------------------------------------------------------------------
+PHASE 6 — SESSION CONFIG SCREEN
+------------------------------------------------------------------------
+
+Goal: let users tune the session before starting.
+
+File: frontend/src/screens/SessionConfig.jsx
+
+6.1  Read mode from URL search param: useSearchParams() → params.get('mode')
+     Validate it's one of ib|rx|behavioral; if not, navigate('/app').
+
+6.2  Page structure:
+     Header: mode name + [← Back] link to /app
+     Centered card with config sections.
+
+6.3  Config sections by mode:
+
+     IB mode:
+       Category (multi-select chip group per parent category):
+         Accounting, Enterprise / Equity Value, Valuation, DCF, M&A,
+         LBO — each with [Basic] / [Advanced] sub-toggles (maps to
+         -basic / -advanced slug suffixes per the manifest)
+         Plus: [Brain Teasers] as a single toggle (no Basic/Advanced)
+         "Select All" shortcut above the group
+       Difficulty hint (read-only, derived from slug selection):
+         If only -basic slugs selected → "Basic level selected"
+         If only -advanced → "Advanced level selected"
+         Mixed → no label
+       Question count: stepper or radio chips [5] [10] [20] (default 10)
+
+     RX mode:
+       Category (chip group): All | by RX slug from manifest
+         (If no manifest yet, show "All questions — more categories
+          coming soon" and disable per-category selection)
+       Question count: [5] [10] [20] (default 10)
+       Note: difficulty param ignored for RX per backend.
+
+     Behavioral mode:
+       Category (chip group):
+         All | Leadership | Teamwork | Conflict | Why Banking |
+         Strengths & Weaknesses | Achievement | Failure
+       Question count: [5] [10] [20] (default 10)
+
+6.4  Voice toggle (all modes):
+     If user.hasElevenLabsKey:
+       "Jamie speaks questions out loud"  [toggle, default ON]
+     Else:
+       "Voice off — add ElevenLabs key in Settings to enable"
+       (muted text, no toggle, link to /settings)
+
+6.5  Input mode (all modes):
+     "Answer mode"  radio:
+       ● Hold to speak  (hold PTT button or hold Space)
+       ○ Tap to toggle  (click or tap Space to start/stop)
+
+6.6  Feedback style:
+     "Feedback after each question"  (default, always on for MVP)
+     Batch mode: DEFERRED — skip for MVP to keep the interview flow
+     simple. Add a note: "Batch feedback mode: coming soon."
+
+6.7  [Start Session]  btn-primary, full-width
+     On click:
+       - Validate: at least one category selected, count chosen
+       - Build config object:
+           { mode, categories:[...slugs], count,
+             voiceEnabled: bool, inputMode: 'hold'|'tap' }
+       - Store in sessionStorage('jamie_session_config')
+       - navigate('/app/interview')
+
+6.8  [← Back]  btn-ghost → navigate('/app')
+
+------------------------------------------------------------------------
+PHASE 7 — INTERVIEW SCREEN
+------------------------------------------------------------------------
+
+Goal: the core experience loop. Fetch question → speak it → user
+answers → evaluate → show feedback → loop.
+
+File: frontend/src/screens/InterviewScreen.jsx
+Child components:
+  frontend/src/components/interview/QuestionCard.jsx
+  frontend/src/components/interview/JamieBlob.jsx
+  frontend/src/components/interview/PushToTalkButton.jsx
+  frontend/src/components/interview/TranscriptPreview.jsx
+  frontend/src/components/interview/FeedbackPanel.jsx
+  frontend/src/components/interview/SessionProgress.jsx
+
+7.1  Session state (useReducer in InterviewScreen):
+     {
+       questions: [],      // completed questions
+       currentIndex: 0,
+       askedIds: [],       // for &exclude= param
+       results: [],        // { question, answer, evaluation } per Q
+       mode, config,
+       phase: 'LOADING'|'SPEAKING'|'IDLE'|'LISTENING'|'PROCESSING'
+              |'FEEDBACK'|'DONE'
+     }
+
+     On mount:
+       - Load config from sessionStorage('jamie_session_config')
+       - Fetch first question: GET /api/question?mode=X[&category=Y,Z][&exclude=]
+       - phase → SPEAKING (or IDLE if voice disabled)
+
+7.2  Question phase
+     QuestionCard: large readable question text.
+     SessionProgress: "Question N of M" progress bar at top.
+
+     If voice enabled (config.voiceEnabled + user.hasElevenLabsKey):
+       Auto-call POST /api/tts { text: question.question }
+       Play returned audio/mpeg via Audio() with object URL
+       Show subtle "Jamie is speaking..." in JamieBlob (state='speaking')
+       phase = SPEAKING → on audio end → phase = IDLE
+
+     If voice disabled: phase goes straight to IDLE on question load.
+
+7.3  Recording phase
+     PushToTalkButton:
+       Modes: config.inputMode 'hold' or 'tap'
+       Hold mode:  mousedown/touchstart → start SpeechRecognition;
+                   mouseup/touchend → stop
+       Tap mode:   click → toggle start/stop
+       Spacebar:   same as primary interaction in both modes
+                   (preventDefault to stop page scroll; track keydown
+                   vs auto-repeat with a held flag)
+
+       SpeechRecognition setup:
+         continuous: false (or true for hold-mode — handle onend)
+         interimResults: true
+         lang: 'en-US'
+
+       Unsupported (non-Chrome/Edge): show textarea fallback with
+         [Submit Answer] button.
+
+     TranscriptPreview: live interim transcript as user speaks.
+     JamieBlob: state='listening' while recording.
+
+7.4  Evaluation phase
+     On transcript finalized:
+       - phase = PROCESSING
+       - Disable PTT
+       - JamieBlob state='processing'
+       - POST /api/evaluate {
+           question: question.question,
+           user_answer: transcript,
+           mode,
+           key_points: question.key_points,     // IB/RX
+           star_hints: question.star_hints       // behavioral
+         }
+       - On response: store result; phase = FEEDBACK
+
+7.5  FeedbackPanel (inline below QuestionCard, slide-up transition)
+
+     IB / RX mode:
+       Score bar (score * 100%)
+       ✓ Hit — green chips for each hit key point
+       ✗ Missed — red chips for each missed key point
+       Feedback line (italic, muted): the feedback_line from Claude
+
+     Behavioral mode:
+       STAR breakdown — 4 rows:
+         Situation / Task / Action / Result, each with a 0–3 star rating
+         (filled ★ vs outline ☆, 3 stars per row)
+       Overall score bar
+       Strengths: green bullet list
+       Improvements: amber bullet list
+       Feedback line (italic)
+
+     If voice enabled: auto-play POST /api/tts { text: feedback_line }
+       after panel appears. Keep it to feedback_line only (concise).
+       Show ✕ button to skip TTS playback.
+
+     [Next Question →]  btn-primary
+       - Add current question id to askedIds (exclude list)
+       - If currentIndex + 1 >= config.count → navigate('/app/summary',
+           { state: { results, mode, config } })
+       - Else: fetch next question; clear FeedbackPanel; phase = SPEAKING
+
+7.6  Controls (small, subtle — below PTT):
+     [Skip]           — add to askedIds, do NOT record result,
+                        do NOT increment completed count, fetch next
+     [Repeat question] — re-play TTS for current question
+                         (only visible if voice enabled)
+     [End session]    — navigate to summary with current results
+
+7.7  JamieBlob visual states:
+     idle:       slow breathing pulse (CSS animation)
+     speaking:   wave-bar animation (3-5 bars, varying heights)
+     listening:  different hue + amplitude-reactive scale
+                 (Web Audio AnalyserNode on mic MediaStream if granted;
+                  fall back to generic pulse animation if denied)
+     processing: shimmer/spinner animation
+     Transitions: CSS transition on transform/opacity between states
+
+------------------------------------------------------------------------
+PHASE 8 — SUMMARY SCREEN
+------------------------------------------------------------------------
+
+Goal: end-of-session review.
+
+File: frontend/src/screens/SummaryScreen.jsx
+
+8.1  Read session data from location.state passed via navigate.
+     If location.state is null (direct navigation): navigate('/app').
+
+8.2  Layout:
+     Header: "Session Complete" + mode label + today's date
+
+     Overall score: large percentage (mean score * 100%), displayed as
+       a circular arc/ring (CSS conic-gradient or SVG arc)
+       Color: green if ≥70%, amber if 40–69%, red if <40%
+
+8.3  Category breakdown (IB/RX):
+     Table or bar-list per category:
+       Category | # Questions | Avg Score | Key Missed Points (count)
+     Sorted by avg score ascending (weakest first).
+
+     STAR breakdown (behavioral):
+       Average score per STAR dimension across all questions.
+
+8.4  Weak areas callout (amber box, only if any category <50%):
+     "Focus here next time:"
+     - Accounting (43%)
+     - DCF (38%)
+
+8.5  Most-missed key points (IB/RX only):
+     Frequency-count all missed[] strings across all results.
+     Show top 5 most-missed, each with a count badge.
+     Collapsed by default under "See missed key points ▾" toggle.
+
+8.6  Action buttons:
+     [Practice Again]  — navigate('/app/configure?mode=' + mode)
+     [Change Mode]     — navigate('/app')
+     [Export Summary]  — download a .txt file of the session
+       Client-side only: Blob + URL.createObjectURL + <a> click + revoke
+       Content: mode, date, per-question Q/A/score/hit/missed, overall score
+       Filename: jamie-session-{mode}-{date}.txt
+
+8.7  Notes:
+     - Skip-erasure guaranteed: skips were never added to results, so they
+       don't appear in any calculation. Assert this in a comment.
+     - Empty results (all skipped): show "No questions completed" gracefully.
+     - NaN guard: if results is empty, overall score shows "--".
+
+------------------------------------------------------------------------
+PHASE 9 — ACCOUNT SETTINGS SCREEN
+------------------------------------------------------------------------
+
+Goal: let users update API keys, change password, sign out.
+
+File: frontend/src/screens/AccountSettings.jsx
+
+9.1  Header: "Account Settings"  + [← Back to Practice] link → /app
+
+9.2  Section: API Keys
+     Two rows:
+
+     Anthropic API Key:
+       If set:    ✓ Verified {relativeTime(user.anthropicKeyVerifiedAt)}
+                  e.g. "✓ Verified 3 days ago"
+       If not set: ✗ Not set
+       [Update]  button → expands inline form (accordion, not modal):
+         <PasswordInput label="New Anthropic API key" placeholder="sk-ant-..." />
+         [Save & Verify]  btn-primary
+           → POST /api/user/keys/verify { anthropicKey: value }
+           → Show ✓ Verified or ✗ Invalid inline
+           → On success: refresh user via GET /api/auth/me → update context
+
+     ElevenLabs API Key:
+       If set:    ✓ Verified {relativeTime(user.elevenLabsKeyVerifiedAt)}
+       If not set: — Not set (enables voice)
+       [Update] / [Add]  → same inline expand flow
+
+     relativeTime helper (plain JS, no date-fns):
+       < 1 min → "just now"
+       < 1 hr  → "N minutes ago"
+       < 1 day → "N hours ago"
+       < 30 days → "N days ago"
+       else → ISO date string
+
+9.3  Section: Password
+     [Current Password]  <PasswordInput>
+     [New Password]      <PasswordInput>
+     [Confirm New Password] <PasswordInput>
+     [Update Password]  btn-primary
+       → POST /api/auth/password { currentPassword, newPassword }
+       → On 200: show "Password updated." toast (auto-dismiss 4s)
+       → On 401: show "Current password is incorrect." error-text inline
+       → Validate new password ≥ 8 chars + confirm match before submit
+
+9.4  Section: Account  (separated by .divider)
+     [Sign Out]  btn-danger
+       → call logout() from useAuth
+       → (no confirmation modal needed — login is easy)
+
+9.5  Toast notifications
+     Create frontend/src/components/ui/Toast.jsx
+     - Position: bottom-right corner, fixed
+     - Auto-dismiss: 4 seconds
+     - Variants: success (green), error (red), info (accent)
+     - Used by: settings save confirmations, key verify results
+     - Implementation: a ToastContext + useToast hook, or a simple
+       ref-based singleton — keep it lightweight, no library
+
+------------------------------------------------------------------------
+PHASE 10 — RESPONSIVE POLISH & ACCESSIBILITY
+------------------------------------------------------------------------
+
+Goal: make the app work well on mobile (students use phones) and meet
+basic accessibility standards.
+
+10.1  Responsive design
+      Auth screens (Landing, SignUp, SignIn, ApiKeySetup):
+        Single column always. Card max-width 440px; padding reduces on
+        small screens. Two CTA buttons stack vertically below 360px.
+
+      Mode Select cards:
+        CSS grid: repeat(auto-fit, minmax(220px, 1fr))
+        Cards stack naturally on narrow screens.
+
+      Interview screen:
+        Full-bleed on mobile. QuestionCard + FeedbackPanel scroll;
+        PTT button stays large (min 72px × 72px touch target).
+        SessionProgress bar spans full width.
+
+      Summary screen:
+        Category table collapses to stacked rows on mobile.
+
+10.2  Accessibility
+      - All <input> elements have associated <label> via htmlFor/id.
+      - Buttons have visible focus outlines (--color-accent, 2px solid,
+        2px offset).
+      - PTT button: aria-label="Hold to record your answer" (or "Tap
+        to start recording" in tap mode).
+      - aria-live="polite" region for transcript updates and phase
+        state ("Recording...", "Evaluating...", "Jamie is speaking...").
+      - Confetti canvas: aria-hidden="true" (purely decorative).
+      - Color is NEVER the sole indicator: ✓/✗ glyphs accompany green/red.
+      - Score bars: aria-valuenow, aria-valuemin, aria-valuemax.
+
+10.3  Loading states
+      Every screen that awaits data on mount:
+        Show centered <Spinner /> + loading message.
+        <Spinner />: a pure CSS rotating ring div (40px, 3px border,
+        accent color, 0.8s linear spin). No GIF, no library.
+        Loading messages:
+          App bootstrap:    "Loading..."
+          Question fetch:   "Getting your next question..."
+          Evaluation:       "Evaluating your answer..."
+          TTS in-flight:    Subtle "Jamie is speaking..." below blob,
+                            not a full-screen block.
+
+10.4  Error boundaries
+      Wrap major screen groups in a React <ErrorBoundary> component
+      that catches unhandled render errors and shows:
+        "Something went wrong. Refresh the page to continue."
+      with a [Refresh] button (window.location.reload()).
+
+------------------------------------------------------------------------
+PHASE 11 — SMOKE TEST CHECKLIST
+------------------------------------------------------------------------
+
+After implementation, verify each flow manually:
+
+AUTH FLOW
+[ ] / loads Landing page; both CTAs visible
+[ ] Logged-in user visiting / is redirected to /app (AuthRoute guard)
+[ ] /signup → fill form → POST /api/auth/register → /setup-keys
+[ ] /signin → fill form → POST /api/auth/login
+      → if !hasAnthropicKey: /setup-keys
+      → if hasAnthropicKey: /app
+[ ] Invalid signup (bad email, short password, mismatch) → inline errors
+[ ] Wrong signin credentials → "Incorrect email or password."
+[ ] Refresh page → token in localStorage → auth restored → stays on /app
+[ ] Expired/invalid token → GET /api/auth/me 401 → localStorage cleared
+    → Landing page (no infinite redirect loop)
+
+API KEY SETUP WIZARD
+[ ] Step 1: paste Anthropic key → [Next] enables
+[ ] Step 2: paste ElevenLabs key → [Next]; or [Skip for now] → Step 3
+[ ] Step 3: spinner while calling /api/user/keys/verify
+[ ] Both valid: ✓ rows, confetti fires, [Start Practicing →] appears
+[ ] ElevenLabs skipped: "— Skipped" row in muted; confetti if Anthropic valid
+[ ] Invalid Anthropic key: ✗ row, error message, [Fix my keys] → Step 1
+    with ElevenLabs field pre-filled (if it passed), Anthropic field cleared
+[ ] [Start Practicing →] → /app; user.hasAnthropicKey = true
+
+MODE SELECT
+[ ] Three mode cards render
+[ ] Gear icon → /settings
+[ ] Voice-disabled note visible if !user.hasElevenLabsKey
+[ ] Each card [Start →] → /app/configure?mode=ib (or rx, behavioral)
+
+SESSION CONFIG
+[ ] Mode read from URL param; wrong mode → /app
+[ ] IB: category sub-toggles map to correct slugs; Select All covers all
+[ ] RX: categories list or "All" fallback
+[ ] Behavioral: all 7 categories shown
+[ ] Voice toggle visible only if user.hasElevenLabsKey
+[ ] [Start Session] → sessionStorage set → /app/interview
+[ ] [← Back] → /app
+
+INTERVIEW
+[ ] Question fetches on mount; QuestionCard shows text
+[ ] Voice enabled: TTS auto-plays; JamieBlob shows 'speaking'
+    → after audio ends, phase = IDLE
+[ ] Hold-to-speak: hold PTT → live transcript appears → release →
+    transcript submitted; JamieBlob shows 'listening' → 'processing'
+[ ] Tap-to-toggle: click starts, click stops; Space mirrors
+[ ] Space doesn't scroll the page (preventDefault confirmed)
+[ ] Non-Chrome (Firefox/Safari): textarea fallback shown, no crash
+[ ] Evaluation returns; FeedbackPanel slides in with hit/miss
+[ ] IB: ✓ green / ✗ red key points; score bar correct
+[ ] Behavioral: STAR star ratings; strengths/improvements lists
+[ ] Voice feedback: feedback_line TTS plays; ✕ skips it
+[ ] [Next Question →] fetches next; FeedbackPanel clears
+[ ] [Skip]: question absent from results; askedIds updated; count unaffected
+[ ] After final question → /app/summary with results in location.state
+
+SUMMARY
+[ ] Overall score ring renders; color correct per threshold
+[ ] Category breakdown shows all attempted categories
+[ ] Weak areas box shows categories < 50%
+[ ] Most-missed key points list (IB only) ranks correctly
+[ ] Empty results (all skipped) → "--" score, graceful message
+[ ] [Export Summary] → .txt downloaded with correct content
+[ ] [Practice Again] → /app/configure?mode=ib
+[ ] [Change Mode] → /app
+
+ACCOUNT SETTINGS
+[ ] /settings: key status rows with correct verified-at dates
+[ ] [Update] for Anthropic: expands inline; [Save & Verify] → ✓ or ✗
+[ ] [Update] for ElevenLabs: same flow
+[ ] Change password: success → toast "Password updated."
+[ ] Wrong current password → "Current password is incorrect."
+[ ] [Sign Out] → localStorage cleared → / (Landing)
+
+MISC
+[ ] Spinner shown on every async mount (question load, auth init, etc.)
+[ ] ErrorBoundary catches render errors; shows refresh message
+[ ] All focus outlines visible when tabbing through forms
+[ ] aria-live announces recording/evaluating state changes
+
+------------------------------------------------------------------------
+FILES TO CREATE
+------------------------------------------------------------------------
+
+frontend/src/main.jsx
+frontend/src/App.jsx
+frontend/src/index.css
+
+frontend/src/context/AuthContext.jsx
+frontend/src/hooks/useAuth.js
+frontend/src/lib/api.js
+
+frontend/src/screens/LandingPage.jsx
+frontend/src/screens/SignUpScreen.jsx
+frontend/src/screens/SignInScreen.jsx
+frontend/src/screens/ApiKeySetup.jsx
+frontend/src/screens/ModeSelect.jsx
+frontend/src/screens/SessionConfig.jsx
+frontend/src/screens/InterviewScreen.jsx
+frontend/src/screens/SummaryScreen.jsx
+frontend/src/screens/AccountSettings.jsx
+
+frontend/src/components/setup/StepIndicator.jsx
+frontend/src/components/setup/KeyStep.jsx
+frontend/src/components/setup/VerifyStep.jsx
+
+frontend/src/components/interview/QuestionCard.jsx
+frontend/src/components/interview/JamieBlob.jsx
+frontend/src/components/interview/PushToTalkButton.jsx
+frontend/src/components/interview/TranscriptPreview.jsx
+frontend/src/components/interview/FeedbackPanel.jsx
+frontend/src/components/interview/SessionProgress.jsx
+
+frontend/src/components/ui/Toast.jsx
+frontend/src/components/ui/Spinner.jsx
+frontend/src/components/ui/PasswordInput.jsx
+frontend/src/components/ui/ErrorBoundary.jsx
+
+------------------------------------------------------------------------
+DEPENDENCY ADDITIONS (to frontend/package.json)
+------------------------------------------------------------------------
+
+  react-router-dom   ^6     (URL routing + protected routes + useNavigate)
+  canvas-confetti    ^1     (key verification celebration in wizard Step 3)
+
+No other runtime deps. All UI is hand-rolled CSS — no component library,
+no icon library, no date library.
+
+------------------------------------------------------------------------
+DESIGN DECISIONS & INVARIANTS
+------------------------------------------------------------------------
+
+D1. API keys never touch the frontend raw after submission.
+    The PasswordInput masked field is the only place a raw key appears.
+    After POST /api/user/keys/verify, the key is never returned or
+    displayed again. The Settings screen shows only verified status, not
+    the key value. This is both a security property and a UX property.
+
+D2. URL routing (React Router) instead of state-machine routing.
+    Earlier plan used a state-machine in App.jsx with no URLs. This
+    version uses URL routing so the back button works, auth redirects are
+    clean (navigate('/setup-keys', { replace: true })), and deep links
+    like /app/interview are possible. The session state that can't live
+    in the URL (results array) goes through location.state on navigate.
+
+D3. No Tailwind — plain CSS only.
+    Tailwind adds build complexity (PostCSS config, content glob purging,
+    potential class-name collisions with third-party). For a focused app
+    this size, custom properties + utility classes are more predictable
+    and easier for future maintainers who don't know Tailwind.
+
+D4. Voice is optional and gracefully degraded at two levels:
+    Level 1: no ElevenLabs key → voice toggle hidden, text-only feedback.
+    Level 2: SpeechRecognition unsupported (Firefox/Safari) → textarea
+    fallback for answer input. The app is fully usable at Level 2.
+
+D5. Session state in sessionStorage, not URL params.
+    The session config (mode, categories, count, voiceEnabled, inputMode)
+    is too large and contains arrays that don't serialize nicely into URL
+    params. sessionStorage persists across navigations within the same tab
+    but clears on tab close — appropriate for a practice session.
+
+D6. Per-user API keys change the backend contract.
+    The existing /api/evaluate and /api/tts routes were designed to use
+    .env API keys. With per-user keys, the backend must decrypt the
+    authenticated user's stored key and use it for each call. This is a
+    backend concern, but frontend assumes it is handled transparently —
+    the frontend just sends the Bearer token and expects the backend to
+    route to the right key.
+
+------------------------------------------------------------------------
+BACKEND ROUTES REQUIRED BY THIS FRONTEND
+(not covered in backend-buildout.txt — must be added separately)
+------------------------------------------------------------------------
+
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/me
+POST /api/auth/logout
+POST /api/auth/password
+POST /api/user/keys/verify
+
+See Phase 2.4 for full specs.
+
+Also: /api/evaluate and /api/tts must be updated to use per-user keys
+from the authenticated user's record rather than process.env keys.
+
+------------------------------------------------------------------------
+OPEN QUESTIONS / DEFERRED
+------------------------------------------------------------------------
+
+Deferred (not in MVP scope):
+  - FeedbackScreen (per-question detail from summary): DEFERRED.
+  - Batch feedback mode (after N questions): DEFERRED.
+  - Password reset via email ("forgot password"): DEFERRED.
+    For now, SignIn shows "Forgot password? Contact hello@jamie.ai".
+  - ElevenLabs voice ID selection (let user pick from available voices).
+  - Rate limiting per user per day on /api/evaluate and /api/tts.
+  - Key rotation UX if Anthropic revokes a key mid-session.
+
+Open questions to resolve before/during build:
+  OQ1. Score range from /api/evaluate: is `score` 0.0–1.0 or 0–10 or 0–100?
+       This affects score bar percentages and summary ring. Assume 0.0–1.0
+       (multiply by 100 for display) unless confirmed otherwise.
+  OQ2. GET /api/question response: does it return { done: true } when the
+       bank is exhausted, or a 404? Frontend handles both but needs to know
+       which to test for.
+  OQ3. IB category/slug taxonomy: the manifest is the source of truth.
+       SessionConfig's category groupings hard-code the current manifest
+       structure. If slugs are renamed, categories.js (a static map in
+       SessionConfig) must be updated.
+  OQ4. RX + Behavioral question banks: currently empty directories. Session
+       Config shows graceful empty-state for these until questions.json
+       files exist. No frontend blocking.
+  OQ5. Key encryption scheme: backend concern, but frontend team should
+       confirm the verification endpoint returns { valid: false } (not 4xx)
+       for an invalid-but-reachable key, so the wizard can display the
+       inline ✗ rather than a generic error.
+
+------------------------------------------------------------------------
+PHASE EXECUTION NOTES (for whoever builds this)
+------------------------------------------------------------------------
+
+Phases 1 and 2 are strictly sequential (routing + auth context gate
+everything downstream).
+
+Phases 3, 4, and 5 (auth screens, API key wizard, mode select) can be
+built in parallel after Phase 2, as they share only AuthContext and api.js.
+
+Phases 6, 7, and 8 (session config, interview, summary) depend on Phase 5
+(mode select) completing to validate the URL-param hand-off, but 6 and 8
+are largely independent of each other; 7 (interview) depends on 6 (config).
+
+Phase 9 (settings) is independent after Phase 2 (auth context).
+
+Phase 10 (polish) is a final pass after all screens exist.
+
+Critical path: P1 → P2 → P3/P4/P5 (parallel) → P6 → P7 → P8 → P10
+Settings (P9) and polish (P10) can overlap with P8.
+
+------------------------------------------------------------------------
+END OF PLAN
+------------------------------------------------------------------------
