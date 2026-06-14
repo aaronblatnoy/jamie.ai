@@ -16,25 +16,20 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "text is required" });
   }
 
-  const voiceIb = process.env.ELEVENLABS_VOICE_ID_IB;
-  const voiceRx = process.env.ELEVENLABS_VOICE_ID_RX;
+  // ElevenLabs pre-made voices available on all plans as fallbacks
+  const DEFAULT_VOICE_IB = "pNInz6obpgDQGcFmaJgB"; // Adam
+  const DEFAULT_VOICE_RX = "TxGEqnHWrfWFTfGW9XjX"; // Josh
+
+  const voiceIb = process.env.ELEVENLABS_VOICE_ID_IB || DEFAULT_VOICE_IB;
+  const voiceRx = process.env.ELEVENLABS_VOICE_ID_RX || DEFAULT_VOICE_RX;
   const apiKey = req.user.elevenLabsKey;
 
   if (!apiKey) {
     return res.status(402).json({ error: "elevenlabs_key_required" });
   }
 
-  // A4: voice selection — explicit override > mode-selected > IB default
-  const voice =
-    voice_id ||
-    (mode === "rx" ? voiceRx : voiceIb) ||
-    voiceIb;
-
-  if (!voice) {
-    // No voice configured at all — return 502 (not a 400, it's a server config issue)
-    console.warn("[tts] No voice ID configured; check ELEVENLABS_VOICE_ID_IB / _RX");
-    return res.status(502).json({ error: "tts_failed" });
-  }
+  // voice selection — explicit override > mode-selected > IB default
+  const voice = voice_id || (mode === "rx" ? voiceRx : voiceIb);
 
   const url = `${ELEVENLABS_TTS_BASE}/${encodeURIComponent(voice)}/stream`;
 
