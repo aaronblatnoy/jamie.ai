@@ -123,8 +123,8 @@ export async function evaluateAnswer({ apiKey, system, question, key_points, use
   const missed = parsed.missed.map(String);
   const feedback_line = parsed.feedback_line;
 
-  // Clamp score to [0, 100] (INV6: schema can't enforce numeric range in 0.52).
-  const score = Math.max(0, Math.min(100, Math.round(parsed.score)));
+  // Claude returns 0–100 integer; frontend contract is 0.0–1.0.
+  const score = Math.max(0, Math.min(1, Math.round(parsed.score) / 100));
 
   return { hit, missed, feedback_line, score };
 }
