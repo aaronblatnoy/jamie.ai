@@ -33,6 +33,18 @@ router.post('/login', async (req, res) => {
   res.json({ token, user: { id: user.id, email: user.email, hasAnthropicKey: !!user.anthropic_key_enc, hasElevenLabsKey: !!user.elevenlabs_key_enc } })
 })
 
+router.post('/password', requireAuth, async (req, res) => {
+  const { currentPassword, newPassword } = req.body || {}
+  if (!currentPassword || !newPassword) return res.status(400).json({ error: 'currentPassword and newPassword required' })
+  if (newPassword.length < 8) return res.status(400).json({ error: 'newPassword must be at least 8 characters' })
+  const user = db.prepare('SELECT * FROM users WHERE id = ?').get(req.user.id)
+  const valid = await bcrypt.compare(currentPassword, user.password_hash)
+  if (!valid) return res.status(401).json({ error: 'current password is incorrect' })
+  const hash = await bcrypt.hash(newPassword, BCRYPT_ROUNDS)
+  db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(hash, req.user.id)
+  res.json({ ok: true })
+})
+
 router.post('/logout', requireAuth, (req, res) => {
   const header = req.headers.authorization || ''
   const token = header.startsWith('Bearer ') ? header.slice(7) : null
