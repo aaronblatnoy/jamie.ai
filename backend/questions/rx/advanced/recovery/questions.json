@@ -1,0 +1,328 @@
+[
+  {
+    "id": "rx-recovery-and-waterfall-analysis-002",
+    "question": "Let's say that OpCo has $300 in assets and $200 in unsecured debt. HoldCo has $200 in unsecured debt and holds the equity of OpCo. What are the recovery values?",
+    "model_answer": "There are no upstream guarantees here, so we analyze each entity independently. OpCo has $300 in assets and $200 in unsecured debt — OpCo's debt is fully covered and made whole (100 cents on the dollar). There is $100 left over at OpCo, which flows through to HoldCo as equity value (since HoldCo owns OpCo's equity). HoldCo has $200 in debt but only $100 in value (the residual equity from OpCo), so HoldCo unsecured debt holders recover fifty cents on the dollar.",
+    "key_points": [
+      "No upstream guarantee — HoldCo cannot reach OpCo assets directly",
+      "OpCo creditors paid first from OpCo assets: $200 debt vs. $300 assets — fully recovered (100 cents)",
+      "Residual equity at OpCo = $300 - $200 = $100, flows up to HoldCo",
+      "HoldCo has $200 debt and only $100 in value (residual equity) — recovery = 50 cents on the dollar",
+      "This is the baseline structural subordination scenario with no guarantees"
+    ],
+    "category": "recovery",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-003",
+    "question": "Let's say that OpCo has $300 in assets and $200 in unsecured debt. HoldCo has $200 in unsecured debt and holds the equity of OpCo. There's an upstream guarantee from OpCo to HoldCo. What are the recovery values?",
+    "model_answer": "With an upstream guarantee in place, HoldCo debt is given an unsecured claim at the OpCo level, making it pari passu with OpCo's unsecured debt. So at the OpCo level, we have total unsecured debt of $400 ($200 OpCo + $200 HoldCo) against $300 in assets. Both tranches recover $300 / $400 = seventy-five cents on the dollar.",
+    "key_points": [
+      "Upstream guarantee makes HoldCo debt pari passu with OpCo unsecured debt at the OpCo level",
+      "Total unsecured claims at OpCo = $200 (OpCo debt) + $200 (HoldCo debt via guarantee) = $400",
+      "Assets at OpCo = $300",
+      "Recovery for both tranches = $300 / $400 = 75 cents on the dollar",
+      "The upstream guarantee eliminates structural subordination for the HoldCo debt in this case",
+      "Both OpCo and HoldCo unsecured note holders recover equally"
+    ],
+    "category": "recovery",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-004",
+    "question": "Let's say that OpCo has $300 in assets and $200 in secured debt (backed by the assets at OpCo). HoldCo has $200 in unsecured debt and holds the equity of OpCo. There's an upstream guarantee from OpCo to HoldCo. What are the recovery values?",
+    "model_answer": "Even though there is an upstream guarantee, it is a general unsecured guarantee — so HoldCo debt gets an unsecured claim at OpCo, not a secured one. This means OpCo's $200 in secured debt is paid first (backed by OpCo assets). OpCo secured debt is fully made whole. There is $100 left ($300 - $200). HoldCo has an unsecured claim via the upstream guarantee on this residual $100, but HoldCo has $200 in debt, so HoldCo recovers fifty cents on the dollar ($100 / $200). The upstream guarantee did not change the outcome here because the OpCo debt was secured — secured OpCo debt is senior to the unsecured guarantee claim of HoldCo. The general rule is that upstream guarantees give HoldCo lenders an unsecured claim at OpCo, which means OpCo secured debt is still paid first.",
+    "key_points": [
+      "Upstream guarantee gives HoldCo an unsecured (not secured) claim at OpCo level — unless explicitly stated otherwise",
+      "OpCo secured debt ($200) is paid first from OpCo assets ($300) — fully made whole",
+      "Residual after OpCo secured debt = $300 - $200 = $100",
+      "HoldCo has unsecured claim on residual $100 with $200 of debt — recovers 50 cents on the dollar",
+      "Secured OpCo debt beats HoldCo's unsecured guarantee claim",
+      "Upstream guarantee provides no benefit over no-guarantee scenario when OpCo debt is secured and absorbs all asset value above residual"
+    ],
+    "category": "recovery",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-005",
+    "question": "Let's say you have EBITDA of $50 and comps trade at 6x. You have an undrawn revolver of $100, $200 in secured debt, and $200 in unsecured debt. Where does each trade?",
+    "model_answer": "An undrawn revolver is like a credit card that hasn't been used. For waterfall purposes, we do not need to 'pay back' the revolver since it hasn't been drawn. EV = $50 * 6 = $300. The $200 in secured debt is fully covered by EV, so it trades around par. The $200 in unsecured debt must be satisfied from the remaining $100 of EV ($300 - $200 = $100), so it recovers $100 / $200 = 50 cents on the dollar. The undrawn revolver is not included in the waterfall because it is not outstanding debt.",
+    "key_points": [
+      "EV = $50 * 6x = $300",
+      "An undrawn revolver is not drawn and therefore not a claim in the waterfall",
+      "Secured debt ($200) is fully covered by $300 EV; trades around par",
+      "Unsecured debt ($200) recovers from $300 - $200 = $100 remaining EV; trades around 50 cents on the dollar",
+      "Key nuance: undrawn revolvers do not count in the waterfall calculation"
+    ],
+    "category": "recovery",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-006",
+    "question": "Let's say that HoldCo has $100 of unsecured debt and OpCo1 equity, OpCo1 has $100 in unsecured debt and OpCo2 equity, and OpCo2 has $250 in assets and $100 in unsecured debt. HoldCo has upstream guarantees from both OpCo1 and OpCo2. What are the recovery values for HoldCo, OpCo1, and OpCo2?",
+    "model_answer": "Drawing this out: HoldCo at top (L: $100, holds OpCo1 equity), OpCo1 in middle (L: $100, holds OpCo2 equity), OpCo2 at bottom (A: $250, L: $100). All assets reside at OpCo2. HoldCo has upstream guarantees from both OpCo1 and OpCo2. The key insight is which upstream guarantees matter: only the OpCo2 upstream guarantee is economically meaningful because that is where the assets are. OpCo2's upstream guarantee to HoldCo makes HoldCo debt pari with OpCo2 debt — both unsecured at OpCo2. Total debt against OpCo2 assets = OpCo2 debt $100 + HoldCo debt $100 = $200. Assets = $250. Both are made whole; $50 residual flows to OpCo1 (as equity holder of OpCo2). OpCo1 has $100 in debt but only $50 in value, so OpCo1 recovers fifty cents on the dollar. The OpCo1 upstream guarantee to HoldCo is of no benefit because OpCo1 holds no assets — its only asset is OpCo2 equity, and since OpCo2's guarantee already made HoldCo pari at OpCo2, the OpCo1 upstream adds nothing.",
+    "key_points": [
+      "Assets reside only at OpCo2; OpCo1 holds only OpCo2 equity and has no independent assets",
+      "OpCo2 upstream guarantee to HoldCo makes HoldCo debt pari with OpCo2 unsecured debt",
+      "Total claims pari at OpCo2 = $100 (OpCo2) + $100 (HoldCo via guarantee) = $200 vs. $250 assets — both fully recovered",
+      "Residual $50 flows to OpCo1 as equity holder of OpCo2",
+      "OpCo1 has $100 debt and only $50 value — recovers 50 cents on the dollar",
+      "OpCo1's upstream guarantee to HoldCo provides no benefit since OpCo1 has no assets",
+      "Key lesson: the value of an upstream guarantee depends on what assets the guarantor entity holds"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-007",
+    "question": "Let's say that HoldCo has $100 of unsecured debt and OpCo1 equity, OpCo1 has $100 in unsecured debt and OpCo2 equity, and OpCo2 has $250 in assets and $200 in secured debt (backed by assets). HoldCo has upstream guarantees from OpCo1 and OpCo2. What are the recovery values for HoldCo, OpCo1, and OpCo2?",
+    "model_answer": "Same general layout as prior question, but OpCo2 debt is now $200 and secured. OpCo2's $200 in secured debt is paid first from its $250 in assets — fully made whole. $50 remains. HoldCo has an upstream guarantee from OpCo2 but that guarantee is unsecured, so it comes after the secured debt. HoldCo has $100 in debt against $50 remaining value — HoldCo recovers fifty cents on the dollar. OpCo1 has $100 in debt but there is nothing left for OpCo1 — it gets zero recovery. This example illustrates why HoldCo lenders want upstream guarantees even when OpCo has secured debt: HoldCo at least gets some recovery ($50), while OpCo1 (with no guarantee from OpCo2) gets nothing despite holding OpCo2's equity.",
+    "key_points": [
+      "OpCo2 secured debt ($200) paid first from assets ($250) — fully made whole",
+      "Residual = $250 - $200 = $50",
+      "HoldCo has unsecured guarantee from OpCo2 — claims on residual $50; with $100 in debt recovers 50 cents on dollar",
+      "OpCo1 has no guarantee from OpCo2 and OpCo2 equity has no residual value — OpCo1 recovers zero",
+      "Illustrates that even a partial benefit from an upstream guarantee beats having no guarantee",
+      "HoldCo is more removed from assets than OpCo1, yet recovers more because it has the OpCo2 guarantee",
+      "Secured OpCo2 debt is senior to all unsecured guarantee claims"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-008",
+    "question": "Let's say that HoldCo has $100 of unsecured debt and OpCo1 equity, OpCo1 has $100 in unsecured debt and OpCo2 equity, and OpCo2 has $250 in assets and $100 in unsecured debt. There are no guarantees here. What are the recovery values for HoldCo, OpCo1, and OpCo2?",
+    "model_answer": "No guarantees exist. Each entity's creditors only have recourse to assets at their own level. OpCo2 has $250 in assets and $100 in unsecured debt — OpCo2 debt is made whole; $150 residual flows to OpCo1 as equity holder. OpCo1 has $100 in debt and now $150 in value (the residual equity from OpCo2) — OpCo1 debt is fully made whole; $50 residual flows up to HoldCo. HoldCo has $100 in debt and only $50 in value — HoldCo recovers fifty cents on the dollar. This example illustrates that even without guarantees, the level of structural subordination matters: OpCo2 debt is safest (closest to assets), OpCo1 debt comes next (structurally subordinate to OpCo2), and HoldCo debt is most subordinate (structurally subordinate to both OpCo1 and OpCo2).",
+    "key_points": [
+      "No guarantees — each entity's creditors limited to assets at their level",
+      "OpCo2: $250 assets vs. $100 debt — fully made whole; $150 flows to OpCo1",
+      "OpCo1: $150 (residual from OpCo2 equity) vs. $100 debt — fully made whole; $50 flows to HoldCo",
+      "HoldCo: $50 in value vs. $100 debt — recovers 50 cents on the dollar",
+      "OpCo1 debt is structurally subordinate to OpCo2 debt; HoldCo debt is structurally subordinate to both",
+      "Even without guarantees, structural position in a multi-OpCo structure creates a hierarchy of recovery"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-009",
+    "question": "Let's say a company has EBITDA of $50 and trades at a multiple of 5x. There is secured debt at HoldCo of $200 backed by the assets of OpCo. There are $100 of Senior Notes at OpCo that have a general unsecured claim against OpCo. What are the recovery values?",
+    "model_answer": "First, calculate EV = $50 EBITDA x 5x = $250. All assets reside at OpCo. HoldCo has secured debt backed by OpCo assets — meaning it has a secured claim against OpCo assets. Secured claims are addressed first. HoldCo debt of $200 is fully covered by $250 in assets — made whole. Only $50 remains. The OpCo Senior Notes ($100) have an unsecured claim against OpCo and must be satisfied from the remaining $50. Senior Notes recover $50 / $100 = fifty cents on the dollar. This demonstrates that HoldCo debt can end up with a higher recovery than OpCo debt when the HoldCo debt is secured (backed by OpCo assets), while OpCo debt is unsecured.",
+    "key_points": [
+      "EV = $50 x 5x = $250",
+      "HoldCo secured debt ($200) backed by OpCo assets — paid first as a secured claim",
+      "HoldCo debt fully covered: $200 vs. $250 assets — 100% recovery",
+      "Remaining = $250 - $200 = $50 for OpCo Senior Notes ($100 unsecured)",
+      "Senior Notes recover $50 / $100 = 50 cents on the dollar",
+      "This is an example of HoldCo secured debt outranking OpCo unsecured debt in recovery",
+      "Secured claim priority applies even when the collateral is located at OpCo"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-010",
+    "question": "Let's say a company has EBITDA of $50 and trades at a multiple of 5x. There is secured debt at HoldCo of $200 backed by the inventory of OpCo (now valued at $150). There is also an upstream guarantee to the benefit of HoldCo. There are $100 of Senior Notes at OpCo that have a general unsecured claim against OpCo. What are the recovery values?",
+    "model_answer": "EV = $50 x 5x = $250. HoldCo has $200 in secured debt backed by OpCo inventory valued at $150. So HoldCo's secured claim recovers $150 (the inventory value). There is a $50 deficiency claim ($200 - $150 = $50) which becomes a general unsecured claim. Additionally, HoldCo has an upstream guarantee giving it an unsecured claim at OpCo. The remaining pool of value at OpCo after paying the secured claim is $250 - $150 = $100. This $100 must be distributed among: $100 Senior Notes (unsecured) and $50 HoldCo deficiency claim (unsecured, treated as a general unsecured claim pari with Senior Notes). Total unsecured claims = $150; available value = $100. Recovery = $100 / $150 = ~66.67 cents on the dollar for both the Senior Notes and the HoldCo deficiency claim. In total, HoldCo debt recovers $150 (secured) + $33.33 (unsecured deficiency recovery) = $183.33 out of $200, or approximately 91.66%. Senior Notes recover 66 cents on the dollar.",
+    "key_points": [
+      "EV = $250; HoldCo secured debt = $200 backed by inventory valued at $150",
+      "Secured recovery for HoldCo = $150 (full inventory value)",
+      "Deficiency claim = $200 - $150 = $50; becomes unsecured claim pari with OpCo Senior Notes",
+      "Remaining value after secured recovery = $250 - $150 = $100",
+      "Unsecured claims pool: $100 Senior Notes + $50 HoldCo deficiency = $150 total",
+      "Recovery for unsecured claims = $100 / $150 = ~66.67 cents on the dollar",
+      "Total HoldCo recovery = $150 + $33.33 = $183.33 / $200 = ~91.66%",
+      "Senior Notes recover ~66 cents on the dollar",
+      "Deficiency claims on undersecured debt become pari unsecured claims"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-011",
+    "question": "Let's say we have HoldCo with $100 in unsecured debt and the equity of OpCo. Let's also say that OpCo has $100 in unsecured debt and $150 in assets. If we were to put in place an upstream guarantee, how would HoldCo place a value on it?",
+    "model_answer": "To value an upstream guarantee, compare what HoldCo recovers without the guarantee versus what it recovers with the guarantee, and take the spread. Without a guarantee: OpCo debt ($100) is paid from OpCo assets ($150) — fully made whole. Residual equity = $50 flows to HoldCo. HoldCo has $100 in debt and $50 in value — recovery = 50 cents on the dollar. With an upstream guarantee: HoldCo debt is pari with OpCo debt at OpCo level. Total debt = $200 against $150 in assets. Recovery = $150 / $200 = 75 cents on the dollar for both. The value of the guarantee to HoldCo = 75 cents minus 50 cents = 25 cents on the dollar. This approach — comparing recovery with and without the guarantee and taking the spread — works for any scenario. Note: if OpCo debt were secured instead of unsecured, the upstream guarantee would be worth nothing, since HoldCo's unsecured guarantee claim would still only access residual equity after OpCo secured debt is paid, which is the same outcome as having no guarantee.",
+    "key_points": [
+      "Value of upstream guarantee = recovery with guarantee minus recovery without guarantee",
+      "Without guarantee: OpCo debt made whole ($100 from $150 assets); $50 residual to HoldCo; HoldCo recovers 50 cents on the dollar",
+      "With guarantee: HoldCo pari with OpCo at OpCo level; $200 total debt vs. $150 assets; both recover 75 cents on the dollar",
+      "Guarantee value to HoldCo = 75 - 50 = 25 cents on the dollar",
+      "General method: compare recovery in each scenario and take the spread",
+      "If OpCo debt is secured, the upstream guarantee has no incremental value since HoldCo unsecured claim still only accesses residual after secured payoff"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-012",
+    "question": "Let's imagine that ParentCo has $200mm of Senior Secured Notes and holds the equity of SubCo. Meanwhile, SubCo also has $200mm of Senior Secured Notes that have the same maturity and coupon as ParentCo's SSNs. If you were trying to decide which to invest in, what are some of the things that you'd think about?",
+    "model_answer": "Key considerations when comparing HoldCo vs. OpCo SSNs in a classic HoldCo/OpCo structure: (1) Where value resides — all else equal, prefer to be where more value is located. If SubCo holds the operating assets and value, SubCo SSNs have better recoveries. (2) Guarantees — ParentCo SSNs might benefit from a secured downstream guarantee from SubCo, effectively making them pari with SubCo's SSNs. Without guarantees, ParentCo SSNs face structural subordination. (3) Debt doc constraints — how much additional pari or senior debt can be incurred at each level? This affects future recovery risk. (4) Price vs. recovery — if SubCo SSNs are well-covered and trading at par (10% IRR), they may be attractive. But if ParentCo SSNs trade at 40 cents despite a potential 60-cent recovery, the higher risk/higher return profile at ParentCo may be compelling if you have high conviction. All else equal, invest where value resides unless the price compensates for structural subordination.",
+    "key_points": [
+      "Where value resides: prefer to be structurally at the same level as the operating assets/value",
+      "Guarantees: ParentCo SSNs may benefit from downstream secured guarantee from SubCo",
+      "Structural subordination: without a guarantee, ParentCo SSNs are effectively junior to SubCo's SSNs",
+      "Debt doc constraints: incurrence baskets differ at each level, affecting how much future debt competes with you",
+      "Price vs. recovery: cheaper ParentCo paper may offer higher return if mispriced, despite higher risk",
+      "Consider coupon, trading level, expected recovery, and time horizon together"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-013",
+    "question": "Let's imagine that a company files — perhaps due to liquidity running dry — with a $600mm 1L TL and a $300mm 2L TL. The debtor is valued at $1,000mm, it can support around $500mm of debt post-reorg, and it had a DIP of $100mm to help it get through its time in-court (assume no roll-up). Given all of this, what's the recovery of the 2L holders and what kind of consideration are they most likely to receive?",
+    "model_answer": "Post-filing cap structure: $100mm DIP (super-priority) + $600mm 1L + $300mm 2L. EV = $1,000mm, so everyone gets 100% recovery. The form of recovery matters because the company can only support $500mm of debt post-reorg. DIP ($100mm) and 1L ($600mm) holders most likely receive take-back debt. The new $500mm of take-back debt covers DIP fully ($100mm) and $400mm goes to 1L holders. 1L holders have $600mm in claims; receiving $400mm in debt = 66.7% of recovery in take-back debt. The remaining 33.3% = $200mm must come as post-reorg equity. 2L holders ($300mm claims) receive the remaining post-reorg equity: total post-reorg equity value = $1,000mm EV - $500mm debt = $500mm. 1L took $200mm of equity (40% of total equity pool); 2L takes remaining $300mm of equity (60% of total equity pool). 2L recovery = 100% entirely in post-reorg equity (60% of a $500mm pool = $300mm). If EV increases post-emergence, 2L equity is uncapped upside; if EV falls, 2L is fully exposed.",
+    "key_points": [
+      "DIP ($100mm) is super-priority; no roll-up means it's a standalone new claim",
+      "Post-reorg cap structure: $100mm DIP + $600mm 1L + $300mm 2L = $1,000mm claims vs. $1,000mm EV",
+      "Company can only support $500mm debt post-reorg",
+      "DIP ($100mm) and 1L take take-back debt; $400mm of $500mm debt pool goes to 1L holders",
+      "1L receives $400mm take-back debt (66.7%) + $200mm post-reorg equity (33.3%) = 100%",
+      "2L receives $300mm of post-reorg equity = 100% recovery; 2L owns 60% of $500mm equity pool",
+      "More senior holders get stable consideration (take-back debt); junior holders get riskier consideration (equity)"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-014",
+    "question": "Let's imagine that ABC Inc. has a HoldCo that's issued $100mm of Senior Notes and holds 100% of OpCo1's equity and 100% of OpCo2's equity. Further, let's imagine that HoldCo sent part of the proceeds from the Senior Notes to OpCo1 in the form of a $40mm (unsecured) intercompany loan and, in return, received an intercompany loan receivable. Today, HoldCo has no other assets beyond OpCo1 equity, OpCo2 equity, and the intercompany loan receivable; OpCo1 has an EV of $50mm, Senior Secured Notes of $30mm, and Senior Notes of $10mm; and OpCo2 has an EV of $80mm, Senior Secured Notes of $40mm, and Senior Notes of $20mm. Given all this, what are the recoveries here assuming that there are no guarantees?",
+    "model_answer": "Start at the OpCo level. OpCo1: EV = $50mm, SSNs = $30mm (full recovery = $30mm), remaining value = $20mm for $50mm of unsecured claims ($10mm SNs + $40mm intercompany loan). Recovery for unsecured = $20mm / $50mm = 40%. SNs recover $4mm, intercompany loan recovers $16mm. No residual equity to HoldCo from OpCo1. OpCo2: EV = $80mm, SSNs = $40mm (full recovery), SNs = $20mm (full recovery). Residual equity = $80mm - $60mm = $20mm flows to HoldCo (as 100% owner of OpCo2 equity). HoldCo assets: (1) OpCo1 equity = $0; (2) OpCo2 equity = $20mm; (3) Intercompany loan receivable = $16mm recovery. Total HoldCo distributable value = $20mm + $16mm = $36mm. HoldCo has $100mm of Senior Notes. Recovery for HoldCo SNs = $36mm / $100mm = 36%.",
+    "key_points": [
+      "OpCo1: $50mm EV; SSNs fully paid ($30mm); $20mm for $50mm of unsecured claims = 40% recovery",
+      "OpCo1 intercompany loan ($40mm) recovers $16mm (40%); SNs ($10mm) recover $4mm",
+      "No residual equity flows to HoldCo from OpCo1",
+      "OpCo2: $80mm EV > $60mm total debt; SSNs and SNs both fully paid; $20mm equity flows to HoldCo",
+      "HoldCo assets: OpCo2 equity ($20mm) + intercompany loan recovery ($16mm) = $36mm",
+      "HoldCo SNs ($100mm claims) recover $36mm = 36%",
+      "Intercompany loan recovery belongs to HoldCo (it was the lender) not to OpCo1 creditors"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-015",
+    "question": "Let's say that Company A owns 80% of Company B and 100% of Company C. Company B has provided a guarantee to Company C (to the benefit of Company C). Company B has $70 in EBITDA, valued at 10x, with $500 in debt. Company C has $50 in EBITDA, valued at 5x, and $300 in debt. Which option would give you a higher return: buying all of Company A's equity for 90 cents per share (100 shares outstanding), or buying Company C's debt (one-year, 10% coupon) for 90 cents on the dollar (you buy $100 of notional)?",
+    "model_answer": "To solve this, you need to compare the returns from two investments. For Company C's debt: Company C's EV is $250 ($50 * 5), which is less than its $300 in debt — so the debt is underwater on a standalone basis. However, Company B has provided a guarantee to Company C. Company B's EV is $700 ($70 * 10) with $500 in debt, leaving $200 in equity, which is healthy. Because of the guarantee, Company C's debt will return par. Buying the debt at 90 cents with a 10% coupon gives $10 in coupon income plus $10 in price appreciation on a $90 investment, yielding a 22.22% return.\n\nFor Company A's equity: You must account for the economic cost of the guarantee. Effectively, Company B is 'topping up' Company C's EV to cover its debt. The real-world cost to Company B is $50 (the shortfall between Company C's $250 EV and its $300 debt). So Company B's effective EV is $650, not $700. Combined EVs: $650 + $300 = $950. Combined debt: $500 + $300 = $800. Combined equity value = $150. But Company A only owns 80% of Company B, so minority interest must be subtracted: 20% of Company B's EV ($650) minus 20% of Company B's debt ($500) = $130 - $100 = $30. Equity attributable to Company A = $150 - $30 = $120. Buying 100 shares at $0.90 each costs $90. Return = $30 / $90 = 33.33%. Therefore, buying Company A's equity provides a higher return (33.33% vs. 22.22%).",
+    "key_points": [
+      "Company C's debt is underwater on a standalone basis (EV $250 < debt $300), but Company B's guarantee makes it whole",
+      "Return on Company C's debt = $10 coupon + $10 price appreciation on $90 cost = 22.22%",
+      "Company B's guarantee has an economic cost: effectively reduces Company B's EV from $700 to $650 and tops up Company C's EV to $300",
+      "Combined EV ($950) minus combined debt ($800) = $150 in equity value",
+      "Minority interest = 20% of Company B's equity value ($650 EV - $500 debt = $150 equity; 20% * $150 = $30)",
+      "Equity attributable to Company A = $150 - $30 = $120; cost = $90; return = 33.33%",
+      "Alternatively: all $150 equity comes from Company B (Company C has no equity value); Company A owns 80% of $150 = $120",
+      "Company A's equity (33.33%) beats Company C's debt (22.22%)"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-016",
+    "question": "Let's say you have EBITDA of $50 and comps trade at 6x. You have secured debt of $200, backed by $150 of collateral, and $200 in unsecured debt. What do you think the recovery of each will roughly be?",
+    "model_answer": "EV = $50 * 6 = $300. The secured debt has a collateral value of only $150, which is less than the $200 claim. This creates a deficiency claim of $50 ($200 - $150) that is treated as a general unsecured claim. The waterfall works as follows: $150 of the secured debt gets full recovery from the collateral. The remaining $150 in EV ($300 - $150) must be split between the deficiency claim ($50) and the original unsecured debt ($200), a total of $250 in unsecured claims. Each receives $150 / $250 = 60 cents on the dollar. The secured creditor's total recovery = $150 (from collateral) + ($50 * 60%) = $150 + $30 = $180, or 90 cents on the dollar ($180 / $200). The unsecured creditors recover 60 cents on the dollar ($120 / $200).",
+    "key_points": [
+      "EV = $300; collateral backing secured debt is only $150, creating a $50 deficiency claim",
+      "Deficiency claim is treated as a general unsecured claim",
+      "After paying $150 to the collateralized portion, $150 in EV remains for $250 in total unsecured claims ($50 deficiency + $200 unsecured)",
+      "Both deficiency and unsecured claims recover $150 / $250 = 60 cents on the dollar",
+      "Secured creditor total recovery: $150 + ($50 * 0.60) = $180 = 90 cents on the dollar",
+      "Unsecured creditor recovery: 60 cents on the dollar"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-recovery-and-waterfall-analysis-017",
+    "question": "Let's say you have a company with $30 of EBITDA and comps trade at 6x. It has $100 of secured debt and $100 of unsecured debt. Suppose the company can handle $100 of debt post-reorg. How do the current debt holders get paid back? What if the company can only handle $75 of debt post-reorg?",
+    "model_answer": "EV = $30 * 6 = $180. Secured debt ($100) is fully covered. Unsecured debt ($100) gets the residual: $180 - $100 = $80, so unsecured holders recover 80 cents on the dollar.\n\nIf the post-reorg debtor has debt capacity of $100: the most likely scenario is that secured creditors receive $100 in new post-reorg debt (or cash from refinancing that debt), while unsecured creditors receive the post-reorg equity worth $180 - $100 = $80.\n\nIf the post-reorg debtor can only handle $75 of debt: the same recovery values apply ($100 for secured, $80 for unsecured), but now the EV is comprised of more equity (less debt). Secured creditors still get $100 (mix of cash and new debt), but the new debt is only $75, so more of the consideration must be cash or the mix shifts. Unsecured creditors still get equity worth $80 but it represents a smaller fraction of the post-reorg capital structure. The point is that recovery value stays the same, but the form of consideration changes depending on the post-reorg debt capacity.",
+    "key_points": [
+      "EV = $30 * 6 = $180; secured ($100) fully covered; unsecured recovers $80 (80 cents on the dollar)",
+      "Recovery value is the same regardless of post-reorg debt capacity; form of consideration changes",
+      "With $100 debt capacity: secured get $100 in new debt (or cash); unsecured get $80 in post-reorg equity",
+      "With $75 debt capacity: secured get $75 in new debt plus $25 in cash; unsecured still get $80 in equity",
+      "Senior tranches typically receive more stable consideration (cash/debt); junior tranches receive equity",
+      "Real-world example: Belk pre-pack — ABL got full recovery (cash or new ABL), 1L got 55% in new FLSO debt, 2L got a mix of new FLSO, second-lien debt, and equity"
+    ],
+    "category": "recovery",
+    "difficulty": 3
+  },
+  {
+    "question": "If we have EBITDA = $40m, EV/EBITDA = 5x, Senior Secured Debt of $150m, Unsecured Debt of $100m then what is the value of equity and debt if a Chapter 11 is imminent? Where would the Unsecured Debt trade?",
+    "model_answer": "EV = 5×40 = $200m. This fully covers the $150m Senior Secured (made whole). Remaining $50m goes to Unsecured Debt, giving 50/100 = 50 cents on the dollar recovery. Unsecured Debt is the impaired class that will vote on the POR and receive reorganized equity. Therefore Unsecured Debt would trade above 50, not at 50, reflecting the value of the reorganized equity they'll receive. Equity value is marginally above zero — there's always some embedded optionality (possible turnaround, out-of-court deal).",
+    "key_points": [
+      "EV = EBITDA × multiple = $200m",
+      "Waterfall: Senior Secured made whole at $150m; $50m left for $100m Unsecured",
+      "Unsecured recovery = 50 cents on dollar, but bonds trade above 50 due to reorganized equity optionality",
+      "Equity has non-zero value pre-filing due to embedded optionality"
+    ],
+    "category": "recovery",
+    "difficulty": 2,
+    "id": "rx-recovery-and-waterfall-analysis-018"
+  },
+  {
+    "question": "Do secured creditors always get treated as secured?",
+    "model_answer": "No. If a secured creditor's claim is larger than the value of their collateral, the amount of the excess is deemed an unsecured claim (technically called a 'general unsecured claim'). So a creditor can be partially secured and partially unsecured depending on the collateral value.",
+    "key_points": [
+      "Secured status only applies up to the value of the collateral",
+      "Excess of claim over collateral value = general unsecured claim",
+      "Critical in recovery/waterfall analysis",
+      "Known as the 'bifurcation' of secured claims"
+    ],
+    "category": "recovery",
+    "difficulty": 2,
+    "id": "rx-recovery-and-waterfall-analysis-019"
+  },
+  {
+    "question": "What's fulcrum security?",
+    "model_answer": "The fulcrum security is the most senior class of debt that is impaired and not paid in full. It is the security that likely receives lots of equity in reorganization. Finding the fulcrum is central to distressed investing — it's typically where the value breaks in the waterfall.",
+    "key_points": [
+      "Most senior class of debt that is impaired (not paid in full)",
+      "Receives reorganized equity — the 'value break' in the capital structure",
+      "Central concept for distressed investors building positions",
+      "Determines who controls the Chapter 11 process"
+    ],
+    "category": "recovery",
+    "difficulty": 2,
+    "id": "rx-recovery-and-waterfall-analysis-021"
+  },
+  {
+    "question": "What is a liquidation valuation?",
+    "model_answer": "In its most simple form, you go through the assets of the company and assign a certain level of expected recovery from them if liquidated. Rough recovery rates: Cash/cash equivalents = 100%; A/R = 80%; Inventory = 40-80% depending on how commoditized (more commoditized = higher); PP&E = land/buildings at market values, equipment close to book unless very bespoke; Intangible assets (brand names, trademarks) = still can have market value — a bad capital structure doesn't mean the brand is worthless.",
+    "key_points": [
+      "Cash: 100% recovery",
+      "A/R: ~80% recovery",
+      "Inventory: 40-80% depending on commoditization",
+      "PP&E: land/buildings at market; equipment at ~book; intangibles vary (brand value survives distress)"
+    ],
+    "category": "recovery",
+    "difficulty": 2,
+    "id": "rx-recovery-and-waterfall-analysis-022"
+  },
+  {
+    "question": "When does absolute priority rule not apply?",
+    "model_answer": "When the plan is accepted by all voting classes by requisite majorities. If a class of claims consents, a class below them can get something even though the consenting class has not been paid in full. Nothing in the statute says distributions in a consensual plan need to comply with absolute priority rule.",
+    "key_points": [
+      "Absolute priority rule applies in contested (non-consensual) plans",
+      "If all voting classes consent, APR can be deviated from",
+      "Consensual plans allow value to flow to junior classes even if seniors not made whole",
+      "This is why negotiation matters — consensual plans offer more flexibility"
+    ],
+    "category": "recovery",
+    "difficulty": 3,
+    "id": "rx-recovery-and-waterfall-analysis-023"
+  },
+  {
+    "question": "If debtor wants to provide some little value to equity holders what does it need to get from all impaired classes?",
+    "model_answer": "Obtain the consent of, or provide full recoveries for, all impaired creditors — otherwise the plan will fail as a violation of the absolute priority rule. In most Chapter 11s, equity theoretically gets nothing. However, sometimes equity holders are thrown a small amount (called a 'tip' or 'tipping') — but this requires all impaired classes to consent.",
+    "key_points": [
+      "Absolute priority rule: senior classes must be paid in full before junior classes receive anything",
+      "Equity can get a 'tip' but only if all impaired classes consent",
+      "Without consent from all impaired classes, giving equity anything violates APR",
+      "APR is one of the most fundamental principles of Chapter 11"
+    ],
+    "category": "recovery",
+    "difficulty": 2,
+    "id": "rx-recovery-and-waterfall-analysis-024"
+  }
+]

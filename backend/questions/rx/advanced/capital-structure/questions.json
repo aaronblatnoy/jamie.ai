@@ -1,0 +1,123 @@
+[
+  {
+    "id": "rx-capital-structure-and-debt-instruments-004",
+    "question": "What about guarantees? I've heard of upstream and downstream ones?",
+    "model_answer": "Guarantees are used to modify the effective position of debt within a HoldCo / OpCo structure. An upstream guarantee means OpCo guarantees HoldCo debt — i.e., the guarantee flows up from OpCo to benefit HoldCo lenders. This gives HoldCo lenders an unsecured claim at the OpCo level, effectively making them part of the OpCo capital structure where the assets actually reside. A downstream guarantee is the inverse: HoldCo guarantees OpCo debt. In a simple HoldCo / OpCo structure, OpCo would have little reason to want a downstream guarantee from HoldCo since HoldCo holds no assets. The key mnemonic: when you hear 'upstream guarantee,' think 'the guarantee is coming from OpCo to the benefit of HoldCo.' Guarantees for interview purposes are generally assumed to give the guaranteed party an unsecured claim at the guarantor level, unless specifically stated to be a senior secured guarantee.",
+    "key_points": [
+      "Upstream guarantee: OpCo guarantees HoldCo debt — gives HoldCo lenders an unsecured claim at OpCo level",
+      "Downstream guarantee: HoldCo guarantees OpCo debt — rarely useful in simple structures since HoldCo has no assets",
+      "Upstream guarantees effectively make HoldCo lenders part of the OpCo capital structure",
+      "For interview purposes, guarantees are assumed to be general unsecured claims at the guarantor entity level unless stated otherwise",
+      "Upstream guarantee mnemonic: 'guarantee coming from OpCo to the benefit of HoldCo'",
+      "Guarantees can be structured in any way parties agree to, including as senior secured — but assume unsecured unless told otherwise"
+    ],
+    "category": "capital-structure",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-capital-structure-and-debt-instruments-005",
+    "question": "Let's say we're looking at some Senior Secured Notes with a coupon of 8.0% and a Term Loan at S + 700bps with a SOFR floor of 100bps. Both have the same maturity and reside pari passu to each other. Further, let's assume that SOFR is 50bps right now. Given all this, if we assume both are trading at the same price which would you prefer to invest in?",
+    "model_answer": "At minimum both instruments earn 8% given the floor on the TL (SOFR floor of 100bps means TL earns S+700 = at least 8% even when SOFR is 50bps). However, the TL offers an effective call option on rising rates: if rates rise above the floor, the TL's interest income rises with SOFR while the SSNs remain fixed at 8%. In a rising-rate environment, TL holders earn more income and the TL price stays relatively stable (floating rate adjusts), while SSN price falls. If you are not holding to maturity, the TL is more insulated from rate moves. Additionally, if SOFR rises above 1%, TL earns over 8% while SSN stays at 8%. So, all else equal, the TL is preferred at the same price because you get a free call option on rising rates with no downside at current SOFR levels. Note: if rates stay low forever, both earn the same; if rates rise, TL outperforms.",
+    "key_points": [
+      "At SOFR = 50bps, TL earns floor rate = S + 700bps = effectively 8% (same as SSN coupon)",
+      "TL provides a free call option on rising rates — if SOFR rises above floor, TL interest increases",
+      "SSN is fixed rate; price falls when rates rise; TL price is more insulated because coupon floats",
+      "Both are pari passu, so credit risk and recovery are equivalent",
+      "Prefer TL: same yield today but upside if rates rise, no additional cost for that optionality",
+      "This logic reversed pre-pandemic when market assumed rates would stay near zero"
+    ],
+    "category": "capital-structure",
+    "difficulty": 2
+  },
+  {
+    "question": "We have a small group of bonds (Unsecured Notes) coming due in a year. They're only $50m and the company has $70m in liquidity. Nothing else matures before these Unsecured Notes. Yet these Unsecured Notes are trading at 60 cents on the dollar. What's going on here?",
+    "model_answer": "The answer lies in 'springers' or 'springing maturities.' A more senior piece of the capital structure (e.g., a Term Loan A) has a springer clause: if the Unsecured Notes still have more than $10m outstanding 6 months before their maturity, then the TLA matures 3 months earlier. If the company can't refinance the Unsecured Notes (due to poor financials), the TLA springs forward, creating a larger maturity crisis the company may not be able to handle. Also, the $70m liquidity may primarily be undrawn ABL with terms precluding full drawdown. The chain: Unsecured Notes can't be refinanced → TLA springs forward → company can't handle the bigger maturity → distress risk is high → Unsecured Notes trade at 60.",
+    "key_points": [
+      "Springer/springing maturity: senior debt matures earlier if junior debt isn't refinanced",
+      "Liquidity ≠ cash — ABL drawdowns may be restricted",
+      "Poor financials prevent refinancing even when liquidity appears adequate",
+      "Company effectively has 6-9 months, not a year, due to springer mechanics"
+    ],
+    "category": "capital-structure",
+    "difficulty": 3,
+    "id": "rx-capital-structure-and-debt-instruments-007"
+  },
+  {
+    "question": "What's grid pricing?",
+    "model_answer": "Revolvers sometimes have grid pricing where the interest rate varies based on how much is drawn. For example, a revolver could have L+250 to L+350 where L+250 is the rate if only X% of the revolver is drawn, but if more than X% is drawn the rate goes up to L+350. This makes sense because a company drawing a large percentage of its revolver signals significant cash needs, which implies higher risk — hence the higher rate.",
+    "key_points": [
+      "Interest rate on revolver increases with utilization",
+      "Lower draw = lower spread; higher draw = higher spread",
+      "Reflects increasing credit risk as company draws more",
+      "Example: L+250 for low utilization, L+350 for high utilization"
+    ],
+    "category": "capital-structure",
+    "difficulty": 2,
+    "id": "rx-capital-structure-and-debt-instruments-011"
+  },
+  {
+    "question": "What's a springer or 'spring forward'?",
+    "model_answer": "A springer (or springing maturity) is a provision in a loan or bond indenture that accelerates the maturity date of one security if another, more junior, security is not refinanced by a certain date. For example: a Term Loan due 2022 has a springing maturity such that if Notes due 2020 are not re-financed significantly (leaving less than $10m left) then the Term Loan maturity springs 90 days before the Notes maturity. The logic is: if the junior Notes haven't been refinanced it's because the company is near-distress, so the senior Term Loan wants to ensure they get refinanced or get first attention before the Notes become due.",
+    "key_points": [
+      "Springer accelerates a senior security's maturity if a junior one isn't refinanced",
+      "Typically springs maturity 90 days before the junior security's due date",
+      "Protects senior lenders from being left behind when company is in distress",
+      "Critical concept — springing maturities appear regularly in RX situations"
+    ],
+    "category": "capital-structure",
+    "difficulty": 2,
+    "id": "rx-capital-structure-and-debt-instruments-012"
+  },
+  {
+    "question": "What makes mezzanine debt unique?",
+    "model_answer": "Mezzanine debt is much smaller in notional value, almost always privately placed, highly illiquid, and bought with the expectation of being held to maturity. It is unsecured and always subordinated in rights of payment to bank loans and other senior debt.",
+    "key_points": [
+      "Small notional value, privately placed, highly illiquid",
+      "Held-to-maturity expectation — not actively traded",
+      "Unsecured and subordinated to all senior debt",
+      "Includes convertibles, preferred stock, PIK-paying instruments"
+    ],
+    "category": "capital-structure",
+    "difficulty": 2,
+    "id": "rx-capital-structure-and-debt-instruments-015"
+  },
+  {
+    "question": "What other kinds of debt are there beyond what you would normally see in a capital structure explicitly?",
+    "model_answer": "There will sometimes be an 'Other' line item above equity that includes things like capital leases, which can be considered forms of debt since they operate more like financing than typical leasing.",
+    "key_points": [
+      "Capital leases: operate like debt financing, sit above equity",
+      "Often shown as 'Other' in the capital structure",
+      "Relevant for GAAP vs. adjusted EBITDA comparisons",
+      "See Accounting & Valuation Q&A for deeper treatment of capital leases"
+    ],
+    "category": "capital-structure",
+    "difficulty": 2,
+    "id": "rx-capital-structure-and-debt-instruments-016"
+  },
+  {
+    "question": "What are borrowing bases?",
+    "model_answer": "An asset backed lending (ABL) facility — essentially a revolver — can be obtained with the amount you can draw from this facility being a set percent of the underlying asset the ABL is collateralized against. The borrowing base is how much can be borrowed against that asset. For example, a typical ABL will have a borrowing base comprised of 50% inventory or 75% eligible receivables. The collateral must always cover the loans more than fully.",
+    "key_points": [
+      "Borrowing base = % of collateral value that can be borrowed",
+      "Typical: 50% of inventory OR 75% of eligible A/R",
+      "Collateral must over-cover the outstanding loan at all times",
+      "Decline in collateral triggers repayment demand or re-sizing of facility"
+    ],
+    "category": "capital-structure",
+    "difficulty": 2,
+    "id": "rx-capital-structure-and-debt-instruments-019"
+  },
+  {
+    "question": "What's one way to add debt when there is insufficient asset coverage?",
+    "model_answer": "Preferred equity. Can be converted at the issuer's option into true debt. Has mandatory redemption features (have to be repaid) and blurs the line with debt. Failure to make a dividend or redemption payment has limited repercussions so some argue it's not true debt (can't have a technical default with preferred). Usually issued when leverage is very high. Could also do convertible bonds.",
+    "key_points": [
+      "Preferred equity: quasi-debt that bypasses asset coverage covenants",
+      "Has mandatory redemption features but no technical default on missed payments",
+      "Convertible bonds are another option",
+      "Both sit above equity but below debt — used when secured basket is full"
+    ],
+    "category": "capital-structure",
+    "difficulty": 3,
+    "id": "rx-capital-structure-and-debt-instruments-020"
+  }
+]

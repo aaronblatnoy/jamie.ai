@@ -1,0 +1,29 @@
+[
+  {
+    "question": "What blocks do bank debt and corporate bonds generally trade?",
+    "model_answer": "Bank debt trades in blocks of $5 million and corporate bonds in blocks of $1 million.",
+    "key_points": [
+      "Bank debt: $5 million minimum block size",
+      "Corporate bonds: $1 million minimum block size",
+      "Illiquidity in distressed market means blocks matter for building positions",
+      "Relevant for distressed investors accumulating blocking positions"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 1,
+    "id": "rx-distressed-investing-and-trading-025"
+  },
+  {
+    "question": "When have there been a lot of defaults?",
+    "model_answer": "Major default cycles have occurred in: 1931-33, 1970, 1990-1991, 2000-2002, and 2007-2009.",
+    "key_points": [
+      "1931-33: Great Depression",
+      "1970: Penn Central railroad era",
+      "1990-91: S&L crisis / recession",
+      "2000-02: dot-com bust / telecom collapse",
+      "2007-09: Global Financial Crisis"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 1,
+    "id": "rx-distressed-investing-and-trading-026"
+  }
+]

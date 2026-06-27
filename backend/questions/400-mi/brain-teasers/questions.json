@@ -1,0 +1,67 @@
+[
+  {
+    "id": "mi-brain-teasers-001",
+    "question": "What is the angle formed by the hands of the clock when it is 1:45?",
+    "model_answer": "142.5 degrees. The first step is to recognize that at 1:45, the minute hand is at the 9 (the 45-minute position) and the hour hand is near the 2. The minute hand at the 45 position and the hour hand at the 1 would be 4 'numbers' apart, and each number on the clock represents 30 degrees (360/12), giving 120 degrees. However, the hour hand has already moved past the 1 toward the 2 by the time 45 minutes have elapsed. Since 45 minutes is 3/4 of an hour, the hour hand moves 3/4 of 30 degrees = 22.5 degrees beyond the 1. Therefore the total angle is 120 + 22.5 = 142.5 degrees. The most common mistake is stopping at 120 degrees without accounting for the hour hand's movement.",
+    "key_points": [
+      "Each number on the clock face represents 30 degrees (360 \u00f7 12 = 30)",
+      "At 1:45, minute hand is at the 9 and hour hand has moved past the 1 toward the 2",
+      "Initial estimate: 4 numbers apart \u00d7 30 degrees = 120 degrees",
+      "Hour hand moves continuously: 45 minutes = 3/4 of an hour, so it has advanced 3/4 \u00d7 30 = 22.5 degrees beyond the 1",
+      "Final answer: 120 + 22.5 = 142.5 degrees",
+      "Common mistake: stopping at 120 degrees without adjusting for hour hand movement",
+      "Interviewer may guide you toward the right direction if you have the basic framework"
+    ],
+    "category": "brain-teasers",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-brain-teasers-002",
+    "question": "You have a hose along with a 3 liter bucket and a 5 liter bucket. How do you get exactly 4 liters of water?",
+    "model_answer": "Step 1: Fill the 3 liter bucket and pour it into the 5 liter bucket. Step 2: Re-fill the 3 liter bucket and pour it into the 5 liter bucket until the 5 liter bucket is full \u2014 this uses 2 liters, leaving 1 liter in the 3 liter bucket. Step 3: Pour out all the water in the 5 liter bucket. Step 4: Pour the remaining 1 liter from the 3 liter bucket into the 5 liter bucket. Step 5: Fill the 3 liter bucket completely and pour it into the 5 liter bucket \u2014 since it already has 1 liter, it now contains exactly 4 liters. The deductive reasoning approach: you can't fit 4 liters in the 3 liter bucket, so the answer must end up in the 5 liter bucket. You can easily get 3 liters, so the 'trick' involves isolating the remaining 1 liter and transferring it to the 5 liter bucket, then adding a full 3 liter bucket to reach 4.",
+    "key_points": [
+      "4 liters must end up in the 5 liter bucket \u2014 it cannot fit in the 3 liter bucket",
+      "Step 1: Fill 3L bucket, pour into 5L bucket (5L has 3L)",
+      "Step 2: Refill 3L bucket, pour into 5L until full \u2014 leaves exactly 1L in the 3L bucket",
+      "Step 3: Empty the 5L bucket completely",
+      "Step 4: Transfer the 1L from the 3L bucket into the 5L bucket",
+      "Step 5: Fill the 3L bucket fully and pour into 5L bucket \u2014 1L + 3L = 4L exactly",
+      "Deductive reasoning: isolating the 1 liter remainder is the key insight",
+      "Use the hose to refill buckets as needed \u2014 the hose provides unlimited water"
+    ],
+    "category": "brain-teasers",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-brain-teasers-003",
+    "question": "A car drives 60 miles at an average speed of 30 miles per hour. How fast should the driver drive to travel the same 60 miles in the same time period, but at an average of 60 miles per hour?",
+    "model_answer": "This is not possible. To travel 60 miles at an average speed of 30 miles per hour, 2 hours are required. To achieve an average of 60 miles per hour over those same 2 hours, you would need to cover 120 miles total \u2014 not 60. So you cannot travel the same 60 miles in the same 2-hour window at an average of 60 mph. The most common mistake is to answer 90 mph or 120 mph. The key insight is to ask clarifying questions: if the interviewer really means 'how do you travel 60 miles in 2 hours at an average speed of 60 miles per hour?', the answer is immediately clear \u2014 it's impossible, because 60 mph \u00d7 2 hours = 120 miles, not 60.",
+    "key_points": [
+      "The task is impossible \u2014 not a trick requiring a clever speed calculation",
+      "Traveling 60 miles at 30 mph takes exactly 2 hours \u2014 the time budget is fixed",
+      "To average 60 mph over 2 hours, you must cover 120 miles total, not 60",
+      "Common wrong answers are 90 mph or 120 mph \u2014 both ignore the fixed distance constraint",
+      "Clarifying questions can reveal the impossibility: 'Do you mean travel 60 miles in 2 hours at 60 mph?' \u2014 immediately shows it can't be done",
+      "Keep your cool and reason through the math rather than guessing a speed"
+    ],
+    "category": "brain-teasers",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-brain-teasers-004",
+    "question": "You have stacks of quarters, dimes, nickels and pennies (these represent $0.25, $0.10, $0.05 and $0.01, respectively, in the US monetary system). There are an unlimited number of coins in each stack. You can take coins from a stack in any amount and in any order and place them in your hand. What is the greatest dollar value in coins you can have in your hands without being able to make change for a dollar?",
+    "model_answer": "The answer is $1.19, achieved by holding 3 quarters + 4 dimes + 4 pennies. Work from largest coin to smallest: (1) Quarters: 4 quarters = $1.00, so that's too many. 3 quarters = $0.75 is fine. (2) Dimes: We need to avoid any combination with our quarters summing to $1.00. With 3 quarters ($0.75), adding 5 dimes ($0.50) would allow someone to make change using just 2 of those dimes + the 3 quarters ($1.00). So use 4 dimes ($0.40) \u2014 no combination of 4 dimes and 3 quarters reaches exactly $1.00. (3) Nickels: Even 1 nickel ($0.05) added to $0.75 + $0.40 = $1.15 creates a path to $1.00 (e.g., 3 quarters + 1 nickel + 4 dimes could be rearranged). More directly, $0.75 + $0.20 + $0.05 = $1.00 exactly, so we can have zero nickels. (4) Pennies: We cannot have 5 pennies ($0.05), because 5 pennies + the existing coins could combine to reach $1.00 the same way a nickel would. Maximum is 4 pennies ($0.04). Total: $0.75 + $0.40 + $0.00 + $0.04 = $1.19. The most common mistake is forgetting that combinations across coin types can also make change \u2014 e.g., 2 quarters + 5 dimes = $1.00.",
+    "key_points": [
+      "Answer is $1.19 = 3 quarters + 4 dimes + 0 nickels + 4 pennies",
+      "Start with the largest coin (quarters): 3 is the max since 4 quarters = $1.00",
+      "For dimes: 4 is the max \u2014 5 dimes + 2 quarters would equal $1.00",
+      "For nickels: 0 nickels allowed \u2014 even 1 nickel combined with 3 quarters + 2 dimes = $1.00",
+      "For pennies: 4 is the max \u2014 5 pennies could substitute for a nickel and reach $1.00",
+      "Key insight: 'making change' includes any combination of coins held, not just within one denomination",
+      "Common mistake: only considering single-denomination combinations (e.g., 4 quarters) and missing cross-denomination combinations (e.g., 2 quarters + 5 dimes = $1.00)",
+      "Asking clarifying questions (e.g., does 2 quarters + 5 dimes count as $1.00?) helps avoid this error"
+    ],
+    "category": "brain-teasers",
+    "difficulty": 3
+  }
+]

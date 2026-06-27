@@ -1,0 +1,175 @@
+[
+  {
+    "id": "rx-accounting-and-financial-statements-001",
+    "question": "Let's imagine that a company has a balance sheet consisting of $50 of inventory and $50 of equity. It then sells $50 of inventory for $100 with 50% of sales being cash and 50% being on credit. Can you walk me through the three statements?",
+    "model_answer": "Income Statement: Revenue = $100, COGS = $50, EBT = $50, Tax (20%) = $10, Net Income = $40. Cash Flow Statement: Start with NI of $40. Inventory decreased by $50 (source of cash = +$50); Accounts Receivable increased by $50 (use of cash = -$50). These offset, so CFO = $40. No investing or financing activity. Net change in cash = $40. Balance Sheet: Assets: Cash up $40 (now $40), Inventory down $50 (now $0), Accounts Receivable up $50 (now $50). Total assets = $90. Liabilities and Equity: Retained Earnings up $40 (net income flows through), so total equity = $90. Balance sheet balances at $90.",
+    "key_points": [
+      "Revenue = $100, COGS = $50, Net Income = $40 (assuming 20% tax rate)",
+      "50% cash sale adds $50 to cash; 50% credit creates $50 accounts receivable",
+      "On CFS: inventory decline ($50 source) and A/R increase ($50 use) offset each other; CFO = NI = $40",
+      "Balance sheet: Cash $40, Inventory $0, A/R $50 = Total Assets $90",
+      "Equity: Original $50 + Retained Earnings $40 = $90; BS balances",
+      "Key linkage: NI flows to retained earnings; working capital changes flow through CFS"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-002",
+    "question": "Tell me briefly about the three financial statements? How do they (very briefly) link?",
+    "model_answer": "The three financial statements are the income statement (IS), balance sheet (BS), and cash flow statement (CFS). The IS reflects revenue, COGS, SG&A, and other tax-effecting items for a current period of time. The BS is made up of assets, liabilities, and equity. The CFS begins with net income flowing from the bottom of the IS, then adjusts for non-cash expenses in the cash flow from operations section, followed by cash flow from investing and financing sections. End cash flows to the top of the BS. Additional connections include: debt issuances/paydowns reflected on both CFS and BS, and net income flowing from IS to retained earnings on the BS.",
+    "key_points": [
+      "Three statements: Income Statement (IS), Balance Sheet (BS), Cash Flow Statement (CFS)",
+      "IS covers a current period — revenue, COGS, SG&A, and tax-effecting items",
+      "BS is a snapshot of assets, liabilities, and equity",
+      "CFS starts with net income from IS, adds back non-cash items in CFO",
+      "CFS has three sections: operating (CFO), investing (CFI), financing (CFF)",
+      "Ending cash on CFS flows to the top of the BS",
+      "Net income also flows from IS to retained earnings in BS equity section",
+      "Debt issuances/paydowns appear in CFF and also on BS"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-003",
+    "question": "In distressed situations, which of the three statements do we care about most?",
+    "model_answer": "As a general rule you always care most about the CFS, but for distressed companies this is even more true. Ultimately liquidity determines what a company can and cannot do to restructure, and a key component of liquidity is cash. In Chapter 11 you have to do monthly operating reports showing cash-in and cash-out, which underscores how cash is king. Note: you can recreate a CFS from the IS and BS (as long as you have them for two periods), so be careful how you word your answer.",
+    "key_points": [
+      "CFS is always most important but especially so for distressed companies",
+      "Liquidity is the central concern in restructuring — determines available options",
+      "Cash is the key component of liquidity",
+      "In Chapter 11, monthly operating reports show cash-in and cash-out",
+      "CFS can be recreated from IS and BS across two periods",
+      "Liquidity table is done alongside every cap table in RX work"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-004",
+    "question": "When should something appear on the income statement?",
+    "model_answer": "The IS represents a current period and near the end of it we have taxes. What goes into the IS must affect taxes — otherwise pre-tax income would be distorted by applying the effective tax rate to that line item. You can only include items on the IS that affect taxes or fall within the current period. Think of it like a blender: you can only put things in that the blades will actually be able to tear up.",
+    "key_points": [
+      "IS represents a specific current period (quarter or year)",
+      "Items must affect taxes to appear on the IS",
+      "Items outside the current period do not belong on the IS",
+      "Including non-tax-affecting items would distort pre-tax income when the tax rate is applied",
+      "Key threshold: does this item affect taxes and does it belong to this period?"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-005",
+    "question": "If we have $10 in depreciation (a non-cash expense) then how do we treat it on the three statements? Assume a tax rate of 40% throughout.",
+    "model_answer": "Depreciation applies to the IS because it affects taxes and applies to the current period. With $10 in depreciation expense, net income falls by $6 (after 40% tax). However, no cash is actually paid, so in CFO we add back the $10, leaving the cash balance up by $4. On the BS: cash (asset) is up $4, the depreciated asset is down $10, and SE (via net income) is down $6. The $4 cash increase makes sense because without the depreciation we would have paid $4 more in taxes.",
+    "key_points": [
+      "Depreciation hits IS as a non-cash expense: pre-tax income down $10, net income down $6 (at 40% tax)",
+      "No cash is paid, so add back $10 in CFO — net cash effect is +$4",
+      "BS: cash up $4 (asset), the depreciated asset down $10, SE down $6 via retained earnings",
+      "The $4 cash increase represents the tax shield — without depreciation you would have paid $4 more in taxes",
+      "This is a quintessential banking interview question — must know cold"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-006",
+    "question": "If you hold under 20% of a company, then do you report net income?",
+    "model_answer": "No. Holding under 20% is treated as a security. You only reflect dividend income or the sale of shares. Sometimes you'll see this if HoldCo used to hold more than 20% and previously reflected net income from the SubCo, but now owns under 20% of it.",
+    "key_points": [
+      "Under 20% ownership is treated as a security — no equity method income recognition",
+      "Only recognize dividend income or gains from sale of shares",
+      "Contrast with 20-50% (equity method) and 50%+ (consolidation with NCI)",
+      "Can occur when a HoldCo that previously owned >20% has diluted down below 20%"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-007",
+    "question": "Can we have a distressed company with a negative SE?",
+    "model_answer": "Yes. If a company is struggling, it could easily have declining retained earnings to the point where SE turns negative. Additionally, if the company has bought back a lot of stock, there could be a large negative treasury stock balance. Sometimes companies with quite a bit of cash buy back lots of stock and suddenly find themselves in distress as the business can't be turned around, leaving them with significant negative treasury stock.",
+    "key_points": [
+      "Yes — negative SE is possible and common for distressed companies",
+      "Declining retained earnings from cumulative losses can drive SE negative",
+      "Large treasury stock (from share buybacks) can also create negative SE",
+      "Companies can enter distress after aggressive buyback programs deplete cash",
+      "Negative SE does not mean the company is insolvent on a cash basis necessarily"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-008",
+    "question": "What do you normally add back to EBITDA for distressed companies to get an Adjusted EBITDA?",
+    "model_answer": "For distressed companies, typical addbacks to EBITDA to arrive at Adjusted EBITDA include: bad debt expenses, asset write-downs, goodwill impairments, legal fees, and restructuring fees.",
+    "key_points": [
+      "Bad debt expenses",
+      "Asset write-downs",
+      "Goodwill impairments",
+      "Legal fees (often elevated in distress)",
+      "Restructuring fees",
+      "All are non-recurring or non-cash charges that don't reflect ongoing operating performance"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-009",
+    "question": "Generally speaking, in the CFO when you have an increase in assets or liabilities is that a gain in cash or loss?",
+    "model_answer": "Assets are losses in cash and liabilities are generally gains in cash. Think about an asset as something you're paying cash for now that you hope generates you more cash over the useful life of the asset purchased.",
+    "key_points": [
+      "Increase in assets = use of cash (loss in CFO)",
+      "Increase in liabilities = source of cash (gain in CFO)",
+      "Decrease in assets = source of cash (gain in CFO)",
+      "Decrease in liabilities = use of cash (loss in CFO)",
+      "Assets represent future economic benefits you're paying for today"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-010",
+    "question": "When inventory is purchased for $100, what happens to the three statements?",
+    "model_answer": "Nothing happens to the income statement because the inventory hasn't been sold — it's just been purchased. CFO is down $10 (actually $100 in the example) because you've used cash to buy the inventory. On the BS: cash is down $100, inventory (an asset) is up $100, and nothing else occurs. Because asset line items go up by $100 and down by $100 (cash to inventory), the balance sheet stays in balance. Note: when inventory is sold it turns into revenue and of course hits the IS.",
+    "key_points": [
+      "IS: no impact — inventory purchase does not hit IS until inventory is sold",
+      "CFS: cash down $100 in CFO (cash paid for inventory)",
+      "BS: cash down $100, inventory up $100 — net zero change to total assets, BS stays balanced",
+      "When inventory is eventually sold, it becomes COGS and hits the IS as revenue minus cost",
+      "Common trick question — inventory purchase does NOT affect the IS"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-011",
+    "question": "So, we have debt write downs. What about just paying the debt of say $100 (not interest, but principal)?",
+    "model_answer": "Nothing happens to the IS as we aren't affecting taxes directly by paying down debt. On the CFS, under cash flow from financing (CFF), we decrease it by $100 to reflect paying down the debt. This reduces cash, all things considered, by $100. On the BS we have cash down $100 (asset) and debt down $100.",
+    "key_points": [
+      "IS: no impact — principal repayment is not tax deductible and not a current-period expense",
+      "CFF: down $100 (cash outflow for debt principal repayment)",
+      "Total CFS: cash down $100",
+      "BS: cash down $100; debt/liabilities down $100",
+      "Principal repayment is purely a balance sheet event — assets and liabilities both decline by equal amounts"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-012",
+    "question": "Let's say we are selling a widget for $100, and the cost is $50. What happens when a sale occurs (in cash)?",
+    "model_answer": "On the IS you have $100 in revenue, COGS of $50, and therefore pre-tax profit of $50 (controlling for everything else). Then you have $30 in net income (at 40% tax). On the CFS you have $30 in cash from net income, inventory has decreased by $50 (which is a cash addition — assets down, cash up), so you have $80 in cash for the CFS. On the BS: cash is up $80, inventory is down $50, so total assets are up $30. On the SE side you have $30 reflecting retained earnings increase from net income.",
+    "key_points": [
+      "IS: revenue $100, COGS $50, pre-tax profit $50, net income $30 (at 40% tax)",
+      "CFS: net income +$30, inventory decrease +$50 (asset down = cash up) = total cash up $80",
+      "BS: cash up $80, inventory down $50, net assets up $30; SE up $30 via retained earnings",
+      "Inventory decrease is a source of cash in CFO — it converts to COGS when sold",
+      "Balance sheet balances: assets net +$30, SE +$30"
+    ],
+    "category": "accounting",
+    "difficulty": 1
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "rx-recovery-and-waterfall-analysis-001",
+    "question": "Is equity value relevant to distressed companies?",
+    "model_answer": "Yes. Shareholders are part of the capital structure — they just generally come into a restructuring event with very low value and almost never get anything out of a Chapter 11 process. Equity value is also important insofar as it informs enterprise value, which is something we care about as it represents the value of the company in aggregate. Note: you may always want to caveat Chapter 11 discussions regarding equity by saying that you will sometimes give a 'tip' to equity holders (normally just a few percent of reorganized equity).",
+    "key_points": [
+      "Equity is still part of the capital structure even in distress — just at the very bottom",
+      "Equity holders almost never receive meaningful recovery in Chapter 11",
+      "Equity value is important for calculating enterprise value (EV = equity + debt - cash + other items)",
+      "EV matters in RX as it represents aggregate company value used in waterfall analysis",
+      "In Chapter 11, equity may receive a nominal 'tip' — a few percent of reorganized equity",
+      "Absolute priority rule generally means equity gets zero unless all creditors paid in full"
+    ],
+    "category": "recovery",
+    "difficulty": 1
+  },
+  {
+    "question": "So, if unsecured debt is unsecured by collateral, is there a recovery in the event of default?",
+    "model_answer": "Yes, of course. If the company's liquidation value is $400m, it has secured debt of $300m, and unsecured debt of $200m, then there will be a 50% recovery by unsecured debt ($400m - $300m = $100m remaining for $200m of unsecured debt).",
+    "key_points": [
+      "Unsecured creditors still recover from remaining asset value after secured claims",
+      "Recovery = (Liquidation Value - Secured Debt) / Unsecured Debt",
+      "Example: $400m value, $300m secured → $100m for $200m unsecured = 50% recovery",
+      "No collateral doesn't mean no recovery — just lower priority"
+    ],
+    "category": "recovery",
+    "difficulty": 1,
+    "id": "rx-recovery-and-waterfall-analysis-020"
+  },
+  {
+    "question": "What's asset coverage?",
+    "model_answer": "Asset coverage = assets / debt. Typically shown through the capital structure to illustrate how assets cover each level of debt — how the assets cover the 1L term loan, the 1L term loan plus the rest of secured creditors, etc.",
+    "key_points": [
+      "Asset coverage = total assets / total debt at a given level",
+      "Shown through the capital structure waterfall",
+      "Tested at each level: 1L, then 1L + 2L, then all secured, then total debt",
+      "Key metric for assessing secured creditor protection"
+    ],
+    "category": "recovery",
+    "difficulty": 1,
+    "id": "rx-recovery-and-waterfall-analysis-025"
+  }
+]

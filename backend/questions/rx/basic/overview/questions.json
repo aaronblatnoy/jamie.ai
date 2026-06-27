@@ -1,0 +1,251 @@
+[
+  {
+    "id": "rx-rx-overview-and-advisory-001",
+    "question": "Why choose RX over other areas of investment banking?",
+    "model_answer": "Restructuring operates at the intersection of finance, law, and psychology — a combination almost unique in banking. Unlike M&A where valuation is relatively formulaic (comps, precedents, DCF yielding a ballpark EV) and deal structures are broadly similar, restructuring solutions are highly diverse: two experienced bankers looking at the same distressed company can propose fundamentally different solutions (extend maturities, do a debt-for-equity exchange, pursue a pre-pack Chapter 11). These solutions reorganize the balance sheet in fundamentally different ways and vary enormously in complexity, feasibility, and comprehensiveness. No one knows in retrospect which solution was truly 'right,' making the work genuinely creative. Additionally, restructuring is a small world — a handful of shops compete for most mandates — so junior analysts and associates have outsized impact on pitches and deals. Companies rarely have a preconceived preference for one shop, and the best pitch with the best solution often wins, making it unusually meritocratic for banking. The psychological dimension — cajoling and navigating the politics of bringing a deal together between debtor and creditors — is something often underappreciated by those coming from academia.",
+    "key_points": [
+      "Restructuring sits at the intersection of finance, law, and psychology — unlike most other banking roles",
+      "Solutions are highly diverse and creative; two smart bankers can reach fundamentally different conclusions on the right restructuring path",
+      "More meritocratic than M&A: companies usually have no prior relationship with the RX shop, so the best pitch can win",
+      "Junior bankers have real impact — the work they do on screens, profiles, and pitches can genuinely move the needle on getting mandates",
+      "The psychological dimension of negotiating between debtor and creditors is unique to restructuring",
+      "Compensation is generally higher and the work environment involves very impressive colleagues"
+    ],
+    "category": "overview",
+    "difficulty": 1
+  },
+  {
+    "question": "What do we do here in RX?",
+    "model_answer": "Restructuring comes down to helping a company right-size (or restructure) their capital structure to ensure they can succeed well into the future. The role of a RX banker is to understand the capital structure of a company, who holds their debt, and then come up with creative solutions that can ensure the company's long-term sustainability in the easiest, cheapest way possible. On the debtor side the objective is long-term viability; on the creditor side the objective is to maximize returns for the creditor.",
+    "key_points": [
+      "RX helps companies right-size their capital structure",
+      "Debtor mandate: ensure company's long-term sustainability",
+      "Creditor mandate: maximize returns for creditors",
+      "Solutions range from simple note exchanges to full Chapter 11 processes"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-004"
+  },
+  {
+    "question": "What do you think an analyst does within RX? What's the work entail?",
+    "model_answer": "An analyst's job is first and foremost to support those around them in whatever way possible. In a more structured sense, an analyst will be expected to run industry screens, create profiles, and be involved in pitches and live deals. Day-to-day work includes creating cap tables, pro forma cap tables, and ensuring proper formatting in all materials. Pitches and live deals always have an analyst along with an associate, VP, and MD.",
+    "key_points": [
+      "Support MDs and seniors with ad-hoc requests",
+      "Run industry screens and create company profiles",
+      "Involved in pitches and live deals",
+      "Day-to-day: cap tables, pro forma cap tables, formatting"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-005"
+  },
+  {
+    "question": "What do you think an associate does within RX? What's the work entail?",
+    "model_answer": "An associate's role in RX is to both oversee analysts when put on a deal team for a pitch or live deal, and also be involved in day-to-day cap table building, scenario analysis, etc. On a pitch or live deal, the associate communicates directly with the VP or MD and relays that back down to the analyst. Associates spend significant time doing profiles, building pitch decks, etc. while also properly delineating roles to analysts.",
+    "key_points": [
+      "Oversees analysts on deal teams",
+      "Communicates between VP/MD and analysts",
+      "Involved in cap table building and scenario analysis",
+      "Builds profiles and pitch decks"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-006"
+  },
+  {
+    "question": "Why don't you work in RX at a BB of some kind? Why come to this smaller investment bank?",
+    "model_answer": "Large, full-service banks (including BBs) do not have traditional restructuring practices primarily because on so many mandates they would be conflicted. It's generally not great for a bank to have done DCM or ECM activities for a company and now turn around and pitch the company on restructuring, having played a role in the company getting into its currently inferior capital structure.",
+    "key_points": [
+      "BBs are often conflicted on restructuring mandates",
+      "Conflict arises from prior DCM/ECM work for the same company",
+      "Boutique RX shops avoid these conflicts",
+      "Key RX boutiques: PJT, Evercore, Lazard, Houlihan Lokey"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-007"
+  },
+  {
+    "question": "Why do you want to come to this investment bank in particular?",
+    "model_answer": "Answer varies by firm. Mention a few deals of interest and normal considerations around culture. The question is more of a diplomatic test than anything else — the interviewer wants to see that you can be diplomatic and not say anything overly controversial.",
+    "key_points": [
+      "Mention specific deals the firm has worked on",
+      "Reference firm culture and reputation",
+      "Show awareness of the firm's specialty (debtor vs. creditor mandates)",
+      "Be diplomatic — it's more a test of poise than substance"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-008"
+  },
+  {
+    "question": "What are the two sides of a restructuring? Who do we advise?",
+    "model_answer": "There's the debtor side (the company itself) and the creditor side (bond holders or loan holders). Debtor mandates involve dealing with one party — the company. Creditor mandates usually involve dealing with a large number of bond or loan holders within a certain class who band together. For example, unsecured bondholders who will have to vote on a Plan of Reorganization gather together (usually enough for a blocking position of 33.4%) and hire a RX shop to advise on what to demand and accept.",
+    "key_points": [
+      "Debtor side = the company in distress",
+      "Creditor side = bond/loan holders within a class",
+      "Blocking position = 33.4% of a class",
+      "HL known for creditor mandates; PJT, Evercore, Lazard for debtor mandates"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-009"
+  },
+  {
+    "question": "What kinds of deals do we do in RX?",
+    "model_answer": "RX deals fall into two broad categories: out-of-court restructurings and Chapter 11s. Out-of-court deals include extensions of maturities (amend and extend), exchanging of securities, and wholesale reconfigurations of the capital structure. Within Chapter 11s you can have pre-packs (quick in-and-out), long Chapter 11s, and 363 asset sales. Every company has a different capital structure with different stress points, making nearly every restructuring solution unique.",
+    "key_points": [
+      "Two broad categories: out-of-court and Chapter 11",
+      "Out-of-court: amend-and-extend, exchange offers, full recapitalizations",
+      "Chapter 11: pre-packs, long-form Chapter 11s, 363 asset sales",
+      "Out-of-court is always preferred when possible"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-010"
+  },
+  {
+    "question": "How do deals come into the firm?",
+    "model_answer": "For debtor mandates there are two main ways: (1) The MD knows a partner at a PE firm sponsor and the partner reaches out about a portfolio company needing a restructured capital structure; (2) The MD gets industry screens, has profiles built, and puts out a feeler to see if the company is looking for options. MDs can also get referrals from lawyers dealing with distressed companies. On the creditor side, distressed funds with preferred RX shops will often give mandates to those shops, sometimes because of alumni relationships.",
+    "key_points": [
+      "Debtor: sponsor relationships or cold outreach via industry screens",
+      "RX MDs don't traditionally have CEO relationships the way M&A bankers do",
+      "Creditor: distressed funds lead committees and hire preferred RX advisors",
+      "Lawyer referrals are another common source of mandates"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-011"
+  },
+  {
+    "question": "Is there a deal that interests you that we've worked on?",
+    "model_answer": "Have a deal prepared to discuss in 3-5 minutes. Out-of-court deals are recommended because limited public information is expected and you won't be caught flat-footed. For in-court deals, use the Disclosure Statement which provides a summary of who the company is, how they got into trouble, pre-reorg capital structure, what each class received, and the post-reorg capital structure. Walk through: who the company is, how they got into trouble, what the pre-reorg cap structure looked like, how creditors were treated, and post-reorg structure.",
+    "key_points": [
+      "Prepare a 3-5 minute deal walk-through",
+      "Out-of-court deals are safer to discuss due to limited public info",
+      "For in-court deals, use the Disclosure Statement as your guide",
+      "Cover: company background, path to distress, cap structure, creditor treatment, post-reorg structure"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-012"
+  },
+  {
+    "question": "Why RX? Why not M&A?",
+    "model_answer": "RX combines finance, law, and a bit of psychology in a way that is entirely differentiated from M&A. There's more novelty in RX — deals look unique relative to M&A because every company gets into trouble for slightly different reasons due to their different capital structures, industries, and past decisions. RX also touches nearly every industry and you're almost always busy. A downside is that you can't easily leave to do corporate development, so choosing RX should reflect a serious career commitment.",
+    "key_points": [
+      "RX combines finance, law, and psychology",
+      "More novel deals than M&A — each restructuring is unique",
+      "Cross-industry exposure and counter-cyclical deal flow",
+      "Exit ops are more limited than M&A — show you understand this tradeoff"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-013"
+  },
+  {
+    "question": "Who are the kinds of clients we deal with?",
+    "model_answer": "On the debtor side: companies in distress (private or public) and companies in distress owned by sponsors (PE funds). On the creditor side: RX shops represent bondholder committees — groups of bondholders within a certain class who have enough voting weight to need to be dealt with by the company. Creditor mandates can sometimes include only one creditor if they hold a large enough notional value of bonds/loans in what will likely be an impaired class.",
+    "key_points": [
+      "Debtor clients: distressed companies (public/private) and PE-owned distressed companies",
+      "Creditor clients: bondholder committees with blocking positions",
+      "Creditor mandates can be single large creditor or group of creditors",
+      "PE-owned companies are more similar to M&A in terms of relationship dynamics"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-014"
+  },
+  {
+    "question": "How do our clients end up choosing us over some other firm?",
+    "model_answer": "In RX it's more complicated than M&A. For private/public distressed companies, you'll often be picked because of a superior pitch, superior transaction experience, or some combination. The company's law firm recommending the MD is also common. For distressed companies owned by sponsors, it's more like M&A where a PE partner's working relationship with an MD can move the needle. On the creditor advisory side, 'fast money' distressed hedge funds may pick you because they've worked with you before or have alumni at the firm.",
+    "key_points": [
+      "Pitch quality and transaction experience are key for distressed companies",
+      "Law firm recommendations matter",
+      "Sponsor relationships more like M&A (relationship-driven)",
+      "Distressed fund relationships via prior work or alumni connections"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-015"
+  },
+  {
+    "question": "When do we normally start talking with potential clients?",
+    "model_answer": "Normally you begin talking to potential clients far before they're actually needing to make a choice about restructuring. You'll have prepared a profile and know their capital structure and when they're likely to get into trouble. Ideally you pitch clients well before they reach the breaking point (where a creditor could push them into involuntarily filing Chapter 11) because this way you can try to work out an out-of-court restructuring. You're normally talking to them when the writing is on the wall and they need to start thinking strategically about alternative paths.",
+    "key_points": [
+      "Engage well before a crisis — when writing is on the wall",
+      "Earlier engagement allows for out-of-court options",
+      "Avoid getting called only when the company is on fire",
+      "Pre-engagement allows for pre-pack or out-of-court planning"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-016"
+  },
+  {
+    "question": "If you're looking for news and intelligence on distressed companies, where do you turn?",
+    "model_answer": "Debtwire, Reorg, and The Deal primarily. You may also look at credit rating agency reports — S&P Global Intelligence is particularly good.",
+    "key_points": [
+      "Debtwire — primary source for distressed news",
+      "Reorg — key platform for restructuring intelligence",
+      "The Deal — additional source",
+      "S&P Global Intelligence for credit rating agency reports"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-017"
+  },
+  {
+    "question": "Can you tell me some of the kinds of projects you'll be working on as an analyst or associate?",
+    "model_answer": "For the first few months you'll be doing: refreshing screens (updating loan/bond prices, LTM EBITDA, credit ratings); creating new screens; creating profiles (internal use, company overviews); and joining ongoing pitches. Down the road you'll be more involved in live deals. Profiles are always being created and are good junior tasks since mistakes aren't catastrophic as they are for internal use only.",
+    "key_points": [
+      "Refreshing screens: update bond/loan prices, LTM EBITDA, credit ratings",
+      "Creating new industry screens",
+      "Creating company profiles for internal use",
+      "Joining ongoing pitches and eventually live deals"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-020"
+  },
+  {
+    "question": "Can you tell me some of the tools you'll be utilizing on the job?",
+    "model_answer": "The key tools used in RX include: ReOrg, Debtwire, PACER/dockets (e.g., Kroll, Epiq), MarkIt, Bloomberg, CapIQ, FactSet, The Deal, Trace, and BamSEC.",
+    "key_points": [
+      "ReOrg and Debtwire for distressed news and intelligence",
+      "PACER/Kroll/Epiq for court dockets",
+      "MarkIt for bond/loan pricing",
+      "Bloomberg, CapIQ, FactSet for financials; Trace and BamSEC for bond trading data"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-021"
+  },
+  {
+    "question": "What is a restructuring ultimately trying to accomplish?",
+    "model_answer": "Whatever its formulation, a restructuring is ultimately about right-sizing a company and ensuring that it has the capacity to not need to restructure for some years.",
+    "key_points": [
+      "Right-size the capital structure to match the company's cash flow capacity",
+      "Ensure the company can service its debt going forward without further restructuring",
+      "Both debt reduction and operational improvement may be needed",
+      "Feasibility test in Chapter 11 codifies this: post-reorg company must not need to restructure again soon"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-023"
+  },
+  {
+    "question": "What's pro forma?",
+    "model_answer": "Latin for 'as a matter of form.' Refers to financial statements that have been adjusted for certain assumptions such as a merger or new debt offering. In RX, 'pro forma cap tables' refer to the cap tables that illustrate what the cap table will look like after a restructuring.",
+    "key_points": [
+      "Pro forma = adjusted for a hypothetical transaction or event",
+      "In RX: pro forma cap table shows post-restructuring capital structure",
+      "Adjusts for assumed debt reduction, equity issuance, or other changes",
+      "Key deliverable in every restructuring pitch — shows 'before and after'"
+    ],
+    "category": "overview",
+    "difficulty": 1,
+    "id": "rx-rx-overview-and-advisory-024"
+  }
+]

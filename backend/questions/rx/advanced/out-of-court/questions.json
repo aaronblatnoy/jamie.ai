@@ -1,0 +1,430 @@
+[
+  {
+    "id": "rx-out-of-court-restructuring-002",
+    "question": "Imagine that a company has $625mm of Senior Notes outstanding. It then proposes a transaction whereby holders can swap their Senior Notes into 2L Notes at a 50% exchange rate and into equity at a 50% exchange rate (there are currently 100mm shares outstanding and the share price is $5). Assuming that the participation rate is 80%, what would the post-transaction equity splits be?",
+    "model_answer": "With 80% participation, $625mm * 80% = $500mm of Senior Notes are exchanged. Since 50% of exchange consideration is equity, exchanging noteholders receive equity equivalent to $500mm * 50% = $250mm in value. At the current share price of $5, new shares issued = $250mm / $5 = 50mm shares. Total shares post-transaction = 100mm (pre-existing) + 50mm (new) = 150mm. Equity splits: Exchanging noteholders = 50mm / 150mm = 33.33%; Pre-existing shareholders = 100mm / 150mm = 66.67%. The transaction is significantly delevering: $250mm in SN face value is converted to new 2L Notes and $250mm is equitized. EV composition changes but EV itself does not change on day of transaction; the equity value rises by $250mm to offset the debt reduction.",
+    "key_points": [
+      "Participating SN face value = $625mm * 80% = $500mm",
+      "Equity consideration = $500mm * 50% = $250mm",
+      "Shares issued at $5/share = $250mm / $5 = 50mm new shares",
+      "Total shares post-transaction = 100mm + 50mm = 150mm",
+      "Exchanging noteholders own 33.3%; pre-existing shareholders own 66.7%",
+      "Also receive 2L Notes at 50% of $500mm = $250mm face value (the other half of consideration)",
+      "EV is unchanged day-of; composition shifts: less debt, more equity"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-003",
+    "question": "There's a lot of talk these days about Liability Management Exercises (LMEs). So, what's this talk all about? What are these?",
+    "model_answer": "LME (Liability Management Exercise) is an acronym coined by lawyers that has no single universal definition. In narrower, more accurate usage, LME refers to the more creative and aggressive types of out-of-court transactions: drop-downs (collateral transfers to unrestricted subs), non-pro rata uptiers (like Serta), and double-dips (like Trinseo). These involve using flexibility in debt documentation to allow a stressed company to obtain liquidity, capture discount, and/or extend maturities in ways that benefit participating creditors at the expense of non-participants. In broader (and murkier) usage, some apply LME to any transaction that allows a distressed company to obtain liquidity or extend maturities — including vanilla amend-and-extends — which makes the term nearly meaningless. In interviews, assume the narrower definition: LMEs = drop-downs, non-pro rata uptiers, double-dips, and similar aggressive transactions. All require careful analysis of debt docs as interpretations vary and litigation from harmed parties should be expected.",
+    "key_points": [
+      "LME = Liability Management Exercise — catchall term for aggressive out-of-court transactions",
+      "Narrow (correct) definition: drop-downs, non-pro rata uptiers (Serta-style), double-dips (Trinseo-style)",
+      "Broad (incorrect) definition: any transaction giving a distressed company liquidity or maturity extension",
+      "All LMEs rely on debt document flexibility and typically result in litigation from harmed creditors",
+      "Examples: At Home, Trinseo, Frontier, Envision, Incora all did LMEs in 2022-2023",
+      "In an interview context, use the narrower definition"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-004",
+    "question": "What's a J. Crew blocker and has it become common?",
+    "model_answer": "A J. Crew blocker is a provision in a credit agreement or indenture designed to prevent a company from transferring material intellectual property to an unrestricted subsidiary (the mechanism J. Crew used to enable a drop-down transaction). In a classic J. Crew drop-down, a company creates an unrestricted sub, transfers IP there using investment capacity baskets, then incurs structurally senior debt at that unsub secured by the IP. The classic J. Crew blocker typically says: 'The Company shall not permit any of its Restricted Subsidiaries to sell, convey, transfer, or otherwise dispose of or license its Material Intellectual Property to any Unrestricted Subsidiary.' This prevents the specific type of drop-down that was most devastating to holders (brand/IP is the crown jewel for retailers). J. Crew blockers have become more common — now appearing in ~30-50% of new loans depending on year — but there's selection bias: healthiest companies (least likely to do drop-downs) are most likely to include them. PortCo credit agreements have more resistance to including them. Also note: 'Envision blockers' take a different approach — they cap the dollar amount (not type) of assets that can be transferred to unsubs.",
+    "key_points": [
+      "J. Crew blocker prevents transfer of material IP to unrestricted subsidiaries",
+      "Addresses the mechanism used in J. Crew drop-down: IP transferred to unsub, unsub incurs senior debt",
+      "Classic language: no transfer/license of material IP to any unrestricted subsidiary",
+      "Does NOT prevent all drop-downs — only blocks IP-specific transfers; other assets can still be transferred",
+      "Has become more common — ~30-50% of new loans include some form of blocker",
+      "Envision blockers: alternative formulation that caps total dollar amount of assets transferred to unsubs",
+      "Selection bias: healthiest companies (least drop-down risk) most likely to include blockers"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-005",
+    "question": "How could a non-pro rata uptier be prevented? Have credit agreements widely adopted so-called Serta protection / Serta blockers?",
+    "model_answer": "The Serta loophole can be closed by requiring that for any lender's lien priority or payment priority to be subordinated, each adversely affected lender must individually consent — effectively giving every lender a veto over transactions that prime them. This is sometimes watered down to require only that the transaction be open to all lenders to participate (even if not all do), with a simple majority threshold — meaning a super-priority uptier can occur but everyone must have the right to participate. Serta protection has become much more common since 2020: from under 10% of new loans pre-2020 to over 50% YTD as of late 2023. However, there's nuance: in PortCo credit agreements there is much more resistance to including Serta protection since sponsors value the optionality to threaten or execute non-pro rata uptiers as leverage in A&E negotiations. Non-sponsor-backed companies generally include Serta protections more readily since they don't see much use in the optionality. Adding Serta protection is also a non-monetary form of consideration offered in amend-and-extend transactions (A&E). About 19% of A&E docs had Serta protection pre-transaction vs. 49% post-transaction.",
+    "key_points": [
+      "Serta protection requires affected lender consent for any subordination of their lien/payment priority",
+      "Often watered down to: transaction must be open to all lenders to participate (even if not mandatory)",
+      "Adoption grew from under 10% of new loans pre-2020 to over 50% by YTD 2023",
+      "PortCo credit agreements resist including Serta protection — sponsors value ability to threaten uptier",
+      "Non-sponsor companies more readily include Serta protection",
+      "Serta protection frequently offered as non-monetary consideration in amend-and-extend transactions",
+      "Pre-A&E: 19% of docs had Serta protection; post-A&E: 49%"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-006",
+    "question": "Within Example One's cap table scenario: What should be done to address this company's distressed situation?",
+    "model_answer": "The two core action items in any restructuring are: (1) push out maturities and (2) reduce cash interest expense. For this company, the primary concern is that the revolver (with a springing maturity) and the term loan are coming due at virtually the same time in roughly one year, and the company cannot refinance them in the open market. Therefore, at a minimum, the maturities must be extended. Separately, the Senior Notes carry expensive 8.25% cash coupon and are the other major drag on liquidity. Ideally you deal with both — extend the secured maturities and address the Senior Notes cash interest via equitization, PIK toggle, or an exchange. Given the company has $40mm of cash (only $25mm free), there is enough to fund an extension paydown. The extension should be combined with an exchange for the Senior Notes if possible, as doing the exchange alone while the TLB and revolver are about to come due would be very difficult to execute.",
+    "key_points": [
+      "Two universal restructuring action items: push out maturities AND reduce cash interest expense",
+      "Primary urgency: TLB and revolver maturing simultaneously in ~1 year due to springer — must be addressed first",
+      "Cannot refinance in open market given leverage (9.8x) and poor FCF; must negotiate with existing lenders",
+      "Extend TLB and revolver through amend-and-extend (paydown + consent fee + higher rates)",
+      "Address Senior Notes cash interest ($25mm/year) via PIK toggle, equitization, or exchange into PIK notes",
+      "Extension buys time for operational turnaround; exchange reduces ongoing cash drain",
+      "Doing exchange alone without addressing TLB/revolver maturity is not feasible — need to solve both together"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-007",
+    "question": "Within Example Two's cap table scenario: What should be done to address this company's distressed situation?",
+    "model_answer": "The core action items remain: push out maturities and reduce cash interest expense. In this example, cash interest is high ($61mm/year) but interest coverage is relatively strong (2.0x on $125mm EBITDA = ~$62.5mm capacity), meaning the company can currently make interest payments. The most pressing issue is not necessarily cash interest but rather the near-term maturity wall — the revolver is due in less than a year and the TLB follows a year later. The company does not have much cash ($5mm), so any solution must not require a massive upfront payment. The priority should be to deal with the revolver and TLB maturities now via an extension, and then turn the company around operationally before tackling the unsecured bonds (which are still a few years away). The unsecured bonds are not trading in distressed territory, making an exchange complex. An extension is the cleanest near-term solution.",
+    "key_points": [
+      "Action items: push out maturities (primary) and reduce cash interest (secondary)",
+      "Cash interest ($61mm) is high but covered by 2.0x interest coverage on $125mm EBITDA — not the immediate crisis",
+      "Primary urgency is maturity wall: revolver due <1 year, TLB due ~18 months",
+      "Very limited cash ($5mm) constrains the size of any paydown in an extension",
+      "Focus on extending revolver and TLB now; defer addressing unsecured bonds until operational turnaround gains traction",
+      "Unsecured bonds trading at non-distressed levels (81) make an out-of-court exchange difficult and expensive",
+      "Extension is the cleanest, fastest solution and gives the company runway to improve"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-008",
+    "question": "What is an amend-and-extend transaction, and what are its typical terms?",
+    "model_answer": "An amend-and-extend (A&E) is an out-of-court restructuring transaction in which a distressed borrower negotiates with its existing lenders to extend the maturity of their debt instruments (typically a revolving credit facility and/or term loan) in exchange for improved economics. The borrower does not need to find new lenders — it works with the existing holders. Typical terms include: (1) a partial paydown of the term loan beyond normal amortization, typically 3-8% of the outstanding balance (funded from available cash), reflecting how much cash the company has available; (2) a consent fee paid to revolver lenders, typically 100bps (1% of the facility commitment); and (3) enhanced interest rates going forward — typically +1% on the revolver and +2-4% on the term loan, compensating lenders for the extension risk. Often a new springing maturity covenant is also inserted: if other pieces of the capital structure (particularly unsecured bonds) mature within a specified window, the extended revolver and TL will spring before them. The key advantage of an A&E is speed and avoidance of an in-court process; the company retains control and keeps its operations running normally. The downside is that it does not reduce the principal amount of debt outstanding, so if the fundamental business problems are not fixed, the company may face another restructuring in a few years.",
+    "key_points": [
+      "Amend-and-extend: negotiate with existing lenders to push out debt maturities in exchange for better economics — no new lenders needed",
+      "Typical term loan paydown: 3-8% of outstanding balance, funded from existing cash",
+      "Typical consent fee to revolver lenders: ~100bps (1% of facility size)",
+      "Typical rate increases: +1% on revolver, +2-4% on term loan",
+      "New springer often inserted: extended instruments spring if unsecured bonds not refinanced before a specified date",
+      "Advantage: avoids in-court process, fast, borrower retains control, operations unaffected",
+      "Disadvantage: does not reduce principal, only buys time — requires genuine operational turnaround to succeed",
+      "Requires near-unanimous lender consent (especially for revolver amendments) — easier when lenders feel well-secured"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-009",
+    "question": "Why might an exchange offer for unsecured bonds be difficult to execute when bonds are trading close to par?",
+    "model_answer": "An exchange offer requires a very high level of bondholder participation — typically near-unanimous consent — to be effective. When unsecured bonds are trading close to par (say, 80-100 cents), it signals that the market does not view the company as being in severe distress. In this situation, bondholders who are approached for an exchange have significant leverage: they can either demand a sweetheart deal (premium economics) to participate, or they can simply refuse and wait, knowing they are likely to be paid at or near par at maturity. Getting near-unanimous participation is extremely difficult when holders don't feel urgency. Contrast this with bonds trading at deeply distressed levels (40-60 cents) — those holders understand their risk and have a real incentive to exchange into a more senior, more secure position. In Example Two, the Senior Unsecured Notes were trading at 81, making an out-of-court exchange very difficult to accomplish without overpaying. In Example One, the Senior Unsecured Notes at 54 gave holders much more incentive to accept an exchange into 2L PIK paper.",
+    "key_points": [
+      "Exchange offers require near-unanimous bondholder consent to be effective",
+      "Bonds trading near par = holders feel no distress urgency = they can demand sweetheart economics or simply refuse",
+      "High trading prices give bondholders maximum leverage in negotiations — they know they'll likely be paid at maturity",
+      "Deeply distressed bonds (40-60 cents) create genuine incentive to exchange: secured position + higher rate + extended maturity is better than uncertainty",
+      "Example Two (Senior Unsecured at 81): exchange is impractical — holders demand premium or won't participate",
+      "Example One (Senior Notes at 54): exchange into 2L PIK notes is attractive — secured position is a real improvement over distressed unsecured paper",
+      "Even if company wants to exchange, holdouts can block the deal below the required threshold",
+      "Solution when bonds trade rich: focus on other measures (extension of secured debt, operational turnaround) and revisit bonds when they move to more distressed prices"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-010",
+    "question": "What rationale would unsecured bondholders have for accepting an exchange into PIK second-lien notes?",
+    "model_answer": "Unsecured bondholders would agree to exchange into PIK second-lien notes for several reasons. First, they receive a higher position in the capital structure — moving from unsecured (last in line after all secured creditors) to second-lien secured (behind only the first-lien secured debt) significantly improves their recovery prospects in any Chapter 11 or liquidation. Second, if the bonds are trading at distressed prices (say, 54 cents), holders are already pricing in significant expected loss — a more senior, secured position reduces that risk. Third, the PIK interest rate is typically higher than the original coupon (e.g., 10% PIK vs. 8.25% cash), so they receive greater accreted value over time. Fourth, the maturity is extended further out (say, 5 years), giving the company time to recover and giving holders more time to accrue value. Fifth, the PIK structure eliminates the cash coupon, which actually benefits both parties: the company preserves liquidity while the holder accretes interest into the principal. The alternative — staying as unsecured holders hoping to receive full par at maturity — is increasingly risky given the company's distress. If a Chapter 11 occurs, unsecured recoveries could be far below 54 cents. The exchange offers a better expected outcome.",
+    "key_points": [
+      "Capital structure improvement: unsecured (last priority) → second-lien secured (ahead of unsecured in waterfall)",
+      "Better Chapter 11 recovery: as 2L holder, recovery in any bankruptcy is meaningfully higher than as unsecured creditor",
+      "Higher stated interest rate: e.g., 10% PIK vs. 8.25% cash — greater accreted value over time",
+      "Extended maturity: more time for company to recover, reducing immediate refinancing risk",
+      "If bonds are at 54 cents, holding out to receive par at maturity is increasingly risky — exchange reduces expected loss",
+      "PIK structure benefits both parties: company preserves cash, holder accretes interest into principal",
+      "If Chapter 11 occurs, unsecured recoveries could be well below 54 cents — exchange protects against this downside",
+      "Exchange gives bondholders secured status AND higher return vs. the risk of holding deeply discounted unsecured paper"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-011",
+    "question": "What are some trends in RX?",
+    "model_answer": "Two major trends in restructuring solutions over the past five years are IP transfers (collateral drop-downs) and non-pro-rata uptier transactions, exemplified by the Serta restructuring. The Serta deal is the canonical example of an uptier transaction where a subset of lenders agreed to provide new money in exchange for being primed ahead of the existing first-lien holders — a transaction that sparked significant litigation and is emblematic of the creditor-on-creditor violence trend. Another major trend is the rise of cov-lite loans and high leverage, which has led to decreasing recovery values for loan holders in recent years. Cov-lite loans give companies more leash — more runway to get into distress without triggering covenants — meaning companies can deteriorate further before restructuring, resulting in lower recoveries. A related trend is the rise of direct lending and private credit, creating 'top-heavy' capital structures dominated by 1L and 2L loans with little or no subordinated debt below them to absorb losses. These alternative lenders (private credit arms of mega-fund PE firms, direct lending shops) have raised enormous capital, increased competition for deals, pushed down yields, and loosened credit docs. Unlike traditional banks, many of these lenders are comfortable participating in restructuring outcomes, including owning post-reorganization equity — a shift in lender mindset. High recovery values in bonds have also been seen recently due to out-of-court debt exchanges that enhance holder economics versus what they would receive in a freefall Chapter 11.",
+    "key_points": [
+      "Non-pro-rata uptier transactions (e.g., Serta): a subset of lenders prime existing creditors by providing new money — 'creditor-on-creditor violence'",
+      "IP transfers / collateral drop-downs (e.g., J.Crew): borrower drops valuable collateral out of the restricted group to circumvent lien protections",
+      "Rise of cov-lite loans: less covenant protection = companies can deteriorate more before restructuring = lower recoveries for lenders",
+      "Rise of direct lending and private credit: top-heavy capital structures with large 1L/2L and little subordinated debt to absorb losses",
+      "Alternative lenders are comfortable with restructuring outcomes, including owning post-reorg equity — different mindset from traditional banks",
+      "Competition among lenders has led to more permissive credit docs, higher leverage, and lower yields",
+      "High bond recovery values driven by out-of-court exchanges that are more economically favorable to holders than freefall Chapter 11",
+      "Out-of-court restructuring has become more normalized; lenders increasingly plan for distressed scenarios at origination"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-012",
+    "question": "What are some ways that a company can preserve cash if it's facing financial distress?",
+    "model_answer": "There are at least 15-20 options across financial engineering and operational levers. Financially: (1) fully draw down the revolver; (2) toggle to PIK interest from cash interest where possible; (3) do sale-leasebacks; (4) sell off unused or non-critical PP&E; (5) shift management comp to be more stock-based rather than cash-based. Operationally: (6) reduce inventory (move to just-in-time model); (7) extend accounts payable as far as possible; (8) bill customers more frequently; (9) review and collect aged accounts receivable (offer early payment discounts); (10) offer cash discounts for early payment or ask for down payments; (11) move to a consignment model for inventory; (12) renegotiate lease expense down or delay payments (arguing that a bankruptcy rejection of the lease is the alternative); (13) reduce prepaid salaries; (14) boost unearned revenue by offering discounts; (15) reduce SG&A by cutting non-critical expenses; (16) forgo new capex unless strictly necessary; (17) extend maintenance cycles or renegotiate maintenance contracts; (18) shift employee comp to bonus/commission structure; (19) let go of non-essential employees or reduce hours; (20) reduce or eliminate benefit packages; (21) stop dividend and share buyback programs.",
+    "key_points": [
+      "Draw down revolver fully to maximize liquidity",
+      "Toggle cash interest to PIK to reduce near-term cash outflows",
+      "Sale-leasebacks on owned real estate or equipment",
+      "Sell non-critical PP&E",
+      "Extend AP terms as long as possible",
+      "Accelerate AR collections, offer early-payment discounts",
+      "Reduce inventory (JIT model), shift to consignment",
+      "Renegotiate or defer lease payments, threatening rejection in bankruptcy",
+      "Eliminate dividends, share buybacks, and non-critical capex",
+      "Shift compensation to equity/commission to reduce cash outflows"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-out-of-court-restructuring-013",
+    "question": "Imagine the following transaction: a new $200mm 1L TL is raised and the pre-existing $500mm Senior Notes are exchanged into new 2L Notes at a 90% exchange rate (assume an 80% participation rate). Assuming there are $10mm in transaction fees and that the 1L TL proceeds are used, in part, to repay $100mm drawn on the pre-existing revolver, what would the sources and uses look like here?",
+    "model_answer": "With 80% participation, $500mm * 80% = $400mm of SNs are exchanged. At a 90% exchange rate, exchanging holders receive $400mm * 90% = $360mm of new 2L Notes. The discount capture = $400mm - $360mm = $40mm (this sits on the Sources side). Sources: New 2L Notes $360mm, New 1L TL $200mm, Discount Capture $40mm = Total Sources $600mm. Uses: Exchange Financing Fees $10mm, Revolver Paydown $100mm, Cash to Balance Sheet $90mm, Exchanging Senior Notes $400mm = Total Uses $600mm. The key insight is that the discount capture from the exchange (face value of SNs exchanged minus new 2L Notes issued) is a source of value in the transaction.",
+    "key_points": [
+      "Participating SN face: $500mm * 80% = $400mm",
+      "New 2L Notes issued: $400mm * 90% = $360mm",
+      "Discount capture (source): $400mm - $360mm = $40mm",
+      "Sources: New 2L Notes ($360mm) + New 1L TL ($200mm) + Discount Capture ($40mm) = $600mm",
+      "Uses: Fees ($10mm) + Revolver Paydown ($100mm) + Cash to B/S ($90mm) + SNs Exchanged ($400mm) = $600mm",
+      "Discount capture belongs on Sources side — it represents the economic gain from exchanging at a discount"
+    ],
+    "category": "out-of-court",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-out-of-court-restructuring-014",
+    "question": "Imagine that XYZ Inc. has a pretty simple capital structure consisting of an undrawn $135mm ABL maturing in July of 2027, a $500mm TL at S + 4.0% (SOFR is 5.0%) maturing in October 2025, and $270mm of Senior Notes at 7.75% maturing in October of 2026. Now let's imagine that the aim here is to do an amend-and-extend of the inside maturity (the TL). How could we try to craft something that the TL holders would be interested in assuming that there's $40mm of cash on the balance sheet and levered FCF has been $1-3mm per quarter over the last year?",
+    "model_answer": "An amend-and-extend (A&E) buys time by extending the TL maturity before it becomes the pressure point. The company has ~$40mm cash and barely positive FCF ($1-3mm/quarter), so a large cash paydown or dramatic rate increase could push them into cash burn. The three classic A&E tools are: (1) Cash paydown — limited here but a small paydown (e.g., 4% = $20mm) is feasible without destroying liquidity; (2) Rate increase — increasing TL economics by 100bps to S+5.0% is feasible without triggering cash burn; (3) Non-monetary doc tightening — the most valuable carrot here. Doc tightening could include: adding Serta protection, J. Crew blocker, limiting additional 1L incurrence (baskets), capping transfer amounts to unsubs. The 'extend' piece would push maturity out a few years but with a springing maturity: if Senior Notes (Oct '26) remain outstanding 3 months prior to their maturity (July '26), the TL would spring forward to that date — ensuring the TL stays inside the SNs. The carrot-and-stick dynamic: company can hint that failure to A&E might necessitate a more aggressive LME, so holders should take the decent economic package and tightened docs rather than risk being primed.",
+    "key_points": [
+      "A&E extends maturity of inside debt in exchange for economic and/or non-economic concessions",
+      "Three A&E tools: cash paydown, rate increase, and doc tightening (non-monetary)",
+      "Limited cash means small paydown (~4% = $20mm); moderate rate bump to S+5.0% feasible",
+      "Doc tightening (non-monetary): add Serta protection, J. Crew blocker, limit 1L incurrence baskets",
+      "Extend piece: push TL out a few years with a springing maturity tied to Senior Notes maturity",
+      "Springing maturity: TL springs to 3 months before SNs mature if SNs still outstanding, preserving inside maturity status",
+      "Carrot-and-stick: company implies more aggressive LME alternative if A&E not agreed to"
+    ],
+    "category": "out-of-court",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-out-of-court-restructuring-015",
+    "question": "Let's imagine that XYZ's Term Loan is trading around 75 with a YTM of around 25%. The little A&E that's being mulled over now would involve XYZ using cash on the balance sheet to paydown 4% of the TL at par, enhance the TL's economics by 100bps to S + 500bps, and tighten up the credit agreement (e.g., decrease additional 1L incurrence, add J. Crew and Serta blockers, etc.). All in return for the TL maturity being bumped out a few years. If we believe that as a result of this transaction the TL's YTM will tighten to 17.0% — implying a post-transaction price of around 80 — how could we think about a TL holder's 'return' from the transaction?",
+    "model_answer": "Pre-transaction: $500mm TL outstanding, trading at 75 → market value = $375mm. Transaction gives holders: 4% paydown on face = $500mm * 4% = $20mm cash. Post-transaction: remaining TL = $480mm, trading at 80 (YTM tightens to 17%) → market value = $480mm * 80/100 = $384mm. Wait: $480mm * 0.80 = $384mm (note guide says $382mm due to rounding). Total value received = $20mm cash + $382mm post-transaction market value = $402mm. Less: pre-transaction market value = $375mm. Return = $402mm - $375mm = $27mm-$28mm pickup, or approximately 7.5% ($28mm / $375mm). This is the immediate 'return' a holder captures simply from doing the transaction — not their total IRR from the original purchase price.",
+    "key_points": [
+      "Pre-transaction market value = $500mm * 75/100 = $375mm",
+      "Cash received from paydown: $500mm * 4% = $20mm",
+      "Post-transaction TL face = $500mm - $20mm = $480mm; trades at 80 → market value = ~$382mm",
+      "Total transaction value = $20mm + $382mm = $402mm",
+      "Return = $402mm - $375mm pre-transaction value = ~$27-28mm, or ~7.5% pickup",
+      "This 7.5% is the incremental return from doing the A&E, not the IRR since original purchase",
+      "Post-transaction YTM tightens because: longer runway, lower filing probability, tighter docs reduce downside risk"
+    ],
+    "category": "out-of-court",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-out-of-court-restructuring-016",
+    "question": "Look over the following cap table (Example One) and answer: What are some restructuring alternatives that could be explored?\n\n(Same cap table as above: TLB $481mm at 78, ABL $200mm capacity undrawn, Senior Notes $300mm at 54/8.25% due 2025, LTM EBITDA $80mm, cash $40mm ($10mm restricted))",
+    "model_answer": "There are two primary restructuring paths: (1) an amend-and-extend on the revolver and term loan, and/or (2) an exchange offer for the Senior Notes, potentially combined with the extension. The core action items are always: push out maturities and reduce cash interest expense. For the extension: bumping the TLB and revolver maturities out two to three years will likely require a partial term loan paydown (typically 3-8% of face, so roughly $14-38mm), a consent fee to revolver lenders (~100bps or 1% of $200mm = $2mm), and increased interest rates (perhaps +1% on the revolver and +2-4% on the TLB). The company has enough cash to fund a 3-4% paydown while retaining reasonable liquidity. This buys time for an operational turnaround. For the Senior Notes exchange: the bonds are trading at 54 and are expensive (8.25% cash coupon), so an exchange into PIK second-lien notes maturing in 5 years at ~10% PIK could work. This gives bondholders: (a) a higher position in the capital structure (2L secured vs. currently unsecured), (b) secured status (assuming asset availability), (c) a higher stated interest rate, and (d) extended maturity. It also eliminates $25mm in annual cash interest for the company. Bondholders at 54 cents may prefer this over the risk of a Chapter 11 where their unsecured recovery could be much lower. An extension alone deals with the near-term maturity wall; an exchange on top of that addresses the cash interest burden.",
+    "key_points": [
+      "Primary solutions: (1) amend-and-extend on TLB and ABL, (2) exchange offer for Senior Notes — can be done independently or combined",
+      "Extension terms: partial TLB paydown (3-8% of $481mm), consent fee to revolver (~100bps/$2mm), increased interest rates (+1% revolver, +2-4% TLB)",
+      "Company has ~$25mm free cash sufficient for a 3-4% paydown while maintaining liquidity",
+      "Senior Notes exchange: swap unsecured bonds (8.25% cash) into 2L PIK notes (~10% PIK) with 5-year maturity",
+      "Exchange benefits to bondholders: secured position, higher rate, extended maturity, better recovery in any subsequent Chapter 11 vs. unsecured",
+      "Exchange eliminates $25mm annual cash interest burden for the company",
+      "Bonds at 54 cents suggest holders have incentive to exchange vs. risk of low unsecured recovery in Chapter 11",
+      "A new springer should be inserted in any extended revolver/TLB stating they spring if Senior Notes are not refinanced 90 days before their new maturity"
+    ],
+    "category": "out-of-court",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-out-of-court-restructuring-017",
+    "question": "Within Example One's cap table scenario: What are the solutions for how to restructure this company's debt?",
+    "model_answer": "There are two obvious solutions: a straight amend-and-extend on the revolver and term loan, or an extension combined with an exchange on the Senior Notes. The extension of the revolver and TLB for two to three years would require: (1) a partial term loan paydown beyond normal amortization — typically 3-8%, and since the TLB originated at $540mm and has paid down to $481mm it has some amortization already, but an additional 3-4% paydown is likely expected; (2) a consent fee to revolver lenders, typically 100bps (1%); (3) increased interest rates — perhaps +1% on the revolver and +2-4% on the term loan. The company has $40mm cash ($25mm free) which can fund this. The exchange would target the Senior Notes: offer to exchange $300mm face of 8.25% Senior Unsecured Notes due 2025 into new 2L PIK Notes (say 10% PIK) due five years from now. This eliminates $25mm of annual cash interest, gives noteholders a secured position in the capital structure (higher than current unsecured ranking), provides a higher stated rate, and extends their maturity. Noteholders trading at 54 cents have incentive to participate since they clearly expect some form of distress and secured status in a Chapter 11 would give them better recoveries. Both solutions could be combined into a single transaction: extend the secured debt while exchanging the Senior Notes simultaneously.",
+    "key_points": [
+      "Option 1 — Amend and Extend: push TLB and revolver maturities 2-3 years with paydown (3-8%), consent fee (~1%), and higher interest rates (+1-4%)",
+      "Partial TLB paydown funded from existing $25mm free cash; 3-4% paydown leaves adequate remaining liquidity",
+      "Consent fee to revolver lenders: ~100bps = ~$2mm on $200mm facility",
+      "Rate increases: revolver +1%, TLB +2-4% to compensate lenders for extension risk",
+      "Option 2 — Senior Notes Exchange: swap into 2L PIK notes (~10% PIK) due 5 years out, eliminating $25mm annual cash interest",
+      "Exchange rationale for noteholders: secured vs. unsecured ranking, better Chapter 11 recoveries if that occurs, higher coupon, longer maturity",
+      "Optimal solution: combine extension of secured debt WITH exchange of Senior Notes in one transaction",
+      "Senior Notes at 54 cents signals market already pricing in distress — exchange into 2L secured gives holders improved position"
+    ],
+    "category": "out-of-court",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-out-of-court-restructuring-018",
+    "question": "Look over the following cap table (Example Two) and answer: What are some restructuring alternatives that could be explored?\n\n(Same cap table as above: RCF $30mm/$70mm due Jun-2020 at L+350, TLB $525mm at 88 due Jun-2021 at L+450, Senior Unsecured $300mm at 81/6.0% due Jul-2022, Junior Sub $110mm/10.5% due Sep-2023, EBITDA $125mm, cash $5mm)",
+    "model_answer": "The most realistic and easiest solution is an amend-and-extend on the revolver and term loan. The unsecured bonds are still a few years out, interest payments can be made relatively easily given 2.0x coverage, and they aren't trading at overly distressed levels. A comprehensive exchange would be difficult because when bonds trade near par, holders expect a sweetheart deal or are simply uninterested in an out-of-court exchange. The extension terms would look like: (1) a consent fee to the revolver (~100bps/1%), (2) a paydown on the term loan (3-6%, probably on the lower end given limited cash-on-hand), (3) enhanced economics on both (probably +1% revolver, +2% TLB), and (4) a new springer inserted for both the extended revolver and TLB: if the Senior Unsecured Notes are not refinanced by 90 days before July 2022, the revolver and TLB spring before them. The secured creditors face minimal impairment risk in a Chapter 11 given strong asset coverage (secured leverage ~4.4x), so they are essentially being offered a free call option: extend out, get consent fee and higher rates, and if the company can't turn around, they are still made whole in a Chapter 11. This makes extension an attractive and achievable solution. The Junior Sub (trading NA/unrated) is a complex piece that may need to be addressed separately if things deteriorate, but is not the primary concern now.",
+    "key_points": [
+      "Most realistic solution: amend-and-extend on revolver and TLB — unsecured bonds not the immediate priority",
+      "Extension terms: consent fee (~1% on revolver), term loan paydown (3-6%, lower end given thin cash), rate increases (+1% revolver, +2% TLB)",
+      "Insert new springer into extended instruments: revolver and TLB spring if Senior Unsecured Notes not refinanced 90 days before July 2022 maturity",
+      "Bonds trading near 81 (not distressed) means out-of-court exchange very difficult — holders expect sweetheart deal or refuse to engage",
+      "Near-unanimous consent required for out-of-court; bonds trading rich means holdouts demand premium",
+      "Secured creditors at ~4.4x leverage feel well-covered in any Chapter 11 — extension is essentially a free call option for them",
+      "Company may be a turnaround-in-progress, so extension buys time for operational improvement before dealing with unsecured debt",
+      "Junior Sub ($110mm, unrated, 10.5%) is complex and may need addressing later but not the primary near-term issue"
+    ],
+    "category": "out-of-court",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-out-of-court-restructuring-019",
+    "question": "Within Example Two's cap table scenario: What are the solutions for restructuring this company's capital structure?",
+    "model_answer": "The easiest solution is a straight extension of the revolver and term loan. The extension terms: a consent fee of ~100bps (1%) paid to the revolver, a paydown of 3-6% on the term loan (probably at the lower end given only $5mm cash on hand), and enhanced economics (+1% on revolver, +2% on TLB). Because the Senior Unsecured Notes are due Jul-2022, a springer should be inserted into the extended revolver and TLB stating that if the Notes are not refinanced by 90 days before July 2022, the revolver and TLB spring to mature before them. The secured debt should not be overly resistant to this arrangement: in the event of a Chapter 11, they won't come close to being impaired given strong asset coverage (secured leverage ~4.4x). Extending is essentially a free call option for them — if the company turns around, they get better economics; if it doesn't, they're still made whole. A comprehensive exchange involving the unsecured bonds is not realistic at this point because bonds trading near 81 are not in distress and holders will either demand a sweetheart deal or refuse to participate. The junior sub is a more complex piece (unrated, 10.5% coupon, no market price) that may need to be addressed in a future restructuring if the operational situation does not improve. Conclusion: this may be a company in a turnaround that simply needs to manage its maturity wall while it improves operationally — not every restructuring target is a company with plummeting sales.",
+    "key_points": [
+      "Straight amend-and-extend on revolver and TLB is the primary and most achievable solution",
+      "Extension terms: ~1% consent fee (revolver), 3-6% TLB paydown (lower end given $5mm cash), +1% revolver rate, +2% TLB rate",
+      "Springer inserted: revolver and TLB spring if Senior Unsecured Notes not refinanced 90 days before Jul-2022",
+      "Secured creditors have near-zero Chapter 11 impairment risk at ~4.4x secured leverage — extension is a free call option for them",
+      "Out-of-court exchange for unsecured bonds not feasible: bonds at 81 = near-unanimous consent requires sweetheart deal or holders refuse",
+      "Junior Sub (10.5%, unrated, no market price) is a complex instrument to address — defer to later restructuring if needed",
+      "Key insight: a restructuring candidate is not always a company with plummeting sales — it can be a company with an overly onerous capital structure relative to its current fiscal situation",
+      "Extension buys time for operational turnaround; company may be able to refinance unsecured bonds normally in 1-2 years if EBITDA improves"
+    ],
+    "category": "out-of-court",
+    "difficulty": 3
+  },
+  {
+    "question": "What can a company in distress do to right-size?",
+    "model_answer": "Options include: (1) Exchange old debt coming due for new debt (usually with higher interest but longer maturities, potentially with PIK elements); (2) Complete asset sales to raise cash (rare in practice since valuable assets are the most promising parts); (3) Extend current maturities via 'amend and extend' — paying a consent fee (1-2%) and some paydown; (4) File for Chapter 11 with a pre-pack (get in and out in months); (5) File for Chapter 11 without a pre-pack (right-size in court, can take years).",
+    "key_points": [
+      "Debt exchange: longer maturities, possibly PIK to reduce cash interest",
+      "Asset sales to raise cash (uncommon — best assets are most valuable)",
+      "Amend and extend: consent fee + partial paydown to push maturities",
+      "Pre-packed Chapter 11 for quick in-court solution",
+      "Freefall Chapter 11 as last resort"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-021"
+  },
+  {
+    "question": "As part of the restructuring (out-of-court) you're looking at creating new 1L Notes and have to go see if any distressed funds would be interested in participating. What are the steps involved in that?",
+    "model_answer": "As an analyst or associate you'll have a list of distressed funds who could be interested. You track where funds are in the process via a spreadsheet. The four steps are: (1) Teaser Sent — describing the transaction structure broadly; (2) NDA Sent/Executed; (3) Financials Sent — more detailed financials and terms sent to the counterparty; (4) Term Sheet Received — with terms for funding amount, duration, interest rate, and covenants.",
+    "key_points": [
+      "Step 1: Teaser (broad transaction description)",
+      "Step 2: NDA signed",
+      "Step 3: Detailed financials and terms sent",
+      "Step 4: Term sheet received (amount, duration, rate, covenants)"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-022"
+  },
+  {
+    "question": "Let's take a step back, what really happens in out-of-court restructuring?",
+    "model_answer": "Creditors typically either negotiate a change in terms of existing obligations or complete a voluntary exchange of financial interests. Example: You have senior secured bonds trading at distressed levels with maturity coming up. You raise a new 2L (second lien), give 80% of bond value to bondholders in the form of the new 2L, and ask them to absorb the 20% as lost value. If bondholders believe their Chapter 11 recovery value would only be 40%, this 80% out-of-court offer looks attractive and they may accept it.",
+    "key_points": [
+      "Change terms of existing obligations OR voluntary exchange of financial interests",
+      "Example: exchange distressed bonds for new 2L at 80 cents, absorbing 20% haircut",
+      "Creditors accept if out-of-court offer beats expected Chapter 11 recovery",
+      "No court involvement — faster and cheaper than Chapter 11"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-023"
+  },
+  {
+    "question": "What acceptance rate do exchange offers need (for an out-of-court restructuring)?",
+    "model_answer": "Typically exchange offers need 90% acceptance. For example: you want to exchange senior bond holders into a new 2L (second lien) and ask them to take a 30% haircut. So if $100m bonds outstanding, you give them $70m worth of the 2L. If 90% accept you can push this deal through.",
+    "key_points": [
+      "Exchange offers typically require ~90% acceptance",
+      "Below 90% and holdouts can disrupt the restructuring",
+      "Holdout problem is the key risk in out-of-court exchanges",
+      "This is why Chapter 11 can be superior — court can bind all creditors"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-024"
+  },
+  {
+    "question": "What are bondholder committees and their rights?",
+    "model_answer": "In an out-of-court scenario, bond holders band together in what's called a bondholder committee to negotiate with the company on what they will accept. The committee hires a bank (how RX shops get creditor mandates). A large bondholder contacts other significant bondholders to participate. Key rights: can't force anything out-of-court, but can access non-public information to make better decisions. Company pays legal and associated expenses of the committee. Downside: members must sign confidentiality agreements and must disclose when they buy or sell the company's securities.",
+    "key_points": [
+      "Informal group of bondholders negotiating out-of-court",
+      "Hires a RX bank as advisor — key source of creditor mandates",
+      "Can access non-public info (but must sign confidentiality agreements)",
+      "Downside: must disclose trading; restricted from buying/selling while on committee"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-025"
+  },
+  {
+    "question": "Downside of being on bondholder committee?",
+    "model_answer": "Must sign a confidential agreement and will then have to disclose when selling or buying securities of the firm. Also can't tell others about non-public information received. The bondholder can't be unrestricted until filing of non-public info to public via 8-K, 10-Q, or 10-K. This is why some distressed funds won't join committees — they want to keep trading flexibility.",
+    "key_points": [
+      "Must sign confidentiality agreement",
+      "Required to disclose buys/sells of the company's securities",
+      "Cannot share non-public information with others",
+      "Trading restrictions remain until non-public info is publicly disclosed"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-026"
+  },
+  {
+    "question": "What are convertible bonds? How can they be issued in an out-of-court restructuring to get around asset coverage issues?",
+    "model_answer": "Like preferred stock, convertible bonds are issued by distressed companies to get around asset coverage issues. They have a feature allowing the holder to convert the face amount into a specified number of shares at a share price significantly above the current share price (expecting stock appreciation). If stock declines, the convertibility option becomes worthless but the debt is still valid — these are called 'busted converts.' Note: convertible bonds reside far down in the capital structure, so if a distressed company issues them you're betting on a turnaround.",
+    "key_points": [
+      "Convertible bond: debt + option to convert to equity at premium strike price",
+      "Bypasses secured basket/asset coverage restrictions",
+      "Busted convert: conversion option worthless but debt remains outstanding",
+      "Deep in capital structure — near-distress issuance is a bet on turnaround"
+    ],
+    "category": "out-of-court",
+    "difficulty": 3,
+    "id": "rx-out-of-court-restructuring-027"
+  },
+  {
+    "question": "When you can't make interest coverage, what can you do from an out-of-court perspective?",
+    "model_answer": "Issue discount notes or PIK (Payment in Kind) notes. Under GAAP, interest expense is still recorded on the income statement, but the structure essentially allows the cash payment on the interest to be deferred until maturity. PIK notes pay interest by issuing additional notes (more debt) rather than cash.",
+    "key_points": [
+      "PIK notes: interest paid in additional notes, not cash",
+      "Discount notes: issued below par, accretes to par at maturity",
+      "GAAP still records interest expense — just defers the cash payment",
+      "Reduces near-term cash burden while buying time for operational turnaround"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-028"
+  },
+  {
+    "question": "What's a tender offer?",
+    "model_answer": "A tender offer is when the company offers to purchase its own securities. For example, if the company wanted to change a non-money covenant (like subordination) it could buy 51% of the bonds outstanding to gain the votes needed to amend that provision. If the company has limited cash it could do an exchange offer instead — offering to exchange the bonds for a new set of bonds with perhaps a higher interest rate.",
+    "key_points": [
+      "Company offers to purchase its own securities from holders",
+      "Used to accumulate 51% to amend non-money indenture provisions",
+      "Exchange offer alternative: swap old bonds for new bonds (useful when cash-limited)",
+      "Distinct from exchange offer — tender offer pays cash, exchange offer pays new securities"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-029"
+  },
+  {
+    "question": "What is an amend and extend?",
+    "model_answer": "A company negotiates with its banks to agree to keep in place the basic terms of the bank agreement but with a longer maturity. This will require bumping their interest payments, paying a consent fee, or doing a term loan paydown. The 'amend' refers to amending the maturity date and potentially other terms; the 'extend' refers to pushing out the maturity further into the future.",
+    "key_points": [
+      "Negotiate extension of loan maturity while keeping most terms in place",
+      "Requires one or more of: higher interest rate, consent fee, or partial paydown",
+      "Common out-of-court tool to buy time for operational improvement",
+      "Banks prefer this over a default — they get better terms and avoid credit losses"
+    ],
+    "category": "out-of-court",
+    "difficulty": 2,
+    "id": "rx-out-of-court-restructuring-030"
+  }
+]

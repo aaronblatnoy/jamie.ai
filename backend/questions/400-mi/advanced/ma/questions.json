@@ -1,0 +1,321 @@
+[
+  {
+    "id": "mi-ma-advanced-001",
+    "question": "What's the difference between Purchase Accounting and Pooling Accounting in an M&A deal?",
+    "model_answer": "In purchase accounting, the seller's shareholders' equity number is wiped out and the premium paid over that value is recorded as Goodwill on the combined balance sheet post-acquisition. In pooling accounting, you simply combine the two shareholders' equity numbers rather than worrying about Goodwill and the related items that get created. There are specific requirements for using pooling accounting, so in 99% of M&A deals you will use purchase accounting.",
+    "key_points": [
+      "Purchase accounting: seller's shareholders' equity is wiped out; premium over book value recorded as Goodwill",
+      "Pooling accounting: simply combine both companies' shareholders' equity numbers, no Goodwill created",
+      "Pooling has strict requirements to qualify \u2014 in practice, 99% of deals use purchase accounting",
+      "Purchase accounting is the standard method bankers work with"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-002",
+    "question": "Walk me through an example of how to calculate expense synergies.",
+    "model_answer": "Using the example of Microsoft acquiring Yahoo: Microsoft has 5,000 SG&A-related employees and Yahoo has around 1,000. Microsoft calculates that post-transaction it will only need about 200 of Yahoo's SG&A employees, and its existing employees can take over the rest of the work. To calculate the Operating Expenses the combined company would save, you multiply the 800 employees Microsoft is going to fire post-transaction by their average salary.",
+    "key_points": [
+      "Identify overlapping functions where headcount can be reduced (e.g., SG&A employees)",
+      "Determine how many of the target's employees the combined company actually needs to retain",
+      "Calculate the number of employees to be eliminated post-transaction",
+      "Multiply eliminated headcount by average salary to get annual expense savings",
+      "Expense synergies flow through as reduced Operating Expenses, improving Operating Income"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-003",
+    "question": "What is an exchange ratio and when would companies use it in an M&A deal?",
+    "model_answer": "An exchange ratio is an alternate way of structuring a 100% stock M&A deal, or any M&A deal with a portion of stock involved. Normally in an all-stock deal you determine how much stock to issue by dividing the total purchase price by the buyer's stock price, then use that to compute the new share count. With an exchange ratio, you tie the number of new shares to the buyer's own share count \u2014 for example, the seller might receive 1.5 shares of the buyer's stock for each of its own shares, rather than shares worth a specific dollar amount. Buyers might prefer an exchange ratio if they believe their stock price will decline post-transaction (since the dollar value given to sellers floats with the stock price). Sellers prefer a fixed dollar amount in stock unless they believe the buyer's share price will rise after the transaction.",
+    "key_points": [
+      "Exchange ratio: seller receives a fixed number of buyer shares per seller share (e.g., 1.5 buyer shares per seller share)",
+      "Alternative to fixed dollar amount: ties consideration to buyer's share count, not a set price",
+      "Buyers prefer exchange ratios when they expect their stock price to decline post-deal (limits dollar value paid)",
+      "Sellers prefer fixed dollar stock consideration unless they expect buyer's stock to appreciate",
+      "Exchange ratio used in all-stock deals or any deal with a stock component",
+      "New share count = Seller shares outstanding \u00d7 exchange ratio"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-004",
+    "question": "Walk me through the most important terms of a Purchase Agreement in an M&A deal.",
+    "model_answer": "There are dozens of terms but the most important ones are: (1) Purchase Price: stated as a per-share amount for public companies. (2) Form of Consideration: cash, stock, debt, etc. (3) Transaction Structure: stock purchase, asset purchase, or 338(h)(10). (4) Treatment of Options: are they assumed by the buyer, cashed out, or ignored? (5) Employee Retention: do employees have to sign non-solicit or non-compete agreements? What about management? (6) Reps & Warranties: what must the buyer and seller each claim is true about their respective businesses? (7) No-Shop / Go-Shop: can the seller 'shop' this offer around and try to get a better deal, or must it stay exclusive to this buyer?",
+    "key_points": [
+      "Purchase Price: stated on a per-share basis for public companies",
+      "Form of Consideration: cash, stock, debt, or mix thereof",
+      "Transaction Structure: stock purchase, asset purchase, or 338(h)(10)",
+      "Treatment of Options: assumed by buyer, cashed out, or ignored",
+      "Employee Retention: non-solicit / non-compete requirements for employees and management",
+      "Reps & Warranties: representations each party must make about their business",
+      "No-Shop / Go-Shop clause: whether the seller can seek competing bids"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-005",
+    "question": "What's an Earnout and why would a buyer offer it to a seller in an M&A deal?",
+    "model_answer": "An Earnout is a form of 'deferred payment' in an M&A deal. It is most common with private companies and start-ups and is highly unusual with public sellers. An earnout is contingent on financial performance or other goals \u2014 for example, the buyer might say 'We'll give you an additional $10 million in 3 years if you can hit $100 million in revenue by then.' Buyers use earnouts to incentivize sellers to continue performing well post-transaction and to discourage management teams from taking the money and disengaging from the business once the deal is closed.",
+    "key_points": [
+      "Earnout = deferred, contingent payment tied to post-close financial or operational performance",
+      "Most common with private companies and start-ups; highly unusual with public sellers",
+      "Typical structure: additional payment if revenue/EBITDA/other metric hits a target within a defined period",
+      "Motivates sellers to keep performing well post-acquisition",
+      "Discourages management from cashing out and disengaging after deal closes",
+      "Reduces upfront purchase price risk for the buyer"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-006",
+    "question": "How would an accretion / dilution model be different for a private seller?",
+    "model_answer": "The mechanics are the same, but the transaction structure is more likely to be an asset purchase or 338(h)(10) election. Private sellers also don't have Earnings Per Share, so you would only project down to Net Income on the seller's Income Statement. Note that accretion/dilution makes no sense if you have a private buyer, because private companies do not have Earnings Per Share.",
+    "key_points": [
+      "Mechanics of the accretion/dilution model are the same as for a public seller",
+      "Transaction structure more likely to be asset purchase or 338(h)(10) vs. stock purchase",
+      "Private seller has no EPS \u2014 only project seller's financials down to Net Income, not EPS",
+      "Accretion/dilution analysis is meaningless with a private buyer (no EPS to measure dilution against)",
+      "Goodwill, purchase price, and financing structure analysis remain identical"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-007",
+    "question": "What are the main 3 transaction structures you could use to acquire another company?",
+    "model_answer": "The three structures are Stock Purchase, Asset Purchase, and 338(h)(10) Election. Stock Purchase: buyer acquires all assets and liabilities including off-balance sheet items; seller taxed at capital gains rate; buyer gets no step-up tax basis and cannot depreciate/amortize new assets for tax purposes; a DTL is created; most common for public and larger private companies. Asset Purchase: buyer acquires only certain assets and assumes only certain liabilities; seller taxed on asset appreciation plus capital gains on proceeds (double taxation); buyer receives step-up tax basis and can depreciate/amortize assets; no DTL created; most common for private companies, divestitures, and distressed public companies. 338(h)(10) Election: legally a stock purchase but treated as an asset purchase for accounting/tax; buyer acquires all assets and liabilities; seller faces double taxation; buyer gets step-up tax basis; no DTL created; most common for private companies, divestitures, and distressed public companies; buyer usually pays more to compensate seller for the double taxation.",
+    "key_points": [
+      "Stock Purchase: all assets/liabilities acquired; seller pays capital gains tax; no step-up for buyer; DTL created; common for public companies",
+      "Asset Purchase: only certain assets/liabilities; seller double-taxed (asset appreciation + capital gains); buyer gets step-up, no DTL; common for private/distressed",
+      "338(h)(10): legally stock but taxed as asset; buyer gets step-up, no DTL; seller double-taxed; buyer pays premium to compensate",
+      "Seller preference: stock purchase (avoid double taxation); buyer preference: asset purchase (tax benefits)",
+      "DTL only arises in a stock purchase, not asset purchase or 338(h)(10)"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-008",
+    "question": "Would a seller prefer a stock purchase or an asset purchase? What about the buyer?",
+    "model_answer": "A seller almost always prefers a stock purchase to avoid double taxation and to get rid of all its liabilities (the buyer assumes them all). The buyer almost always prefers an asset deal so it can be more selective about what it acquires and to get the tax benefit of being able to deduct depreciation and amortization of asset write-ups for tax purposes.",
+    "key_points": [
+      "Seller prefers stock purchase: avoids double taxation (only capital gains tax) and transfers all liabilities to buyer",
+      "Buyer prefers asset purchase: selective about what assets/liabilities to acquire; gets step-up tax basis and D&A deductions",
+      "This inherent conflict is why 338(h)(10) exists as a compromise \u2014 buyer gets tax benefits, buyer pays seller a premium to compensate for double taxation",
+      "In stock purchases, buyer inherits all liabilities including off-balance-sheet and contingent ones"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-009",
+    "question": "Explain what a contribution analysis is and why we might look at it in a merger model.",
+    "model_answer": "A contribution analysis compares how much revenue, EBITDA, Pre-Tax Income, cash, and possibly other items the buyer and seller are each 'contributing' to estimate what the ownership of the combined company should be. For example, if the buyer is set to own 50% and the seller 50% of the new company, but the buyer has $100 million of revenue versus the seller's $50 million, a contribution analysis would indicate the buyer 'should' own 66% instead because it is contributing 2/3 of the combined revenue. A contribution analysis is most commonly used in merger of equals scenarios and is less common when the buyer is significantly larger than the seller.",
+    "key_points": [
+      "Contribution analysis: measures each party's proportional contribution of revenue, EBITDA, pre-tax income, cash, etc.",
+      "Determines implied ownership split based on financial contributions vs. the negotiated ownership",
+      "Highlights whether the proposed ownership structure is fair relative to each company's financial contribution",
+      "Most useful in merger of equals situations",
+      "Less relevant when buyer is significantly larger than seller",
+      "Used to validate or challenge the deal terms from a relative value perspective"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-ma-advanced-010",
+    "question": "Walk me through a concrete example of how to calculate revenue synergies.",
+    "model_answer": "Using the example of Microsoft acquiring Yahoo: Yahoo makes money from search advertising online and earns a certain revenue per search (RPS), say $0.10. If Microsoft acquired Yahoo, it might boost the RPS by $0.01 or $0.02 because of Microsoft's superior monetization capabilities. To calculate the additional revenue from this synergy, you multiply the incremental RPS ($0.01 or $0.02) by Yahoo's total number of searches to get the total additional revenue, and then apply a margin to that revenue to determine how much flows through to the combined company's Operating Income.",
+    "key_points": [
+      "Identify a per-unit revenue metric (e.g., revenue per search) that the acquirer can improve",
+      "Estimate the incremental improvement in that metric post-acquisition",
+      "Multiply the incremental metric by the seller's volume (e.g., total searches) to get total additional revenue",
+      "Apply an appropriate margin to the additional revenue to determine Operating Income impact",
+      "Revenue synergies are less certain than cost synergies and harder to model precisely"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-011",
+    "question": "How do you take into account NOLs in an M&A deal?",
+    "model_answer": "You apply Section 382 to determine how much of the seller's NOLs are usable each year. The formula is: Allowable NOLs = Equity Purchase Price * Highest of Past 3 Months' Adjusted Long Term Rates. For example, if the equity purchase price is $1 billion and the highest adjusted long-term rate is 5%, then the combined company could use $1 billion * 5% = $50 million of NOLs each year. If the seller had $250 million in NOLs, the combined company could use $50 million per year for 5 years to offset its taxable income.",
+    "key_points": [
+      "Section 382 limits how much of the seller's NOLs can be used each year after an acquisition",
+      "Formula: Allowable Annual NOLs = Equity Purchase Price \u00d7 Highest of Past 3 Months' Adjusted Long-Term Rates",
+      "Example: $1B purchase price \u00d7 5% rate = $50M of NOLs usable per year",
+      "Total NOL balance divided by annual allowable usage determines how many years to fully use them",
+      "NOLs reduce future taxable income of the combined company"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-012",
+    "question": "Why do deferred tax liabilities (DTLs) and deferred tax assets (DTAs) get created in M&A deals?",
+    "model_answer": "DTLs and DTAs get created when you write up or write down assets \u2014 both tangible and intangible \u2014 in a transaction. An asset write-up creates a deferred tax liability, and an asset write-down creates a deferred tax asset. You write assets up or down because their book value (what's on the balance sheet) often differs substantially from their fair market value. An asset write-up creates a deferred tax liability because you'll have higher depreciation expense on the written-up asset, which means you save on taxes in the short-term \u2014 but eventually you'll have to pay those taxes back, hence the liability. The opposite applies for an asset write-down and a deferred tax asset.",
+    "key_points": [
+      "Asset write-ups create Deferred Tax Liabilities (DTLs); asset write-downs create Deferred Tax Assets (DTAs)",
+      "Write-ups and write-downs occur because book value of assets differs from fair market value at time of acquisition",
+      "Write-up \u2192 higher future depreciation \u2192 tax savings short-term but taxes owed later \u2192 DTL",
+      "Write-down \u2192 lower future depreciation \u2192 higher taxes short-term but savings later \u2192 DTA",
+      "DTLs and DTAs affect the Goodwill calculation on the pro-forma balance sheet"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-013",
+    "question": "How do DTLs and DTAs affect the Balance Sheet Adjustment in an M&A deal?",
+    "model_answer": "DTLs and DTAs are taken into account along with everything else when calculating the amount of Goodwill and Other Intangibles to create on the pro-forma balance sheet. The formulas are: Deferred Tax Asset = Asset Write-Down \u00d7 Tax Rate; Deferred Tax Liability = Asset Write-Up \u00d7 Tax Rate. For example, if you're buying a company for $1 billion (half-cash, half-debt) with a $100 million asset write-up and a 40% tax rate, and the seller has $200M total assets, $150M total liabilities, and $50M shareholders' equity: (1) Add seller's Assets ($200M) and Liabilities ($150M) to buyer's balance sheet, wiping out seller's equity. (2) Cash goes down by $500M. (3) Asset write-up adds $100M to Assets. (4) Debt goes up by $500M on Liabilities side. (5) New DTL of $40M ($100M \u00d7 40%) goes on Liabilities side. (6) Assets are down $200M net; Liabilities & Equity are up $690M ($500 + $40 + $150). (7) Therefore you need $890M of Goodwill & Intangibles on the Assets side to make the balance sheet balance.",
+    "key_points": [
+      "DTA = Asset Write-Down \u00d7 Tax Rate; DTL = Asset Write-Up \u00d7 Tax Rate",
+      "Seller's equity is wiped out; assets and liabilities are added to buyer's balance sheet",
+      "Cash used decreases assets; new debt issued increases liabilities",
+      "Asset write-up increases assets; corresponding DTL increases liabilities",
+      "Goodwill & Intangibles is the 'plug' that makes Assets = Liabilities + Equity after all adjustments",
+      "In the worked example: $890M of Goodwill needed to balance ($200M + $500M + $100M - $500M - $40M shortfall offset by $890M plug)"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-014",
+    "question": "Could you get DTLs or DTAs in an asset purchase?",
+    "model_answer": "No, because in an asset purchase the book basis of assets always matches the tax basis. DTLs and DTAs get created in a stock purchase because the book values of assets are written up or written down, but the tax values are not \u2014 creating a temporary difference between book and tax that necessitates a deferred tax item.",
+    "key_points": [
+      "In an asset purchase, book basis equals tax basis \u2014 no mismatch, so no DTL or DTA",
+      "In a stock purchase, book values are written up/down to fair market value but tax values are not \u2014 creating the mismatch",
+      "The book vs. tax basis difference in stock purchases is what gives rise to DTLs and DTAs",
+      "DTLs/DTAs are specific to stock purchase (and 338(h)(10) treated as asset purchase but structure differs)"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-015",
+    "question": "How do you account for DTLs in forward projections in a merger model?",
+    "model_answer": "You create a book vs. cash tax schedule and figure out what the company owes in taxes based on its Pretax Income on the books, and then determine what it actually pays in cash taxes based on its NOLs and newly created amortization and depreciation expenses (from any asset write-ups). Anytime the 'cash' tax expense exceeds the 'book' tax expense, you record this as a decrease to the Deferred Tax Liability on the Balance Sheet. If the 'book' expense is higher, you record that as an increase to the DTL.",
+    "key_points": [
+      "Build a book vs. cash tax schedule in the forward projections",
+      "Book taxes = Pretax Income \u00d7 tax rate based on book income",
+      "Cash taxes = actual taxes paid, reduced by NOLs and incremental D&A from asset write-ups",
+      "When cash taxes > book taxes: DTL decreases (you're paying off the deferred liability)",
+      "When book taxes > cash taxes: DTL increases (more taxes being deferred)",
+      "Track the DTL balance on the Balance Sheet through the projection period"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-016",
+    "question": "Explain the complete formula for how to calculate Goodwill in an M&A deal.",
+    "model_answer": "Goodwill = Equity Purchase Price \u2013 Seller Book Value + Seller's Existing Goodwill \u2013 Asset Write-Ups \u2013 Seller's Existing Deferred Tax Liability + Write-Down of Seller's Existing Deferred Tax Asset + Newly Created Deferred Tax Liability. Key notes: Seller Book Value is the Shareholders' Equity number. You add the Seller's Existing Goodwill because it gets written down to $0 in an M&A deal. You subtract Asset Write-Ups because these are additions to the Assets side of the Balance Sheet \u2014 Goodwill is also an asset, so you need less Goodwill to 'plug the hole.' Normally you assume 100% of the Seller's existing DTL is written down. The seller's existing DTA may or may not be written down completely.",
+    "key_points": [
+      "Goodwill = Equity Purchase Price \u2013 Seller Book Value + Seller's Existing Goodwill \u2013 Asset Write-Ups \u2013 Seller's Existing DTL + Write-Down of Seller's Existing DTA + Newly Created DTL",
+      "Seller Book Value = Seller's Shareholders' Equity",
+      "Add back Seller's Existing Goodwill because it is written down to $0 in the deal",
+      "Subtract Asset Write-Ups because they are assets themselves, reducing the Goodwill 'plug' needed",
+      "Assume 100% of Seller's existing DTL is written down (add it back, reducing Goodwill)",
+      "Seller's existing DTA write-down depends on how much of the NOLs will actually be usable"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-017",
+    "question": "Explain why we would write down the seller's existing Deferred Tax Asset in an M&A deal.",
+    "model_answer": "You write down the seller's existing DTA to reflect the fact that Deferred Tax Assets include NOLs, and that you might use those NOLs post-transaction to offset the combined entity's taxable income \u2014 meaning they are no longer deferred benefits sitting on the balance sheet. In an asset or 338(h)(10) purchase, you assume the entire NOL balance goes to $0 in the transaction, so you write down the existing DTA by the full NOL write-down. In a stock purchase, the formula is: DTA Write-Down = Buyer Tax Rate \u00d7 MAX(0, NOL Balance \u2013 Allowed Annual NOL Usage \u00d7 Expiration Period in Years). This formula says: if you're going to use up all the NOLs post-transaction, don't write anything down. Otherwise, write down the portion you cannot actually use \u2014 the existing NOL balance minus the amount usable per year times the number of years remaining.",
+    "key_points": [
+      "DTAs include NOLs; once NOLs are usable post-transaction, the DTA is no longer a deferred benefit and must be written down",
+      "Asset / 338(h)(10) purchase: entire NOL balance written to $0, so full DTA write-down",
+      "Stock purchase formula: DTA Write-Down = Buyer Tax Rate \u00d7 MAX(0, NOL Balance \u2013 Allowed Annual NOL Usage \u00d7 Expiration Period)",
+      "If all NOLs will be used before expiry, write-down = $0",
+      "Otherwise write down the portion that cannot be used (excess NOLs times tax rate)",
+      "The DTA write-down feeds into the Goodwill calculation"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-018",
+    "question": "What's a Section 338(h)(10) election and why might a company want to use it in an M&A deal?",
+    "model_answer": "A Section 338(h)(10) election blends the benefits of a stock purchase and an asset purchase. Legally it is a stock purchase, but accounting-wise it's treated like an asset purchase. The seller is still subject to double-taxation \u2014 on its assets that have appreciated and on the proceeds from the sale. But the buyer receives a step-up tax basis on the newly acquired assets and can depreciate/amortize them for tax savings. Even though the seller gets taxed twice, buyers often pay more in a 338(h)(10) deal because of the tax-savings potential. It's particularly helpful for: (1) Sellers with high NOL balances \u2014 more tax savings for the buyer because the NOL balance is written down completely, so more of the excess purchase price can be allocated to asset write-ups; and (2) If the company has been an S-corporation for over 10 years \u2014 in this case it doesn't have to pay a tax on the appreciation of its assets. The requirements to use 338(h)(10) are complex and are handled by lawyers and tax accountants, not bankers.",
+    "key_points": [
+      "338(h)(10) is legally a stock purchase but treated as an asset purchase for tax/accounting purposes",
+      "Seller faces double taxation: taxed on asset appreciation AND on sale proceeds",
+      "Buyer gets step-up tax basis and can depreciate/amortize newly acquired assets (tax benefit)",
+      "Buyers often pay a premium in 338(h)(10) because of tax savings potential",
+      "Especially beneficial when seller has high NOL balances (NOLs written to zero, more purchase price goes to asset write-ups)",
+      "Also beneficial for S-corporations held >10 years (no tax on asset appreciation)",
+      "Requirements are complex \u2014 handled by lawyers/tax accountants, not bankers"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-019",
+    "question": "How would I calculate 'break-even synergies' in an M&A deal and what does the number mean?",
+    "model_answer": "To calculate break-even synergies, you set the EPS accretion/dilution to $0.00 and then back-solve in Excel to find the required synergies needed to make the deal neutral to EPS. It's important because you want an idea of whether or not a deal 'works' mathematically. A high number for break-even synergies tells you that you're going to need a very large amount of cost savings or revenue synergies to make the deal work, which is a red flag about feasibility.",
+    "key_points": [
+      "Set EPS accretion/dilution = $0.00 and back-solve for required synergies (use Excel Goal Seek or similar)",
+      "Break-even synergies = the synergy amount that makes the deal exactly EPS-neutral",
+      "High break-even synergy number = deal requires a lot of cost/revenue savings \u2192 potentially unrealistic",
+      "Low break-even synergy number = deal is easier to make accretive with modest synergies",
+      "Key sanity check on deal feasibility from an EPS perspective"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-020",
+    "question": "Normally in an accretion / dilution model you care most about combining both companies' Income Statements. But let's say I want to combine all 3 financial statements \u2014 how would I do this?",
+    "model_answer": "You combine the Income Statements as you normally would in a merger model. Then you do the following for the other two statements: (1) Combine the buyer's and seller's balance sheets (except for the seller's Shareholders' Equity number, which is wiped out). (2) Make the necessary Pro-Forma Adjustments to the combined balance sheet \u2014 cash used, debt issued, goodwill/intangibles created, etc. (3) Project the combined Balance Sheet using standard assumptions for each line item (receivables days, inventory days, payables days, etc.), as you would in any accounting model. (4) Then project the Cash Flow Statement and link everything together as you normally would with any other 3-statement model.",
+    "key_points": [
+      "Income Statements: combined as in a standard merger model",
+      "Balance Sheet step 1: add buyer and seller balance sheets, excluding seller's Shareholders' Equity (wiped out)",
+      "Balance Sheet step 2: apply pro-forma adjustments (cash used, debt raised, goodwill/intangibles, DTLs, fees, etc.)",
+      "Balance Sheet step 3: project forward using standard balance sheet assumptions (days ratios, etc.)",
+      "Cash Flow Statement: projected and linked to Balance Sheet as in any 3-statement model",
+      "End result is a fully integrated 3-statement combined company model"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-021",
+    "question": "How do you handle options, convertible debt, and other dilutive securities in a merger model?",
+    "model_answer": "The exact treatment depends on the terms of the Purchase Agreement. The buyer might assume the dilutive securities, or it might allow the seller to 'cash them out,' assuming the per-share purchase price is above the exercise prices of those securities. If you assume the securities are exercised (cashed out), you calculate dilution to the equity purchase price in the same way you normally would: Treasury Stock Method for options, and assume convertibles convert into normal shares using the conversion price.",
+    "key_points": [
+      "Treatment depends on Purchase Agreement terms: buyer can assume them or cash them out",
+      "Cash-out typically applies when per-share purchase price > exercise price of options/convertibles",
+      "For options: use Treasury Stock Method to calculate diluted shares and adjust equity purchase price",
+      "For convertible debt: assume conversion into shares at the conversion price",
+      "Diluted share count feeds into the total equity purchase price calculation",
+      "The choice between assuming vs. cashing out affects total deal consideration"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-ma-advanced-022",
+    "question": "How do you account for transaction costs, financing fees, and miscellaneous expenses in a merger model?",
+    "model_answer": "Under old accounting rules, all these fees were capitalized and amortized. Under new rules introduced at the end of 2008, you expense transaction costs and miscellaneous fees upfront, but capitalize financing fees and amortize them over the life of the debt. Expensed transaction fees come out of Retained Earnings when you adjust the Balance Sheet. Capitalized financing fees appear as a new Asset on the Balance Sheet and are amortized each year according to the tenor of the debt.",
+    "key_points": [
+      "Post-2008 rules: transaction and miscellaneous fees are expensed upfront (not amortized)",
+      "Financing fees are still capitalized and amortized over the life of the debt",
+      "Expensed transaction fees reduce Retained Earnings on the pro-forma Balance Sheet",
+      "Capitalized financing fees appear as a new asset on the Balance Sheet",
+      "Financing fee amortization is recorded as an annual expense over the debt's tenor",
+      "This treatment differs from pre-2008 practice where all fees were capitalized and amortized"
+    ],
+    "category": "ma-advanced",
+    "difficulty": 3
+  }
+]

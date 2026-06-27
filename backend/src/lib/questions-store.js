@@ -18,7 +18,7 @@ const MODE_DIR = {
 //   ../../../questions -> jamie.ai/questions
 const __filename = fileURLToPath(import.meta.url);
 const __dir = new URL(".", import.meta.url);
-const QUESTIONS_ROOT = fileURLToPath(new URL("../../../questions", __dir));
+const QUESTIONS_ROOT = fileURLToPath(new URL("../../questions", __dir));
 
 // Log resolved root once at import time (visible in server boot output).
 console.log("[questions-store] QUESTIONS_ROOT resolved to:", QUESTIONS_ROOT);

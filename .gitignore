@@ -14,3 +14,6 @@ guides/
 # Generated question banks — derived from copyrighted guides
 # Users should generate their own by running the parse workflows with their own PDFs
 questions/
+# Exception: backend/questions/ must be tracked so Railway Docker build can include it
+!backend/questions/
+!backend/questions/**

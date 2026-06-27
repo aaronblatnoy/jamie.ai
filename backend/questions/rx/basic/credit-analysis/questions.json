@@ -1,0 +1,172 @@
+[
+  {
+    "id": "rx-credit-and-covenant-analysis-001",
+    "question": "When presented with a cap table in a restructuring interview, what are the key steps you should take immediately?",
+    "model_answer": "When handed a cap table in a restructuring interview, you should immediately do three things: (1) Create a liquidity table showing how much liquidity is available (ABL/revolver capacity less amount outstanding less letters of credit outstanding, plus unrestricted cash); (2) Draw a maturity wall diagram showing when each piece of debt comes due; (3) Calculate leverage and interest coverage ratios if not already provided. You should also ask clarifying questions about things the cap table won't show on its own: Is there restricted cash? Is there a springing maturity (springer) that would cause debt to come due earlier than stated? Is there grid pricing not currently triggered that would increase cash interest? Does the company have enough liquidity to pay cash interest this year and next year? Is there capacity in the secured basket to add more debt, or do covenants preclude it?",
+    "key_points": [
+      "Step 1: Build a liquidity table — ABL/revolver capacity less drawn less LCs plus unrestricted cash",
+      "Step 2: Map the maturity wall — note when each debt piece comes due and identify clustering of maturities",
+      "Step 3: Calculate or verify leverage ratios (total, secured, net) and interest coverage ratio",
+      "Ask about restricted cash — headline cash may overstate available liquidity",
+      "Ask about springers — a senior piece maturing after a junior piece may have a springing maturity triggered if junior debt is not refinanced first",
+      "Ask about grid pricing — could cash interest increase meaningfully if leverage rises or utilization changes?",
+      "Ask whether the company can pay cash interest in the near term — not just today but next year",
+      "Ask about secured basket capacity — can the company add more secured debt, or are covenants already restricting capacity?"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-002",
+    "question": "How do you calculate and interpret the interest coverage ratio from a cap table, and what thresholds signal distress?",
+    "model_answer": "The interest coverage ratio is calculated as LTM Adjusted EBITDA divided by total cash interest expense (as shown in the cap table's cash interest column). For example, in Example One: $80mm EBITDA / $51mm cash interest = 1.6x. In Example Two: $125mm EBITDA / $61mm cash interest = 2.0x. The ratio tells you how many times over the company can cover its interest payments from operating cash flows. The closer to 1.0x (or below), the worse — at 1.0x the company is using virtually all EBITDA to pay interest and has nothing left for capex, taxes, working capital needs, or debt repayment. Below 1.0x, the company cannot cover its interest from operations alone and is burning cash. General distress thresholds: below 2.0x is cause for concern; below 1.5x is serious concern; at or below 1.0x the company is in acute distress. Note that EBITDA-to-interest is an approximation — actual free cash flow will be lower after capex and working capital changes, so the actual cash coverage is even worse than the EBITDA-based ratio suggests.",
+    "key_points": [
+      "Formula: LTM Adjusted EBITDA / Total Annual Cash Interest Expense = Interest Coverage Ratio",
+      "Example One: $80mm / $51mm = 1.6x (dangerously low)",
+      "Example Two: $125mm / $61mm = 2.0x (manageable but elevated)",
+      "Closer to 1.0x = worse; at 1.0x company uses all EBITDA just to pay interest",
+      "Below 1.0x = company cannot cover interest from operations, burning cash",
+      "General thresholds: below 2.0x = concern; below 1.5x = serious concern; at/below 1.0x = acute distress",
+      "EBITDA overstates actual cash coverage — real FCF is lower after capex and working capital needs",
+      "Compare interest coverage ratio to leverage ratios to get a complete picture of distress severity"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-003",
+    "question": "What leverage ratio thresholds are generally considered acceptable versus distressed for secured and total debt?",
+    "model_answer": "As a general rule of thumb used in restructuring analysis: secured debt leverage (Secured Debt / LTM Adjusted EBITDA) should ideally be below 5.0x for a company to be considered manageable, and total debt leverage (Total Debt / LTM Adjusted EBITDA) should ideally be below 7.5x. Ratios above these thresholds suggest the company may be over-levered relative to its earnings capacity and will likely struggle to refinance or service its debt. In Example One, secured leverage was 6.0x (face) and total leverage was 9.8x (face) — both substantially above healthy thresholds. In Example Two, secured leverage was 4.4x and total leverage was 7.7x — more moderate, though still elevated. These are rough guidelines, not hard rules; leverage tolerance varies significantly by industry, asset base, and market environment. However, presenting these benchmarks in an interview shows you have a working framework for assessing distress. You should also note that when both face and market leverage are provided, market leverage is often more instructive about what investors actually think the enterprise is worth.",
+    "key_points": [
+      "Secured leverage threshold: below ~5.0x generally considered manageable",
+      "Total leverage threshold: below ~7.5x generally considered manageable",
+      "Above these thresholds suggests the company may struggle to refinance or service debt",
+      "Example One: secured 6.0x face, total 9.8x face — both well above thresholds; deeply distressed",
+      "Example Two: secured 4.4x face, total 7.7x face — elevated but more moderate",
+      "Market leverage (using market value of debt) often more instructive than face leverage about investor expectations",
+      "Thresholds are guidelines, not hard rules — vary by industry, asset intensity, and market environment",
+      "Always note leverage ratios immediately when reviewing a cap table, and compare to any disclosed covenant levels"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-004",
+    "question": "What is FCCR?",
+    "model_answer": "FCCR stands for Fixed Charge Coverage Ratio. The formula is: (EBITDA - Capex - Cash Taxes) / (Cash Interest Expense + Mandatory Debt Repayment). The numerator approximates the cash available from operations after essential reinvestment (capex) and tax obligations, while the denominator captures the fixed cash obligations arising from the capital structure — interest payments and required principal repayment. In essence, FCCR asks: do we have enough operating cash flow to cover our fixed financing obligations? A minimum FCCR of 1.0x is frequently seen as a financial covenant in secured debt instruments such as revolvers and term loans.",
+    "key_points": [
+      "FCCR = (EBITDA - Capex - Cash Taxes) / (Cash Interest Expense + Mandatory Debt Repayment)",
+      "Numerator approximates cash available from operations after reinvestment needs and taxes",
+      "Denominator captures fixed cash obligations arising from the capital structure",
+      "Tests whether a company generates enough operating cash flow to cover fixed financing charges",
+      "A minimum FCCR of 1.0x is commonly required in revolvers and term loans as a financial covenant",
+      "Frequently appears as a maintenance covenant in secured credit agreements"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1
+  },
+  {
+    "question": "How do you determine how much liquidity a company really has?",
+    "model_answer": "Take the revolver capacity, subtract the amount currently drawn, and add current cash or cash equivalents. Also subtract letters of credit outstanding and subtract restricted cash if relevant. Liquidity = (Revolver Capacity - Amount Drawn) + Cash - Letters of Credit Outstanding - Restricted Cash.",
+    "key_points": [
+      "Liquidity = revolver availability + cash",
+      "Subtract: letters of credit outstanding",
+      "Subtract: restricted cash",
+      "Key distinction: liquidity ≠ just cash on the balance sheet"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1,
+    "id": "rx-credit-and-covenant-analysis-027"
+  },
+  {
+    "question": "What do we mean by leveraged vs. unleveraged loans?",
+    "model_answer": "Leveraged loans are those with a credit rating of BBB- or Baa3 or lower — meaning the credit rating is below investment grade (IG). In other words, leveraged simply means the loan is rated high yield.",
+    "key_points": [
+      "Leveraged = below investment grade (BBB- or Baa3 and below)",
+      "Unleveraged = investment grade (BBB- or above)",
+      "Leveraged loans are in the high-yield / distressed universe",
+      "Key threshold for distinguishing institutional loan types"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1,
+    "id": "rx-credit-and-covenant-analysis-028"
+  },
+  {
+    "question": "In cap tables do you use adjusted EBITDA or just EBITDA for leverage ratios, etc.?",
+    "model_answer": "Adjusted EBITDA, if possible.",
+    "key_points": [
+      "Always use Adjusted EBITDA in cap tables when available",
+      "Adjusted EBITDA strips out one-time charges for a cleaner recurring picture",
+      "Consistent with how debt covenants are typically tested",
+      "More representative of sustainable earnings power"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1,
+    "id": "rx-credit-and-covenant-analysis-030"
+  },
+  {
+    "question": "What are leverage and interest coverage ratios? Which are more important?",
+    "model_answer": "Both are covenants found in term sheets of debt in the capital structure. Leverage = Debt / EBITDA. Interest coverage = EBITDA / Cash Interest Expense. Leverage ratios are more utilized and looked at — they feature prominently in all cap tables and are calculated at the secured level, unsecured level, and for the totality of all debt. Leverage ratios are often used at the secured level to determine grid pricing or how much more debt can be added to the secured area.",
+    "key_points": [
+      "Leverage ratio = Debt / EBITDA (more important of the two)",
+      "Interest coverage ratio = EBITDA / Cash Interest Expense",
+      "Leverage calculated at secured, unsecured, and total debt levels",
+      "Leverage ratio used to set grid pricing and determine secured basket capacity"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1,
+    "id": "rx-credit-and-covenant-analysis-031"
+  },
+  {
+    "question": "Why are credit ratings not that great of an indicator for distress?",
+    "model_answer": "They are lagging indicators. Credit ratings reflect past performance and known information, and are typically updated after market conditions have already moved. Distressed debt markets react faster than rating agencies.",
+    "key_points": [
+      "Credit ratings are lagging indicators of distress",
+      "Market prices and spreads lead ratings changes",
+      "Downgrades often come after the market has already priced in distress",
+      "Secondary market pricing and covenant testing are better leading indicators"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1,
+    "id": "rx-credit-and-covenant-analysis-034"
+  },
+  {
+    "question": "What's a covenant? Three broad types?",
+    "model_answer": "A rule laid out in the indenture and loan documents by which a company agrees to operate as part of the terms of the loan or bond. Three broad types: (1) Affirmative covenants — something the company must do; (2) Financial/maintenance covenants — typical of bank debt, include financial tests like leverage and interest coverage ratios; (3) Negative covenants — typically prevent or restrict what a company can do.",
+    "key_points": [
+      "Covenant: rule in indenture/loan docs the company must comply with",
+      "Affirmative: things company must do (e.g., maintain insurance)",
+      "Financial/maintenance: quantitative tests (leverage ratio, coverage ratio)",
+      "Negative: restrictions on company actions (asset sales, additional debt)"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1,
+    "id": "rx-credit-and-covenant-analysis-035"
+  },
+  {
+    "question": "Default? Technical default?",
+    "model_answer": "Default occurs when the company that issues a bond or loan fails to make a required payment. Technical default occurs when maintenance/affirmative covenants are violated — for example, breaking the required leverage or interest rate coverage ratios — even if no payment has been missed.",
+    "key_points": [
+      "Payment default: missed interest or principal payment",
+      "Technical default: covenant violation without missing a payment",
+      "Technical default can trigger acceleration of all debt",
+      "Common technical defaults: leverage ratio breach, coverage ratio breach"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1,
+    "id": "rx-credit-and-covenant-analysis-036"
+  },
+  {
+    "question": "What's the most common ratio used for liquidity?",
+    "model_answer": "EBITDA/interest ratio. If it equals 1x, the company can just cover interest expense. Normally Adjusted EBITDA is used and you also subtract capital expenditures.",
+    "key_points": [
+      "Interest coverage ratio = EBITDA / Interest Expense",
+      "1x = breakeven — barely covers interest payments",
+      "Use Adjusted EBITDA, subtract capex for a cash-based coverage measure",
+      "Below 1x signals inability to service debt from operations"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 1,
+    "id": "rx-credit-and-covenant-analysis-038"
+  }
+]

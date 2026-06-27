@@ -1,0 +1,476 @@
+[
+  {
+    "id": "mi-valuation-basic-001",
+    "question": "What are the 3 major valuation methodologies?",
+    "model_answer": "The three major valuation methodologies are Comparable Companies, Precedent Transactions, and Discounted Cash Flow (DCF) Analysis.",
+    "key_points": [
+      "Comparable Companies (public comps) \u2014 relative valuation based on trading multiples of similar public firms",
+      "Precedent Transactions \u2014 relative valuation based on multiples paid in prior M&A deals",
+      "Discounted Cash Flow (DCF) Analysis \u2014 intrinsic valuation based on projected free cash flows discounted at WACC",
+      "All three together form the standard valuation framework used in investment banking"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-valuation-basic-002",
+    "question": "What other Valuation methodologies are there?",
+    "model_answer": "Other valuation methodologies include: Liquidation Valuation (valuing a company's assets assuming they are sold off and then subtracting liabilities to determine how much capital, if any, equity investors receive); Replacement Value (valuing a company based on the cost of replacing its assets); LBO Analysis (determining how much a PE firm could pay for a company to hit a target IRR, usually in the 20-25% range); Sum of the Parts (valuing each division of a company separately and adding them together at the end); M&A Premiums Analysis (analyzing M&A deals and figuring out the premium that each buyer paid to establish what a company is worth); and Future Share Price Analysis (projecting a company's share price based on the P/E multiples of public company comparables, then discounting it back to its present value).",
+    "key_points": [
+      "Liquidation Valuation: asset sale proceeds minus liabilities; used in bankruptcy",
+      "Replacement Value: cost to replace the company's assets",
+      "LBO Analysis: maximum price a PE firm can pay to achieve a target IRR of 20-25%",
+      "Sum of the Parts: value each division separately using different comps, then add together; used for conglomerates",
+      "M&A Premiums Analysis: use premiums paid in past deals to estimate value",
+      "Future Share Price Analysis: project share price using P/E multiples then discount back to present"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-valuation-basic-003",
+    "question": "When would you use a Liquidation Valuation?",
+    "model_answer": "Liquidation Valuation is most common in bankruptcy scenarios and is used to see whether equity shareholders will receive any capital after the company's debts have been paid off. It is often used to advise struggling businesses on whether it is better to sell off assets separately or to try and sell the entire company.",
+    "key_points": [
+      "Most common in bankruptcy scenarios",
+      "Determines whether equity shareholders receive anything after debts are repaid",
+      "Used to advise distressed companies: sell assets piecemeal vs. sell the whole company",
+      "Generally produces the lowest valuation of all methodologies"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-valuation-basic-004",
+    "question": "When would you use Sum of the Parts?",
+    "model_answer": "Sum of the Parts is most often used when a company has completely different, unrelated divisions \u2014 a conglomerate like General Electric, for example. If you have a plastics division, a TV and entertainment division, an energy division, a consumer financing division, and a technology division, you should not use the same set of Comparable Companies and Precedent Transactions for the entire company. Instead, you should use different sets for each division, value each one separately, and then add them together to get the Combined Value.",
+    "key_points": [
+      "Used for conglomerates with completely different, unrelated divisions (e.g., General Electric)",
+      "Each division is valued with its own appropriate set of Comparable Companies and Precedent Transactions",
+      "Divisions are valued separately then summed to get a Combined Value",
+      "Avoids the distortion of applying a single multiple to a diversified business"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-valuation-basic-005",
+    "question": "What are the most common multiples used in Valuation?",
+    "model_answer": "The most common multiples are EV/Revenue, EV/EBITDA, EV/EBIT, P/E (Share Price / Earnings per Share), and P/BV (Share Price / Book Value per Share).",
+    "key_points": [
+      "EV/Revenue \u2014 used when company has no profitability or for cross-industry comparisons",
+      "EV/EBITDA \u2014 most widely used; excludes D&A so useful when fixed assets vary across comps",
+      "EV/EBIT \u2014 includes D&A; preferred by Buffett and for capital-intensive industries",
+      "P/E (Price/Earnings) \u2014 equity value multiple; capital structure-dependent",
+      "P/BV (Price/Book Value) \u2014 used especially for banks and financial institutions",
+      "EV multiples pair with metrics available to all investors; equity multiples pair with metrics only available to equity holders"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-valuation-basic-006",
+    "question": "How would you present these Valuation methodologies to a company or its investors?",
+    "model_answer": "Usually you use a 'football field' chart where you show the valuation range implied by each methodology. You always show a range rather than one specific number. The football field chart visually compares the ranges from Comparable Companies, Precedent Transactions, DCF, LBO, and any other methodologies side by side.",
+    "key_points": [
+      "Use a 'football field' chart to present valuation results",
+      "Always show a range of values, never a single point estimate",
+      "Each methodology produces a bar/range on the chart for visual comparison",
+      "Ranges are derived from min, max, 25th percentile, 75th percentile of multiples in each set",
+      "Used in pitch books, client presentations, and Fairness Opinions"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-valuation-basic-007",
+    "question": "How would you value an apple tree?",
+    "model_answer": "The same way you would value a company: by looking at what comparable apple trees are worth (relative valuation) and the value of the apple tree's cash flows (intrinsic valuation). You could do a DCF for anything \u2014 even an apple tree.",
+    "key_points": [
+      "Relative valuation: look at what comparable apple trees trade for (comps approach)",
+      "Intrinsic valuation: DCF based on the cash flows the apple tree generates over time",
+      "The same two core valuation frameworks apply to any asset, not just companies",
+      "Demonstrates that valuation principles are universal"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-valuation-basic-008",
+    "question": "What do you actually use a valuation for?",
+    "model_answer": "Usually you use it in pitch books and in client presentations when you are providing updates and telling them what they should expect for their own valuation. It is also used right before a deal closes in a Fairness Opinion, a document a bank creates that 'proves' the value their client is paying or receiving is 'fair' from a financial point of view. Valuations can also be used in defense analyses, merger models, LBO models, DCFs (because terminal multiples are based off of comps), and pretty much anything else in finance.",
+    "key_points": [
+      "Pitch books and client presentations \u2014 communicating expected valuation to clients",
+      "Fairness Opinions \u2014 bank document proving a transaction price is 'fair' from a financial perspective, delivered at deal close",
+      "Defense analyses \u2014 defending against hostile takeovers",
+      "Merger models \u2014 assessing deal value and accretion/dilution",
+      "LBO models \u2014 setting entry price based on target IRR",
+      "DCF terminal value \u2014 terminal multiples in DCF are derived from comps"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-valuation-basic-009",
+    "question": "Rank the 3 valuation methodologies from highest to lowest expected value.",
+    "model_answer": "This is a trick question \u2014 there is no ranking that always holds. In general, Precedent Transactions will be higher than Comparable Companies because of the Control Premium built into acquisitions. Beyond that, a DCF could go either way and is more variable than other methodologies. Often it produces the highest value, but it can also produce the lowest value depending on the assumptions used.",
+    "key_points": [
+      "No fixed ranking always holds \u2014 this is a trick question",
+      "Precedent Transactions generally higher than Comparable Companies due to the Control Premium paid in acquisitions",
+      "DCF is the most variable \u2014 can be highest or lowest depending on assumptions",
+      "DCF often produces the highest value but can produce the lowest as well",
+      "Never state a fixed order without qualifying it as a general tendency with exceptions"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-010",
+    "question": "When would you NOT use a DCF in a Valuation?",
+    "model_answer": "You do not use a DCF if the company has unstable or unpredictable cash flows (e.g., a tech or bio-tech startup) or when debt and working capital serve a fundamentally different role. For example, banks and financial institutions do not re-invest debt and working capital is a huge part of their Balance Sheets \u2014 so you would not use a DCF for such companies.",
+    "key_points": [
+      "Avoid DCF when cash flows are unstable or unpredictable (e.g., early-stage tech or biotech startups)",
+      "Avoid DCF for banks and financial institutions where debt and working capital serve a fundamentally different role",
+      "For banks, debt is a raw material (not a financing source) and working capital dominates the balance sheet",
+      "DCF requires reasonably predictable future cash flows to be meaningful"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-011",
+    "question": "When do you use an LBO Analysis as part of your Valuation?",
+    "model_answer": "You use LBO Analysis whenever you are looking at a Leveraged Buyout, but it is also used to establish how much a private equity firm could pay for a company, which is usually lower than what strategic companies will pay. It is often used to set a 'floor' on a possible valuation for the company you are looking at.",
+    "key_points": [
+      "Used whenever evaluating a potential Leveraged Buyout",
+      "Establishes the maximum price a PE firm can pay to achieve a target IRR (typically 20-25%)",
+      "PE firm's price is usually lower than what strategic acquirers would pay",
+      "Sets a valuation 'floor' in the context of a broader valuation analysis",
+      "Unlike DCF, LBO does not directly output a valuation \u2014 you set the IRR and solve for price"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-012",
+    "question": "What are some examples of industry-specific multiples?",
+    "model_answer": "Industry-specific multiples include: Technology (Internet): EV/Unique Visitors, EV/Pageviews. Retail/Airlines: EV/EBITDAR (Earnings Before Interest, Taxes, Depreciation, Amortization & Rental Expense) \u2014 rent is added back because some companies own their buildings and capitalize the expense while others rent. Energy: EV/EBITDAX (adds back Exploration Expense in addition to D&A), EV/Daily Production, EV/Proved Reserve Quantities \u2014 because all value in energy derives from oil & gas reserves. Real Estate Investment Trusts (REITs): Price/FFO per Share and Price/AFFO per Share (Funds From Operations and Adjusted Funds From Operations) \u2014 FFO adds back Depreciation and subtracts gains on property sales, giving a normalized cash flow picture since depreciation is non-cash and large in real estate.",
+    "key_points": [
+      "Tech (Internet): EV/Unique Visitors and EV/Pageviews \u2014 traffic drives value, not profit",
+      "Retail/Airlines: EV/EBITDAR \u2014 adds back rent to normalize for own-vs-lease differences",
+      "Energy: EV/EBITDAX (exploration expense added back), EV/Daily Production, EV/Proved Reserve Quantities \u2014 reserve-based value drivers",
+      "REITs: Price/FFO and Price/AFFO per Share \u2014 FFO normalizes for large non-cash depreciation and non-recurring property sale gains",
+      "EBITDAX exists because some energy companies capitalize exploration expenses and others expense them \u2014 adding back normalizes the numbers"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-013",
+    "question": "When you're looking at an industry-specific multiple like EV/Scientists or EV/Subscribers, why do you use Enterprise Value rather than Equity Value?",
+    "model_answer": "You use Enterprise Value because those scientists or subscribers are 'available' to all the investors (both debt and equity) in a company. The same logic does not apply to everything \u2014 you need to think through the multiple and see which investors the particular metric is 'available' to.",
+    "key_points": [
+      "Enterprise Value is used when the underlying metric is available to ALL investors (both debt and equity)",
+      "Equity Value is used when the metric is only available to equity investors",
+      "Key test: ask which investors 'own' or benefit from the metric",
+      "Scientists, subscribers, users, reserves \u2014 all generate value for both debt and equity holders, so EV is appropriate",
+      "This logic should be applied to any new or unusual multiple, not just standard ones"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-014",
+    "question": "Would an LBO or DCF give a higher valuation?",
+    "model_answer": "Technically it could go either way, but in most cases the LBO will give a lower valuation. With an LBO, you do not get any value from the cash flows of a company in between Year 1 and the final year \u2014 you are only valuing it based on its terminal value. With a DCF, by contrast, you are taking into account both the company's interim cash flows and its terminal value, so values tend to be higher. Note: unlike a DCF, an LBO model by itself does not give a specific valuation \u2014 instead, you set a desired IRR and determine how much you could pay for the company (the valuation) based on that.",
+    "key_points": [
+      "LBO typically gives a lower valuation than DCF in most cases",
+      "LBO only captures terminal value \u2014 no value is assigned to interim-year cash flows",
+      "DCF captures both interim cash flows AND terminal value, so values are higher",
+      "LBO does not directly output a valuation \u2014 you set a target IRR and solve for the entry price",
+      "Could theoretically go either way, but LBO-lower is the standard answer"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-015",
+    "question": "Why can't you use Equity Value / EBITDA as a multiple rather than Enterprise Value / EBITDA?",
+    "model_answer": "EBITDA is available to all investors in the company, not just equity holders. Similarly, Enterprise Value is also available to all shareholders, so it makes sense to pair them together. Equity Value / EBITDA is comparing apples to oranges because Equity Value does not reflect the company's entire capital structure \u2014 only the part available to equity investors. Since EBITDA belongs to all capital providers (debt and equity), you must use Enterprise Value to match the scope of the metric.",
+    "key_points": [
+      "EBITDA is available to ALL investors (both debt and equity holders)",
+      "Enterprise Value represents the total value available to all investors, so EV/EBITDA is the correct pairing",
+      "Equity Value only reflects the portion of value belonging to equity investors",
+      "Equity Value / EBITDA is an apples-to-oranges comparison \u2014 the numerator and denominator represent different groups of investors",
+      "The matching principle: always pair a metric with the value measure that represents the same investors"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-016",
+    "question": "How do you select Comparable Companies / Precedent Transactions?",
+    "model_answer": "The 3 main ways to select companies and transactions are: (1) Industry classification, (2) Financial criteria (Revenue, EBITDA, etc.), and (3) Geography. For Precedent Transactions, you often limit the set based on date and only look at transactions within the past 1-2 years. The most important factor is industry \u2014 that is always used to screen for companies/transactions, and the rest may or may not be used depending on how specific you want to be. Example screens: Comparable Company Screen for oil & gas producers with market caps over $5 billion; Comparable Company Screen for digital media companies with over $100 million in revenue; Precedent Transaction Screen for airline M&A transactions over the past 2 years involving sellers with over $1 billion in revenue; Precedent Transaction Screen for retail M&A transactions over the past year.",
+    "key_points": [
+      "Three screening criteria: (1) Industry classification, (2) Financial criteria (Revenue, EBITDA, size), (3) Geography",
+      "Industry is always used \u2014 it is the most important screening factor",
+      "Financial and geographic criteria are applied additionally to narrow the set",
+      "For Precedent Transactions, limit by date \u2014 typically past 1-2 years only",
+      "Screens combine multiple criteria: e.g., 'airline M&A deals in past 2 years with seller revenue > $1B'"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-017",
+    "question": "How do you apply the 3 valuation methodologies to actually get a value for the company you're looking at?",
+    "model_answer": "You take the median multiple of a set of companies or transactions, and then multiply it by the relevant metric from the company you are valuing. For example, if the median EBITDA multiple from your set of Precedent Transactions is 8x and your company's EBITDA is $500 million, the implied Enterprise Value would be $4 billion. To get the 'football field' valuation graph you often see, you look at the minimum, maximum, 25th percentile, and 75th percentile in each set as well and create a range of values based on each methodology.",
+    "key_points": [
+      "Take the median multiple from your comp set or precedent transactions",
+      "Multiply the median multiple by the target company's relevant financial metric",
+      "Example: median EV/EBITDA of 8x \u00d7 company EBITDA of $500M = $4B implied Enterprise Value",
+      "For the football field chart, use min, max, 25th percentile, and 75th percentile to create a value range",
+      "Always present a range, not a single point estimate"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-018",
+    "question": "Why would a company with similar growth and profitability to its Comparable Companies be valued at a premium?",
+    "model_answer": "This could happen for a number of reasons: the company has just reported earnings well above expectations and its stock price has risen recently; it has some type of competitive advantage not reflected in its financials, such as a key patent or other intellectual property; it has just won a favorable ruling in a major lawsuit; or it is the market leader in an industry and has greater market share than its competitors.",
+    "key_points": [
+      "Recent earnings beat \u2014 stock price driven up by positive earnings surprise",
+      "Competitive advantage not in financials \u2014 key patent, proprietary technology, or intellectual property",
+      "Favorable legal ruling \u2014 won a major lawsuit that improves future outlook",
+      "Market leadership \u2014 largest market share in the industry commands a premium",
+      "Premium reflects qualitative factors beyond what financial metrics capture"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-019",
+    "question": "What are the flaws with public company comparables?",
+    "model_answer": "The main flaws are: (1) No company is 100% comparable to another company; (2) The stock market is 'emotional' \u2014 multiples might be dramatically higher or lower on certain dates depending on the market's movements; (3) Share prices for small companies with thinly-traded stocks may not reflect their full value.",
+    "key_points": [
+      "No two companies are perfectly comparable \u2014 business mix, geography, management, and capital structure always differ",
+      "Stock market is 'emotional' \u2014 market sentiment and timing dramatically affect multiples",
+      "Thinly-traded small-cap stocks may not reflect true intrinsic value due to low liquidity",
+      "Public comps reflect minority, non-controlling interest pricing (no control premium)"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-020",
+    "question": "How do you take into account a company's competitive advantage in a valuation?",
+    "model_answer": "There are three ways to account for a competitive advantage in a valuation: (1) Look at the 75th percentile or higher for the multiples rather than the medians; (2) Add in a premium to some of the multiples; (3) Use more aggressive projections for the company. In practice you rarely do all of the above \u2014 these are just possibilities.",
+    "key_points": [
+      "Use 75th percentile multiples (or higher) from the comp set instead of the median",
+      "Apply a direct premium to the selected multiples",
+      "Use more aggressive financial projections for the target company",
+      "In practice, typically only one or two of these adjustments are applied \u2014 not all three simultaneously"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-021",
+    "question": "Do you ALWAYS use the median multiple of a set of public company comparables or precedent transactions?",
+    "model_answer": "There is no rule that you have to do this, but in most cases you do because you want to use values from the middle range of the set. But if the company you are valuing is distressed, is not performing well, or is at a competitive disadvantage, you might use the 25th percentile or something in the lower range instead \u2014 and vice versa if it is doing well.",
+    "key_points": [
+      "Median is the default but not a hard rule",
+      "Use median for average-quality companies to reflect middle of the range",
+      "Use 25th percentile (or lower) for distressed, underperforming, or competitively disadvantaged companies",
+      "Use 75th percentile (or higher) for strong, market-leading, or high-quality companies",
+      "Choice of percentile should reflect the company's relative quality within the comp set"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-022",
+    "question": "What are some flaws with precedent transactions?",
+    "model_answer": "The main flaws are: (1) Past transactions are rarely 100% comparable \u2014 the transaction structure, size of the company, and market sentiment all have huge effects; (2) Data on precedent transactions is generally more difficult to find than it is for public company comparables, especially for acquisitions of small private companies.",
+    "key_points": [
+      "Transactions are rarely 100% comparable \u2014 deal structure, company size, and market sentiment all differ",
+      "Data availability is limited \u2014 precedent transaction data is harder to find than public company data",
+      "Private company acquisitions especially lack publicly available financial data",
+      "Market conditions at the time of each transaction affect multiples, making comparisons across time periods tricky",
+      "Older transactions may not reflect current market conditions"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-023",
+    "question": "Why does Warren Buffett prefer EBIT multiples to EBITDA multiples?",
+    "model_answer": "Warren Buffett once famously said, 'Does management think the tooth fairy pays for capital expenditures?' He dislikes EBITDA because it hides the Capital Expenditures companies make and disguises how much cash they are actually using to finance their operations. In some industries there is also a large gap between EBIT and EBITDA \u2014 anything that is very capital-intensive, for example, will show a big disparity. Note that EBIT itself does not include Capital Expenditures, but it does include Depreciation, and that is directly linked to CapEx \u2014 if a company has a high Depreciation expense, chances are it has high CapEx.",
+    "key_points": [
+      "Buffett: EBITDA hides CapEx and disguises true cash usage for operations",
+      "EBITDA adds back D&A, making capital-intensive businesses look more profitable than they are",
+      "EBIT includes Depreciation, which is directly linked to CapEx \u2014 high D&A signals high CapEx",
+      "In capital-intensive industries, the gap between EBIT and EBITDA is large and meaningful",
+      "EBIT is a more conservative, arguably more honest measure of operating profitability than EBITDA"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-024",
+    "question": "The EV/EBIT, EV/EBITDA, and P/E multiples all measure a company's profitability. What's the difference between them, and when do you use each one?",
+    "model_answer": "P/E depends on the company's capital structure whereas EV/EBIT and EV/EBITDA are capital structure-neutral. Therefore, you use P/E for banks, financial institutions, and other companies where interest payments/expenses are critical. EV/EBIT includes Depreciation & Amortization whereas EV/EBITDA excludes it \u2014 you are more likely to use EV/EBIT in industries where D&A is large and where capital expenditures and fixed assets are important (e.g., manufacturing), and EV/EBITDA in industries where fixed assets are less important and where D&A is comparatively smaller (e.g., Internet companies).",
+    "key_points": [
+      "P/E is capital structure-dependent (affected by interest expense) \u2014 use for banks and financial institutions where interest is core to the business",
+      "EV/EBIT and EV/EBITDA are capital structure-neutral \u2014 appropriate for most non-financial companies",
+      "EV/EBIT includes D&A \u2014 use in capital-intensive industries where D&A/CapEx is large (e.g., manufacturing, industrials)",
+      "EV/EBITDA excludes D&A \u2014 use in asset-light industries where D&A is small (e.g., Internet/software companies)",
+      "Key distinction: EBIT reflects the depreciation cost of capital assets; EBITDA does not"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-025",
+    "question": "How do you value a private company?",
+    "model_answer": "You use the same methodologies as with public companies: public company comparables, precedent transactions, and DCF. But there are some differences: (1) You might apply a 10-15% (or more) discount to the public company comparable multiples because the private company you are valuing is not as 'liquid' as the public comps; (2) You cannot use a premiums analysis or future share price analysis because a private company does not have a share price; (3) Your valuation shows the Enterprise Value for the company as opposed to the implied per-share price as with public companies; (4) A DCF gets tricky because a private company does not have a market capitalization or Beta \u2014 you would probably just estimate WACC based on the public comps' WACC rather than trying to calculate it.",
+    "key_points": [
+      "Same three core methodologies: public comps, precedent transactions, DCF",
+      "Apply a 10-15% (or more) liquidity discount to public comparable multiples \u2014 private shares are illiquid",
+      "Cannot use premiums analysis or future share price analysis \u2014 no public share price exists",
+      "Valuation output is Enterprise Value, not per-share price",
+      "DCF requires estimating WACC from public comps since private companies have no market cap or observable Beta",
+      "Precedent transactions need no liquidity discount since acquired shares are always illiquid regardless"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-026",
+    "question": "Can you use private companies as part of your valuation?",
+    "model_answer": "Only in the context of precedent transactions \u2014 it would make no sense to include them for public company comparables or as part of the Cost of Equity / WACC calculation in a DCF because they are not public and therefore have no values for market cap or Beta.",
+    "key_points": [
+      "Private companies can only be used in the context of precedent transactions",
+      "Cannot use private companies as public company comparables \u2014 they have no traded share price or market cap",
+      "Cannot use private companies in WACC/Cost of Equity calculation \u2014 no observable Beta",
+      "No market cap means P/E and other equity multiples are unavailable for private comps",
+      "In precedent transactions, private companies appear as acquisition targets with disclosed deal values"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-valuation-basic-027",
+    "question": "When would a Liquidation Valuation produce the highest value?",
+    "model_answer": "This is highly unusual, but it could happen if a company had substantial hard assets but the market was severely undervaluing it for a specific reason (such as an earnings miss or cyclicality). As a result, the company's Comparable Companies and Precedent Transactions would likely produce lower values as well, and if its assets were valued highly enough, Liquidation Valuation might give a higher value than other methodologies.",
+    "key_points": [
+      "Rare scenario \u2014 Liquidation Valuation almost always produces the lowest value",
+      "Can produce the highest value if the company has substantial hard assets AND the market is severely undervaluing it",
+      "Reasons for market undervaluation: earnings miss, cyclical downturn, or other temporary negative sentiment",
+      "When comps and precedent transactions are also depressed due to market conditions, liquidation value of hard assets can exceed them",
+      "Asset-heavy industries (e.g., real estate, manufacturing) are more susceptible to this scenario"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-valuation-basic-028",
+    "question": "Let's go back to 2004 and look at Facebook back when it had no profit and no revenue. How would you value it?",
+    "model_answer": "You would use Comparable Companies and Precedent Transactions and look at more 'creative' multiples such as EV/Unique Visitors and EV/Pageviews rather than EV/Revenue or EV/EBITDA. You would NOT use a 'far in the future DCF' because you cannot reasonably predict cash flows for a company that is not even making money yet. This is a very common wrong answer given by interviewees. When you cannot predict cash flow, use other metrics \u2014 do not try to predict cash flow anyway.",
+    "key_points": [
+      "Use Comparable Companies and Precedent Transactions with creative/non-financial multiples",
+      "Appropriate multiples: EV/Unique Visitors, EV/Pageviews \u2014 metrics that reflect the company's actual value drivers",
+      "Do NOT use a DCF \u2014 cannot reasonably predict cash flows for a pre-revenue, pre-profit company",
+      "A 'far in the future DCF' is a common wrong answer \u2014 do not attempt to project cash flows when they are highly uncertain",
+      "When no financial metrics exist, use operational or user-based metrics instead"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-valuation-basic-029",
+    "question": "What would you use in conjunction with Free Cash Flow multiples \u2014 Equity Value or Enterprise Value?",
+    "model_answer": "This is a trick question. For Unlevered Free Cash Flow, you would use Enterprise Value, but for Levered Free Cash Flow you would use Equity Value. Unlevered Free Cash Flow excludes Interest and thus represents money available to all investors, whereas Levered FCF already includes the effects of the Interest expense (and mandatory debt repayments) and the money is therefore only available to equity investors. Debt investors have already 'been paid' with the interest payments and principal repayments they received.",
+    "key_points": [
+      "Trick question \u2014 the answer depends on whether FCF is levered or unlevered",
+      "Unlevered Free Cash Flow (excludes interest) \u2192 pair with Enterprise Value (available to all investors)",
+      "Levered Free Cash Flow (includes interest effects) \u2192 pair with Equity Value (only available to equity investors)",
+      "Unlevered FCF = cash flow before debt service; available to both debt and equity holders",
+      "Levered FCF = cash flow after debt service; only what remains for equity holders",
+      "Debt investors have already been compensated via interest and principal repayments"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-valuation-basic-030",
+    "question": "You never use Equity Value / EBITDA, but are there any cases where you might use Equity Value / Revenue?",
+    "model_answer": "It is very rare, but sometimes large financial institutions with big cash balances have negative Enterprise Values \u2014 so you might use Equity Value / Revenue instead. You might also see Equity Value / Revenue if you have listed a set of financial institutions and non-financial institutions on a slide, you are showing Revenue multiples for the non-financial institutions, and you want to show something similar for the financial institutions. Note that in most cases you would be using other multiples such as P/E and P/BV with banks anyway.",
+    "key_points": [
+      "Rare but possible when large financial institutions have negative Enterprise Values due to large cash balances",
+      "May appear when comparing financial and non-financial institutions side-by-side using revenue multiples for consistency",
+      "For banks and financial institutions, P/E and P/BV are the standard multiples regardless",
+      "Negative EV makes EV-based multiples meaningless, so equity-based revenue multiple is a workaround"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-valuation-basic-031",
+    "question": "You mentioned that Precedent Transactions usually produce a higher value than Comparable Companies \u2014 can you think of a situation where this is NOT the case?",
+    "model_answer": "Sometimes this happens when there is a substantial mismatch between the M&A market and the public market. For example, no public companies have been acquired recently but there have been a lot of small private companies acquired at extremely low valuations. For the most part this generalization is true but there are exceptions to almost every rule in finance.",
+    "key_points": [
+      "Exceptions exist to the 'Precedent Transactions > Comparable Companies' rule",
+      "A mismatch between M&A market and public market can reverse the typical relationship",
+      "If recent transactions involved small private companies acquired at depressed valuations, precedent multiples may be lower than public comps",
+      "Market timing matters \u2014 if M&A activity was concentrated during a downturn, transaction multiples reflect that depressed environment",
+      "Always acknowledge exceptions exist for any valuation 'rule'"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-valuation-basic-032",
+    "question": "Two companies have the exact same financial profiles and are bought by the same acquirer, but the EBITDA multiple for one transaction is twice the multiple of the other transaction \u2014 how could this happen?",
+    "model_answer": "Possible reasons include: (1) One process was more competitive and had a lot more companies bidding on the target; (2) One company had recent bad news or a depressed stock price so it was acquired at a discount; (3) They were in industries with different median multiples.",
+    "key_points": [
+      "More competitive auction process drives up the multiple paid (more bidders = higher price)",
+      "Recent bad news or depressed stock price causes one company to be acquired at a discount",
+      "Industry-level differences in median multiples \u2014 even 'identical' financials can command different multiples in different sectors",
+      "Deal timing and market sentiment at the time of each transaction can differ significantly",
+      "Transaction structure differences (e.g., cash vs. stock, earnouts) can affect effective multiples"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-valuation-basic-033",
+    "question": "If you were buying a vending machine business, would you pay a higher multiple for a business where you owned the machines and they depreciated normally, or one in which you leased the machines? The cost of depreciation and lease are the same dollar amounts and everything else is held constant.",
+    "model_answer": "You would pay more for the one where you lease the machines. Enterprise Value would be the same for both companies, but with the depreciated situation the charge is not reflected in EBITDA \u2014 so EBITDA is higher, and the EV/EBITDA multiple is lower as a result. For the leased situation, the lease would show up in SG&A so it would be reflected in EBITDA, making EBITDA lower and the EV/EBITDA multiple higher. Since you always pay based on a multiple of EBITDA, you would pay more for the leased company (because the EV/EBITDA multiple is higher).",
+    "key_points": [
+      "You pay more for the leased machine business",
+      "Enterprise Value is the same for both (same intrinsic cash generation)",
+      "Owned/depreciated: depreciation NOT in EBITDA, so EBITDA is higher, EV/EBITDA multiple is lower",
+      "Leased: lease expense shows up in SG&A which IS in EBITDA, so EBITDA is lower, EV/EBITDA multiple is higher",
+      "Higher EV/EBITDA multiple = higher implied purchase price for the same EV",
+      "Illustrates how EBITDA can distort comparisons between own-vs-lease structures"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-valuation-basic-034",
+    "question": "Let's say we're valuing a private company. Why might we discount the public company comparable multiples but not the precedent transaction multiples?",
+    "model_answer": "There is no discount needed for precedent transactions because with those transactions, you are acquiring the entire company \u2014 and once it is acquired, the shares immediately become illiquid. But shares \u2014 the ability to buy individual 'pieces' of a company rather than the whole thing \u2014 can be either liquid (if it is public) or illiquid (if it is private). Since shares of public companies are always more liquid, you would discount public company comparable multiples to account for this liquidity difference. In a precedent transaction, the acquirer is buying the whole company and illiquidity is already the starting point.",
+    "key_points": [
+      "Precedent transactions involve acquiring the entire company \u2014 illiquidity is inherent and already priced in",
+      "Public company comparables reflect the ability to buy individual liquid shares \u2014 hence a premium for liquidity is embedded",
+      "Private company shares are illiquid, so you discount public comp multiples to remove the liquidity premium",
+      "No discount to precedent transactions because both the target and the transaction itself are already 'illiquid' in nature",
+      "Liquidity premium: public investors can sell shares easily; private company investors cannot"
+    ],
+    "category": "valuation-basic",
+    "difficulty": 3
+  }
+]

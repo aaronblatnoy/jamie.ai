@@ -1,0 +1,505 @@
+[
+  {
+    "id": "mi-accounting-basic-001",
+    "question": "Walk me through the 3 financial statements.",
+    "model_answer": "The 3 major financial statements are the Income Statement, Balance Sheet, and Cash Flow Statement. The Income Statement gives the company's revenue and expenses, and goes down to Net Income, the final line on the statement. The Balance Sheet shows the company's Assets \u2014 its resources \u2014 such as Cash, Inventory, and PP&E, as well as its Liabilities \u2014 such as Debt and Accounts Payable \u2014 and Shareholders' Equity. Assets must equal Liabilities plus Shareholders' Equity. The Cash Flow Statement begins with Net Income, adjusts for non-cash expenses and working capital changes, and then lists cash flow from investing and financing activities; at the end, you see the company's net change in cash.",
+    "key_points": [
+      "Three statements: Income Statement, Balance Sheet, Cash Flow Statement",
+      "Income Statement: revenue minus expenses = Net Income",
+      "Balance Sheet: Assets = Liabilities + Shareholders' Equity; includes Cash, Inventory, PP&E, Debt, AP",
+      "Cash Flow Statement starts with Net Income, adds back non-cash expenses, adjusts for working capital changes",
+      "CFS then shows investing and financing activities, ending with net change in cash",
+      "All three statements are linked to each other"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-002",
+    "question": "Can you give examples of major line items on each of the financial statements?",
+    "model_answer": "Income Statement: Revenue; Cost of Goods Sold; SG&A (Selling, General & Administrative Expenses); Operating Income; Pretax Income; Net Income. Balance Sheet: Cash; Accounts Receivable; Inventory; Plants, Property & Equipment (PP&E); Accounts Payable; Accrued Expenses; Debt; Shareholders' Equity. Cash Flow Statement: Net Income; Depreciation & Amortization; Stock-Based Compensation; Changes in Operating Assets & Liabilities; Cash Flow From Operations; Capital Expenditures; Cash Flow From Investing; Sale/Purchase of Securities; Dividends Issued; Cash Flow From Financing.",
+    "key_points": [
+      "IS line items: Revenue, COGS, SG&A, Operating Income, Pretax Income, Net Income",
+      "BS line items: Cash, Accounts Receivable, Inventory, PP&E, Accounts Payable, Accrued Expenses, Debt, Shareholders' Equity",
+      "CFS line items: Net Income, D&A, Stock-Based Compensation, Working Capital changes, CFO, CapEx, CFI, Dividends, CFF",
+      "CFS has three sections: Operating, Investing, and Financing activities",
+      "Operating Income appears before interest and taxes; Net Income is the bottom line"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-003",
+    "question": "If I were stranded on a desert island, only had 1 statement and I wanted to review the overall health of a company \u2014 which statement would I use and why?",
+    "model_answer": "You would use the Cash Flow Statement because it gives a true picture of how much cash the company is actually generating, independent of all the non-cash expenses you might have. And that's the #1 thing you care about when analyzing the overall financial health of any business \u2014 its cash flow.",
+    "key_points": [
+      "Best single statement: Cash Flow Statement",
+      "CFS shows true cash generation, independent of non-cash accounting items",
+      "Cash flow is the #1 indicator of overall financial health",
+      "Non-cash expenses on the IS can distort the picture of profitability",
+      "Cash is what a company needs to survive and operate"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-004",
+    "question": "Where does Depreciation usually show up on the Income Statement?",
+    "model_answer": "It could be in a separate line item, or it could be embedded in Cost of Goods Sold or Operating Expenses \u2014 every company does it differently. Note that the end result for accounting questions is the same: Depreciation always reduces Pre-Tax Income.",
+    "key_points": [
+      "Depreciation can appear as its own line item or be embedded in COGS or Operating Expenses",
+      "Varies by company \u2014 no single universal treatment",
+      "Regardless of placement, Depreciation always reduces Pre-Tax Income",
+      "Depreciation never appears below the operating income line as a standalone item in standard presentations",
+      "For interview purposes, assume it reduces Pre-Tax Income by the full amount"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-005",
+    "question": "What is Working Capital? How is it used?",
+    "model_answer": "Working Capital = Current Assets minus Current Liabilities. If it's positive, it means a company can pay off its short-term liabilities with its short-term assets. It is often presented as a financial metric and its magnitude and sign (negative or positive) tells you whether or not the company is 'sound.' Bankers look at Operating Working Capital more commonly in models, and that is defined as (Current Assets minus Cash & Cash Equivalents) minus (Current Liabilities minus Debt). The point of Operating Working Capital is to exclude items that relate to a company's financing activities \u2014 cash and debt \u2014 from the calculation.",
+    "key_points": [
+      "Working Capital = Current Assets - Current Liabilities",
+      "Positive Working Capital means the company can cover short-term liabilities with short-term assets",
+      "Used as a financial health/soundness metric",
+      "Bankers use Operating Working Capital = (Current Assets - Cash) - (Current Liabilities - Debt)",
+      "Operating Working Capital excludes cash and debt to focus on operational items only",
+      "Changes in Working Capital appear on the Cash Flow Statement"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-006",
+    "question": "If cash collected is not recorded as revenue, what happens to it?",
+    "model_answer": "Usually it goes into the Deferred Revenue balance on the Balance Sheet under Liabilities. Over time, as the services are performed, the Deferred Revenue balance becomes real revenue on the Income Statement and the Deferred Revenue balance decreases.",
+    "key_points": [
+      "Unearned cash goes to Deferred Revenue on the Balance Sheet \u2014 classified as a Liability",
+      "As services are performed, Deferred Revenue is recognized as Revenue on the IS",
+      "Deferred Revenue balance decreases as it is earned and recognized",
+      "Deferred Revenue is a liability because the company still owes services to the customer",
+      "This is a key working capital item that affects cash flow"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-007",
+    "question": "What's the difference between accounts receivable and deferred revenue?",
+    "model_answer": "Accounts receivable has not yet been collected in cash from customers, whereas deferred revenue has been. Accounts receivable represents how much revenue the company is waiting on (i.e., the company has already delivered the service/product and recognized the revenue, but hasn't received cash yet), whereas deferred revenue represents how much the company has already collected in cash but is waiting to record as revenue.",
+    "key_points": [
+      "Accounts Receivable: revenue recognized, services delivered, but cash NOT yet collected",
+      "Deferred Revenue: cash already collected, but services NOT yet performed/revenue NOT yet recognized",
+      "AR is an asset (money owed TO the company); Deferred Revenue is a liability (services owed BY the company)",
+      "AR arises under accrual accounting when revenue is earned before cash is received",
+      "Deferred Revenue arises when cash is received before the service is performed"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-008",
+    "question": "How long does it usually take for a company to collect its accounts receivable balance?",
+    "model_answer": "Generally the accounts receivable days are in the 30-60 day range, though it's higher for companies selling high-end items and it might be lower for smaller, lower transaction-value companies.",
+    "key_points": [
+      "Typical AR collection period: 30-60 days",
+      "Higher for companies selling high-end or enterprise items (longer payment terms)",
+      "Lower for small-ticket or consumer-facing businesses",
+      "AR days = (AR / Revenue) x 365 \u2014 measures collection efficiency",
+      "Longer AR days means cash is tied up longer, which is negative for cash flow"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-009",
+    "question": "What's the difference between cash-based and accrual accounting?",
+    "model_answer": "Cash-based accounting recognizes revenue and expenses when cash is actually received or paid out; accrual accounting recognizes revenue when collection is reasonably certain (i.e., after a customer has ordered the product) and recognizes expenses when they are incurred rather than when they are paid out in cash. Most large companies use accrual accounting because paying with credit cards and lines of credit is so prevalent these days; very small businesses may use cash-based accounting to simplify their financial statements.",
+    "key_points": [
+      "Cash-based: revenue and expenses recognized only when cash actually changes hands",
+      "Accrual: revenue recognized when collection is reasonably certain (e.g., order placed); expenses recognized when incurred",
+      "Most large companies use accrual accounting",
+      "Small businesses may use cash-based for simplicity",
+      "Accrual accounting produces Accounts Receivable and Accounts Payable; cash-based does not",
+      "Accrual better matches revenues with the expenses incurred to earn them"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 1
+  },
+  {
+    "id": "mi-accounting-basic-010",
+    "question": "How do the 3 statements link together?",
+    "model_answer": "To tie the statements together, Net Income from the Income Statement flows into Shareholders' Equity on the Balance Sheet, and into the top line of the Cash Flow Statement. Changes to Balance Sheet items appear as working capital changes on the Cash Flow Statement, and investing and financing activities affect Balance Sheet items such as PP&E, Debt, and Shareholders' Equity. The Cash and Shareholders' Equity items on the Balance Sheet act as 'plugs,' with Cash flowing in from the final line on the Cash Flow Statement.",
+    "key_points": [
+      "Net Income flows from IS into Shareholders' Equity on BS and into top of CFS",
+      "Working capital changes on CFS reflect changes in BS current assets/liabilities",
+      "Investing activities affect PP&E and other long-term assets on the BS",
+      "Financing activities affect Debt and Equity on the BS",
+      "Ending cash on CFS becomes the Cash balance on the BS",
+      "Shareholders' Equity is a 'plug' updated by Net Income and other equity transactions"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-011",
+    "question": "Let's say I could only look at 2 statements to assess a company's prospects \u2014 which 2 would I use and why?",
+    "model_answer": "You would pick the Income Statement and Balance Sheet, because you can create the Cash Flow Statement from both of those (assuming, of course, that you have 'before' and 'after' versions of the Balance Sheet that correspond to the same period the Income Statement is tracking).",
+    "key_points": [
+      "Best two statements: Income Statement and Balance Sheet",
+      "The CFS can be derived/reconstructed from the IS and two periods of the BS",
+      "Requires 'before' and 'after' BS snapshots covering the same period as the IS",
+      "Changes in BS items (working capital, PP&E, debt) combined with Net Income recreate CFS",
+      "This is why the CFS is the least unique of the three statements"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-012",
+    "question": "Walk me through how Depreciation going up by $10 would affect the statements.",
+    "model_answer": "Income Statement: Operating Income would decline by $10 and assuming a 40% tax rate, Net Income would go down by $6. Cash Flow Statement: The Net Income at the top goes down by $6, but the $10 Depreciation is a non-cash expense that gets added back, so overall Cash Flow from Operations goes up by $4. There are no changes elsewhere, so the overall Net Change in Cash goes up by $4. Balance Sheet: Plants, Property & Equipment goes down by $10 on the Assets side because of the Depreciation, and Cash is up by $4 from the changes on the Cash Flow Statement. Overall, Assets is down by $6. Since Net Income fell by $6 as well, Shareholders' Equity on the Liabilities & Shareholders' Equity side is down by $6 and both sides of the Balance Sheet balance. Note: Always go in the order IS \u2192 CFS \u2192 BS. An Asset going up decreases Cash Flow, whereas a Liability going up increases Cash Flow.",
+    "key_points": [
+      "IS: Operating Income down $10, Net Income down $6 (at 40% tax rate)",
+      "CFS: Net Income down $6 but D&A added back as non-cash charge, so CFO up $4",
+      "Net Change in Cash up $4",
+      "BS: PP&E down $10, Cash up $4, so total Assets down $6",
+      "BS: Shareholders' Equity down $6 (matching NI decline), Balance Sheet balances",
+      "Always analyze in order: IS \u2192 CFS \u2192 BS",
+      "Depreciation is tax-deductible so net cash impact is less than the full depreciation amount"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-013",
+    "question": "If Depreciation is a non-cash expense, why does it affect the cash balance?",
+    "model_answer": "Although Depreciation is a non-cash expense, it is tax-deductible. Since taxes are a cash expense, Depreciation affects cash by reducing the amount of taxes you pay.",
+    "key_points": [
+      "Depreciation is non-cash but is tax-deductible",
+      "Taxes are a real cash expense",
+      "By reducing Pre-Tax Income, Depreciation lowers the tax bill, saving real cash",
+      "The cash benefit = depreciation amount \u00d7 tax rate",
+      "This is why depreciation is added back on the CFS but still has a net positive cash effect"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-014",
+    "question": "What happens when Accrued Compensation goes up by $10?",
+    "model_answer": "First confirm that the accrued compensation is now being recognized as an expense (as opposed to just changing non-accrued to accrued compensation). Assuming that's the case: Operating Expenses on the Income Statement go up by $10, Pre-Tax Income falls by $10, and Net Income falls by $6 (assuming a 40% tax rate). On the Cash Flow Statement, Net Income is down by $6, and Accrued Compensation will increase Cash Flow by $10 (it's a liability increase), so overall Cash Flow from Operations is up by $4 and the Net Change in Cash at the bottom is up by $4. On the Balance Sheet, Cash is up by $4 as a result, so Assets are up by $4. On the Liabilities & Equity side, Accrued Compensation is a liability so Liabilities are up by $10 and Retained Earnings are down by $6 due to the Net Income decline, so both sides balance.",
+    "key_points": [
+      "IS: Operating Expenses up $10, Pre-Tax Income down $10, Net Income down $6 (40% tax rate)",
+      "CFS: Net Income down $6, Accrued Compensation (liability) up $10 adds back to cash, CFO up $4",
+      "Net Change in Cash up $4",
+      "BS Assets: Cash up $4",
+      "BS L&E: Accrued Compensation (liability) up $10, Retained Earnings down $6 \u2014 both sides balance at +$4",
+      "Accrued Compensation is a liability; liability increases add to cash flow",
+      "Confirm expense is being recognized, not just reclassified"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-015",
+    "question": "What happens when Inventory goes up by $10, assuming you pay for it with cash?",
+    "model_answer": "No changes to the Income Statement. On the Cash Flow Statement, Inventory is an asset so that decreases your Cash Flow from Operations \u2014 it goes down by $10, as does the Net Change in Cash at the bottom. On the Balance Sheet under Assets, Inventory is up by $10 but Cash is down by $10, so the changes cancel out and Assets still equals Liabilities & Shareholders' Equity.",
+    "key_points": [
+      "IS: No changes \u2014 inventory purchase does not hit the income statement",
+      "CFS: Inventory is an asset; asset increase decreases CFO by $10; Net Change in Cash down $10",
+      "BS: Inventory up $10, Cash down $10 \u2014 Assets net unchanged, BS stays balanced",
+      "Asset increases on the BS reduce cash flow (and vice versa)",
+      "Inventory only hits the IS as COGS when the goods are actually sold"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-016",
+    "question": "Why is the Income Statement not affected by changes in Inventory?",
+    "model_answer": "This is a common interview mistake \u2014 incorrectly stating that Working Capital changes show up on the Income Statement. In the case of Inventory, the expense is only recorded when the goods associated with it are sold \u2014 so if it's just sitting in a warehouse, it does not count as a Cost of Goods Sold or Operating Expense until the company manufactures it into a product and sells it.",
+    "key_points": [
+      "Inventory purchase is not an IS expense \u2014 it is a BS asset",
+      "Inventory only becomes COGS when the associated goods are sold",
+      "Working capital changes appear on the CFS, not the IS",
+      "Common mistake: saying working capital changes hit the Income Statement",
+      "Matching principle: expense recognized when revenue from those goods is earned"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-017",
+    "question": "Let's say Apple is buying $100 worth of new iPad factories with debt. How are all 3 statements affected at the start of 'Year 1,' before anything else happens?",
+    "model_answer": "At the start of 'Year 1,' before anything else has happened, there would be no changes on Apple's Income Statement (yet). On the Cash Flow Statement, the additional investment in factories would show up under Cash Flow from Investing as a net reduction in Cash Flow (so Cash Flow is down by $100 so far). And the additional $100 worth of debt raised would show up as an addition to Cash Flow from Financing, canceling out the investment activity. So the cash number stays the same. On the Balance Sheet, there is now an additional $100 worth of factories in the Plants, Property & Equipment line, so PP&E is up by $100 and Assets is therefore up by $100. On the other side, debt is up by $100 as well and so both sides balance.",
+    "key_points": [
+      "IS: No changes at the moment of purchase",
+      "CFS: CapEx reduces CFI by $100; debt issuance adds $100 to CFF \u2014 net cash change is zero",
+      "BS: PP&E up $100 on Assets side; Debt up $100 on Liabilities side \u2014 BS balances",
+      "Factory purchase is capitalized (not expensed) because it has a useful life over 1 year",
+      "Depreciation and interest expense will appear in future periods, not at the moment of purchase"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-018",
+    "question": "Now let's look at a different scenario and assume Apple is ordering $10 of additional iPad inventory, using cash on hand. They order the inventory, but they have not manufactured or sold anything yet \u2014 what happens to the 3 statements?",
+    "model_answer": "No changes to the Income Statement. Cash Flow Statement: Inventory is up by $10, so Cash Flow from Operations decreases by $10. There are no further changes, so overall Cash is down by $10. On the Balance Sheet, Inventory is up by $10 and Cash is down by $10 so the Assets number stays the same and the Balance Sheet remains in balance.",
+    "key_points": [
+      "IS: No changes \u2014 no revenue or expense recognized yet",
+      "CFS: Inventory increase (asset up) reduces CFO by $10; Net Cash down $10",
+      "BS: Inventory up $10, Cash down $10 \u2014 net Assets unchanged, BS stays balanced",
+      "Inventory purchase with cash is a simple asset swap",
+      "No COGS until goods are manufactured and sold"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-019",
+    "question": "Now let's say they sell the iPads for revenue of $20, at a cost of $10. Walk me through the 3 statements under this scenario.",
+    "model_answer": "Income Statement: Revenue is up by $20 and COGS is up by $10, so Gross Profit is up by $10 and Operating Income is up by $10 as well. Assuming a 40% tax rate, Net Income is up by $6. Cash Flow Statement: Net Income at the top is up by $6 and Inventory has decreased by $10 (since we just manufactured the inventory into real iPads), which is a net addition to cash flow \u2014 so Cash Flow from Operations is up by $16 overall. These are the only changes on the Cash Flow Statement, so Net Change in Cash is up by $16. On the Balance Sheet, Cash is up by $16 and Inventory is down by $10, so Assets is up by $6 overall. On the other side, Net Income was up by $6 so Shareholders' Equity is up by $6 and both sides balance.",
+    "key_points": [
+      "IS: Revenue up $20, COGS up $10, Gross/Operating Profit up $10, Net Income up $6 (40% tax)",
+      "CFS: Net Income up $6, Inventory decrease of $10 adds to cash (asset decrease = cash inflow), CFO up $16",
+      "Net Change in Cash up $16",
+      "BS Assets: Cash up $16, Inventory down $10 \u2014 net Assets up $6",
+      "BS L&E: Shareholders' Equity up $6 (Net Income) \u2014 BS balances",
+      "When inventory is sold, it leaves the BS and appears as COGS on the IS",
+      "Asset decreases on the BS increase cash flow"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-020",
+    "question": "Could you ever end up with negative shareholders' equity? What does it mean?",
+    "model_answer": "Yes. It is common to see this in 2 scenarios: 1) Leveraged Buyouts with dividend recapitalizations \u2014 it means that the owner of the company has taken out a large portion of its equity (usually in the form of cash), which can sometimes turn the number negative. 2) It can also happen if the company has been losing money consistently and therefore has a declining Retained Earnings balance, which is a portion of Shareholders' Equity. It doesn't 'mean' anything in particular, but it can be a cause for concern and possibly demonstrate that the company is struggling (in the second scenario). Note: Shareholders' equity never turns negative immediately after an LBO \u2014 it would only happen following a dividend recap or continued net losses.",
+    "key_points": [
+      "Yes, negative shareholders' equity is possible",
+      "Scenario 1: LBO with dividend recapitalization \u2014 equity extracted in cash form turns equity negative",
+      "Scenario 2: Persistent net losses reduce Retained Earnings to the point equity goes negative",
+      "Negative equity does not automatically mean bankruptcy or disaster",
+      "In the LBO context it may be a planned financial structure, not a sign of distress",
+      "In the losses context, it can indicate the company is struggling",
+      "Equity does not go negative immediately at LBO closing \u2014 requires dividend recap or ongoing losses"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-021",
+    "question": "What does negative Working Capital mean? Is that a bad sign?",
+    "model_answer": "Not necessarily. It depends on the type of company and the specific situation. A few different things it could mean: 1) Some companies with subscriptions or longer-term contracts often have negative Working Capital because of high Deferred Revenue balances. 2) Retail and restaurant companies like Amazon, Wal-Mart, and McDonald's often have negative Working Capital because customers pay upfront \u2014 so they can use the cash generated to pay off their Accounts Payable rather than keeping a large cash balance on-hand. This can be a sign of business efficiency. 3) In other cases, negative Working Capital could point to financial trouble or possible bankruptcy (for example, when customers don't pay quickly and upfront and the company is carrying a high debt balance).",
+    "key_points": [
+      "Negative Working Capital is not automatically bad \u2014 context matters",
+      "Subscription/contract businesses: negative WC from high Deferred Revenue balances",
+      "Retail/restaurant companies (Amazon, Walmart, McDonald's): customers pay upfront, company uses cash to pay AP \u2014 sign of efficiency",
+      "In distressed situations: negative WC signals inability to meet short-term obligations",
+      "The sign alone is insufficient \u2014 must consider business model and circumstances",
+      "High Deferred Revenue is a liability (negative WC contributor) but represents future cash collected"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-022",
+    "question": "Recently, banks have been writing down their assets and taking huge quarterly losses. Walk me through what happens on the 3 statements when there's a write-down of $100.",
+    "model_answer": "First, on the Income Statement, the $100 write-down shows up in the Pre-Tax Income line. With a 40% tax rate, Net Income declines by $60. On the Cash Flow Statement, Net Income is down by $60 but the write-down is a non-cash expense, so we add it back \u2014 and therefore Cash Flow from Operations increases by $40. Overall, the Net Change in Cash rises by $40. On the Balance Sheet, Cash is now up by $40 and an asset is down by $100 (it's not clear which asset since the question never stated the specific asset to write-down). Overall, the Assets side is down by $60. On the other side, since Net Income was down by $60, Shareholders' Equity is also down by $60 \u2014 and both sides balance.",
+    "key_points": [
+      "IS: Write-down reduces Pre-Tax Income by $100; Net Income down $60 (40% tax)",
+      "CFS: Net Income down $60, add back $100 non-cash write-down, CFO up $40; Net Cash up $40",
+      "BS Assets: Cash up $40, written-down asset down $100 \u2014 net Assets down $60",
+      "BS L&E: Shareholders' Equity down $60 \u2014 BS balances",
+      "Write-downs are non-cash charges and are added back on the CFS",
+      "Write-downs reduce asset values on the BS; the specific asset depends on context"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-023",
+    "question": "Walk me through a $100 'bailout' of a company and how it affects the 3 statements.",
+    "model_answer": "First, confirm what type of 'bailout' this is \u2014 Debt? Equity? A combination? The most common scenario here is an equity investment from the government, so here's what happens: No changes to the Income Statement. On the Cash Flow Statement, Cash Flow from Financing goes up by $100 to reflect the government's investment, so the Net Change in Cash is up by $100. On the Balance Sheet, Cash is up by $100 so Assets are up by $100; on the other side, Shareholders' Equity would go up by $100 to make it balance.",
+    "key_points": [
+      "Clarify type of bailout: debt, equity, or combination \u2014 most common is equity investment",
+      "IS: No changes",
+      "CFS: Cash Flow from Financing up $100 (equity investment); Net Cash up $100",
+      "BS: Cash up $100 on Assets side; Shareholders' Equity up $100 on L&E side \u2014 balances",
+      "If bailout were debt, Liabilities would increase instead of Shareholders' Equity",
+      "No interest expense at the moment of bailout \u2014 would appear in future periods if debt"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-024",
+    "question": "When would a company collect cash from a customer and not record it as revenue?",
+    "model_answer": "Three examples come to mind: 1) Web-based subscription software. 2) Cell phone carriers that sell annual contracts. 3) Magazine publishers that sell subscriptions. Companies that agree to services in the future often collect cash upfront to ensure stable revenue. Per the rules of accounting, you only record revenue when you actually perform the services \u2014 so the company would not record everything as revenue right away.",
+    "key_points": [
+      "Revenue recognition rule: record revenue only when services are performed (accrual principle)",
+      "Examples: SaaS/web subscription software, cell phone annual contracts, magazine subscriptions",
+      "Cash collected upfront before services rendered goes to Deferred Revenue (a liability), not Revenue",
+      "Deferred Revenue is recognized as revenue over time as services are performed",
+      "Collecting cash before earning it is common in subscription and contract-based businesses"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-025",
+    "question": "Let's say a customer pays for a TV with a credit card. What would this look like under cash-based vs. accrual accounting?",
+    "model_answer": "In cash-based accounting, the revenue would not show up until the company charges the customer's credit card, receives authorization, and deposits the funds in its bank account \u2014 at which point it would show up as both Revenue on the Income Statement and Cash on the Balance Sheet. In accrual accounting, it would show up as Revenue right away but instead of appearing in Cash on the Balance Sheet, it would go into Accounts Receivable at first. Then, once the cash is actually deposited in the company's bank account, it would 'turn into' Cash.",
+    "key_points": [
+      "Cash-based: revenue recognized only after credit card funds are received and deposited",
+      "Accrual: revenue recognized immediately when sale occurs; recorded in Accounts Receivable, not Cash",
+      "Under accrual, AR converts to Cash when payment is actually received",
+      "This illustrates why accrual accounting creates a timing difference between revenue and cash receipt",
+      "Accrual better reflects the economic activity; cash-based better reflects actual liquidity"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-026",
+    "question": "How do you decide when to capitalize rather than expense a purchase?",
+    "model_answer": "If the asset has a useful life of over 1 year, it is capitalized (put on the Balance Sheet rather than shown as an expense on the Income Statement). Then it is depreciated (tangible assets) or amortized (intangible assets) over a certain number of years. Purchases like factories, equipment, and land all last longer than a year and therefore show up on the Balance Sheet. Employee salaries and the cost of manufacturing products (COGS) only cover a short period of operations and therefore show up on the Income Statement as normal expenses instead.",
+    "key_points": [
+      "Capitalize if the asset has a useful life of more than 1 year \u2014 it goes on the Balance Sheet",
+      "Expense if the item is consumed within 1 year \u2014 it goes on the Income Statement",
+      "Capitalized tangible assets are depreciated over their useful life",
+      "Capitalized intangible assets are amortized over their useful life",
+      "Examples of capitalized items: factories, equipment, land",
+      "Examples of expensed items: employee salaries, COGS, rent",
+      "Capitalization defers the expense recognition, which boosts near-term reported income"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-027",
+    "question": "Why do companies report both GAAP and non-GAAP (or 'Pro Forma') earnings?",
+    "model_answer": "These days, many companies have 'non-cash' charges such as Amortization of Intangibles, Stock-Based Compensation, and Deferred Revenue Write-down in their Income Statements. As a result, some argue that Income Statements under GAAP no longer reflect how profitable most companies truly are. Non-GAAP earnings are almost always higher because these expenses are excluded.",
+    "key_points": [
+      "GAAP includes non-cash charges like Amortization of Intangibles, Stock-Based Compensation, and Deferred Revenue Write-downs",
+      "These charges reduce GAAP earnings but do not represent cash outflows",
+      "Non-GAAP (Pro Forma) earnings exclude some or all of these non-cash charges",
+      "Non-GAAP earnings are almost always higher than GAAP earnings",
+      "Companies argue non-GAAP better reflects true operating performance and cash profitability",
+      "Investors and analysts often look at both to get a complete picture"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-028",
+    "question": "Normally Goodwill remains constant on the Balance Sheet \u2014 why would it be impaired and what does Goodwill Impairment mean?",
+    "model_answer": "Usually this happens when a company has been acquired and the acquirer re-assesses its intangible assets (such as customers, brand, and intellectual property) and finds that they are worth significantly less than they originally thought. It often happens in acquisitions where the buyer 'overpaid' for the seller and can result in a large net loss on the Income Statement (see: eBay/Skype). It can also happen when a company discontinues part of its operations and must impair the associated goodwill.",
+    "key_points": [
+      "Goodwill impairment occurs when the acquirer reassesses intangible assets and finds they are worth less than originally paid",
+      "Common when an acquirer overpaid for the target company",
+      "Impairment results in a write-down on the BS and a loss on the IS",
+      "Can cause large net losses (example: eBay/Skype acquisition)",
+      "Also triggered when a company discontinues part of its operations",
+      "Goodwill normally stays constant (not amortized under US GAAP) until an impairment test triggers a write-down"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-029",
+    "question": "Under what circumstances would Goodwill increase?",
+    "model_answer": "Technically Goodwill can increase if the company re-assesses its value and finds that it is worth more, but that is rare. What usually happens is 1 of 2 scenarios: 1) The company gets acquired or bought out and Goodwill changes as a result, since it's an accounting 'plug' for the purchase price in an acquisition. 2) The company acquires another company and pays more than what its assets are worth \u2014 this is then reflected in the Goodwill number.",
+    "key_points": [
+      "Goodwill increasing is rare outside of M&A transactions",
+      "Primary scenario: company acquires another company and pays a premium over net asset value \u2014 excess is Goodwill",
+      "Goodwill is the accounting 'plug' = Purchase Price minus Fair Value of Net Assets Acquired",
+      "If the company itself is acquired/bought out, Goodwill on the acquirer's BS changes",
+      "Upward re-assessment of Goodwill without M&A is rare and not standard practice under GAAP"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 2
+  },
+  {
+    "id": "mi-accounting-basic-030",
+    "question": "Now let's go out 1 year, to the start of Year 2. Assume the debt is high-yield so no principal is paid off, and assume an interest rate of 10%. Also assume the factories depreciate at a rate of 10% per year. What happens?",
+    "model_answer": "After a year has passed, Apple must pay interest expense and must record the depreciation. Operating Income would decrease by $10 due to the 10% depreciation charge each year, and the $10 in additional Interest Expense would decrease Pre-Tax Income by $20 altogether ($10 from the depreciation and $10 from Interest Expense). Assuming a tax rate of 40%, Net Income would fall by $12. On the Cash Flow Statement, Net Income at the top is down by $12. Depreciation is a non-cash expense, so you add it back and the end result is that Cash Flow from Operations is down by $2. That's the only change on the Cash Flow Statement, so overall Cash is down by $2. On the Balance Sheet, under Assets, Cash is down by $2 and PP&E is down by $10 due to the depreciation, so overall Assets are down by $12. On the other side, since Net Income was down by $12, Shareholders' Equity is also down by $12 and both sides balance. Remember, the debt number under Liabilities does not change since we've assumed none of the debt is actually paid back.",
+    "key_points": [
+      "IS: Depreciation reduces Operating Income by $10; Interest Expense reduces Pre-Tax Income by another $10; total Pre-Tax Income down $20; Net Income down $12 (40% tax)",
+      "CFS: Net Income down $12, add back $10 D&A (non-cash), CFO down $2; Net Cash down $2",
+      "BS Assets: Cash down $2, PP&E down $10 (depreciation), total Assets down $12",
+      "BS L&E: Shareholders' Equity down $12 (Net Income), Debt unchanged \u2014 BS balances",
+      "Interest expense on high-yield debt is a cash expense (not added back on CFS)",
+      "Depreciation is added back on CFS because it is non-cash"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-basic-031",
+    "question": "At the start of Year 3, the factories all break down and the value of the equipment is written down to $0. The loan must also be paid back now. Walk me through the 3 statements.",
+    "model_answer": "After 2 years, the value of the factories is now $80 if we go with the 10% depreciation per year assumption. It is this $80 that we will write down in the 3 statements. First, on the Income Statement, the $80 write-down shows up in the Pre-Tax Income line. With a 40% tax rate, Net Income declines by $48. On the Cash Flow Statement, Net Income is down by $48 but the write-down is a non-cash expense, so we add it back \u2014 and therefore Cash Flow from Operations increases by $32. There are no changes under Cash Flow from Investing, but under Cash Flow from Financing there is a $100 charge for the loan payback \u2014 so Cash Flow from Financing falls by $100. Overall, the Net Change in Cash falls by $68. On the Balance Sheet, Cash is now down by $68 and PP&E is down by $80, so Assets have decreased by $148 altogether. On the other side, Debt is down $100 since it was paid off, and since Net Income was down by $48, Shareholders' Equity is down by $48 as well. Altogether, Liabilities & Shareholders' Equity are down by $148 and both sides balance.",
+    "key_points": [
+      "Remaining book value after 2 years of 10% depreciation on $100: $80 (the amount written down)",
+      "IS: $80 write-down reduces Pre-Tax Income by $80; Net Income down $48 (40% tax)",
+      "CFS: Net Income down $48, add back $80 non-cash write-down, CFO up $32; Loan repayment is $100 charge in CFF; Net Cash down $68",
+      "BS Assets: Cash down $68, PP&E down $80 \u2014 total Assets down $148",
+      "BS L&E: Debt down $100 (repaid), Shareholders' Equity down $48 \u2014 total L&E down $148, BS balances",
+      "Write-downs are non-cash charges \u2014 added back on CFS just like depreciation",
+      "Loan repayment appears in Cash Flow from Financing, not Operating"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-basic-032",
+    "question": "Walk me through a $100 write-down of debt \u2014 as in OWED debt, a liability \u2014 on a company's balance sheet and how it affects the 3 statements.",
+    "model_answer": "This is counter-intuitive. When a liability is written down you record it as a gain on the Income Statement (with an asset write-down, it's a loss) \u2014 so Pre-Tax Income goes up by $100 due to this write-down. Assuming a 40% tax rate, Net Income is up by $60. On the Cash Flow Statement, Net Income is up by $60, but we need to subtract that debt write-down \u2014 so Cash Flow from Operations is down by $40, and Net Change in Cash is down by $40. On the Balance Sheet, Cash is down by $40 so Assets are down by $40. On the other side, Debt is down by $100 but Shareholders' Equity is up by $60 because the Net Income was up by $60 \u2014 so Liabilities & Shareholders' Equity is down by $40 and it balances.",
+    "key_points": [
+      "Writing down a liability (debt) is a GAIN on the IS \u2014 opposite of asset write-down",
+      "IS: Pre-Tax Income up $100; Net Income up $60 (40% tax)",
+      "CFS: Net Income up $60, subtract $100 debt write-down (non-cash gain), CFO down $40; Net Cash down $40",
+      "BS Assets: Cash down $40",
+      "BS L&E: Debt down $100, Shareholders' Equity up $60 \u2014 net L&E down $40, BS balances",
+      "Liability write-downs are non-cash gains; must be subtracted on CFS (reverse of asset write-down treatment)",
+      "Counter-intuitive: less debt owed = accounting gain but negative cash flow impact"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-basic-033",
+    "question": "A company has had positive EBITDA for the past 10 years, but it recently went bankrupt. How could this happen?",
+    "model_answer": "Several possibilities: 1) The company is spending too much on Capital Expenditures \u2014 these are not reflected at all in EBITDA, but it could still be cash-flow negative. 2) The company has high interest expense and is no longer able to afford its debt. 3) The company's debt all matures on one date and it is unable to refinance it due to a 'credit crunch' \u2014 and it runs out of cash completely when paying back the debt. 4) It has significant one-time charges (from litigation, for example) and those are high enough to bankrupt the company. Remember, EBITDA excludes investment in (and depreciation of) long-term assets, interest and one-time charges \u2014 and all of these could end up bankrupting the company.",
+    "key_points": [
+      "EBITDA excludes CapEx \u2014 high capital spending can make a company cash-flow negative despite positive EBITDA",
+      "EBITDA excludes interest expense \u2014 high debt burden can be unaffordable",
+      "Debt maturity wall: all debt maturing at once with inability to refinance drains cash completely",
+      "Significant one-time charges (litigation, etc.) excluded from EBITDA can cause bankruptcy",
+      "EBITDA does not equal free cash flow or cash available to service debt",
+      "Positive EBITDA is a necessary but not sufficient condition for financial health"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 3
+  },
+  {
+    "id": "mi-accounting-basic-034",
+    "question": "What's the difference between LIFO and FIFO? Can you walk me through an example of how they differ?",
+    "model_answer": "LIFO stands for 'Last-In, First-Out' and FIFO stands for 'First-In, First-Out' \u2014 they are 2 different ways of recording the value of inventory and the Cost of Goods Sold (COGS). With LIFO, you use the value of the most recent inventory additions for COGS, but with FIFO you use the value of the oldest inventory additions for COGS. Example: starting inventory balance is $100 (10 units at $10 each). You add 10 units each quarter for $12 each in Q1, $15 each in Q2, $17 each in Q3, and $20 each in Q4. You sell 40 units throughout the year for $30 each \u2014 $1,200 revenue in both methods. With LIFO, COGS uses the 40 most recent inventory values: $120 + $150 + $170 + $200 = $640. With FIFO, COGS uses the 40 oldest inventory values: $100 + $120 + $150 + $170 = $540. So LIFO COGS is $100 higher, meaning LIFO has lower Pre-Tax Income and Net Income. The ending inventory value would be $100 higher under FIFO. In general, if inventory is getting more expensive to purchase, LIFO will produce higher COGS values and lower ending inventory values, and vice versa if inventory is getting cheaper. Note: LIFO is not permitted under IFRS (only US GAAP).",
+    "key_points": [
+      "LIFO: Last-In First-Out \u2014 uses most recent (newest) inventory costs for COGS",
+      "FIFO: First-In First-Out \u2014 uses oldest inventory costs for COGS",
+      "When prices are rising, LIFO produces higher COGS, lower Net Income, lower ending inventory vs. FIFO",
+      "When prices are falling, LIFO produces lower COGS and higher Net Income vs. FIFO",
+      "LIFO is only permitted under US GAAP, not IFRS",
+      "Both methods record the same revenue; only COGS and ending inventory values differ",
+      "In the example: LIFO COGS = $640, FIFO COGS = $540 \u2014 $100 difference in COGS with rising prices"
+    ],
+    "category": "accounting-basic",
+    "difficulty": 3
+  }
+]

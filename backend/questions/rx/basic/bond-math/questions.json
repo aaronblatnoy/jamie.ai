@@ -1,0 +1,183 @@
+[
+  {
+    "id": "rx-bond-math-and-valuation-001",
+    "question": "Imagine that a company has EV / EBITDA of 10x and Debt / EBITDA of 4x. Assuming the company has a market cap of $360mm, how much debt does it have?",
+    "model_answer": "Express both multiples in terms of EBITDA: EV = 10 * EBITDA; Debt = 4 * EBITDA. Since EV = Debt + Market Cap: 10(EBITDA) = 4(EBITDA) + $360mm. Therefore 6(EBITDA) = $360mm, so EBITDA = $60mm. Debt = 4 * $60mm = $240mm. EV = 10 * $60mm = $600mm. Check: EV = Debt + Market Cap = $240mm + $360mm = $600mm. Confirmed.",
+    "key_points": [
+      "Express both multiples in terms of common variable (EBITDA)",
+      "EV = Debt + Market Cap: 10(EBITDA) = 4(EBITDA) + $360mm",
+      "Solve: 6(EBITDA) = $360mm → EBITDA = $60mm",
+      "Debt = 4 * $60mm = $240mm",
+      "EV = 10 * $60mm = $600mm; verify: $240mm + $360mm = $600mm"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-002",
+    "question": "What are the five inputs of the Black-Scholes Model?",
+    "model_answer": "The five inputs of the Black-Scholes model are: (1) the strike price, (2) the current stock price (price of the underlying), (3) time to expiration, (4) the risk-free rate, and (5) volatility.",
+    "key_points": [
+      "Strike price",
+      "Current stock price (price of the underlying asset)",
+      "Time to expiration",
+      "Risk-free rate",
+      "Volatility (of the underlying asset)"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-003",
+    "question": "Let's say you start a business with $1,000 in cash (raised via 50% debt and 50% equity). What's the EV at time zero?",
+    "model_answer": "EV = Debt + Equity - Cash = $500 + $500 - $1,000 = $0. Because the cash raised has been kept within the company and not yet deployed on any productive assets, the EV is zero.",
+    "key_points": [
+      "EV formula: Debt + Equity - Cash",
+      "Cash sitting on the balance sheet is subtracted from EV because it's a liquid asset that does not generate economic value as an operating asset",
+      "EV = $500 + $500 - $1,000 = $0",
+      "Raising cash and holding it does not create enterprise value"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-004",
+    "question": "Now let's say we spent $800 on PP&E?",
+    "model_answer": "When $800 of cash is spent on PP&E, the cash balance falls to $200. EV = $500 + $500 - $200 = $800. The deployment of cash into productive assets (PP&E) increases EV because cash is no longer being netted out, and the PP&E is now generating economic value.",
+    "key_points": [
+      "Cash balance falls from $1,000 to $200 after spending $800 on PP&E",
+      "EV = $500 debt + $500 equity - $200 cash = $800",
+      "Spending cash on productive assets increases EV since less cash is netted out",
+      "PP&E is not subtracted from EV like cash is"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-005",
+    "question": "Now let's say you raise $400 in new equity to pay down $400 in debt?",
+    "model_answer": "Raising $400 in equity and immediately using it to pay down $400 in debt is a purely financial transaction — assets and liabilities move but the net EV remains unchanged. EV = ($500 - $400) debt + ($500 + $400) equity - $200 cash = $100 + $900 - $200 = $800. EV stays at $800.",
+    "key_points": [
+      "Raising equity and paying down debt is a net-zero EV transaction",
+      "New EV = $100 debt + $900 equity - $200 cash = $800 (unchanged)",
+      "Capital structure changes do not change EV in isolation",
+      "Cash is briefly received then immediately used to repay debt, leaving cash balance unchanged"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-006",
+    "question": "What does beta really mean? What type of security would have a beta of zero? What about a beta of 1? What about a beta of 2? What about a beta of -1?",
+    "model_answer": "Beta measures the co-movement (or correlation) of a security's returns relative to a benchmark market (typically the S&P 500). A beta of 1 means the security moves in lockstep with the market — if the market is up 5%, the security is up ~5%. An index fund tracking the S&P 500 (e.g., SPY) has a beta of approximately 1. A beta of 2 means the security moves twice as much as the market — if the market is up 5%, the security is up ~10%, and vice versa for declines. A high-growth or highly leveraged stock might have a beta of 2. A beta of 0 means the security has no correlation with the market — cash is the classic example, or a very short-duration money market fund (e.g., Blackrock's Ultra Short-Term Bond ETF has a beta of ~0.02). A beta of -1 means the security moves inversely to the market — an inverse index ETF, such as ProShares Short S&P 500 (SH), which has a beta of approximately -0.93.",
+    "key_points": [
+      "Beta measures co-movement of a security relative to a market benchmark (usually S&P 500)",
+      "Beta = 1: moves 1:1 with market (e.g., SPY S&P 500 ETF)",
+      "Beta = 2: moves 2x the market (e.g., high-growth or leveraged stock)",
+      "Beta = 0: no correlation with market (e.g., cash, money market funds)",
+      "Beta = -1: moves inversely to market (e.g., ProShares Short S&P 500 ETF, beta ~-0.93)",
+      "Beta is not the same as volatility but is often used as a proxy for market-related risk"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-007",
+    "question": "What are the three major valuation methodologies?",
+    "model_answer": "Comparables (public comps), precedent transactions, and DCF. In RX, comps and precedent aren't used in the same way as in M&A. Precedent deal structures are referenced, but you're working within the confines of a specific company's capital structure and trying to right-size it. There's no football field analysis like in M&A. In M&A you're trying to find a range of fair valuations; in RX you're determining whether a company needs to be right-sized or will go bankrupt, so discussions around absolute valuation are less central relative to M&A.",
+    "key_points": [
+      "Three methodologies: comparable company analysis (comps), precedent transactions, DCF",
+      "In RX, comps and precedent are not used the same way as in M&A",
+      "Precedent deal structures are referenced but no football field analysis",
+      "RX focus: right-sizing capital structure, not finding a valuation range for an acquisition",
+      "Absolute valuation matters less in RX than in M&A — context is entirely different"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-008",
+    "question": "Is EBITDA analogous to cash flow?",
+    "model_answer": "It's a proxy, but it excludes certain things that are important like capex, one-time fees (high for a distressed company), debt repayments, and interest.",
+    "key_points": [
+      "EBITDA is a proxy for cash flow, not a true measure",
+      "Excludes capex — significant for capital-intensive distressed companies",
+      "Excludes one-time fees — particularly high in distressed situations",
+      "Excludes debt repayments and interest expense",
+      "For distressed companies these exclusions make EBITDA even less reliable as a cash proxy"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-009",
+    "question": "What are the two components of a DCF?",
+    "model_answer": "The first is the near-term projection, which can be made with more precision. Here you project the company's financials, getting to unlevered FCF each year, for normally five years (sometimes longer). You then discount each of these years using the WACC (weighted average cost of capital) using mid-year convention. The second part is the terminal value, which represents the company's value today from where the near-term projection ends out to infinity. Almost always a multiple is applied against the year-five EBITDA, and this value is discounted back using the WACC. The sum of the two parts gives you enterprise value.",
+    "key_points": [
+      "Component 1: near-term projection — 5-year unlevered FCF forecast, discounted at WACC using mid-year convention",
+      "Component 2: terminal value — represents year 5 to infinity, typically a multiple of year-5 EBITDA discounted at WACC",
+      "Terminal value multiple benchmarked against comparable company EBITDA multiples",
+      "EV = PV of near-term FCFs + PV of terminal value",
+      "Mid-year convention used because cash flows throughout the year, not as a lump sum at year end",
+      "WACC used as the discount rate for both components"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-010",
+    "question": "How do we get unlevered FCF?",
+    "model_answer": "Start at either revenue (then take off COGS and operating expenses) or just start at EBIT. Multiply EBIT by (1-t) to adjust for taxes. Add back D&A and all non-cash expenses (since these don't truly draw cash). Account for changes in operating assets/liabilities (can be positive or negative; if negative that means assets exceed liabilities change). Take out capex.",
+    "key_points": [
+      "Start at EBIT (or build from revenue minus COGS and operating expenses)",
+      "Multiply EBIT by (1-t) to get tax-effected operating income (NOPAT)",
+      "Add back D&A and all non-cash expenses",
+      "Adjust for changes in operating assets and liabilities (working capital changes)",
+      "Subtract capex",
+      "Result is unlevered FCF — available to all capital providers, linked to enterprise value"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-011",
+    "question": "What single change to a DCF model will produce the largest change?",
+    "model_answer": "Changing the WACC will because it underpins everything — applying to the near-term by discounting the FCFs and to the long-term by discounting the terminal value.",
+    "key_points": [
+      "WACC change produces the largest impact on DCF output",
+      "WACC discounts both near-term FCFs and the terminal value",
+      "Terminal value typically comprises the majority of EV — any discount rate change amplifies this",
+      "Second most impactful: terminal value multiple or long-term growth rate assumption",
+      "WACC sensitivity analysis is always critical in DCF modeling"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-bond-math-and-valuation-012",
+    "question": "Why is mid-year convention utilized with DCFs?",
+    "model_answer": "To represent the fact that you don't get cash as a stub at the end of each year. Cash flows arrive throughout the year, not just at year-end. Mid-year convention uses 0.5 for the first year, 1.5 for the second year, etc. to reflect the average timing of cash receipt across the year.",
+    "key_points": [
+      "Mid-year convention reflects that cash flows arrive throughout the year, not as a lump sum at year-end",
+      "Uses 0.5 for year 1, 1.5 for year 2, 2.5 for year 3, etc.",
+      "Produces higher DCF value than end-of-year convention (cash is received sooner on average)",
+      "Standard practice in investment banking DCF models",
+      "Contrast with end-of-year convention which assumes all cash arrives on December 31"
+    ],
+    "category": "bond-math",
+    "difficulty": 1
+  },
+  {
+    "question": "What's YTM?",
+    "model_answer": "Yield to maturity. Takes into consideration the price paid for the bond or loan, as well as interest payments and principal payments to be made over the life of the bond and the amount of time to maturity. The YTM is an annualized return on investment. It assumes cash payments are reinvested at the same rate as the bond/loan is paying — an often erroneous assumption when dealing with distressed debt (since you can't reliably reinvest at such high yields).",
+    "key_points": [
+      "Annualized return assuming hold to maturity",
+      "Accounts for: purchase price, coupons, principal repayment, time",
+      "Critical assumption: coupon reinvestment at same rate (unrealistic for distressed)",
+      "Widely used but imperfect metric for distressed securities"
+    ],
+    "category": "bond-math",
+    "difficulty": 1,
+    "id": "rx-bond-math-and-valuation-060"
+  }
+]

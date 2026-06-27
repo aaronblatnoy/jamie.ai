@@ -17,9 +17,6 @@ RUN apk add --no-cache python3 make g++ && npm ci --omit=dev
 
 COPY backend/ ./
 
-# Copy question banks (repo root /questions) into the location questions-store.js expects
-COPY questions/ /app/questions/
-
 # Copy built frontend into the location the backend expects
 COPY --from=frontend-build /app/frontend/dist /app/frontend/dist
 

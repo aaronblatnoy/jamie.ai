@@ -1,0 +1,368 @@
+[
+  {
+    "id": "rx-chapter-11-and-plan-of-reorganization-001",
+    "question": "If collateral is stripped from pre-existing secured lenders (e.g., through a drop-down) what are some ramifications for these lenders if the company files down the road and their collateral value is now less than their total claim?",
+    "model_answer": "Four key ramifications: (1) Deficiency claim — post-filing, the lender's secured claim is limited to the value of their collateral. If collateral has been reduced via asset transfer to an unsub, the secured claim falls and the difference becomes an unsecured deficiency claim. The lender is now both partially secured and partially unsecured — the latter pari with all other unsecured creditors. (2) Adequate protection — to prevent collateral from being further depleted during bankruptcy, secured creditors are entitled to adequate protection (additional liens, replacement liens, or cash payments). However, adequate protection is only up to the value of their secured claim, which is already diminished by the drop-down. (3) Credit bid rights under 363(k) — in a 363 sale, secured creditors can credit bid (offset their secured claim against the purchase price). Since the secured claim is now lower due to diminished collateral, their credit bid is correspondingly lower. (4) Post-petition interest under 506(b) — only oversecured creditors are entitled to post-petition interest. If a lender was previously oversecured but is now undersecured due to collateral stripping, they lose the right to post-petition interest.",
+    "key_points": [
+      "Secured claim is limited to collateral value; stripped collateral reduces secured claim and creates unsecured deficiency claim",
+      "Unsecured deficiency claim ranks pari with all other general unsecured creditors",
+      "Adequate protection (additional/replacement liens, cash payments) only covers the remaining secured value",
+      "Credit bid rights under 363(k) are diminished because they equal the secured claim, which is now lower",
+      "Previously oversecured lenders may become undersecured, losing 506(b) post-petition interest rights",
+      "This is why drop-downs are so damaging to non-participating secured holders"
+    ],
+    "category": "chapter-11",
+    "difficulty": 3
+  },
+  {
+    "question": "If a company does file for bankruptcy, what precipitates that?",
+    "model_answer": "A company almost always declares bankruptcy itself because it wants to draw down revolvers, miss certain payments strategically, prepare a list of critical vendors, and try to get in the best position to come through Chapter 11 quickly. Occasionally a company is forced into bankruptcy involuntarily by creditors via a technical default (which doesn't involve missing an interest payment). Ultimately a company files because it can't refinance its maturities coming due or can't meet cash interest payments, and needs a fundamentally new capital structure.",
+    "key_points": [
+      "Companies almost always file voluntarily — to control the process",
+      "Strategic pre-filing moves: draw down revolver, prepare critical vendor list",
+      "Involuntary filings from creditors via technical default are rare",
+      "Root causes: can't refinance maturities or can't meet cash interest"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-002"
+  },
+  {
+    "question": "What is DIP Financing?",
+    "model_answer": "Debtor in Possession (DIP) financing is a special type of financing only available to companies that have filed for bankruptcy, with super-priority over all existing capital structure elements. Roughly 70% of the time it comes from existing lenders. DIP financing is very safe — massive collateral backing and very restrictive covenants. Many companies that couldn't raise new debt pre-filing will file Chapter 11 strategically to access DIP financing.",
+    "key_points": [
+      "Super-priority — sits above all existing capital structure including existing secured debt",
+      "Only available post-filing (Debtor in Possession status)",
+      "~70% provided by existing lenders",
+      "Safe for lenders: high collateral, restrictive covenants; companies file partly to access it"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-004"
+  },
+  {
+    "question": "How do you calculate the amount of DIP you can give?",
+    "model_answer": "You look at traditional borrowing bases and ask: 'what is left that can be pledged against a new DIP loan?' For example, if there is a $50m claim on AR but the AR is worth $150m, then $150m - $50m = $100m is the possible DIP amount.",
+    "key_points": [
+      "DIP amount = unencumbered collateral value above existing secured claims",
+      "Example: $150m AR value - $50m existing claim = $100m DIP capacity",
+      "Uses same borrowing base methodology as revolvers",
+      "DIP lender gets super-priority lien on that collateral"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-005"
+  },
+  {
+    "question": "Why is DIP lending so attractive to lenders?",
+    "model_answer": "DIP lenders are granted affirmation or extension of their existing liens, new liens, and super-priority claim status in the event that the value of their collateral is not sufficient to pay those claims — and even priming liens. This makes DIP lending a very safe and profitable business. DIP loans sit at the very top of the capital structure with absolute first priority and can be made by existing or new lenders (though usually existing).",
+    "key_points": [
+      "Super-priority: DIP ranks above all pre-petition claims",
+      "Priming lien protection: even if collateral is insufficient, gets priority",
+      "Extension of existing liens plus new liens",
+      "Very safe for lender: very high collateral coverage and restrictive covenants"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-006"
+  },
+  {
+    "question": "What about M&A? What can you tell me about distressed M&A?",
+    "model_answer": "Distressed M&A comes in two forms: (1) Selling a distressed company prior to filing (often to avoid bankruptcy), or (2) Doing a Section 363 asset sale (an expedited asset sale within Chapter 11). For most RX shops, M&A bankers are brought in on 'traditional' M&A — normally an asset sale where the buyer doesn't assume all liabilities and assets. There's a fine line between divestiture and sale in distress, since what's left after an asset sale is often not very valuable.",
+    "key_points": [
+      "Two types: pre-filing sale (to avoid bankruptcy) or 363 asset sale (in-court)",
+      "363 sale: buyer acquires assets free and clear of liens",
+      "Asset sales not equivalent to full company M&A — buyer selects assets/liabilities",
+      "M&A bankers typically brought in for 363 or pre-filing sale process"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-007"
+  },
+  {
+    "question": "What are important documents when Chapter 11 is filed?",
+    "model_answer": "Key documents include: initial filing papers (affidavit by senior officer describing reasons for Chapter 11); listing of 20 largest unsecured creditors and 5 largest secured creditors; monthly cash reports; court docket; professional fee applications; petition for automatic stay; listing of preferred creditors, critical vendors, and reclamation credits; DIP proposals; and potentially the POR itself.",
+    "key_points": [
+      "Affidavit from senior officer explaining reasons for filing",
+      "List of 20 largest unsecured + 5 largest secured creditors",
+      "Petition for automatic stay; critical vendor list; DIP proposals",
+      "Monthly operating reports and professional fee applications ongoing"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-009"
+  },
+  {
+    "question": "What's a full prepack?",
+    "model_answer": "When a Chapter 11 petition is filed it is accompanied by a complete disclosure statement and a proposed plan of reorganization, together with an agreement to support the plan that is binding on a sufficient number of the class to satisfy the applicable voting tests. Increasingly common. Can take just 45 days. Requires 85-90% participation rate.",
+    "key_points": [
+      "Full POR and DS filed simultaneously with petition",
+      "Support agreement pre-signed by sufficient creditors",
+      "Can emerge in as little as 45 days",
+      "Requires ~85-90% creditor participation in advance"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-010"
+  },
+  {
+    "question": "Who wouldn't like a pre-pack (pre-packaged bankruptcy)?",
+    "model_answer": "Management, out-of-the-money creditors, and equity holders. Management may have significant equity so they want to wait and see if there's a turnaround, keep their jobs longer, and achieve a higher EV. Out-of-the-money creditors and equity holders similarly hope for a better outcome with more time.",
+    "key_points": [
+      "Management: may have equity at stake, want more time for turnaround",
+      "Equity holders: get nothing in pre-pack, prefer extended process for optionality",
+      "Out-of-the-money creditors: similarly prefer extended timeline",
+      "Pre-pack benefits creditors who are likely to recover; others prefer delay"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-011"
+  },
+  {
+    "question": "Difference between section 301 or section 303 in Chapter 11?",
+    "model_answer": "Section 301 = voluntary filing by the debtor. Section 303 = involuntary filing by creditors or indenture trustee (on the basis of technical default for breaking covenants, missing payments, etc.).",
+    "key_points": [
+      "Section 301: voluntary Chapter 11 by the company",
+      "Section 303: involuntary Chapter 11 filed by creditors",
+      "Technical defaults (covenant violations) can trigger involuntary filings",
+      "The vast majority of Chapter 11s are voluntary (Section 301)"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-012"
+  },
+  {
+    "question": "Exclusive period to file plan of reorganization once Chapter 11 filed?",
+    "model_answer": "There is a 120-day exclusive period during which only the debtor can file a plan of reorganization, and a 180-day period to solicit acceptances.",
+    "key_points": [
+      "120-day exclusive period: only debtor can propose a POR",
+      "180-day period to solicit acceptances",
+      "After 120 days, creditors can propose competing plans",
+      "Exclusivity can be extended by the court"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-013"
+  },
+  {
+    "question": "So, a company files for Chapter 11 and then must come up with a POR. What's that include?",
+    "model_answer": "Section 1123 has five mandatory provisions: (1) Plan must designate classes of claims and interests; (2) Plan must specify any class not impaired under the plan; (3) Plan must specify treatment of any class that is impaired; (4) Plan must provide the same treatment for each claim/interest of a particular class unless requisite vote holders agree to less favorable treatment; (5) Plan must provide adequate means for implementation (it must be feasible and achievable).",
+    "key_points": [
+      "Designate all claim/interest classes",
+      "Specify unimpaired classes (they don't vote)",
+      "Specify treatment of impaired classes (what they receive)",
+      "Equal treatment within each class; must include feasible implementation means"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-014"
+  },
+  {
+    "question": "What classes do not get a vote in a POR?",
+    "model_answer": "Those who will be made whole (unimpaired classes) and those who won't receive anything at all. Only impaired classes can vote (Section 1126). For example, if secured debt is completely covered it won't get to vote because it won't take a haircut. Those who receive nothing can't vote either — they would obviously vote no since they're getting nothing.",
+    "key_points": [
+      "Unimpaired classes (made whole): no vote needed, deemed to accept",
+      "Classes receiving nothing: deemed to reject, no vote needed",
+      "Only impaired classes that receive something get to vote",
+      "Governed by Section 1126"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-015"
+  },
+  {
+    "question": "What is needed for a POR to be approved?",
+    "model_answer": "The plan is accepted if at least 2/3 of the notional amount (dollar amount of bonds or loans) and more than half the number of allowed claims in that class agree. So you need both: 2/3 by dollar value AND more than 50% by number of holders (regardless of how much they hold). If someone owns 75% of the bonds in a class, they can't vote alone — they still need 50%+1 of the other holders to agree.",
+    "key_points": [
+      "Two-part test: 2/3 by dollar amount AND 50%+1 by number of holders",
+      "Both tests must be satisfied",
+      "Large holder owning >2/3 by value still needs majority of other holders to agree",
+      "Prevents single large holder from cramming down all others"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-016"
+  },
+  {
+    "question": "What two valuations are done in confirmation process of a plan of reorganization (POR)?",
+    "model_answer": "Liquidation analysis and going-concern enterprise value (EV). The liquidation test ensures no party gets less than they would if the company just liquidated (Chapter 7) instead of reorganizing. The EV test determines what the company is really worth to establish which part of the capital structure is impaired. Since you aren't liquidating, it's impossible to know with certainty who is impaired — hence why valuation fights in RX are so contentious: valuation determines who gets made whole, who gets impaired, and who gets nothing.",
+    "key_points": [
+      "Two tests: liquidation analysis (Chapter 7 value) and going-concern EV",
+      "Liquidation test: best interest test — Chapter 11 must exceed Chapter 7 value",
+      "EV test: determines impairment and who votes",
+      "Valuation disputes are central to contested Chapter 11s"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-017"
+  },
+  {
+    "question": "What are the three legal tests for the confirmation of the POR?",
+    "model_answer": "The three tests are: (1) Feasibility; (2) Best interest test; (3) Cram down.",
+    "key_points": [
+      "Feasibility: post-reorg company won't need to restructure again",
+      "Best interest: each holder gets at least Chapter 7 liquidation value",
+      "Cram down: court can confirm over objection of non-accepting class if fair/equitable",
+      "All three must be addressed for POR confirmation"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-018"
+  },
+  {
+    "question": "What is a cram down?",
+    "model_answer": "Section 1129B(1). Requires that in the event that not all impaired classes accept the plan, the court may still confirm if it does not discriminate unfairly and is fair and equitable with respect to those nonaccepting classes. Cram downs are rare as they involve the court taking a tough stand against an impaired class that voted no.",
+    "key_points": [
+      "Court confirms POR even if not all impaired classes vote yes",
+      "Requirements: no unfair discrimination + fair and equitable treatment",
+      "At least one impaired class must have voted yes",
+      "Rare in practice — contentious and requires court intervention"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-019"
+  },
+  {
+    "question": "What is best interest test?",
+    "model_answer": "Detailed in Section 1129(a)(7). The best interest test says that by accepting the Chapter 11 POR you won't be worse off than if the company had done a Chapter 7 liquidation. Each creditor must receive at least what they would have received in a Chapter 7 liquidation — that's why a liquidation analysis is done alongside the going-concern EV.",
+    "key_points": [
+      "Section 1129(a)(7): each creditor must receive ≥ Chapter 7 liquidation value",
+      "POR must be better for creditors than straight liquidation",
+      "Requires a full liquidation analysis as part of POR process",
+      "One of three confirmation tests"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-020"
+  },
+  {
+    "question": "What is feasibility test?",
+    "model_answer": "Once restructured, the debtor will not likely liquidate or experience the need for further financial reorganization in the future. Codified in Section 1129(11) of the Bankruptcy Code. In other words, the POR must feasibly put the company on sound footing without requiring more restructuring later on.",
+    "key_points": [
+      "Post-reorg company must not need to file again soon",
+      "Codified in Section 1129(11)",
+      "Financial projections must support long-term viability",
+      "One of three confirmation tests"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-021"
+  },
+  {
+    "question": "Why do asset sales under section 363 instead of Chapter 7?",
+    "model_answer": "Management keeps control of the process. In a 363 sale the company (debtor) controls the asset sale process rather than a court-appointed trustee (as in Chapter 7). This allows management to run a proper sale process, set a stalking horse bid, negotiate breakup fees, and achieve better outcomes.",
+    "key_points": [
+      "Management retains control vs. court-appointed trustee in Chapter 7",
+      "363 allows stalking horse bid and breakup fee to set floor",
+      "Open outcry bidding process to maximize value",
+      "Buyer gets assets free and clear of liens"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-023"
+  },
+  {
+    "question": "What is substantive consolidation risk?",
+    "model_answer": "Substantive consolidation is when the liabilities of separate legal entities are treated as being merged into one entity. This changes the value of creditor claims through invalidation of any priority a claim may have had due to corporate structure, and thus affects potential recoveries of certain creditors. Kmart is a notable example.",
+    "key_points": [
+      "Separate legal entities' liabilities treated as one combined entity",
+      "Eliminates inter-company priority advantages from corporate structure",
+      "Changes recovery amounts for creditors of specific subsidiaries",
+      "Kmart was a high-profile example of substantive consolidation risk"
+    ],
+    "category": "chapter-11",
+    "difficulty": 3,
+    "id": "rx-chapter-11-and-plan-of-reorganization-025"
+  },
+  {
+    "question": "What's critical vendor payments risk?",
+    "model_answer": "Critical vendors are those vendors paid post-petition. A distressed debt investor must decide who they think will be classified as critical. Critical vendors are essential to the company being an on-going concern — without them the company wouldn't survive, so cash must be available to pay them. All non-critical vendors have the automatic stay leveled against them, precluding them from collecting on their debts short-term.",
+    "key_points": [
+      "Critical vendors paid post-petition in full (super-priority treatment)",
+      "Non-critical vendors subject to automatic stay — can't collect short-term",
+      "Risk: investor holds pre-petition claims that get stayed while critical vendors paid",
+      "Companies petition court to pay critical vendors immediately after filing"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-026"
+  },
+  {
+    "question": "How can you block a POR?",
+    "model_answer": "Hold 33.4% of bonds in an impaired class. This prevents the 2/3 notional threshold from being met. However, the court can still confirm via cram down if at least one impaired class voted yes and the judge deems the deal to be fair and equitable.",
+    "key_points": [
+      "Blocking position = 33.4% of notional value in an impaired class",
+      "Prevents the 2/3 dollar-value threshold from being met",
+      "Cram down can override block if ≥1 impaired class accepts and plan is fair/equitable",
+      "Creditors accumulate blocking positions to gain negotiating leverage"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-027"
+  },
+  {
+    "question": "What does a typical prepackaged (pre-pack) POR do?",
+    "model_answer": "A typical pre-pack POR: obtains new exit financing (primarily DIP loans); reinstates or repays old bank loans; reinstates trade creditors; reinstates leases and other executory contracts; issues 90-95% of common stock to former bond holders (who may also get new debt); issues 5-10% of common stock to former junior creditors, preferred stockholders, and/or former common stockholders; if litigation pending, sets up a litigation trust; and issues management stock options (6-12% of common) to incentivize them to stay.",
+    "key_points": [
+      "Exit financing (DIP converts to exit facility)",
+      "Former bondholders receive 90-95% of new equity",
+      "Junior creditors and equity get 5-10% equity stub",
+      "Management gets 6-12% options to retain key leadership post-emergence"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-028"
+  },
+  {
+    "question": "What causes the 'three strikes you're out' in bankruptcy?",
+    "model_answer": "This refers to Chapter 33s. After a company's third trip through Chapter 11, it appears destined to be liquidated and will be forced to file Chapter 7.",
+    "key_points": [
+      "Chapter 33 = informal term for third Chapter 11 filing",
+      "Three Chapter 11s signals company is not viable as a going concern",
+      "Court effectively forces liquidation via Chapter 7",
+      "Signal that no capital structure can save an operationally broken business"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-029"
+  },
+  {
+    "question": "What's priming?",
+    "model_answer": "Priming is when a new piece of the capital structure is added above existing pieces — i.e., a new lender gets superior claim to all others. DIP financing is the most common example: it gets super-priority claim above all existing capital structure elements in a Chapter 11. You have to prove it doesn't impair secured holders (or their collateral coverage), otherwise creditors can object.",
+    "key_points": [
+      "New lender placed above existing lenders in priority",
+      "DIP financing is the primary example of priming",
+      "Court must approve priming over objection of existing secured creditors",
+      "Must prove existing secured holders are adequately protected"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-030"
+  },
+  {
+    "question": "What's of initial interest in a bankruptcy filing found via PACER or wherever?",
+    "model_answer": "Two key items: (1) Initial petition and related schedules and all subsequently filed monthly operating reports; (2) Debtor's schedule of 20 largest unsecured creditors — this gives insight into who might be on the unsecured creditor committee (though it's voluntary to serve and some distressed hedge funds will opt not to serve).",
+    "key_points": [
+      "Initial petition + related schedules",
+      "Monthly operating reports (ongoing financial updates)",
+      "Schedule of 20 largest unsecured creditors (helps identify potential committee members)",
+      "Distressed funds sometimes avoid UCC to preserve trading flexibility"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-031"
+  },
+  {
+    "question": "What does BRC 363 allow?",
+    "model_answer": "Asset sale where the buyer purchases assets free of all liens and claims with little or no risk of the transaction being subsequently unwound. Only the debtor can propose to sell assets pursuant to BRC 363. The process is open outcry bidding at a specified location (normally the court). Must have a stalking horse bid to set the minimum amount. Must have a breakup fee and incremental bid requirements.",
+    "key_points": [
+      "Assets sold free and clear of all liens — clean transfer",
+      "Only debtor can propose a 363 sale",
+      "Open outcry auction at court with stalking horse bid",
+      "Breakup fee and incremental bid requirements protect stalking horse"
+    ],
+    "category": "chapter-11",
+    "difficulty": 2,
+    "id": "rx-chapter-11-and-plan-of-reorganization-032"
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "id": "rx-rx-overview-and-advisory-002",
+    "question": "Why are there just a handful of shops with restructuring groups (PJT, Moelis, HL, Evercore, etc.) and why don't bulge bracket banks play a meaningful role here? It's not like restructuring isn't lucrative — quite the opposite: the fees are ridiculously good.",
+    "model_answer": "Bulge bracket banks are structurally conflicted when it comes to restructuring mandates. In M&A, having a balance sheet, a robust equities research division, and a capital markets division all matter and add value. In restructuring, these same attributes actively impede the ability to get mandates. When a company issues debt, that debt gets syndicated and ends up on the balance sheets of many banks; equity researchers at those banks publish buy/sell/hold recommendations on the company; and the bank that originally raised the debt may have a conflict in advising the company to restructure it. Companies seeking restructuring advice want fully independent counsel that cannot be tainted by any perceived conflict of interest — perceived, real, or borderline imaginary. If the advising bank has any prior dealings with the company (holding its debt, making prognostications on its soundness, having raised debt that is now trading poorly), creditors can sue, arguing the advice is compromised. So companies turn to pure independent advisory firms — elite boutiques — that have no balance sheet and no prior dealings with the company. These firms (PJT, Evercore, HL, Lazard, Moelis) are called Elite Boutiques and house both M&A and RX sides, with RX often being a separate and distinct practice.",
+    "key_points": [
+      "Bulge bracket banks have balance sheets and hold debt of companies they might advise, creating real or perceived conflicts of interest",
+      "In restructuring, the company is telling creditors it cannot honor debt obligations — the advisor must be beyond reproach in terms of independence",
+      "If the advising bank previously syndicated, held, or rated the debt now being restructured, creditors can claim the advice is perjured",
+      "Companies want pure independent advisory services with no auxiliary benefits (capital markets, research, etc.) muddying the picture",
+      "Elite Boutiques (PJT, Evercore, HL, Lazard, Moelis) dominate because they have no balance sheet and no prior conflicts",
+      "Fires wall between divisions at large banks are legally real but practically insufficient — companies and creditors demand complete independence"
+    ],
+    "category": "overview",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-rx-overview-and-advisory-003",
+    "question": "If you're making a short summary on a potential restructuring target, what would you include?",
+    "model_answer": "This question is really asking you to describe a company profile. A strong answer covers: (1) A cap table showing the full capital structure with market prices, cash interest expense, and leverage and coverage ratios calculated through the capital structure. (2) Credit ratings on all pieces of debt where available. (3) A liquidity table showing revolver availability (borrowing capacity less amounts drawn and letters of credit outstanding) plus unrestricted cash, less restricted cash, giving a total liquidity figure. (4) Qualitative commentary on recent news — drawn from Reorg, Debtwire, Moody's reports, S&P — explaining why the company is a restructuring candidate (covenant pressure, credit downgrades, revenue deterioration, etc.). (5) A maturity wall graphic showing when each piece of debt comes due over the next six to eight years, including any springing maturities. (6) Optionally, a separate price action page showing a graph of where key pieces of debt have been trading over the past six to twelve months, sourced from MarkIt (for loans) and TRACE or Bloomberg (for bonds).",
+    "key_points": [
+      "Cap table with face value, market price, market value, coupon, cash interest, maturity date, credit ratings, and leverage/coverage ratios through the capital structure",
+      "Liquidity table: revolver capacity less drawn amount less letters of credit plus unrestricted cash less restricted cash equals total liquidity",
+      "Maturity wall graphic showing when debt tranches come due, including springing maturity triggers",
+      "Qualitative bullets summarizing why the company is a restructuring candidate: downgrades, covenant pressure, upcoming maturities, declining EBITDA",
+      "Price action page: graph of trading prices for key debt tranches over past 6-12 months using MarkIt (loans) and TRACE/Bloomberg (bonds)",
+      "Sources: BamSEC for public financial statements, Reorg and Debtwire for private companies and market commentary, MarkIt for loan pricing, TRACE for bond pricing"
+    ],
+    "category": "overview",
+    "difficulty": 2
+  },
+  {
+    "question": "What is usually included in an RX pitch?",
+    "model_answer": "An RX pitch generally includes: (1) Executive Summary; (2) Situation Assessment of Industry and Company — financials, graphs of EBITDA, leverage ratio, overview of debt terms and covenants; (3) Potential Restructuring Alternatives — 2-4 potential ways to restructure the capital structure with explanations, timing, and rationale; (4) Appendix — additional analysis (e.g., liquidity roll-forward, debt holders list), case studies of past successful restructurings, and qualifications.",
+    "key_points": [
+      "Executive Summary",
+      "Situation Assessment: financials, EBITDA graphs, leverage, covenant overview",
+      "Restructuring Alternatives: 2-4 options with rationale and timeline",
+      "Appendix: liquidity roll-forward, debt holders list, case studies, qualifications"
+    ],
+    "category": "overview",
+    "difficulty": 2,
+    "id": "rx-rx-overview-and-advisory-018"
+  },
+  {
+    "question": "How do you present restructuring alternatives to the client?",
+    "model_answer": "You will normally have a slide showing the current cap table and a pro forma cap table showing what it will look like if the alternative moves forward. You'll include graphs showing decreased leverage and decreased cash interest payments. You'll also have a slide covering pros and cons, timeline, key parties, and the strategic rationale.",
+    "key_points": [
+      "Current cap table vs. pro forma cap table",
+      "Graphs showing reduced leverage and lower cash interest",
+      "Pros/cons, timeline, key parties, strategic rationale",
+      "Each alternative gets its own presentation structure"
+    ],
+    "category": "overview",
+    "difficulty": 2,
+    "id": "rx-rx-overview-and-advisory-019"
+  },
+  {
+    "question": "If I were to give you a company and I wanted an overview (quickly) of what's important, how would you go about answering that?",
+    "model_answer": "Think about the primary page in a profile, which includes: Overview & Recent News (what the company does, recent news from Debtwire/Reorg on why the company is in trouble, more recent news on ratings actions etc.); Maturity Schedule (when debt comes due, where the maturity walls are); and Cap Table (cash on hand, secured debt, total debt, LTM EBITDA, terms of the debt, and potentially a liquidity section showing revolver availability plus cash minus LOCs and restricted cash).",
+    "key_points": [
+      "Overview: what company does, recent distress news, ratings actions",
+      "Maturity schedule: shows when debt comes due and maturity walls",
+      "Cap table: cash, debt by tranche, LTM EBITDA, debt terms",
+      "Liquidity section: revolver capacity + cash - LOCs - restricted cash"
+    ],
+    "category": "overview",
+    "difficulty": 2,
+    "id": "rx-rx-overview-and-advisory-022"
+  }
+]

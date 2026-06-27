@@ -1,0 +1,132 @@
+{
+  "mode": "rx",
+  "categories": [
+    {
+      "slug": "basic/overview",
+      "name": "Basic — RX Overview & Advisory Role",
+      "description": "Contextual and fit questions about restructuring banking: what RX bankers do, debtor-side vs. creditor-side mandates, why elite boutiques dominate, analyst/associate day-to-day responsibilities, deal sourcing, pitch process, tools of the trade (Reorg, Debtwire, PACER, MarkIt, BamSEC), and recommended reading. Covers the 'tell me about RX' and 'why restructuring' family of questions."
+    },
+    {
+      "slug": "basic/capital-structure",
+      "name": "Basic — Capital Structure & Debt Instruments",
+      "description": "Questions on the full capital structure stack: revolvers, ABL/borrowing bases, term loans (TLA/TLB), secured vs. unsecured bonds, pari passu positioning, OID, SOFR/LIBOR floors, PIK vs. cash interest, HoldCo/OpCo structures, structural subordination, upstream/downstream guarantees, and multi-layer OpCo capital structures. Covers both conceptual hierarchy and instrument mechanics."
+    },
+    {
+      "slug": "basic/accounting",
+      "name": "Basic — Accounting & Financial Statements",
+      "description": "Three-statement mechanics with a restructuring lens: income statement, balance sheet, and cash flow statement linkages; non-cash items (D&A, PIK interest, write-downs); deferred taxes, DTAs, DTLs, and NOLs (Section 382); working capital and EBITDA adjustments in distress; TTM EBITDA calculation; FIFO vs. LIFO in inflationary environments; operating vs. capital leases; noncontrolling interests; deferred revenue; and three-statement impact of debt buybacks and PIK toggle elections."
+    },
+    {
+      "slug": "basic/bond-math",
+      "name": "Basic — Bond Math & Valuation",
+      "description": "Quantitative pricing and return mechanics: YTM calculation and intuition, coupon frequency effects, current yield vs. YTM decomposition, price appreciation vs. coupon yield components, reinvestment risk, bond pricing given YTM (reverse calculation), IRR for bond investments, distressed debt pricing relative to recovery value, WACC/CAPM for distressed companies, beta (levered/unlevered), DCF limitations in distressed contexts, liquidation vs. going-concern valuation, sum-of-parts, and creation multiples."
+    },
+    {
+      "slug": "basic/credit-analysis",
+      "name": "Basic — Credit & Covenant Analysis",
+      "description": "Distress identification and credit documentation: leverage ratios, interest coverage ratios (FCCR), borrowing base availability, maturity walls, springing maturities, affirmative/negative/financial covenants, incurrence vs. maintenance covenants, cov-lite era, basket capacity analysis, debt yield and credit ratings, and reading a cap table to assess distress. Includes liquidity runway and cash burn analysis."
+    },
+    {
+      "slug": "basic/chapter-11",
+      "name": "Basic — Chapter 11 & Plan of Reorganization",
+      "description": "In-court restructuring process from filing through emergence: voluntary vs. involuntary filing, automatic stay, DIP financing mechanics and recovery composition, 363 asset sales, pre-packaged vs. freefall Chapter 11, Chapter 7 liquidation comparison, plan of reorganization (POR) structure, class voting and impairment, cram-down mechanics, best interest test, feasibility test, absolute priority rule, and NOL preservation through bankruptcy."
+    },
+    {
+      "slug": "basic/out-of-court",
+      "name": "Basic — Out-of-Court Restructuring",
+      "description": "Liability management and consensual solutions short of bankruptcy: exchange offers, amend-and-extend mechanics, debt-for-equity exchanges (equitization), PIK toggles, debt buybacks, sources-and-uses analysis, non-pro-rata uptier transactions (SERTA protection), J.Crew blockers and collateral drop-downs, adequate protection, rights offerings, and bondholder committee formation and rights. Covers when out-of-court is preferred over Chapter 11 and common execution pitfalls."
+    },
+    {
+      "slug": "basic/recovery",
+      "name": "Basic — Recovery & Waterfall Analysis",
+      "description": "Enterprise value allocation down the capital structure: going-concern EV vs. liquidation value, waterfall mechanics with first-lien/second-lien/unsecured tranches, deficiency claims, recovery composition (cash, new debt, equity), post-reorganization equity value, structural subordination impact on recovery, guarantee valuation and upstream/downstream guarantee scenarios, and worked numerical recovery calculations across multi-OpCo structures."
+    },
+    {
+      "slug": "basic/distressed-investing",
+      "name": "Basic — Distressed Investing & Trading",
+      "description": "Buy-side and trading questions: distressed debt pricing and optionality (equity call-option analogy), bank debt trading below 70, blocking positions, big-boy letters, priming transactions, pari passu trading differentials, when it makes sense to buy debt trading below expected recovery value, LBO IRR calculations in a distressed context, PE returns on distressed equity, and macro/market drivers of restructuring cycles (Fed intervention, cov-lite wave, direct lending, inflation impact on distressed activity)."
+    },
+    {
+      "slug": "advanced/overview",
+      "name": "Advanced — RX Overview & Advisory Role",
+      "description": "Advanced contextual and fit questions about restructuring banking: nuanced coverage of why elite boutiques dominate, deal sourcing via screens and sponsor relationships, presenting restructuring alternatives, and deep-dive on pitch structure and live deal process."
+    },
+    {
+      "slug": "advanced/capital-structure",
+      "name": "Advanced — Capital Structure & Debt Instruments",
+      "description": "Advanced questions on capital structure: guarantees (upstream/downstream), grid pricing mechanics, floating-rate preference analysis, HoldCo/OpCo structural subordination in complex multi-entity structures, and secured basket capacity analysis."
+    },
+    {
+      "slug": "advanced/accounting",
+      "name": "Advanced — Accounting & Financial Statements",
+      "description": "Advanced three-statement mechanics: complex PIK/cash interest combinations, gain on debt retirement, deferred taxes, NOL utilization with DTA impact, LIFO/FIFO in distress, capital vs. operating lease analysis, noncontrolling interest and equity method scenarios, adjusted EBITDA and restructuring cost recognition under GAAP."
+    },
+    {
+      "slug": "advanced/bond-math",
+      "name": "Advanced — Bond Math & Valuation",
+      "description": "Advanced bond math: YTM ranking across coupon frequencies, multi-tranche YTM explanation via maturity differentials, reinvestment rate impact on realized IRR, reverse-engineering price from YTM without formula, creation value and creation multiple analysis, pari tranche pricing differentials, WACC/CAPM for distressed companies, and the philosophical limits of DCF in restructuring."
+    },
+    {
+      "slug": "advanced/credit-analysis",
+      "name": "Advanced — Credit & Covenant Analysis",
+      "description": "Advanced credit analysis: revolver vs. cash liquidity trade-offs, covenant blocker mechanics, secured debt capacity calculation across multi-prong baskets (credit facilities, general debt, general liens, ratio-based), investment basket analysis for value transfer to unrestricted subsidiaries, non-guarantor structurally senior debt capacity, and full cap table distress assessment."
+    },
+    {
+      "slug": "advanced/chapter-11",
+      "name": "Advanced — Chapter 11 & Plan of Reorganization",
+      "description": "Advanced Chapter 11 topics: collateral stripping ramifications (deficiency claims, adequate protection, credit bid rights, post-petition interest), substantive consolidation risk, critical vendor payments, and complex priming scenarios."
+    },
+    {
+      "slug": "advanced/out-of-court",
+      "name": "Advanced — Out-of-Court Restructuring",
+      "description": "Advanced out-of-court restructuring: full sources-and-uses analysis for exchange transactions, amend-and-extend return calculations, LME mechanics (J. Crew blockers, Serta protection, Envision blockers), convertible bond issuance to bypass coverage issues, designing full restructuring alternatives from cap table analysis, and uptier transaction economics."
+    },
+    {
+      "slug": "advanced/recovery",
+      "name": "Advanced — Recovery & Waterfall Analysis",
+      "description": "Advanced waterfall analysis: multi-OpCo recovery with upstream guarantees, deficiency claim mechanics, intercompany loan recovery, consideration form (take-back debt vs. post-reorg equity), guarantee valuation methodology, and complex HoldCo/OpCo/SubCo recovery problems with secured and unsecured debt at multiple levels."
+    },
+    {
+      "slug": "advanced/distressed-investing",
+      "name": "Advanced — Distressed Investing & Trading",
+      "description": "Advanced distressed investing: uptier transaction impact on 2L pricing (Pretium Packaging), binary EV scenario pricing, equity call-option valuation in distressed structures, buying below recovery value rationale (coupon + post-reorg equity upside), LBO IRR in distressed context, big boy letters, 50% blocking of non-money indenture provisions, bank debt sub-70 forced selling dynamics, and inflation impact on restructuring activity."
+    }
+  ],
+  "total_questions": 313,
+  "questions_per_category": {
+    "basic/overview": 19,
+    "basic/capital-structure": 14,
+    "basic/accounting": 12,
+    "basic/bond-math": 13,
+    "basic/credit-analysis": 12,
+    "basic/chapter-11": 5,
+    "basic/out-of-court": 2,
+    "basic/recovery": 3,
+    "basic/distressed-investing": 2,
+    "advanced/overview": 5,
+    "advanced/capital-structure": 9,
+    "advanced/accounting": 34,
+    "advanced/bond-math": 48,
+    "advanced/credit-analysis": 29,
+    "advanced/chapter-11": 28,
+    "advanced/out-of-court": 28,
+    "advanced/recovery": 22,
+    "advanced/distressed-investing": 28
+  },
+  "source_pdfs": [
+    "1Structural_Subordination_Guide_v8-91281.pdf",
+    "Bonus_2023-24_Questions_v29-ord_821378.pdf",
+    "Bonus_2022_Questions_v9-ord_412571.pdf",
+    "Bonus_2021_Interview_Questions_v8-12818.pdf",
+    "Bond_Math_v15-ord_671283.pdf",
+    "Cap_Table_Exercises_v11-46271.pdf",
+    "Restructuring_Accounting_and_Valuation_Q_A_v6-84191.pdf",
+    "Restructuring_Interview_Questions_v14-64327.pdf",
+    "Restructuring_Overview_Guide_v24-7491519.pdf",
+    "FILE_2073.pdf",
+    "FILE_4974.pdf",
+    "FILE_5200.pdf",
+    "FILE_6027.pdf",
+    "FILE_9453.pdf"
+  ]
+}

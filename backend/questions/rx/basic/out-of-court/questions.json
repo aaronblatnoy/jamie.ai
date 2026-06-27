@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rx-out-of-court-restructuring-001",
+    "question": "What are the two 'action items' that should always be considered in any restructuring, and why?",
+    "model_answer": "The two universal action items in any restructuring are: (1) pushing out maturities and (2) reducing cash interest expense. These are the core problems that drive companies into restructuring in the first place. First, pushing out maturities is critical because restructuring is almost always precipitated by debt coming due that the company cannot refinance — lenders are unwilling to roll it over because of the company's poor financial position, deteriorating credit metrics, or the general market environment. By extending maturities, the company buys time to attempt an operational turnaround. Second, reducing cash interest expense is essential because high cash interest drains liquidity and makes it impossible for the company to build up cash reserves or invest in its own turnaround. Cash interest expense can be reduced by: converting cash-pay coupons to PIK (payment-in-kind), equitizing debt (debt-for-equity exchange), doing an exchange offer that lowers the coupon, or buying back debt at a discount. These two goals often go together: an exchange offer can both push out the maturity (by exchanging into longer-dated paper) and reduce cash interest (by converting to PIK). Any good restructuring discussion should address both.",
+    "key_points": [
+      "Action item 1: Push out maturities — buy time for operational turnaround by extending when debt comes due",
+      "Action item 2: Reduce cash interest expense — preserve liquidity and reduce ongoing cash drain",
+      "Maturities become the crisis when companies cannot refinance — lenders refuse to roll due to poor credit metrics",
+      "Cash interest reduction methods: convert to PIK, equitize debt, exchange into lower-coupon or PIK instruments, buy back at discount",
+      "These two goals often addressed simultaneously: exchange offers can extend maturity AND reduce/eliminate cash interest",
+      "Applicable in both out-of-court (exchanges, amend-and-extend) and in-court (POR, DIP financing) contexts",
+      "Should always mention both action items first when discussing what to do about any distressed situation",
+      "Failure to address either leaves the company vulnerable to future distress even if the immediate crisis is resolved"
+    ],
+    "category": "out-of-court",
+    "difficulty": 1
+  },
+  {
+    "question": "Does a distressed company always file for bankruptcy?",
+    "model_answer": "No — this is a key distinction. Most RX transactions will be out-of-court and very low profile. Out-of-court is always the preferred option if at all possible. Much of what RX bankers do focuses on trying to keep companies out of Chapter 11. Most books on distressed debt focus entirely on Chapter 11 but the reality is that out-of-court restructurings are the more common outcome.",
+    "key_points": [
+      "Majority of RX transactions are out-of-court",
+      "Out-of-court is always preferred over Chapter 11",
+      "Chapter 11 is a last resort, not the default",
+      "RX bankers spend significant effort keeping companies out of bankruptcy"
+    ],
+    "category": "out-of-court",
+    "difficulty": 1,
+    "id": "rx-out-of-court-restructuring-020"
+  }
+]

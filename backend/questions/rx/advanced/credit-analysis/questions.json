@@ -1,0 +1,430 @@
+[
+  {
+    "id": "rx-credit-and-covenant-analysis-005",
+    "question": "Let's say there's a company with a $500mm Term Loan at S + 7% (assume SOFR is at 1%) that has Adj. EBITDA of $50mm, opex of $30mm, capex of $25mm, cash taxes of $10mm, a working capital increase of $5mm, and cash on the balance sheet of $60mm. Given all this, what's the annual cash burn and runway here?",
+    "model_answer": "Build a liquidity roll-forward starting from Adj. EBITDA. Cash interest = $500mm * 8% (SOFR 1% + 700bps) = $40mm annually. FCF = EBITDA - Capex - Working Capital Increase - Cash Taxes - Cash Interest = $55mm - $25mm - $5mm - $10mm - $40mm = -$25mm per year (note: the question says $50mm EBITDA but after adjusting for the opex already captured in EBITDA, we get to ~$55mm Adj. EBITDA for roll-forward purposes — the key point is annual cash burn of $25mm). With $60mm of starting cash, the company runs out of cash early in Year 3 (approximately 2.4 years or about 40% through Year 3). The liquidity roll-forward table: Year 1 ending cash $35mm, Year 2 ending cash $10mm, Year 3 ending cash -$15mm.",
+    "key_points": [
+      "Cash interest = $500mm * (SOFR 1% + 700bps) = $500mm * 8% = $40mm",
+      "FCF = Adj. EBITDA - Capex - Working Capital - Cash Taxes - Cash Interest = negative $25mm/year",
+      "Starting with $60mm cash, runway is approximately 2.4 years (into Year 3)",
+      "Liquidity roll-forward: Year 1 ending cash $35mm, Year 2 $10mm, Year 3 $(15mm)",
+      "Always start liquidity roll-forward from Adj. EBITDA and deduct cash items only (not D&A)"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-006",
+    "question": "What are some reasons this runway may not really be accurate — or, put another way, a bit too simplified?",
+    "model_answer": "Five major simplifications: (1) Adj. EBITDA assumed constant — in reality a distressed company's EBITDA is likely declining; addbacks should be scrutinized and a declining trend incorporated. (2) Capex assumed static — distressed companies cut capex, but the model uses a fixed number; some capex may be growth/discretionary and could be eliminated. (3) Floating rate debt — the TL is floating at S+700bps; if SOFR rises, cash interest expense increases and shortens the runway. (4) Term Loan amortization — TLs typically amortize 1%/year; not reflected, so actual cash out is a bit higher. (5) Working capital assumed stable — in reality working capital fluctuates and companies may squeeze it harder in distress (which could improve cash), or it could worsen. Additional minor caveats: cash on balance sheet may earn interest; actual tax treatment may differ.",
+    "key_points": [
+      "Adj. EBITDA assumed constant but likely declining in a distressed company",
+      "Floating rate: if SOFR rises, interest expense rises and shortens runway",
+      "Capex may be partially discretionary and could be cut, improving runway",
+      "TL typically amortizes ~1%/year, adding to cash outflows not reflected",
+      "Working capital is assumed static but will fluctuate — companies in distress may compress it",
+      "Tax assumption may be oversimplified (e.g., NOLs could reduce cash taxes)"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-007",
+    "question": "Imagine that there's a company with a healthcare division that was sold for $100mm at a 5x multiple. Is this a deleveraging transaction for the company? Feel free to ask for more details as needed.",
+    "model_answer": "The EBITDA of the healthcare division is $100mm / 5x = $20mm. To determine if the transaction is deleveraging, we need the company's overall EBITDA and total debt level. If the company had $100mm EBITDA and $400mm of debt pre-transaction, and the $100mm proceeds were used to pay down debt: post-transaction EBITDA = $80mm (losing the $20mm division EBITDA), post-transaction debt = $300mm. Pre-transaction leverage = $400mm / $100mm = 4.0x; post-transaction = $300mm / $80mm = 3.75x. The transaction reduced leverage by 0.25 turns — it is modestly deleveraging. However, if the sale multiple is lower than the company's trading multiple, it will be more deleveraging (and vice versa).",
+    "key_points": [
+      "Sold division EBITDA = $100mm / 5x = $20mm",
+      "Need overall EBITDA and debt to determine leverage impact",
+      "Deleveraging if proceeds exceed (Division EBITDA * Company Multiple): i.e., if sale multiple < trading multiple",
+      "In the example with $100mm EBITDA / $400mm debt: leverage goes from 4.0x to 3.75x post-sale — modestly deleveraging",
+      "Always ask for total company financials to assess impact; asset divestitures are not automatically deleveraging"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-008",
+    "question": "Look over the following cap table (Example One) and answer: Why do you think the company is or is not likely going to need to be restructured?\n\n(Same cap table as above: TLB due Aug-2021 at 78, ABL due Jun-2022 with springer, Senior Notes due Feb-2025 at 54, LTM EBITDA $80mm, interest coverage 1.6x, unrestricted cash ~$25mm, cash interest $51mm/year)",
+    "model_answer": "The company almost certainly needs to be restructured. The primary driver is that the term loan and revolver are coming due within roughly one year at virtually the same time (due to the springing maturity). Given the company's poor FCF position and extremely high leverage (9.8x face), lenders are very unlikely to simply refinance this debt in the open market. The unrestricted cash of ~$25mm doesn't even cover the cash interest on secured debt alone ($26mm/year), reinforcing that the company cannot self-fund through the maturity. The TLB trading at 78 signals that investors believe there is meaningful risk of impairment. The Senior Notes trading at 54 tells you the market thinks unsecured creditors will likely not be made whole. The interest coverage ratio of 1.6x means any operational hiccup could push coverage below 1.0x. While the company has a large headline liquidity number (~$225mm), this almost entirely depends on an ABL revolver that itself is maturing imminently — and revolvers are typically not extended when junior debt is already in distress. All of these factors combine to make a restructuring very likely, either out-of-court (extension/exchange) or in-court (Chapter 11).",
+    "key_points": [
+      "Imminent dual maturity wall: TLB (Aug-2021) and ABL revolver (Jun-2022, springer to ~May-2021) create near-simultaneous maturities in ~1 year",
+      "Company almost certainly cannot refinance given 9.8x leverage and poor FCF",
+      "Unrestricted cash ($25mm) is insufficient to cover annual secured interest ($26mm)",
+      "TLB at 78 = market signaling meaningful distress; Senior Notes at 54 = severe impairment expected",
+      "Interest coverage of 1.6x leaves minimal buffer — operational weakness could push below 1.0x",
+      "ABL represents nearly all liquidity; extending it while junior debt trades in distress is very difficult",
+      "Credit ratings (B3/B- secured; Caa3/CCC- unsecured) confirm distressed status",
+      "Outcome is likely either out-of-court extension/exchange or in-court Chapter 11"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-009",
+    "question": "Look over the following cap table (Example Two) and answer: Why do you think the company is or is not likely going to need to be restructured?\n\n(Same cap table as above: RCF $30mm drawn/$70mm facility due Jun-2020 with springing covenant at 45% drawn, TLB $525mm at 88 due Jun-2021, Senior Unsecured $300mm at 81 due Jul-2022, Junior Sub $110mm due Sep-2023, EBITDA $125mm, interest coverage 2.0x, cash $5mm)",
+    "model_answer": "This company will likely need some form of restructuring or liability management — primarily to address the near-term maturity wall — but it is not in the same acute distress as a company trading at deeply distressed prices. The revolver matures in less than a year (Jun-2020) and the TLB in Jun-2021; these maturities are too close for comfort and the company has only $39mm in total liquidity. The company probably cannot simply refinance because the bonds and junior sub are still outstanding and creditors for the secured debt may not want to refinance into a heavily leveraged structure. However, the key nuance is that interest coverage at 2.0x is decent and the bonds are not trading at distressed levels — suggesting the company may be in a turnaround phase where its financial position is improving. Creditors for the secured debt likely feel they are well-covered (secured leverage of 4.4x on a going-concern basis) and so a straight extension is plausible. There is also the springing covenant risk to note — drawing more on the revolver risks triggering the 6.5x senior secured leverage covenant since 43% is already drawn. The company will need to address the revolver and term loan maturity wall, but may not need a comprehensive in-court restructuring if it can negotiate an out-of-court extension.",
+    "key_points": [
+      "Restructuring likely needed to address maturity wall: revolver due Jun-2020 (<1 year), TLB due Jun-2021",
+      "Only $39mm total liquidity — insufficient for a company of this size to self-fund through maturities",
+      "Not deeply distressed by market pricing standards: Senior Unsecured at 81, TLB at 88 — creditors not pricing in imminent default",
+      "Interest coverage 2.0x is relatively strong — company can service debt currently",
+      "Springing covenant: drawing more revolver risks triggering 6.5x senior secured leverage test (currently at 43% of 45% threshold)",
+      "Secured leverage (4.4x) is reasonable — secured creditors likely feel well-covered and may be willing to extend",
+      "Company may be a turnaround candidate — operational improvement underway but capital structure too onerous for current state",
+      "Out-of-court extension likely preferred over Chapter 11 given current trading levels"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-010",
+    "question": "What is a 'springing maturity' (springer) and why is it important in analyzing a distressed cap table?",
+    "model_answer": "A springing maturity is a provision whereby a more senior piece of debt (e.g., a revolving credit facility) that is scheduled to mature after a junior piece of debt (e.g., a term loan) will automatically accelerate its maturity to a date before the junior piece matures — typically 90 days before the junior piece is due — if the junior piece has not been refinanced or repaid by that earlier date. This matters enormously in distress analysis because it can make multiple pieces of the capital structure come due at the same time, creating a sudden and severe maturity wall. For example, if a revolver is due in June 2022 but the term loan is due in August 2021, the revolver will spring to mature in approximately May 2021 (90 days before the TLB) if the TLB isn't refinanced. This could force a restructuring far sooner than the stated maturities would suggest. Springers are common on revolvers when the revolving facility is more senior than the term loans or bonds. Asking about springers in an interview demonstrates sophisticated knowledge of credit documentation.",
+    "key_points": [
+      "A springing maturity causes a senior instrument (e.g., revolver) to accelerate its due date to before a junior instrument's maturity if that junior piece is not refinanced in time",
+      "Typically set at 90 days before the junior piece's maturity",
+      "Creates a more severe and sudden maturity wall — multiple pieces may become due simultaneously",
+      "Common on revolvers that are technically more senior but mature after junior term loans or bonds",
+      "Must always ask about springers when analyzing a cap table in an interview — they are frequently omitted from headline maturity dates",
+      "In Example One: ABL revolver due Jun-2022 springs to ~May-2021 if TLB (Aug-2021) is not refinanced — making both effectively due simultaneously in ~1 year",
+      "Springers reflect lender self-protection: senior lenders don't want to be left holding the bag when junior debt comes due first"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-011",
+    "question": "How do you build a liquidity table from a cap table, and what items are typically included?",
+    "model_answer": "To build a liquidity table, start with the revolving credit facility or ABL: take the total commitment/capacity, subtract the amount currently outstanding (drawn), and subtract any letters of credit outstanding (which reduce availability but don't show up in the drawn balance on the cap table). This gives you 'Revolver Availability.' Then add unrestricted cash (total cash less any restricted cash noted in the footnotes). The sum is 'Total Liquidity.' The key insight is that letters of credit are never embedded in the cap table — you must ask the interviewer about them. Restricted cash is usually in a footnote. In Example One: $200mm ABL capacity - $0 drawn - $5mm LCs = $195mm revolver availability + $40mm cash - $10mm restricted cash = $225mm total liquidity. In Example Two: $70mm RCF - $30mm drawn - $6mm LCs = $34mm revolver availability + $5mm cash = $39mm total liquidity. This immediately tells you how much real liquidity the company has to operate on and meet its near-term obligations.",
+    "key_points": [
+      "Formula: Revolver/ABL Capacity - Amount Outstanding - Letters of Credit Outstanding = Revolver Availability",
+      "Total Liquidity = Revolver Availability + Cash and Cash Equivalents - Restricted Cash",
+      "Letters of credit are NEVER shown in the cap table — always ask the interviewer",
+      "Restricted cash is usually buried in footnotes — subtract it from total cash to get free cash",
+      "The liquidity table reveals real available liquidity vs. headline numbers that can be misleading",
+      "Example One: $225mm headline liquidity but only $25mm truly free cash (rest is revolver dependent or restricted)",
+      "Example Two: Only $39mm total liquidity for a $125mm EBITDA company — very thin",
+      "Comparing liquidity to annual cash interest obligations reveals whether the company can self-fund near-term"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-012",
+    "question": "What is grid pricing on a term loan or revolving credit facility, and why is it relevant in distress analysis?",
+    "model_answer": "Grid pricing is a pricing mechanism whereby the interest rate on a loan instrument (typically a revolver or term loan) is not fixed but rather adjusts based on a financial metric — usually a leverage ratio or, for revolvers, a utilization percentage. As the metric worsens (leverage increases or utilization rises), the interest rate steps up automatically per a pre-defined grid schedule, increasing the borrower's cash interest expense at exactly the time when they can least afford it. In distress analysis, you need to check whether grid pricing is currently at the highest tier (indicating the company's metrics are already at their worst), or whether there is a risk of stepping up to a higher tier as conditions deteriorate. In Example One, the TLB has grid pricing of L+375 if total leverage is below 6.5x and L+425 if total leverage exceeds 6.5x — and the company's total leverage was above 6.5x, meaning they were already at the higher rate (L+425). For the ABL, grid pricing is L+175-225 based on utilization. Grid pricing makes a distressed company's interest burden even more onerous as it deteriorates, creating a self-reinforcing cycle.",
+    "key_points": [
+      "Grid pricing = floating interest rate that steps up automatically as a financial metric worsens (leverage ratio increases or revolver utilization rises)",
+      "Creates a self-reinforcing cycle: as a company deteriorates, interest costs rise, making further deterioration more likely",
+      "In distress analysis, check whether the company is already at the maximum grid rate or at risk of stepping up",
+      "Example One TLB: L+375 if total leverage <6.5x, L+425 if >6.5x — company already at L+425, confirming leverage >6.5x",
+      "Example One ABL: grid pricing L+175-225 based on utilization level",
+      "Example Two RCF: grid pricing L+300-350 based on senior secured leverage ratio",
+      "Always ask if grid pricing is currently triggered to its highest tier or whether there is risk of further step-up",
+      "Footnote information about grid pricing is critical context not visible in headline cap table numbers"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-013",
+    "question": "What is the working capital of a distressed company likely to be?",
+    "model_answer": "This is a bit of a trick question — it could be negative or positive. A company could have lots of AR and not much deferred revenue, and no short-term debt coming due, resulting in a very positive working capital number making the company seem quite stable. However, there could be massive maturity walls coming due around the corner that mean a restructuring is all but certain. Working capital doesn't capture the debt side of the picture — it can be misleading for distressed companies.",
+    "key_points": [
+      "Working capital for a distressed company can be positive or negative — trick question",
+      "High AR and low deferred revenue with no short-term debt can make WC appear positive",
+      "Positive WC does not mean the company is healthy — ignores long-term debt maturity walls",
+      "WC is a misleading metric in distress because it excludes the debt load context",
+      "A company can have strong working capital yet face imminent restructuring due to coming maturities"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-014",
+    "question": "Do you think we use operating working capital in RX a lot?",
+    "model_answer": "Generally not — operating working capital is not overly informative in RX. OWC = current assets excluding cash and investments minus current liabilities without debt. In distress, cash is king and debt is incredibly important (because there's normally an awful lot of it), so OWC strips out exactly the two things that matter most. It might tell us that the company, if it had a right-sized balance sheet, would be healthy — but it wouldn't tell us much about whether the company is distressed in the first place or how the capital structure should be reconfigured.",
+    "key_points": [
+      "OWC = current assets (ex-cash and investments) minus current liabilities (ex-debt)",
+      "Not commonly used in RX because it excludes both cash and debt — the two most critical items in distress",
+      "OWC might indicate the business operations are healthy but doesn't address capital structure distress",
+      "In RX the focus is on liquidity (cash) and capital structure (debt) — neither is captured by OWC",
+      "More useful metrics in RX: liquidity roll-forwards, leverage ratios, EBITDA/interest coverage"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-015",
+    "question": "We use EBITDA a lot in RX (for leverage ratios, etc.) but does it really tell us anything about the health of the company? What doesn't get captured?",
+    "model_answer": "EBITDA itself is not always overly reflective of the health of a company. Capex is not captured, one-time expenses are not captured, and maturity walls that are imminent and can't be refinanced are not captured. However, in investment banking we need agreed-upon ways of thinking about companies, and even GAAP is imperfect. EBITDA may be imperfect, but it is the convention. Most of what we look at is EBITDA in the context of a ratio — Debt/EBITDA and EBITDA/cash interest are still useful indicators of the capacity to meet debt obligations and are important for covenants.",
+    "key_points": [
+      "EBITDA does not capture capex, one-time expenses, or imminent maturity walls",
+      "Despite limitations, EBITDA is the industry convention and agreed-upon benchmark",
+      "Even GAAP is imperfect at capturing health of many companies",
+      "Debt/EBITDA and EBITDA/cash interest are key leverage and coverage ratios used in RX",
+      "EBITDA ratios are important for covenant compliance testing",
+      "EBITDA is always viewed in ratio context in RX, not standalone"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-016",
+    "question": "Can a healthy, fast-growing company ever become distressed?",
+    "model_answer": "Absolutely. A company can be growing rapidly, generating positive free cash flow, and still become distressed if it has large debt tranches coming due and credit markets freeze up or deteriorate such that it cannot refinance (refi) at the time of maturity. If the company cannot find buyers for a new debt offering and does not have sufficient cash on its balance sheet to repay the principal of the existing debt at maturity, it will need to restructure — even if its underlying business is healthy. Alternatively, if the interest rate environment changes dramatically, the company may not be able to refinance its existing debt at prevailing rates while maintaining positive free cash flow after accounting for cash interest on the new, higher-rate debt. Distress is ultimately driven by the inability to service existing debt or to refinance it as it matures — not purely by poor business performance. Declining stock price is not per se a sign of restructuring need if the company has minimal debt maturities and sufficient cash.",
+    "key_points": [
+      "A healthy company can become distressed if it has large debt maturities it cannot refinance when credit markets freeze or deteriorate",
+      "The company needs either enough cash to repay principal at maturity or the ability to raise new debt to replace the old — if neither is possible, restructuring follows",
+      "A rising rate environment can make refinancing unattractive or impossible if new debt service would eliminate positive FCF",
+      "Declining stock price alone does not mean a company needs to restructure — focus is on debt maturities and liquidity, not equity valuation",
+      "Distress is catalyzed by inability to service cash interest on existing debt or inability to roll over maturing debt",
+      "Even ostensibly healthy companies can be forced into restructuring by exogenous macro events (credit freezes, rate spikes)"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-017",
+    "question": "Imagine that the company we discussed above doesn't have $60mm of cash on their balance sheet. Instead, they have $10mm of cash on their balance sheet plus a $50mm revolver with $0mm drawn (so their liquidity appears to still be $60mm). How, if at all, would this change their runway?",
+    "model_answer": "The revolver shortens the runway relative to the cash-only scenario for two reasons: (1) As the company draws the revolver to fund negative FCF, it is incurring additional interest-bearing debt (e.g., at S+375bps). So, as revolver draws increase, cash interest expense rises, creating a self-reinforcing negative spiral that accelerates cash burn beyond the original $25mm/year. (2) The revolver may have a financial covenant test (a 'blocker') that caps availability below the stated $50mm. For example, Trinseo's revolver had a 3.5x first-lien net leverage ratio test: once leverage exceeded 3.5x, revolver draws were blocked at that threshold — meaning effective availability was $375mm * 30% = $112.5mm even though the full revolver was undrawn. Similarly here, if the leverage test is tripped, the company may not be able to draw the full $50mm, making effective liquidity less than $60mm despite what the balance sheet shows.",
+    "key_points": [
+      "Drawing the revolver adds interest-bearing debt, increasing cash interest expense and accelerating burn",
+      "Self-reinforcing cycle: more draws = higher interest = faster cash consumption",
+      "Revolver may have a financial covenant blocker limiting availability (e.g., leverage ratio test)",
+      "A blocked revolver means effective liquidity is less than face value suggests",
+      "The Trinseo example: 3.5x leverage test effectively capped availability to 30% of revolver size",
+      "Revolver availability requires checking the credit agreement, not just the balance sheet figure"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-018",
+    "question": "Let's imagine that we're looking at some Senior Secured Notes and we find in the indenture that there's $100mm available under the credit facilities basket, $100mm available under the general debt basket, and $50mm available under the general liens basket. Given this, how much secured debt capacity exists? In other words, how much additional (pari) secured debt will the SSNs allow to be incurred?",
+    "model_answer": "To incur secured debt you need both debt capacity and lien capacity. The credit facilities basket provides both debt and lien capacity together, so $100mm of secured debt can be raised under that basket. The general debt basket ($100mm) and general liens basket ($50mm) are separate: you can incur secured debt equal to the lesser of the two (the binding constraint). With only $50mm of lien capacity, you can incur only $50mm of secured debt from the general debt + general liens baskets (even though there's $100mm of debt capacity, the lien capacity is the bottleneck). Therefore, total secured debt capacity = $100mm (credit facilities basket) + $50mm (general debt + general liens, lien-constrained) = $150mm total of additional pari secured debt.",
+    "key_points": [
+      "Secured debt requires BOTH debt capacity AND lien capacity",
+      "Credit facilities basket provides both debt and lien capacity together: $100mm secured capacity",
+      "General debt basket ($100mm) and general liens basket ($50mm) are separate",
+      "Binding constraint = smaller of the two = $50mm from general debt/liens combination",
+      "Total secured debt capacity = $100mm + $50mm = $150mm",
+      "Analogy: debt capacity = ground beef, lien capacity = hamburger buns; secured debt = burgers (limited by buns)"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-019",
+    "question": "Let's imagine that we're looking at the Senior Secured Notes of ABC Inc. Their entire capital structure consists of an undrawn $450mm revolver, a TLA of $500mm, a TLB of $570mm, and $570mm of SSNs. Further, their LTM Adj. EBITDA is $410mm, and the cash and cash equivalents on the balance sheet are $120mm. Given all this, what's the amount of additional (pari) secured debt the SSNs will allow ABC to incur based on the below baskets found in the indenture? Credit Facilities Basket: $1,600mm of debt (all current credit facility debt and all future draws on the revolver must be incurred under this prong and can't be reclassified) plus the greater of $410mm and 100% of EBITDA plus pari debt subject to a 3.9x net 1L leverage ratio. General Debt Basket: Greater of $205mm and 50% of EBITDA. General Liens Basket: Greater of $205mm and 50% of EBITDA.",
+    "model_answer": "Credit Facilities Basket: Current secured credit facility debt = $500mm TLA + $570mm TLB = $1,070mm. Available capacity = $1,600mm - $1,070mm = $530mm (first prong). Plus: greater of $410mm and 100% of EBITDA = $410mm (second prong). Plus: amount to bring net 1L leverage to 3.9x. Current net 1L leverage = ($500mm + $570mm + $570mm - $120mm) / $410mm = $1,520mm / $410mm = 3.707x. Available to 3.9x = (3.9 - 3.707) * $410mm = $79mm (third prong). Total credit facilities basket = $530mm + $410mm + $79mm = $1,019mm. General Debt and General Liens baskets: both = greater of $205mm and 50% of $410mm = greater of $205mm and $205mm = $205mm. Secured debt capacity from general baskets = $205mm (binding constraint is the lesser of debt and lien capacity, both equal $205mm). Total additional pari secured debt capacity = $1,019mm + $205mm = $1,224mm. Pro-forma net leverage if all capacity used = ($500 + $570 + $570 + $1,124 - $120) / $410 = 6.7x.",
+    "key_points": [
+      "Credit facilities basket has three prongs: fixed $1,600mm (less current draws), greater of $410mm/100% EBITDA, and ratio-based prong to 3.9x net 1L leverage",
+      "Current CF debt = $500mm TLA + $570mm TLB = $1,070mm; first prong capacity = $1,600mm - $1,070mm = $530mm",
+      "Current net 1L leverage = ($500+$570+$570-$120)/$410 = 3.707x; third prong = (3.9-3.707)*$410mm = $79mm",
+      "Total credit facilities basket capacity = $530mm + $410mm + $79mm = $1,019mm",
+      "General debt and lien baskets both = $205mm (greater of $205mm and 50% of $410mm = $205mm)",
+      "Total additional pari secured capacity = $1,019mm + $205mm = $1,224mm",
+      "SSNs themselves are not 'credit facility' debt but are secured; always check indenture definitions carefully"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-020",
+    "question": "Let's imagine that we're looking again at the Senior Secured Notes of ABC Inc. As a reminder their LTM EBITDA is $410mm, cash and cash equivalents are $120mm, and the total amount of debt inclusive of these SSNs is $1,640mm. Based on the below baskets in the indenture, how much can be transferred to an unrestricted subsidiary? (Baskets listed include: General Investments, Investments in Unrestricted Subsidiaries, Investments in Similar Business, Investments in Joint Ventures, General Restricted Payments, Builder Basket, and Leverage-Based Investments.)",
+    "model_answer": "To transfer value to an unrestricted subsidiary, the relevant baskets are those with 'investment' or 'restricted payments' language — not the credit facilities basket (which allows debt within the restricted group). Computing each basket: General Investments = $246mm (greater of $240mm and 60% of $410mm = $246mm). Investments in Unrestricted Subs = $105mm (greater of $105mm and 25% of $410mm = $105mm; $102.5mm < $105mm). Investments in Similar Business = $123mm (greater of $120mm and 30% of $410mm = $123mm). Investments in Joint Ventures = $205mm (greater of $200mm and 50% of $410mm = $205mm). General Restricted Payments = $145mm (greater of $145mm and 35% of $410mm = $143.5mm; $145mm wins). Builder Basket = $105mm (assuming CNI = $0, greater of $105mm and 25% of $410mm = $105mm). Leverage-Based Investments = $0mm (Total Leverage Ratio = ($1,640mm - $120mm) / $410mm = 3.7x > 3.4x test, so unavailable). Total = $246mm + $105mm + $123mm + $205mm + $145mm + $105mm + $0mm = $929mm of value that can be transferred to an unrestricted sub.",
+    "key_points": [
+      "Investment and restricted payment baskets (not credit facilities basket) control value transfer to unsubs",
+      "General Investments = $246mm; Investments in Unsubs = $105mm; Similar Business = $123mm",
+      "Joint Ventures = $205mm; General Restricted Payments = $145mm; Builder basket = $105mm",
+      "Leverage-Based Investments = $0mm because Total Leverage = 3.7x exceeds 3.4x test",
+      "Total transferable value = $929mm — far more than one might expect given leverage levels",
+      "Defined terms in indentures mean what the docs say they mean, not what seems intuitive",
+      "Amount grows as EBITDA improves (most baskets scale with EBITDA)"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-021",
+    "question": "Let's imagine that we're trying to figure out how much structurally senior debt (read: debt at some non-guarantor restricted sub) that XYZ Inc. can incur. Based on the below baskets outlined in the credit agreement of XYZ's Term Loan, what do you think? (Per XYZ's most recent financials, total assets on the balance sheet are $2,000mm.) General Debt Basket: Greater of $80mm and 5.0% of total assets. General Liens Basket: Greater of $40mm and 2.5% of total assets. Non-Guarantor Debt Basket: Greater of $80mm and 5.0% of total assets. Non-Guarantor Liens Basket: Permits non-guarantor debt to be secured by available non-guarantor assets.",
+    "model_answer": "5% of $2,000mm = $100mm, which exceeds both $80mm flat amounts. So: General Debt Basket = $100mm; General Liens Basket = $100mm (2.5% * $2,000mm = $50mm < $100mm? No — 2.5% * $2,000mm = $50mm, but the floor is $40mm; $50mm > $40mm so = $50mm... wait, need to recheck: 2.5% * $2,000mm = $50mm). Actually General Liens Basket = $50mm (greater of $40mm and $50mm = $50mm). Non-Guarantor Debt Basket = $100mm. Non-Guarantor Liens Basket = secured by non-guarantor assets (effectively $100mm, since the lien capacity pairs with non-guarantor debt). Key insight: at a non-guarantor sub, the general liens basket ($50mm) would normally constrain the general debt basket — but the non-guarantor liens basket provides separate lien capacity for the non-guarantor debt basket. So total structurally senior secured debt = $100mm (general debt basket, paired with general liens basket = $50mm... but wait) + $100mm (non-guarantor debt basket, paired with non-guarantor liens basket). As per the guide: total = $100mm + $100mm = $200mm at the non-guarantor sub, secured by non-guarantor assets.",
+    "key_points": [
+      "At a non-guarantor restricted sub: general debt basket AND non-guarantor debt basket can both be tapped",
+      "5% of $2,000mm = $100mm (exceeds $80mm floor for both general and non-guarantor debt baskets)",
+      "Non-guarantor liens basket provides lien capacity to pair with non-guarantor debt basket",
+      "Total structurally senior secured debt capacity = $100mm (general) + $100mm (non-guarantor) = $200mm",
+      "Key: the non-guarantor liens basket removes the general liens basket as a binding constraint for non-guarantor debt",
+      "Holders of this $200mm debt have a structurally senior claim on non-guarantor sub assets"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-022",
+    "question": "Look over the following cap table (Example One) and answer: How distressed do you think this company likely is?\n\nCap Table (as of 01-01-20):\n- Cash and Cash Equivalents: $40mm (Note 1: $10mm is restricted)\n- $200mm Revolving ABL due Jun-2022: $0 drawn, coupon L+175, $0 cash interest, rated NR/NR (Note 2: springing maturity 90 days before Term Loan if not repaid; Note 3: grid pricing L+175-225 based on utilization)\n- Term Loan B due Aug-2021: Face $481mm, market price 78, market value $375mm, coupon L+425, cash interest $26mm, rated B3/B- (Note 4: originated at $540mm, grid pricing L+425 if total leverage >6.5x else L+375; Note 5: LIBOR floor 1.00%)\n- Total Secured Debt: Face $481mm, market value $375mm, cash interest $26mm; Debt/LTM EBITDA: Face 6.0x, Market 4.7x\n- Senior Notes due Feb-2025: Face $300mm, market price 54, market value $162mm, coupon 8.25%, cash interest $25mm, rated Caa3/CCC-\n- Total Debt: Face $781mm, market value $537mm, cash interest $51mm; Debt/LTM EBITDA: Face 9.8x, Market 6.7x\n- Net Debt: Face $741mm, market value $497mm; Debt/LTM EBITDA: Face 9.3x, Market 6.2x\n- LTM Adjusted EBITDA: $80mm\n- Interest Coverage Ratio: 1.6x",
+    "model_answer": "This company is quite distressed. The first step is to build a liquidity table. Assuming $5mm of letters of credit outstanding, total liquidity is: ABL capacity $200mm less $0 drawn less $5mm LCs = $195mm revolver availability, plus $40mm cash less $10mm restricted cash = $225mm total liquidity. However, real free cash is only $25mm because $10mm is restricted and $5mm is tied up in LCs. While headline liquidity looks large, it almost entirely depends on the ABL. The Term Loan is trading at 78 cents — any TL trading below 80 signals significant distress. The Senior Notes are trading at just 54 cents, indicating the market expects severe impairment. Maturity walls are imminent: the TLB matures Aug-2021 and the revolver (Jun-2022) has a springing maturity 90 days before the TLB if not repaid, meaning both could effectively come due simultaneously in roughly one year. Total face leverage is 9.8x (Net Debt 9.3x) on $80mm LTM EBITDA — far above healthy thresholds (secured ideally below 5.0x, total below 7.5x). Interest coverage of 1.6x is dangerously thin; the closer to 1.0x (or below), the worse. The company's actual unrestricted cash ($25mm) does not even cover the annual cash interest on secured debt alone ($26mm), making refinancing nearly impossible with current lenders spooked by poor FCF. Grid pricing is at L+425 (not L+375) implying total leverage already exceeds 6.5x. All signs point to a company that will be unable to refinance these maturities in the open market.",
+    "key_points": [
+      "Build a liquidity table immediately: ABL capacity less drawn less LCs plus unrestricted cash = total liquidity (~$225mm headline, but only ~$25mm truly free)",
+      "Term Loan trading at 78 (below 80 = distressed signal regardless of market environment)",
+      "Senior Notes trading at 54 (market anticipates severe impairment in any restructuring)",
+      "Maturity wall: TLB due Aug-2021, revolver has a springing maturity 90 days before TLB if TLB not repaid — effectively both mature simultaneously in ~1 year",
+      "Total face leverage 9.8x / net debt 9.3x vs. $80mm EBITDA — well above healthy thresholds (secured <5.0x, total <7.5x)",
+      "Interest coverage ratio of 1.6x is dangerously low; closer to 1.0x = worse",
+      "Unrestricted cash ($25mm) doesn't cover annual cash interest on secured debt alone ($26mm)",
+      "Grid pricing triggered at L+425 (vs. L+375), confirming total leverage above 6.5x covenant threshold"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-023",
+    "question": "Look over the following cap table (Example Two) and answer: How distressed do you think this company likely is?\n\nCap Table (as of 01-01-20):\n- Cash and Cash Equivalents: $5mm\n- $70mm RCF due Jun-2020: Face $30mm drawn, coupon L+350, cash interest $1mm, rated B1/B+ (Note 1: grid pricing L+300-350 based on senior secured leverage ratio; Note 3: springing 6.5x senior secured leverage covenant if 45%+ of total revolver commitment drawn — as of 1/1/20 company had drawn 43%)\n- 1L Term Loan B due Jun-2021: Face $525mm, market price 88, coupon L+450, cash interest $30mm, rated B1/B+ (Note 2: grid pricing L+425-450 based on total leverage ratio; Note 5: 1% LIBOR floor)\n- Total Secured Debt: Face $555mm, market value $492mm, cash interest $32mm; Debt/LTM EBITDA: Face 4.4x, Market 3.9x\n- 6.0% Senior Unsecured Notes due Jul-2022: Face $300mm, market price 81, cash interest $18mm, rated Caa1/CCC+\n- 10.5% Junior Subordinated due Sep-2023: Face $110mm, market price NA, cash interest $12mm, rated NA/NA\n- Total Debt: Face $965mm, market value $845mm, cash interest $61mm; Debt/LTM EBITDA: Face 7.7x, Market 6.8x\n- Net Debt: Face $960mm, market value $840mm; Debt/LTM EBITDA: Face 7.7x, Market 6.7x\n- LTM Adjusted EBITDA: $125mm\n- Interest Coverage Ratio: 2.0x",
+    "model_answer": "This company is distressed, but less acutely so than Example One. The first step is to build a liquidity table. Assuming $6mm of letters of credit outstanding: ABL capacity $70mm less $30mm drawn less $6mm LCs = $34mm revolver availability, plus $5mm cash = $39mm total liquidity. This is very thin — only $39mm of total liquidity for a company with $125mm EBITDA. The actual cash position is extremely poor at just $5mm. The maturity walls are approaching: the revolver is due Jun-2020 (less than a year away) and the TLB is due Jun-2021. The Senior Unsecured Notes (Jul-2022) and Junior Subordinated (Sep-2023) are still a few years out. The leverage ratios are elevated (7.7x face, 6.8x market) but not extreme relative to many restructuring candidates; interest coverage at 2.0x is relatively reasonable. Importantly, the bonds are NOT trading at deeply distressed levels — the Senior Unsecured is at 81 and even the TLB is at 88 — suggesting the market does not yet view this as an intractable situation. However, the RCF has a springing leverage covenant (6.5x senior secured leverage) that triggers if 45%+ of the revolver is drawn — and the company is currently at 43% drawn, nearly at the threshold. Drawing more revolver capacity could trip this covenant. The key distress indicators are the imminent revolver maturity, thin liquidity, and the covenants that limit flexibility.",
+    "key_points": [
+      "Build liquidity table: $70mm ABL less $30mm drawn less $6mm LCs = $34mm revolver availability + $5mm cash = $39mm total liquidity (very thin for $125mm EBITDA company)",
+      "Cash on hand is extremely low ($5mm) — almost no buffer",
+      "Maturity walls: revolver due Jun-2020 (< 1 year), TLB due Jun-2021 — secured debt matures within ~18 months",
+      "Senior Unsecured Notes due Jul-2022 and Junior Sub due Sep-2023 still a few years out",
+      "Leverage 7.7x face/6.8x market — elevated but not extreme; interest coverage 2.0x is relatively firm",
+      "Bonds NOT at deeply distressed prices (Senior Unsecured at 81, TLB at 88) — market not pricing in imminent default",
+      "Springing covenant: senior secured leverage covenant at 6.5x triggers if 45%+ of revolver is drawn; currently at 43% — any further draw risks tripping it",
+      "Company may be a turnaround-in-progress that simply needs to deal with maturity wall"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-credit-and-covenant-analysis-024",
+    "question": "Let's say we have an ABL of $100 that's currently secured by $120 worth of Eligible Assets (accounts receivable and inventory). The borrowing base is equal to 75% of Eligible Assets. Thus far, there's already been $40 drawn on the revolver, there's $10 worth of letters of credit outstanding, there's $30 of cash on the balance sheet, and there's $10 in restricted cash. Given all this, what's the company's liquidity?",
+    "model_answer": "The ABL has a maximum commitment of $100, but the actual drawable amount is capped by the borrowing base: 75% * $120 = $90. The company has already drawn $40, so revolver availability = $90 - $40 = $50. However, letters of credit outstanding ($10) further reduce this availability: $50 - $10 = $40 of net revolver availability. On the cash side, the company has $30 on the balance sheet but $10 is restricted cash (earmarked for other purposes), leaving $20 of usable cash. Total liquidity = $40 revolver availability + $20 unrestricted cash = $60.",
+    "key_points": [
+      "ABL maximum commitment is $100, but actual drawable amount is the borrowing base: 75% * $120 = $90",
+      "Already drawn $40 → remaining revolver capacity = $90 - $40 = $50",
+      "Letters of credit ($10) reduce revolver availability: $50 - $10 = $40 net availability",
+      "Restricted cash ($10) is not available for operations; only $20 of the $30 cash counts",
+      "Total liquidity = $40 revolver availability + $20 unrestricted cash = $60",
+      "Borrowing bases are routinely 'redetermined' — if eligible assets fall, availability shrinks"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 3
+  },
+  {
+    "question": "What are the characteristics of a distressed company in need of restructuring?",
+    "model_answer": "A distressed company will typically have some combination of: limited liquidity; high leverage ratios throughout the capital structure; upcoming maturity walls unlikely to be refinanced; decreasing equity price (if public); butting up against covenants; low secondary pricing across the capital structure; recent credit downgrades; declining interest coverage ratios showing inability of EBITDA to clear cash interest; increasing distressed debt hedge fund buying; and limited secured basket space.",
+    "key_points": [
+      "Limited liquidity: revolver + cash minus LOCs and restricted cash",
+      "High leverage throughout capital structure including at senior secured",
+      "Maturity walls: debt trading well below par signals refinancing difficulty",
+      "Covenant pressure, declining ICR, distressed fund accumulation, limited secured basket"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-025"
+  },
+  {
+    "question": "You have a leverage ratio of 5 and a coverage ratio of 5. What is the interest rate?",
+    "model_answer": "Leverage ratio = Debt/EBITDA = 5. Coverage ratio = EBITDA/Interest Expense = 5. Interest Expense = Interest Rate × Debt. Setting up: 5 = EBITDA / (r × Debt). So 5 × r × Debt = EBITDA. Dividing both sides by Debt: 5r = EBITDA/Debt = 1/5 (since Debt/EBITDA = 5). Therefore r = 1/25 = 4%.",
+    "key_points": [
+      "Leverage ratio = Debt/EBITDA",
+      "Coverage ratio = EBITDA/Interest Expense",
+      "Interest Expense = r × Debt",
+      "Answer: r = 1/(leverage × coverage) = 1/25 = 4%"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-026"
+  },
+  {
+    "question": "What's a liquidity roll forward?",
+    "model_answer": "A projection of where liquidity will be in a year. You assume the revolver gets drawn (or cash diminishes) by the amount of decrease in FCF next year. The projection is based on assumptions about revenue declines, EBITDA margin contraction, and capex spend based on what the company has done in the past year. In short: how much is FCF declining next year, how much of the cash and/or revolver needs to be used up to get FCF back to zero, and what is the liquidity left (cash + revolver) for the firm.",
+    "key_points": [
+      "Projects liquidity position (cash + revolver) one year forward",
+      "Assumes revolver draw = FCF shortfall",
+      "Uses simplified assumptions: revenue decline, margin compression, capex",
+      "Output: remaining liquidity headroom after one year of operations"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-029"
+  },
+  {
+    "question": "If looking at FCF, do we look at it on a levered or unlevered basis?",
+    "model_answer": "Unlevered. You want to look at cash flows unimpeded by debt, because you're ultimately coming up with restructuring alternatives that will change the debt structure of the company. Using levered FCF would mix in the current (broken) capital structure you're trying to fix.",
+    "key_points": [
+      "Use unlevered FCF in restructuring analysis",
+      "Removes interest expense — debt structure is what's being restructured",
+      "Allows comparison of alternatives with different capital structures",
+      "Levered FCF would be circular given you're changing the debt load"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-032"
+  },
+  {
+    "question": "Chances C-rated bond defaults?",
+    "model_answer": "In one year: 33%. In three years: 65%. This is important context for why RX bankers keep screens and profiles updated on companies with C-rated bonds — the majority will eventually need to be restructured. It's a matter of when, not if.",
+    "key_points": [
+      "C-rated bonds: 33% default probability within 1 year",
+      "C-rated bonds: 65% default probability within 3 years",
+      "Justifies keeping active screens on C-rated companies",
+      "C-rated companies are near-certain eventual restructuring candidates"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-033"
+  },
+  {
+    "question": "Can you change loan covenants if the company gets into trouble?",
+    "model_answer": "Yes, for a fee (called a consent fee, often part of a restructuring involving the consent of a revolver). It's usually easier to get changes with loans than with bond holders because loans are held by fewer parties who can more easily coordinate.",
+    "key_points": [
+      "Covenant amendments require lender consent, typically paid with a consent fee",
+      "Loan covenant amendments easier than bond amendments (fewer holders)",
+      "Bond amendments require broader coordination among dispersed holders",
+      "Consent fee = compensation to lenders for agreeing to waive/amend covenants"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-037"
+  },
+  {
+    "question": "What does EBITDA/debt tell you about the coverage ratio?",
+    "model_answer": "EBITDA/Debt is the inverse of the leverage ratio. For example, if EBITDA/Debt = 250/1500 = 0.17, then if the company had a 17% interest rate its interest coverage ratio would be exactly 1x. This gives a quick way to cross-check coverage from the leverage ratio.",
+    "key_points": [
+      "EBITDA/Debt = 1/leverage ratio",
+      "EBITDA/Debt = interest coverage when interest rate = EBITDA/Debt ratio",
+      "Example: 0.17 = implicit interest rate at which ICR = 1x",
+      "Quick cross-check between leverage and coverage"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-039"
+  },
+  {
+    "question": "What is debt incurrence covenant?",
+    "model_answer": "A covenant that governs under what terms a company is allowed to add to its debt. Based on leverage ratio (Debt/EBITDA). Sometimes (although rarely) EBITDA/interest expense is used instead.",
+    "key_points": [
+      "Governs when and how much additional debt can be incurred",
+      "Usually tested as Debt/EBITDA leverage ratio",
+      "If leverage exceeds threshold, company cannot incur more debt",
+      "Found in both bond indentures and loan credit agreements"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-040"
+  },
+  {
+    "question": "What are restricted payment covenants?",
+    "model_answer": "A restricted payment covenant restricts when a company can use money to pay dividends on equity, do stock buybacks, or retire securities that are more junior. For example, the covenant can say you can only use company funds for stock buybacks or to retire junior securities if EBITDA is over 1.4x interest expense (coverage ratio over 1.4x).",
+    "key_points": [
+      "Restricts dividends, stock buybacks, and junior security redemptions",
+      "Typically triggered by a minimum coverage ratio (e.g., EBITDA/interest > 1.4x)",
+      "Prevents cash from flowing out to equity holders when company is stressed",
+      "Protects bondholders — cash must stay in the business when margins are thin"
+    ],
+    "category": "credit-analysis",
+    "difficulty": 2,
+    "id": "rx-credit-and-covenant-analysis-041"
+  }
+]

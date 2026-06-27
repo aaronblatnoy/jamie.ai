@@ -1,0 +1,189 @@
+[
+  {
+    "id": "rx-capital-structure-and-debt-instruments-001",
+    "question": "What do we even mean by a HoldCo / OpCo structure? Why would a company even have a HoldCo / OpCo structure to begin with?",
+    "model_answer": "A HoldCo / OpCo structure is one where a series of operating companies (OpCos) — often diverse in the countries they operate in or each dedicated to one major corporate project — sit beneath a HoldCo that owns (holds) their equity. The HoldCo is like a legal umbrella under which all the operating companies coexist. Normally the OpCos are where assets reside, and HoldCo holds nothing other than OpCo equity. Secured debt is typically housed where the assets are located, since lenders always want to be closest to where assets actually reside.\n\nTwo primary reasons these structures exist: (1) For large multinationals selling products in multiple countries, it is generally more efficient for regulatory, tax, and/or accounting purposes to have country-specific operating companies. (2) Having a HoldCo creates another layer from which to raise debt — HoldCo debt tends to be the highest-yielding debt in the structure because it is most removed from where the assets reside.",
+    "key_points": [
+      "HoldCo owns the equity of one or more OpCos; OpCos own the actual assets",
+      "HoldCo is a legal umbrella providing ultimate ownership over the operating entities",
+      "Assets and secured debt normally reside at the OpCo level — lenders want proximity to assets",
+      "Two reasons: (1) regulatory/tax/accounting efficiency for multinationals via country-specific OpCos; (2) HoldCo provides an additional layer at which to raise debt",
+      "HoldCo debt tends to carry the highest yield because it is furthest from the assets",
+      "Nothing precludes HoldCo from holding assets, but normally it does not"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-capital-structure-and-debt-instruments-002",
+    "question": "What about structural subordination? What's that mean?",
+    "model_answer": "Structural subordination refers to debt that is junior not because of contractual subordination language but because of where it sits in the corporate structure — specifically, being at a higher (more remote) level than where the assets reside. For example, if OpCo has $200 in assets and $150 in unsecured notes, and HoldCo owns OpCo's equity but has its own $100 in unsecured notes and no assets, then in a filing OpCo's debt is made whole first (leaving $50 of residual equity). HoldCo's unsecured note holders only have a claim on that residual equity, so they recover fifty cents on the dollar. The HoldCo notes are said to be structurally subordinate to the OpCo notes — even if both instruments are called 'unsecured notes.' This can create a scenario where two instruments with the same name trade at vastly different prices (e.g., par vs. fifty cents), which is not an arbitrage — the market is correctly pricing in the different structural positions and expected recovery values.",
+    "key_points": [
+      "Structural subordination arises from position in the corporate structure, not contractual language",
+      "HoldCo debt is structurally subordinate because it is remote from where assets reside",
+      "In a filing, OpCo creditors are satisfied first from OpCo assets; HoldCo creditors only access residual equity value",
+      "Two instruments with the same name (e.g., both called 'unsecured notes') can have very different recovery values due to structural subordination",
+      "Market pricing of structurally subordinate debt at a discount reflects expected lower recovery — not an arbitrage",
+      "No upstream guarantee means HoldCo lenders have no direct claim on OpCo assets"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1
+  },
+  {
+    "id": "rx-capital-structure-and-debt-instruments-003",
+    "question": "If I were to draw a HoldCo / OpCo structure, how should I do it?",
+    "model_answer": "Place the HoldCo at the top and OpCo at the bottom, connected by a line representing ownership. Label each box with its liabilities (L) and assets (A). For example: HoldCo box at top showing L: $100 & Equity of OpCo; OpCo box at bottom showing A: $150, L: $100. This visual hierarchy immediately conveys which entity is closer to the assets and which debt is structurally subordinate.",
+    "key_points": [
+      "HoldCo is drawn at the top; OpCo is drawn below, connected by a line representing equity ownership",
+      "Label each entity with its assets (A) and liabilities (L)",
+      "HoldCo's assets are typically just the equity of OpCo",
+      "The diagram clarifies which creditors are closer to actual assets",
+      "This visual is essential for waterfall analysis in interviews"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1
+  },
+  {
+    "question": "What is a cap table?",
+    "model_answer": "A cap table (capitalization table) shows all the debt securities that the company has issued along with their maturity, coupon rate, credit rating, market price (if relevant), and normally leverage and interest coverage ratio. Cap tables are the primary thing RX bankers create and update. The most important part of cap tables are the footnotes, which detail specific attributes of parts of the debt that are relevant — secured basket amounts, springers, etc.",
+    "key_points": [
+      "Shows all debt securities: maturity, coupon, credit rating, market price",
+      "Includes leverage ratio and interest coverage ratio",
+      "Primary deliverable for RX bankers",
+      "Footnotes are critical — they detail secured baskets, springers, and other key terms"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-006"
+  },
+  {
+    "question": "What are 'maturity walls'?",
+    "model_answer": "Maturity walls refer to graphs that accompany profiles/pitches showing when maturities within the capital structure come due. If a company has poor ratios, poor FCF, and poor liquidity but has large amounts of its capital structure coming due soon, it faces a critical issue: it needs to either extend those maturities (giving time to turn the company around) or refinance them. A company can have poor financials but survive for years if no maturities are coming due. Maturity walls visualize this risk.",
+    "key_points": [
+      "Graphs showing when debt maturities come due",
+      "Key risk: large maturities + poor financials = restructuring catalyst",
+      "Company can survive with poor financials if no near-term maturities",
+      "Key component of every RX profile and pitch"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-008"
+  },
+  {
+    "question": "What's a revolver?",
+    "model_answer": "A revolver (sometimes called a revolving ABL) is essentially like a credit card with a certain limit. You can draw it down at any time and pay it back (partly or all) at any time. It has a maturity date. A revolver is secured debt sitting at the top of the capital structure, backed by more liquid assets like inventory or accounts receivable.",
+    "key_points": [
+      "Revolving credit facility — draw and repay as needed",
+      "Has a maturity date unlike a true credit card",
+      "Sits at top of capital structure as secured debt",
+      "Collateralized by liquid assets: inventory and AR"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-009"
+  },
+  {
+    "question": "How do revolvers work?",
+    "model_answer": "A revolver (e.g., $100m) can be drawn and paid back as needed — like a corporate credit card. Its size depends on the borrowing base (collateral pledged to support it). Revolvers are usually secured by borrowers' AR and inventory, with borrowing base percentages like 50% of inventories, 75% of AR. If the borrowing base declines below a certain threshold, you must repay the revolver or have it re-sized. Revolvers must always be more collateralized than their notional value.",
+    "key_points": [
+      "Draw and repay flexibly up to credit limit",
+      "Size tied to borrowing base (% of AR and inventory)",
+      "Borrowing base decline triggers repayment or re-sizing",
+      "Must be over-collateralized at all times"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-010"
+  },
+  {
+    "question": "In a 'traditional' capital structure what are its elements?",
+    "model_answer": "A traditional capital structure from most senior to most junior consists of: Secured Debt (including revolvers and term loans — TLA, TLB, etc.); Unsecured Debt (bonds); Subordinated Debt (bonds, below unsecured debt); Mezzanine Debt (convertibles, preferred stock, PIK paying debt, etc.); and Equity. Note: if the company is currently in Chapter 11 it will have DIP financing at the very top of the capital structure.",
+    "key_points": [
+      "Revolver and Term Loans (TLA/TLB) at top as secured debt",
+      "Unsecured bonds next",
+      "Subordinated debt below unsecured",
+      "Mezzanine/preferred/PIK above equity; DIP sits above all if in Chapter 11"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-013"
+  },
+  {
+    "question": "What's the difference really between secured debt and unsecured?",
+    "model_answer": "Secured debt means the debt is backed by collateral — specific assets pledged to the lender. Unsecured means it is a generalized claim, not backed by specific collateral. If a secured creditor's claim is larger than the value of their collateral, the excess amount is deemed an unsecured claim (technically called a 'general unsecured claim').",
+    "key_points": [
+      "Secured = backed by specific collateral",
+      "Unsecured = general claim with no specific collateral backing",
+      "Oversecured creditors: claim exceeds collateral value → excess becomes unsecured",
+      "Key distinction drives recovery analysis in waterfall"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-014"
+  },
+  {
+    "question": "Who owns the debt of a company?",
+    "model_answer": "The loans or bonds of any suitably large company are generally owned by a diverse, changing group of holders. Almost all loans are syndicated by the issuer and bonds are dispersed by definition (though mezz debt can be privately placed and held by just a few parties). Some TLA loans may be held by the issuer bank. The quickest way to find holders is Bloomberg (code: HDS). For pricing, use Bloomberg and MarkIt (MarkIt in particular for loans).",
+    "key_points": [
+      "Large company debt is broadly syndicated — diverse, changing holder base",
+      "Mezz debt exception: privately placed, few holders",
+      "Find holders on Bloomberg using code HDS",
+      "Loan pricing: MarkIt; bond pricing: Bloomberg/MarkIt"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-017"
+  },
+  {
+    "question": "Two main groups of syndicated loans?",
+    "model_answer": "Revolvers and term loans. A revolver can be drawn and repaid flexibly. Term loans are for a specified amount with a fixed repayment schedule — called TLA, TLB, TLC, etc. Usually anything beyond TLB has little or no amortization, while TLAs have some amortization along with a lower interest rate. There can be more than one revolver (e.g., one for A/R, one for inventory).",
+    "key_points": [
+      "Two types: revolvers (flexible draw/repay) and term loans (fixed schedule)",
+      "TLA: held by commercial banks, more amortization, lower rate, shorter maturity",
+      "TLB: held by institutional investors (CLOs/mutual funds), minimal amortization",
+      "TLC and beyond: rare, little to no amortization"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-018"
+  },
+  {
+    "question": "LIBOR?",
+    "model_answer": "An interest rate often used as the base rate for floating rate notes. LIBOR is being phased out for SOFR (Secured Overnight Financing Rate) — a slow transition process that is now nearing completion.",
+    "key_points": [
+      "London Interbank Offered Rate — base rate for floating rate debt",
+      "Being replaced by SOFR (Secured Overnight Financing Rate)",
+      "Floating rate loans quoted as SOFR + spread (e.g., SOFR+250)",
+      "Most loan covenants have already transitioned to SOFR"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-021"
+  },
+  {
+    "question": "What's pari passu?",
+    "model_answer": "Latin term meaning 'without partiality.' Generally refers to two debt instruments being ranked equally in the capital structure — they have equal priority claim on assets.",
+    "key_points": [
+      "Latin: 'without partiality' — equal footing",
+      "Two instruments pari passu = equal priority in waterfall",
+      "Common in unsecured bond issuances (all senior unsecured notes pari passu)",
+      "Important for determining recovery allocation between same-class creditors"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-022"
+  },
+  {
+    "question": "Difference between TLA and TLB?",
+    "model_answer": "No hard rules, but: TLAs tend to be held by commercial banks; TLBs tend to be held by institutional investors like mutual funds and CLOs. TLAs have better terms, lower maturity, and more amortization. TLBs rarely have meaningful amortization. There can sometimes (but rarely) be tranches beyond B.",
+    "key_points": [
+      "TLA: commercial banks, more amortization, lower rate, shorter maturity",
+      "TLB: institutional investors (CLOs/mutual funds), minimal amortization, higher rate",
+      "TLC and beyond: rare, essentially no amortization",
+      "In distress: TLBs are the key loans to watch as they trade in secondary market"
+    ],
+    "category": "capital-structure",
+    "difficulty": 1,
+    "id": "rx-capital-structure-and-debt-instruments-023"
+  }
+]

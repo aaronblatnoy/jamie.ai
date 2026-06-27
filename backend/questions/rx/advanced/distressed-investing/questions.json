@@ -1,0 +1,419 @@
+[
+  {
+    "id": "rx-distressed-investing-and-trading-001",
+    "question": "Let's imagine there are two companies (ABC Inc. and XYZ Inc.) that both have $100mm in EBITDA and that both have $500mm in Senior Secured Notes. What are some reasons these SSNs could be trading at different levels?",
+    "model_answer": "There are many reasons two companies with identical EBITDA and SSN face amount could trade differently: (1) Coupon/yield dynamics — SSNs may have been issued at different times with different coupons; to equalize yield, the lower-coupon bond must trade below par. (2) Capital structure composition — if one company has additional debt (pari or senior to SSNs) this drags on FCF and increases recovery uncertainty. (3) Liquidity/FCF differences — EBITDA is the same but FCF could differ widely based on capex, working capital, tax rates, addbacks, etc. A company with healthier FCF has a longer runway. (4) Trajectory — one company may be growing while the other is declining; future EBITDA matters as much as current. (5) Corporate structure and security — where the SSNs sit in the corporate structure, what collateral backs them, and which entities issued them matters (see At Home). (6) Debt document quality — loose docs may allow incurrence of pari or senior debt or value transfer away from holders; call schedule also affects pricing. (7) Comp multiples — different EBITDA multiples in the market imply different recovery certainty.",
+    "key_points": [
+      "Coupon differences: lower-coupon SSN trades below par to equalize yield vs. higher-coupon peer",
+      "Additional debt in cap structure increases leverage and competes for recovery",
+      "FCF may differ due to capex, working capital, taxes, and quality of EBITDA addbacks",
+      "Revenue/EBITDA trajectory matters — a declining company faces more uncertainty",
+      "Corporate structure: where SSNs are issued and what collateral backs them affects recovery",
+      "Debt doc quality: loose docs allow pari/senior incurrence or value leakage to unsubs",
+      "Trading comps / enterprise value multiples imply different levels of debt coverage"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-002",
+    "question": "I've heard some people throw around the terms 'creation value' and 'creation multiple'. What are those? Who cares about them?",
+    "model_answer": "Creation value = the market value of the tranche you are buying (Face Value * Current Price/100) PLUS the par (face) value of all debt higher in priority. In other words, it represents the total enterprise value at which you are 'creating' or implying the business by buying your position, assuming everyone above you gets par. The creation multiple = creation value (typically net of cash) divided by Adj. EBITDA. Why it matters: in distressed debt investing, the creation value/multiple tells you your actual cost basis in the enterprise — not the company's market EV. For example, if you buy 1L debt at 71 cents, creation value = $500mm * 0.71 = $355mm creation value for the 1L alone (with no other senior debt). If you're buying 2L debt at 80 with $500mm of 1L above you, creation value = $200mm * 0.80 + $500mm = $660mm. This helps distressed investors determine: (1) their break-even EV (recovery threshold), (2) whether they own the fulcrum security, and (3) their downside protection.",
+    "key_points": [
+      "Creation value = (Face Value * Current Price/100) + par value of all senior debt",
+      "Creation multiple = Creation value (net of cash) / Adj. EBITDA",
+      "Tells a distressed investor the EV at which they are creating the business given their buy price",
+      "Relevant for fulcrum security analysis: am I at the break-even in the capital structure?",
+      "Low creation multiple = strong downside protection (creating at a cheap implied EV)",
+      "Example: buy 1L at 71 cents, creation value = $355mm; if EV > $355mm, investment makes money",
+      "Contrasts with market EV which is based on current trading prices throughout the cap structure"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-003",
+    "question": "What does it signal when a term loan is trading below 80 cents on the dollar?",
+    "model_answer": "When a term loan is trading below 80 cents on the dollar, it is a strong signal of significant distress regardless of the current market environment. Term loans are senior secured instruments with first priority claims on the company's assets, so they typically trade at or near par in normal market conditions. When a term loan falls below 80, it indicates that investors believe there is meaningful risk that the company will either default or need to be restructured, and that even the senior secured lenders may face some impairment. This is a more alarming signal than an unsecured bond trading at similar levels, because the TL's seniority should be protecting it. In the Example One cap table, the TLB was trading at 78, which was highlighted as a key distress indicator even though the leverage didn't look catastrophic at first glance.",
+    "key_points": [
+      "Term loans trading below 80 cents = strong distress signal regardless of market conditions",
+      "Term loans are senior secured — they should trade at or near par in normal environments",
+      "Sub-80 price implies investors see meaningful default/restructuring risk even for senior lenders",
+      "More alarming than unsecured bonds at the same level given seniority protection",
+      "Example One TLB at 78 = clear market indication of distress despite $225mm headline liquidity",
+      "Distressed TL price combined with near-term maturity = very high restructuring probability",
+      "Contrast with Example Two TLB at 88 — still low but market not pricing in imminent default"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-004",
+    "question": "Let's say there's a company that has a first-lien Term Loan (1L TL) of $100 and a second-lien Term Loan (2L TL) of $100. The company has an EV of $150. Where would you think each tranche of debt trades?",
+    "model_answer": "In the event of default, the 1L will be made whole (full $100 recovery) and there will be $50 leftover for the 2L, so the 2L would be expected to recover 50 cents on the dollar. However, in reality the 2L would likely trade at a slight premium to 50 cents because of optionality. Since the company has not yet filed for Chapter 11, there is still a possibility the company turns things around — a sponsor injects fresh equity, a big contract materializes, or the company raises junior debt. A buyside weighted-average framework illustrates this: if there is a 90% probability of filing (recovery = 50), a 5% probability of an out-of-court solution valuing the 2L at 75, and a 5% probability of a full refinancing at par, the fair value of the 2L is (0.9×50 + 0.05×75 + 0.05×100) = 53.75. The 1L, already expected to be made whole in any scenario, trades around par and has essentially no optionality. The key interviewer takeaway is that the 2L trades at roughly 50 but may trade slightly higher due to embedded optionality.",
+    "key_points": [
+      "1L is fully covered by $150 EV and trades near par — no meaningful optionality",
+      "2L receives only $50 of the remaining $150 EV, so base-case recovery is 50 cents on the dollar",
+      "Pre-filing, the 2L embeds optionality: if the company avoids Chapter 11, the 2L could be refinanced at par",
+      "Weighted-average fair value example: 90% filing at 50 + 5% OOC at 75 + 5% refi at 100 = ~53.75",
+      "Optionality means the 2L likely trades a bit above its pure recovery value of 50",
+      "Interviewers primarily expect the '50 cents on the dollar' answer; optionality discussion is a bonus"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-005",
+    "question": "I take your point about optionality and how the 2L would likely trade above 50, but what if we saw the debt trading in the market at 45 (even though we think the recovery value will be 50)? How would that make sense?",
+    "model_answer": "Distressed debt is an erratic and opaque market — it is not as efficient as equity markets for large healthy companies. Spreads are wide and markets are illiquid, especially in size. Debt can trade below estimated recovery value because it is often held by large institutional investors who originally bought it when it was investment-grade or performing, and who have mandates requiring them to exit when the debt trades below a certain level or gets downgraded. This creates forced-selling dynamics, because not all investors have the appetite or skill to hold distressed debt through a restructuring. Additionally, recovery values are predicated on an estimate of EV, which is not an objective reality — if the market consensus EV is lower than your estimate, then a 45-cent price may simply reflect a different view on recovery (e.g., others think recovery is 40). Over time, if the true recovery is indeed 50, that arbitrage would be taken advantage of and the price would trade up.",
+    "key_points": [
+      "Distressed debt markets are illiquid and opaque — wide spreads, not efficient like equity markets",
+      "Forced selling: original IG holders have mandates to exit below certain price or rating thresholds",
+      "Not all investors can hold distressed debt through a restructuring — creates price dislocation",
+      "Recovery values depend on EV estimates, which vary by market participant; consensus may be 40, not 50",
+      "If true recovery is 50 and price is 45, that arbitrage gap closes over time as distressed buyers step in",
+      "Temporary mispricing below recovery value is plausible and not unusual in distressed markets"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-006",
+    "question": "Carrying forward with our example, where would we expect equity to trade in this scenario?",
+    "model_answer": "Naively, equity should trade at zero because the enterprise value of $150 breaks at the 2L level and there is nothing left for equity in a filing. However, prior to filing, equity retains value for the same reason the 2L trades above pure recovery — optionality — but to an even greater extent. The optionality of equity arises from the possibility that the company turns things around out-of-court, the sponsor injects fresh cash, or some other catalyst improves the business. The equity of a distressed company trades like a far out-of-the-money (OTM) call option: it will receive nothing if the company files right now, just as a far OTM call option pays nothing at expiration if the underlying never rises above the strike price. But if the company does turn things around, the equity would not increase by just ~100% (like the 2L trading to par), but by many multiples, because equity has an uncapped residual claim. A real-world example is Tupperware in 2020: equity traded at $1.15 when Senior Notes were trading at ~50 cents on the dollar, reflecting pure optionality. Tupperware was then able to do a tender offer and raise a new term loan out of court, and the equity subsequently rose to ~$36 — an enormous gain for those who bought at $1.15. The equity can be valued using the Black-Scholes model, treating it as a call option on the company's assets.",
+    "key_points": [
+      "At filing, equity in this scenario would receive nothing (EV breaks at the 2L level)",
+      "Pre-filing, equity retains value due to optionality — the chance the company avoids bankruptcy",
+      "Equity of a distressed company trades like a far OTM call option: large downside (lose investment) but uncapped upside",
+      "Debt has a capped upside (par); equity is uncapped residual, so optionality is far greater for equity than for 2L",
+      "Tupperware example: equity at $1.15 when Senior Notes at 50 cents, later rose to $36 after out-of-court resolution",
+      "Distressed equity can be valued using the Black-Scholes model (strike = debt face value, underlying = EV)"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-007",
+    "question": "How should we think about optionality for various parts of the capital structure?",
+    "model_answer": "Any part of the capital structure that trades below par has some level of optionality embedded in its price, but the amount of optionality varies by position in the structure. The 1L in the example is trading around par and has no real optionality — whether the company files or turns things around, the 1L receives a full recovery either way. The 2L has meaningful optionality: if the company turns around, it can be refinanced at par, giving 2L holders a great return from a distressed price. However, the 2L's upside is capped at par (the debt won't suddenly trade at 200). Equity, on the other hand, has essentially uncapped upside — if the company turns around, equity doesn't just increase ~100% to par but can rise by many multiples. The further down the capital structure, the more optionality is embedded in the price. This is illustrated by Tupperware: when Senior Notes (the lowest-ranked debt) were trading below 50 cents, the equity was trading at $1.15 purely on optionality (zero recovery value in a filing). Those who bought equity at $1.15 saw it rise to ~$36. The general rule is: the more junior and distressed the instrument, the more its price reflects optionality rather than recovery value.",
+    "key_points": [
+      "All instruments trading below par embed some optionality, but the amount increases going down the capital structure",
+      "1L at or near par has near-zero optionality — made whole in any scenario",
+      "2L has meaningful optionality but capped upside (can at most trade to par)",
+      "Equity has uncapped optionality — residual claim means upside is theoretically unlimited",
+      "The more junior/distressed the instrument, the more its trading price reflects optionality vs. recovery value",
+      "Tupperware example: equity at $1.15 (pure optionality) rose to $36 after out-of-court turnaround",
+      "Distressed equity can be valued like a call option (Black-Scholes)"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-008",
+    "question": "What did the Fed do for credit markets in 2020?",
+    "model_answer": "In mid-to-late March 2020, credit markets were seizing up — spreads across investment grade and high yield were exploding and debt capital markets activity had nearly halted. The Fed intervened by announcing the creation of two facilities: (1) the Primary Market Corporate Credit Facility (PMCCF), aimed at making co-investments or buying newly issued debt directly from companies that couldn't find enough investors; and (2) the Secondary Market Corporate Credit Facility (SMCCF), aimed at making open-market purchases of corporate credit ETFs (initially IG-focused, later expanded to HY ETFs) to compress spreads and restore market functioning. The Treasury invested $75B into these two facilities, which the Fed could lever 3-10x, giving total purchasing power of roughly $500-750B. Critically, the Fed didn't have to do much in practice — the mere announcement that it was willing to intervene ('whatever it takes' moment) was enough to calm markets rapidly. Credit spreads compressed sharply within a month, returning to near pre-crisis levels. Both facilities were terminated on December 31, 2020. The SMCCF was likely effective in compressing spreads quickly; the PMCCF was largely a 'show of force' and saw little actual use due to onerous compliance requirements and a 100bps facility fee above market rates.",
+    "key_points": [
+      "March 2020: credit markets seizing, spreads exploding, debt issuance halted — Fed intervened by necessity",
+      "Created two facilities: PMCCF (primary market, buy new issuance directly) and SMCCF (secondary market, buy corporate credit ETFs)",
+      "Treasury invested $75B, levered 3-10x by the Fed, giving ~$500-750B in purchasing power",
+      "Announcement effect was powerful — markets calmed quickly without the Fed deploying much capital",
+      "SMCCF likely effective: bought IG credit ETFs (later expanded to HY ETFs), helped prevent IG/HY bifurcation via Fallen Angels",
+      "PMCCF largely a 'show of force': onerous compliance, 100bps facility fee, term sheet issued months later when market had already recovered",
+      "Both facilities terminated December 31, 2020",
+      "Parallel to Draghi's 'whatever it takes' — words/commitment can be as powerful as actual action"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-009",
+    "question": "Where are credit markets now?",
+    "model_answer": "This is a common open-ended question at superdays. A strong answer has several components: First, reference key credit indices — BBB (lowest IG category, most IG debt), BB (largest HY category, 'fallen angel' bellwether), and CCC (lowest ratings category, most distressed) — using Fed FRED data to comment on where spreads are today vs. historical norms. Second, reference issuance volumes — touch on whether IG or HY issuance is elevated or depressed and cite sources like S&P Global's Credit Trends commentaries. Third, address maturity walls — note any glut of debt coming due in upcoming years (e.g., the large wave of refinancing risk if significant issuance occurred in prior years during tight markets). Fourth, touch on fallen angel activity and default rate forecasts — S&P projects speculative-grade default rates, and you should reference where we are vs. the last cycle (~7% pre-COVID) and peak crisis (~12% during the financial crisis). A nuanced addition is noting that when lots of debt comes due in a concentrated year, restructuring activity tends to follow — though a strong economy and open capital markets can offset this. The key is showing intellectual curiosity, knowing relevant data sources (FRED, S&P Global), and being able to speak to the macro environment in a restructuring-specific context.",
+    "key_points": [
+      "Reference key credit spread indices: BBB, BB, CCC — use Fed FRED charts to contextualize current levels vs. history",
+      "Comment on issuance volumes — IG and HY — using S&P Global Credit Trends or similar sources",
+      "Address maturity walls: concentrated debt maturities in specific future years increase refinancing/restructuring risk",
+      "Reference fallen angel activity (IG-to-HY downgrades) as a leading indicator of stress",
+      "Cite S&P speculative-grade default rate forecasts vs. historical baselines (~7% pre-COVID, ~12% during financial crisis)",
+      "Note that tight/loose credit markets affect restructuring volume: tight markets = more distress; loose markets = companies can refinance out of trouble",
+      "Show you know where to find real-time data: FRED for spreads, S&P Global for default rates and issuance trends"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-010",
+    "question": "Let's imagine that a company — with a capital structure consisting of a 1L Term Loan and 2L Term Loan — does an uptier that involves participating 1L lenders exchanging their holdings into a new super-priority second-out tranche and funding a new-money super-priority first-out tranche. Therefore, after the transaction there are now three (instead of one!) tranches ahead of the 2L TL. Given all of this, is there any plausible scenario where the price of the 2L TL, that's now been pushed back in priority so much, could actually be higher immediately after the transaction compared to where it was immediately before the transaction?",
+    "model_answer": "Yes — counterintuitively, the 2L TL can trade up post-transaction. The Pretium Packaging case illustrates this: the 2L TL had been trading down from the high 50s to the high 20s pre-transaction because the company was burning $10-20mm of cash per quarter and filing seemed imminent — so holders anticipated minimal recovery and little remaining interest income. Post-transaction, the $325mm of new first-out money significantly extended the company's runway by funding the negative FCF hole for many quarters. Even though the 2L is now in a worse position from a recovery standpoint (multiple new tranches ahead of it), the extended runway means 2L holders will continue receiving L+675bps interest payments for much longer than the market anticipated pre-filing. The value of the extended interest income stream and improved optionality outweighs the fall in anticipated recovery value — especially when the pre-transaction recovery was already priced very low. Additionally, if the discount capture on the exchange of 1L debt was large enough that the total amount of debt senior to the 2L is actually reduced, that could also mechanically improve 2L recovery.",
+    "key_points": [
+      "2L can trade up post-uptier if the company was near-filing pre-transaction with minimal runway",
+      "Pretium Packaging example: 2L went from high 20s (pre) to high 30s (post)",
+      "New first-out money extends runway, enabling continued L+675bps interest payments",
+      "Pre-transaction market priced in imminent filing and near-zero recovery; extended runway changes that calculus",
+      "Value of extended interest stream can outweigh reduced recovery from being further down in priority",
+      "If discount capture on 1L exchange > new money funded, total debt ahead of 2L may actually decrease",
+      "Effect reverses if 2L was already trading in 80s (recovery-priced): extension hurts via deeper subordination"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-011",
+    "question": "Imagine that a company has a 50% chance of their EV being $1,000mm and a 50% chance of their EV being $0mm in the near future. The company's total debt consists of a lonely $500mm Term Loan at S + 5.0% (assume SOFR is 5.0%). Given this, what should the Term Loan trade at?",
+    "model_answer": "The intuitive but wrong approach is to take the expected value of EV: ($1,000mm * 50%) + ($0 * 50%) = $500mm, which might suggest the TL trades at par since face value = $500mm. But this is incorrect because above some EV threshold, the TL is fully covered regardless of whether EV is $700mm or $1,000mm. What matters is the expected value of the TL's trading level in each scenario: Scenario 1 (EV = $1,000mm): TL is fully covered, trades at par = 100. Scenario 2 (EV = $0): TL is worthless, trades at 0. Expected trading level = (100 * 50%) + (0 * 50%) = 50 cents on the dollar. So the TL should trade around 50. At 50 cents, a holder buying $100mm face earns $10mm in interest over the next year while waiting for the EV to resolve. Expected return = 50% chance of making $10mm interest + $50mm price appreciation (100 - 50 = $50 gain at par) = $60mm return, or 50% chance of losing $40mm ($10mm interest - $50mm loss). Expected return = ($60mm * 50%) - ($40mm * 50%) = $10mm or 20% on a $50mm investment.",
+    "key_points": [
+      "Wrong approach: EV expected value = $500mm does NOT imply TL trades at par",
+      "Correct approach: take expected value of the TL's TRADING LEVEL in each scenario",
+      "In $1,000mm EV scenario: TL fully covered, trades at par (100)",
+      "In $0 EV scenario: TL worthless, trades at 0",
+      "Expected trading price = (100 * 50%) + (0 * 50%) = ~50 cents on the dollar",
+      "At 50 cents: 50% chance of 60mm total return (interest + appreciation), 50% chance of 40mm loss",
+      "Expected return = ~20% — reasonable given significant binary risk"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-012",
+    "question": "Let's say we have two distressed companies with the same EV and debt (where debt is substantially greater than EV). Let's say that Company A has a market cap of $1M and Company B has a market cap of $5M. Which company has more volatility?",
+    "model_answer": "Since both companies have the same EV and the same debt load that substantially exceeds EV, the equity in both cases is essentially a call option on the company's assets (with a strike price equal to the debt). In option pricing, the value of a call option increases with volatility of the underlying — more volatility means a higher chance the option ends up in-the-money. Company B has a market cap of $5M versus Company A's $1M, meaning the call options on Company B's equity are worth more. Therefore, Company B must have more underlying volatility, because more volatility means a higher probability that Company B's EV rises above the debt level and the equity becomes valuable. In short: given identical EV and debt, higher equity market cap implies higher underlying asset volatility.",
+    "key_points": [
+      "Both companies have identical EV and debt, with debt far exceeding EV — equity is a far OTM call option in both cases",
+      "Call option value increases with volatility of the underlying asset (Black-Scholes)",
+      "Company B's equity ($5M market cap) is worth more than Company A's ($1M), so Company B's call option is more valuable",
+      "A more valuable call option (all else equal) implies higher volatility of the underlying",
+      "Therefore, Company B has more underlying volatility",
+      "This question tests understanding that distressed equity trades like a call option"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-013",
+    "question": "Keeping with the last question, why is one tranche of these pari Senior Notes trading higher anyway? If you're considering buying one tranche of these pari Senior Notes, what would you need to consider?",
+    "model_answer": "The 80-Notes trade at a premium to the 60-Notes because the market believes it is relatively more likely that the near-term maturity (80-Notes, coming due in ~2 years) can be refinanced or otherwise addressed, whereas it is much less certain that the company can deal with the larger $1B of 60-Notes (totaling $1B face value) coming due in five years. The market is pricing in greater refinancing risk for the longer-dated, larger tranches. When considering which to buy: if you buy the 80-Notes, you get a shorter-term bet that the company doesn't file before those Notes are addressed. However, if the company files before the 80-Notes are dealt with, they will be pari with the other $1B of Senior Notes and your recovery could be well below 80. The 60-Notes are riskier in that you're betting the company can remain solvent for five more years and refinance a much larger amount, but they trade closer to potential filing recovery value. If you believe in a genuine turnaround, the 60-Notes offer more upside (they'd likely trade up significantly). The 80-Notes are a bet on the company not filing before it deals with that near-term tranche, while the 60-Notes reflect more of the market's view of filing recovery value.",
+    "key_points": [
+      "80-Notes trade higher because market views them as more likely to be refinanced/addressed before a filing",
+      "60-Notes carry more risk: company must remain solvent for 5 more years and refinance a larger $1B aggregate",
+      "Risk of buying 80-Notes: if company files before dealing with them, they rank pari with $1B more Senior Notes — recovery may be well below 80",
+      "60-Notes trade closer to expected filing recovery value; they reflect longer-duration credit risk",
+      "If you believe in a turnaround, 60-Notes offer more upside (they'd trade up significantly)",
+      "Buying 80-Notes is a near-term bet on non-filing; buying 60-Notes is a longer-duration bet with more optionality on turnaround",
+      "Company may have cash to address the small near-term tranche but not the larger long-dated ones"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-014",
+    "question": "Let's say that a PE firm acquires a $200M EBITDA company for 10x with 60% debt. The company's EBITDA, over a five-year hold period, grows to $300M. All cash is swept out to pay down debt, which at year five totals $400M. No cash is left at the time of exit, which is for a 10x multiple. What's the IRR?",
+    "model_answer": "Step 1 — Entry: EV at acquisition = $200M × 10x = $2,000M. Debt = 60% × $2,000M = $1,200M. Equity invested = $2,000M - $1,200M = $800M. Step 2 — Exit: EV at exit = $300M × 10x = $3,000M. Remaining debt at exit = $400M (original $1,200M paid down to $400M via cash sweeps). Equity proceeds at exit = $3,000M - $400M = $2,600M. Step 3 — Return multiple: $800M equity in, $2,600M equity out over 5 years = 3.25x return multiple (approximately). Using rule-of-thumb IRR benchmarks: 2x over 5 years ≈ 15%, 3x over 5 years ≈ 25%. A 3.25x multiple is slightly above 3x, so IRR is in the low-to-mid twenties (approximately 20-25%). No one expects a precise calculation in your head — the key is to walk through the steps methodically and triangulate using round-number IRR benchmarks.",
+    "key_points": [
+      "Entry EV = $200M EBITDA × 10x = $2,000M; debt = 60% × $2,000M = $1,200M; equity invested = $800M",
+      "Exit EV = $300M EBITDA × 10x = $3,000M; remaining debt = $400M (cash sweeps paid down $800M of debt)",
+      "Exit equity proceeds = $3,000M - $400M = $2,600M",
+      "Return multiple = $2,600M / $800M = 3.25x over 5 years",
+      "IRR benchmarks: 2x/5yr ≈ 15%; 3x/5yr ≈ 25% — so 3.25x implies IRR in the low-to-mid twenties",
+      "Key skill: methodically work through each step; no expectation of exact IRR calculation in your head",
+      "Interviewers at generalist boutiques (Moelis, Centerview) are more likely to ask LBO IRR questions"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-015",
+    "question": "Following up on the question above, how would you think about the downside and upside returns of investing in Company C's debt?",
+    "model_answer": "Downside scenario: If the guarantee from Company B is voided (e.g., creditors at Company B successfully make a fraudulent conveyance argument, arguing the guarantee was provided for less than equivalent value), Company C's debt becomes truly underwater. The debt would trade at roughly 83 cents on the dollar ($250 EV / $300 debt). If held for a year, you'd collect $10 in coupons but experience a -$7 price decline, yielding a return of ($10 - $7) / $90 = 3.33%. If the market consensus builds toward the guarantee being worthless, or if Company C further deteriorates, the price could fall further into negative return territory.\n\nUpside scenario: The guarantee is enforceable (or Company C improves on its own), the debt returns par, and you collect the coupon. Return = $10 coupon + $10 price appreciation / $90 = 22.22%.\n\nThe market pricing at 90 cents (a discount to par, but above where it would trade without the guarantee) reflects the market pricing in some probability that the guarantee won't stick. The asymmetric risk here is that the downside (guarantee voided) is meaningful, while the upside (debt returns par) is capped.",
+    "key_points": [
+      "Downside driver: guarantee is voided via fraudulent conveyance argument by Company B's creditors",
+      "Without guarantee, Company C debt trades at ~83 cents ($250 EV / $300 debt)",
+      "Downside return with coupon: ($10 - $7) / $90 = ~3.33%, or worse if Company C deteriorates further",
+      "Upside: guarantee is enforceable and debt returns par; return = 22.22%",
+      "Debt trading at 90 cents (not par) signals the market is pricing in some probability the guarantee won't hold",
+      "Debt investing has capped upside (par) but meaningful downside if collateral or guarantee support is lost"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-016",
+    "question": "Following up on the question above, how would you think about the downside and upside returns of investing in Company A's equity? Would it be riskier than investing in Company C's debt?",
+    "model_answer": "Equity is significantly riskier than Company C's debt. On the downside, the equity price can go to zero. If the consolidated EV were to decline from $950 to $800 (the total debt amount), the equity would be wiped out. There is some option value, but the return would still be very poor.\n\nOn the upside, equity is not capped at par the way debt is. If Company B and Company C both grow their EVs by 20% over the next year, Company B's EV would reach $840 and Company C's EV would be $300 (matching its debt). In this scenario, all the equity value comes from Company B: $840 - $500 = $340. Company A owns 80% of $340 = $272. Buying the equity for $90 would roughly double the investment.\n\nThis illustrates the sensitivity of equity at the HoldCo level to shifts in valuations at the OpCo level, especially when OpCos have minimal equity cushions. Equity has a much higher upside potential but also much higher downside risk than debt.",
+    "key_points": [
+      "Equity can go to zero if consolidated EV falls to the total debt level ($800)",
+      "Equity is not capped at par — meaningful upside if underlying OpCo EVs grow",
+      "In a 20% EV growth scenario, Company A equity roughly doubles to ~$272 vs. a $90 cost",
+      "HoldCo equity is highly leveraged to OpCo EV movements, especially with thin equity cushions at OpCos",
+      "Company C's debt has capped upside (par) but more predictable return range",
+      "Equity has higher variance (volatility) in its return distribution than debt"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-017",
+    "question": "Imagine that we found that the expected returns — after considering the downside and upside scenarios — of buying Company C's debt and buying Company A's equity were exactly equal. If that were the case, which one would you rather buy or would you be entirely indifferent?",
+    "model_answer": "You would not be indifferent — you would prefer Company C's debt. If the expected returns are exactly equal, you should choose the investment with lower volatility (variance) in its return distribution. Equity has a much higher upside potential but also a much lower downside floor (can go to zero), creating significantly more variance. Debt has a capped upside (par) but a much narrower range of outcomes.\n\nAs an investor, you are supposed to be compensated for taking risk. If the expected returns are identical, you should prefer the lower-risk (lower-variance) investment — Company C's debt — because you are not receiving additional compensation for the extra risk inherent in the equity.\n\nPractically, the choice also depends on your fund's mandate: large asset managers with high-yield or distressed debt books may only look at the debt, while classic distressed funds may be open to either. Size constraints also matter. But all else being equal, equal expected returns with different risk profiles means you prefer the lower-volatility instrument.",
+    "key_points": [
+      "Equal expected returns does not mean indifference — you prefer the lower-variance option",
+      "Company C's debt has a narrower return distribution (capped upside, limited downside above 83 cents)",
+      "Company A's equity has much higher variance: upside of doubling or more, downside of total loss",
+      "Investors should be compensated for additional risk; equal expected returns with higher variance is a bad trade",
+      "Fund mandate matters: debt-focused funds may not even look at equity; classic distressed funds may consider both",
+      "All else equal, prefer Company C's debt due to lower volatility for the same expected return"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-018",
+    "question": "Let's imagine that I'm looking at buying some unsecured notes trading at 75. Through my genius analysis, I think that they'll have a recovery value of 70 and that the company will file in a year. Would it ever make sense for me to buy these?",
+    "model_answer": "Yes, it could make sense for at least three reasons. First, the coupon: unsecured notes typically have a 6-8% coupon. If the company files in a year and recovery is 70 cents, you'd receive coupon income during the year plus the 70-cent recovery, which may not be a net money-losing proposition. Second, the nature of recovery value: recovery 'value' is not necessarily cash — it may come in the form of post-reorganization equity. If you believe the post-reorg equity will appreciate significantly after emergence, the 70-cent recovery could ultimately be worth much more. Washington Prime Group is an example where unsecured noteholders received ~90% of post-reorg equity as consideration. Third, the ability to participate in the restructuring process: if you are in the unsecured part of the capital structure, you may be able to participate in a rights offering, allowing you to purchase additional post-reorg equity at a significant discount to Plan Equity Value (Washington Prime's rights offering was at a 32.5% discount). This further enhances returns if you are bullish on the post-reorg equity.",
+    "key_points": [
+      "Coupon income during the year before filing offsets some or all of the price-to-recovery discount",
+      "Recovery 'value' is not necessarily cash — it may be post-reorg equity that could appreciate substantially",
+      "Washington Prime Group example: unsecured notes got ~90% of post-reorg equity pre-dilution",
+      "Junior creditors can often participate in rights offerings to buy additional post-reorg equity at steep discounts",
+      "Washington Prime rights offering allowed purchase at 32.5% discount to Plan Equity Value",
+      "Buying below expected nominal recovery can make sense if you're bullish on the form of consideration (equity)"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-019",
+    "question": "Let's imagine you have both a secured and unsecured bond trading at 70 cents on the dollar. What does that tell you?",
+    "model_answer": "This is an unusual situation. Normally, a secured bond should trade at a higher price (closer to par) than an unsecured bond because the secured bond has specific collateral backing it. If both are trading at the same level, it signals that the market believes the collateral backing the secured debt is worth nothing — or close to it. When collateral is worth less than the secured claim amount, the deficiency (the uncovered portion) becomes a general unsecured claim. If the collateral is deemed worthless, the entire secured claim becomes a deficiency claim and is treated as a general unsecured claim. This explains why both bonds trade at the same level: the market effectively believes they both have the same unsecured claim against the debtor. In a Chapter 11 context, both would likely be placed in the same class and receive the same recovery.",
+    "key_points": [
+      "Secured and unsecured bonds should trade at different levels because secured bonds have collateral priority",
+      "Same trading level signals the market believes the secured bond's collateral is worthless",
+      "When collateral value is less than the secured claim, the shortfall becomes a deficiency claim (unsecured)",
+      "If collateral is worthless, the entire secured claim is a deficiency claim treated as general unsecured",
+      "In Chapter 11, same-class claims receive the same recovery value",
+      "Equal trading levels imply the market expects both to be in the same class and receive the same recovery"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-distressed-investing-and-trading-020",
+    "question": "What impact do you think the heightened inflation we're seeing right now will have on restructuring activity? Are there particular industries that you think will have many debtors needing to restructure?",
+    "model_answer": "The impact of inflation on restructuring activity is nuanced and likely less immediate than many assume. Two main channels matter.\n\nDealing with Maturity Walls: Over the prior two years, unprecedentedly tight credit markets allowed even questionable debtors to push out maturities at low rates and with loosened credit docs. As CCC spreads widen and high-yield primary market activity collapses (e.g., only $900m priced in a week in April 2022 vs. $450b/year in 2021), struggling debtors can no longer refinance maturities on easy terms. We will likely see more equitization, higher-yield new money debt, more aggressive creditor tactics (non-pro-rata uptiers, asset transfers), and sponsor-backed companies becoming proactive (e.g., Envision Healthcare, Service King).\n\nDealing with Working Capital Pressure: Inflation doesn't affect all industries equally. Healthcare providers face particularly severe pressure from higher wages, equipment costs, and regulatory uncertainty (No Surprises Act). Companies that cannot pass on input cost increases to consumers will see positive free cash flow turn negative. Industries with regulated pricing or commoditized products are most vulnerable.\n\nSummary: Inflation effectively reduces a debtor's debt capacity, forcing more equitization in restructurings. Creditors will prefer floating-rate debt and will engage in more aggressive inter-creditor battles. The impact is more likely to manifest through pre-emptive out-of-court solutions and pre-packs rather than large freefall filings, at least initially. Industries at risk include heavily levered sponsor-backed companies, healthcare providers, and commodity-sensitive businesses.",
+    "key_points": [
+      "Tight credit markets in 2020-21 allowed debtors to extend maturities with loose docs; rising rates reverse this",
+      "CCC spreads widened ~150bps; high-yield primary market nearly froze (only $900m priced in one week in April 2022)",
+      "Expect more equitization, higher-yield new money, non-pro-rata uptiers, and collateral transfers",
+      "Healthcare providers especially squeezed: wage pressure, equipment costs, No Surprises Act uncertainty",
+      "Companies unable to pass on input costs see free cash flow turn negative quickly",
+      "Inflation reduces debt capacity → more equity in restructuring consideration; creditors prefer floating-rate debt",
+      "Expect pre-emptive out-of-court solutions and pre-packs rather than immediate wave of freefall filings",
+      "Idiosyncratic distress across industries (not one dominant sector like retail/oil-and-gas) due to uneven inflation impact"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3
+  },
+  {
+    "question": "What's the way distressed investors approach making an investment decision (four steps)?",
+    "model_answer": "The four steps are: (1) Analyze the most recent financials to determine the capital structure — total debt, relative priority given legal (security and seniority) and structural (operating vs. holding company) considerations; (2) Value the capital structure given market trading prices; (3) Analyze recent EBITDA trends and determine relative leverage on an EBITDA multiple basis at both face and market value; (4) Consider whether, given conservative or appropriate industry valuation metrics, the business is likely worth more than current trading levels. Steps 1-3 are included in every cap table.",
+    "key_points": [
+      "Step 1: Map capital structure with priority/seniority analysis",
+      "Step 2: Value capital structure at market trading prices",
+      "Step 3: Analyze EBITDA trends and leverage at face and market value",
+      "Step 4: Assess whether business value exceeds current trading levels"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2,
+    "id": "rx-distressed-investing-and-trading-021"
+  },
+  {
+    "question": "What are fallen angels? Why do they matter?",
+    "model_answer": "Fallen angels are bonds rated at the cusp of investment grade (BBB- or Baa3) that then get downgraded one notch or more, making them high yield or distressed. This matters because many mutual funds, pension funds, and life insurers have mandates to hold only investment grade credit and must liquidate when bonds are downgraded to HY — regardless of their actual credit quality beliefs. This forced selling causes a large price decline, and distressed funds (a totally different buyer set) step in. This creates opportunities for distressed investors.",
+    "key_points": [
+      "Bonds downgraded from IG to HY threshold",
+      "IG-mandate funds must sell regardless of fundamental view",
+      "Forced selling creates price dislocation — distressed funds buy",
+      "Large price decline at downgrade creates entry opportunity for distressed investors"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2,
+    "id": "rx-distressed-investing-and-trading-022"
+  },
+  {
+    "question": "Differences between LBOs and distressed debt investing?",
+    "model_answer": "Key differences: (1) Capital infusion usually comes via Chapter 11 in distressed (vs. inherent in LBO design); (2) More protection in distressed — taking debt, not equity; (3) Securities law less onerous for bond holders than common stockholders; (4) Not necessary to pay premium for control — blocking position in POR with 33.4% is cheap via secondary market (no M&A control premium); (5) IRS code less favorable in distressed than LBOs since LBOs benefit from tax shield on debt.",
+    "key_points": [
+      "Distressed: buy cheap debt in secondary vs. LBO: buy equity at premium",
+      "No control premium needed — block POR with 33.4% from secondary market",
+      "Less securities law burden on bond holders vs. common stock",
+      "LBO has tax shield advantage; distressed less favorable IRS treatment"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2,
+    "id": "rx-distressed-investing-and-trading-023"
+  },
+  {
+    "question": "What was Martin Fridson's definition of distressed debt?",
+    "model_answer": "Yield to maturity greater than 1000 basis points (10%) more than the comparable underlying treasury. For example, if the 5-year treasury is trading at 0.37%, then Fridson's definition of distressed would be a YTM of 10.37% or higher.",
+    "key_points": [
+      "Distressed = YTM > comparable treasury + 1000 bps",
+      "Example: 5yr treasury at 0.37% → distressed threshold = 10.37% YTM",
+      "Martin Fridson is a legendary figure in the distressed debt space",
+      "Common benchmark definition used in industry conversations"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2,
+    "id": "rx-distressed-investing-and-trading-024"
+  },
+  {
+    "question": "Why does Efficient Market Theory (EMT) not apply to distressed debt?",
+    "model_answer": "Three main reasons: (1) Information asymmetry — all counterparties do not have access to the same information; (2) Forced liquidations — many investors have IG-only mandates and must sell on downgrade regardless of their views (objectively irrational but done because of mandate); (3) Large transaction costs — bid/ask spreads are much wider than IG or equity markets, with far worse liquidity.",
+    "key_points": [
+      "Information asymmetry: not all parties have equal access to information",
+      "Forced liquidations: IG-mandate funds must sell regardless of views (fallen angels)",
+      "High transaction costs: wide bid/ask spreads and poor liquidity vs. IG/equity",
+      "These inefficiencies create alpha opportunities for distressed investors"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2,
+    "id": "rx-distressed-investing-and-trading-027"
+  },
+  {
+    "question": "Why does Third Avenue (and many other distressed funds) try to get 50% of any issue?",
+    "model_answer": "In the indentures for almost all publicly traded bonds, any non-money provision in the indenture can be modified or abrogated by the consent of 50% of the outstanding issue. So if you own 50% of a certain class of bond, you can block the capacity to be primed (have new money put in front of you in the capital structure).",
+    "key_points": [
+      "50% ownership allows modification of non-money indenture provisions",
+      "Key use: block priming — preventing new debt from jumping ahead of you",
+      "Different from blocking a POR (which requires 33.4%)",
+      "50% gives more offensive power to shape deal terms"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3,
+    "id": "rx-distressed-investing-and-trading-028"
+  },
+  {
+    "question": "What is a big boy letter?",
+    "model_answer": "A big boy letter contains: (1) Acknowledgment by the non-restricted party that he or she is aware that the restricted party is in possession of non-public information; and (2) Waiver of claims that the non-restricted party might otherwise have under securities laws because of the restricted party's possession of non-public info. It allows trading to occur between parties where one has inside information, with the non-informed party agreeing they know this.",
+    "key_points": [
+      "Acknowledgment by buyer that seller may have non-public information",
+      "Waiver of securities law claims arising from information asymmetry",
+      "Allows restricted parties to trade with non-restricted parties",
+      "Common mechanism in distressed situations involving bondholder committees"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 3,
+    "id": "rx-distressed-investing-and-trading-029"
+  },
+  {
+    "question": "What happens when bank debt trades below 70?",
+    "model_answer": "Banks and CDOs are much more likely to become sellers, often for non-value related reasons (CDOs have mandates for types of debt they hold; banks have risk-weighted asset (RWA) considerations that make holding distressed debt expensive). This creates opportunities to accumulate bank debt at cheap prices not because the value isn't there, but because holders just need to get out.",
+    "key_points": [
+      "Sub-70 triggers forced selling by banks and CDOs for non-fundamental reasons",
+      "Banks: RWA requirements make distressed debt expensive to hold",
+      "CDOs: mandate constraints force selling regardless of value",
+      "Opportunity for distressed investors to buy cheap from motivated sellers"
+    ],
+    "category": "distressed-investing",
+    "difficulty": 2,
+    "id": "rx-distressed-investing-and-trading-030"
+  }
+]

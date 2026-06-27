@@ -1,0 +1,67 @@
+[
+  {
+    "question": "What are the two possible avenues (or types) of bankruptcy?",
+    "model_answer": "Chapter 7 and Chapter 11. Chapter 7 is a full liquidation: a U.S. Trustee is appointed to liquidate all assets and disburse cash by absolute priority. Chapter 11 is a reorganization: the company develops a Plan of Reorganization (POR), impaired classes vote on it, and upon confirmation the company re-emerges with a new capital structure. Chapter 11 has two variants: pre-pack (POR agreed before filing, can emerge in months) and traditional Chapter 11 (starts from scratch, can take years).",
+    "key_points": [
+      "Chapter 7: full liquidation under court-appointed U.S. Trustee",
+      "Chapter 11: reorganization — company develops and votes on a POR",
+      "Pre-pack Chapter 11: POR pre-agreed, can emerge in 30-45 days",
+      "Traditional Chapter 11: from scratch, typically 18 months to 3 years"
+    ],
+    "category": "chapter-11",
+    "difficulty": 1,
+    "id": "rx-chapter-11-and-plan-of-reorganization-003"
+  },
+  {
+    "question": "What are four major steps in Chapter 11?",
+    "model_answer": "The four major steps are: (1) Restructuring of the debtor's operations by asset sales and contract assumptions/rejections; (2) Development and dissemination of a proposed plan of reorganization (POR); (3) A vote on the plan by the claim and interest holders; (4) Confirmation of the plan by the bankruptcy court.",
+    "key_points": [
+      "Step 1: Operational restructuring — asset sales, contract assumptions/rejections",
+      "Step 2: Develop and distribute the proposed POR",
+      "Step 3: Voting by impaired claim holders",
+      "Step 4: Court confirmation of the POR"
+    ],
+    "category": "chapter-11",
+    "difficulty": 1,
+    "id": "rx-chapter-11-and-plan-of-reorganization-008"
+  },
+  {
+    "question": "How long do public companies stay in Chapter 11?",
+    "model_answer": "18 months to 3 years normally unless there is a pre-pack in which case it can be just 30-45 days.",
+    "key_points": [
+      "Traditional Chapter 11: 18 months to 3 years",
+      "Pre-pack: 30-45 days",
+      "Length depends on complexity of capital structure and creditor agreement",
+      "Longer process = higher administrative costs and operational disruption"
+    ],
+    "category": "chapter-11",
+    "difficulty": 1,
+    "id": "rx-chapter-11-and-plan-of-reorganization-022"
+  },
+  {
+    "question": "Where do you get all the legal briefs or other documents for a bankruptcy case?",
+    "model_answer": "PACER (which charges a small fee) or — for any large filing — claims agents like Kroll or Epiq provide free, well-organized dockets. Google '[Company Name] docket' and it'll come up. The two key documents to look for are the Disclosure Statement (DS) and the final Plan of Reorganization (POR). These cover everything you need to know about the case.",
+    "key_points": [
+      "PACER: official court filing system (small fee per page)",
+      "Claims agents (Kroll, Epiq): free, organized dockets for large cases",
+      "Search '[Company] docket' to find the case page",
+      "Key documents: Disclosure Statement + final POR"
+    ],
+    "category": "chapter-11",
+    "difficulty": 1,
+    "id": "rx-chapter-11-and-plan-of-reorganization-024"
+  },
+  {
+    "question": "When is complete liquidation (Chapter 7) preferable?",
+    "model_answer": "When there is little stable cash flow or the company is likely to require additional capital infusions in the future no matter what the restructuring is. If the company has negative FCF into perpetuity, no right-sized capital structure will make a difference.",
+    "key_points": [
+      "Chapter 7 preferred when company has no viable going-concern value",
+      "Negative perpetual FCF: right-sizing capital structure won't help",
+      "Chapter 7 maximizes creditor recoveries by liquidating assets now",
+      "Avoids burning more cash on a business that can't be fixed"
+    ],
+    "category": "chapter-11",
+    "difficulty": 1,
+    "id": "rx-chapter-11-and-plan-of-reorganization-033"
+  }
+]

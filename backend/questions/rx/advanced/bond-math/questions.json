@@ -1,0 +1,711 @@
+[
+  {
+    "id": "rx-bond-math-and-valuation-013",
+    "question": "Imagine that there's a company with two segments: nuts and bolts. The nuts segment has $50mm of EBITDA and comps are valued at a 6x multiple. The bolts segment also has $50mm of EBITDA but comps are valued at 8x. The entire business has $20mm of opex that's not captured within the two segments. Given this, what's the TEV?",
+    "model_answer": "Total segment EBITDA = $50mm (nuts) + $50mm (bolts) = $100mm. After deducting corporate opex of $20mm not captured in segments, total business EBITDA = $80mm. Since each segment contributes 50% of total EBITDA ($40mm each after opex allocation), we apply the respective multiples: Nuts = $40mm * 6x = $240mm; Bolts = $40mm * 8x = $320mm. TEV = $240mm + $320mm = $560mm. This is a sum-of-parts (SOTP) valuation approach.",
+    "key_points": [
+      "Total segment EBITDA = $100mm; subtract unallocated opex of $20mm = $80mm net EBITDA",
+      "Each segment contributes 50% of total, so allocate $40mm EBITDA to each",
+      "Nuts value = $40mm * 6x = $240mm",
+      "Bolts value = $40mm * 8x = $320mm",
+      "TEV = $240mm + $320mm = $560mm",
+      "This is a sum-of-parts (SOTP) valuation — used when segments have different business profiles/multiples"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-014",
+    "question": "Let's imagine there's a company that at the end of Q2 had LTM EBITDA of $10mm and was trading at a 5x multiple. Then, at the end of Q3, had LTM EBITDA of $15mm and was trading at a 6x multiple. Given this, what percent of the change in EV do you think was likely due to changes in EBITDA vs. multiple expansion?",
+    "model_answer": "EV at Q2 = $10mm * 5x = $50mm. EV at Q3 = $15mm * 6x = $90mm. Total EV increase = $40mm. Three components: (1) EBITDA-driven increase (holding multiple constant at Q2 multiple): $5mm EBITDA increase * 5x = $25mm, or 62.5% of total increase. (2) Multiple expansion (holding EBITDA constant at Q2 level): $10mm * (6x - 5x) = $10mm, or 25% of total increase. (3) Interactive term (joint EBITDA + multiple expansion): $5mm * 1x = $5mm, or 12.5% of total increase. The interactive term can be split evenly between the two drivers, giving: EBITDA-driven = 62.5% + 6.25% = 68.75%; Multiple expansion = 25% + 6.25% = 31.25%. Alternatively, one could argue the multiple expansion should be weighted more if the market specifically rewarded the EBITDA growth.",
+    "key_points": [
+      "Q2 EV = $10mm * 5x = $50mm; Q3 EV = $15mm * 6x = $90mm; total increase = $40mm",
+      "EBITDA-driven piece (at Q2 multiple): $5mm * 5x = $25mm = 62.5% of increase",
+      "Multiple expansion piece (at Q2 EBITDA): $10mm * 1x = $10mm = 25% of increase",
+      "Interactive term (joint effect): $5mm * 1x = $5mm = 12.5%; split evenly between the two",
+      "Final attribution: ~68.75% EBITDA-driven, ~31.25% multiple expansion (after splitting interactive term)",
+      "No single right answer for the interactive term; splitting equally is a reasonable default"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-015",
+    "question": "If there's a bond trading below par, rank the following from lowest to highest: coupon rate, current yield, yield to call, yield to maturity, and yield to worst.",
+    "model_answer": "For a bond trading below par: Coupon Rate < Current Yield < Yield to Maturity = Yield to Worst < Yield to Call. Reasoning: (1) Coupon rate = Coupon/Par; since the bond trades below par, the current price is less than par, so Coupon/Current Price (= Current Yield) is higher than Coupon Rate. (2) YTM and YTC also include the price appreciation component (since the bond will be redeemed at a price above current price); this makes them higher than current yield. (3) For a bond below par, YTC > YTM because the call price is above par (e.g., 102%), so there is slightly more price appreciation to the call price than to par, and the call date is sooner (meaning that appreciation arrives more quickly). (4) YTW = the lesser of YTM and YTC (the lowest actual yield assuming no default). Since YTM < YTC here, YTW = YTM. Final ranking: Coupon Rate < Current Yield < YTM = YTW < YTC.",
+    "key_points": [
+      "Coupon rate = Coupon/Par; current yield = Coupon/Price; since Price < Par, Current Yield > Coupon Rate",
+      "YTM and YTC include price appreciation (bond must eventually reach par or call price) so both > Current Yield",
+      "For below-par bond: YTC > YTM because call price typically above par and shorter duration accelerates appreciation",
+      "YTW = minimum of YTM and YTC (lowest yield assuming no default event); here YTW = YTM",
+      "Final order: Coupon Rate < Current Yield < YTM = YTW < YTC",
+      "If bond traded above par, this ranking inverts: YTC < YTM (company calls when rates fall, hurting holders)"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-016",
+    "question": "Let's say that I tell you that we have a bond with a YTM of 20%. Ask me some questions to figure out how it's priced.",
+    "model_answer": "This question is the inverse of the standard bond math question — instead of calculating YTM from price, you need to derive the price from the YTM. To price a bond given its YTM, you need three pieces of information: (1) the YTM (already given at 20%), (2) the coupon rate, and (3) years to maturity. So the questions to ask are: 'What is the coupon rate?' and 'How many years until maturity?' For example, if told the coupon is 8% and the maturity is 2 years, a $100 face-value bond pays $8/year. Using the estimated YTM formula [Coupon + (Par - Price) / Years] / [(Par + Price) / 2] = YTM, one can solve for price. With an 8% coupon, 2 years to maturity, and 20% YTM, the price works out to approximately $80. Verification: (8 + (100-80)/2) / ((100+80)/2) = (8+10)/90 = 18/90 = 20%. The key skill is recognizing you need to ask about coupon rate and time to maturity to solve for price.",
+    "key_points": [
+      "To price a bond from YTM, you need three inputs: YTM (given), coupon rate, and years to maturity",
+      "Must ask: 'What is the coupon rate?' and 'How many years until maturity?'",
+      "Use the estimated YTM formula rearranged to solve for price: YTM = [Coupon + (Par - Price)/Years] / [(Par + Price)/2]",
+      "Example: 8% coupon, 2-year maturity, 20% YTM implies a price of approximately $80",
+      "Verification: (8 + 10) / 90 = 18/90 = 20% YTM confirms the $80 price",
+      "This is the inverse of the standard 'calculate YTM from price' question"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-017",
+    "question": "Let's imagine we have a bond with four years to maturity, a 5% coupon, and a 7% yield that's trading at 93.2 and will return par. How should the price of the bond change as it approaches maturity and how does the yield intuitively inform it?",
+    "model_answer": "This question is flagged as not interview-appropriate but builds intuitive understanding. Yield, at an intuitive level, reflects the amount the bond needs to return in a given year, based on its current price, in order to get it on a pathway towards being worth par at maturity. For a bond trading below par, the yield must exceed the coupon rate because the price needs to 'catch up' to par. The price increases incrementally each year as maturity approaches until it reaches par, while the yield stays static. The annual price appreciation equals the dollar spread between the total return the bond earns in that year (yield x current price) and the coupon paid. For example, a bond at 93.23 with a 5% coupon and 7% yield: Year 1 earns 7% x 93.23 = 6.53, less the $5 coupon = $1.53 in price appreciation, bringing the price to 94.75. This process repeats each year with growing appreciation spreads (1.53, 1.63, 1.75, 1.87) that sum to 6.77, and 93.23 + 6.77 = 100. The YTM stays at 7% throughout because each year the higher starting price times 7% minus the fixed $5 coupon still produces the right appreciation to glide to par.",
+    "key_points": [
+      "Yield intuitively reflects the return a bond needs to earn each year (based on its current price) to reach par at maturity",
+      "For a bond trading below par, the yield must exceed the coupon rate so the price can 'catch up' to par value",
+      "The price increases each year as maturity approaches, with the yield remaining static",
+      "Annual price appreciation = (yield x current price) minus the coupon payment (the 'appreciation spread')",
+      "The appreciation spread grows each year as the price rises, but the sum of all appreciation spreads equals the discount from par",
+      "At maturity the bond reaches exactly par (100), confirming the math: purchase price + sum of appreciation spreads = par",
+      "This is the conceptual basis for understanding bond pricing below par — the YTM is simultaneously the discount rate and the required annual return"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-018",
+    "question": "Let's say we have a bond maturing in five years with a 10% coupon that's currently trading at 80 and will return par. Can you tell me, using as little math as possible, what the YTM roughly is?",
+    "model_answer": "The YTM of a bond trading below par has two components: (1) the current yield (C/P), which captures the coupon return relative to the current price, and (2) a price appreciation component, which captures the annual 'principal pickup' as the bond glides from its below-par price back to par at maturity. Current yield = 10/80 = 12.5%. Price appreciation component = (100 - 80) / 5 years = $4 per year = 4% annualized. Adding these together: 12.5% + 4% = 16.5% estimated YTM. The real YTM (using actual discounted cash flow math) is 16.126%. The intuitive approach slightly overstates the YTM because the annual price appreciation is not constant — it grows each year — so dividing the total discount evenly across years overstates the early-year appreciation (which is actually smaller). In an interview, use the estimated YTM formula (coupon + annual principal appreciation) / ((price + par) / 2) or the intuitive two-component method. The interviewer wants to see the decomposition into current yield and appreciation yield.",
+    "key_points": [
+      "YTM for a bond trading below par has two components: current yield (C/P) and price appreciation yield",
+      "Current yield = coupon / current price = 10/80 = 12.5%",
+      "Annual price appreciation estimate = (par - price) / years to maturity = (100-80)/5 = 4%",
+      "Estimated YTM = 12.5% + 4% = 16.5% (real answer is 16.126%)",
+      "The intuitive method slightly overstates YTM because annual price appreciation is not constant — it grows as price rises toward par",
+      "Interviewers want to see decomposition into current yield and appreciation yield, not just the formula",
+      "This is the most commonly tested bond math question in RX interviews"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-019",
+    "question": "Let's say that we have two bonds. The first matures in five years with a 10% coupon and is trading at 80. The second matures in four years with a 10% coupon and is also trading at 80. What one do you think has a higher YTM?",
+    "model_answer": "The four-year bond (shorter duration) has a higher YTM. Both bonds have the same current yield (C/P = 10/80 = 12.5%) because they have the same coupon and price. The difference is in the price appreciation component. Both bonds have the same $20 of price appreciation to capture (from 80 to par at 100), but the four-year bond captures it in four years rather than five. Estimated price appreciation yield for the five-year bond: 20/5 = 4%, so estimated YTM = 12.5% + 4% = 16.5%. Estimated price appreciation yield for the four-year bond: 20/4 = 5%, so estimated YTM = 12.5% + 5% = 17.5%. The shorter-duration bond has a higher YTM because, all else being equal, it's better to receive the same cash flows sooner — the time value of money means the same principal pickup in fewer years is worth more on an annualized basis.",
+    "key_points": [
+      "Both bonds have identical current yields (C/P = 12.5%) since coupon and price are the same",
+      "The difference in YTM is entirely driven by the price appreciation component",
+      "Five-year bond: appreciation yield = 20/5 = 4%, estimated YTM = 16.5%",
+      "Four-year bond: appreciation yield = 20/4 = 5%, estimated YTM = 17.5%",
+      "Shorter duration bond has higher YTM because you receive the same principal pickup faster",
+      "Time value of money: receiving cash sooner is always preferable, all else equal",
+      "This illustrates the inverse relationship between duration and YTM when bonds are otherwise identical"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-020",
+    "question": "Let's assume we have a bond maturing in four years with a 10% coupon that's trading at 82. Theoretically, the YTM should be 16.5%. But let's assume we can only reinvest coupons at a lower rate of 5%. Do you think the overall return would be higher or lower?",
+    "model_answer": "The overall return (IRR) would be lower than the stated YTM of 16.5%. The YTM assumes coupons are reinvested at 16.5%. If we can only reinvest at 5%, our coupon reinvestment earnings are significantly lower — instead of earning compound returns at 16.5% on each coupon, we only earn 5%. This reduces total proceeds at maturity. Using the lump-sum IRR method: with 5% reinvestment, total proceeds at maturity drop to approximately 143.10 versus 151.03 if coupons were reinvested at the YTM rate. This lower lump sum produces an IRR of approximately 14.9% rather than 16.5%. Note: The annual coupon IRR calculation (holding the actual coupon cash flows at face value each year and taking IRR) still shows 16.5% because it ignores reinvestment — it treats each coupon as its own cash flow. The lump-sum method correctly captures the drag from lower reinvestment. In an interview, the directional answer suffices: lower reinvestment rate = lower total proceeds = lower actual IRR.",
+    "key_points": [
+      "Lower coupon reinvestment rate reduces total proceeds at maturity compared to reinvesting at YTM",
+      "Total proceeds at maturity fall from ~151.03 (at YTM reinvestment) to ~143.10 (at 5% reinvestment)",
+      "This lower lump sum produces an IRR of approximately 14.9% vs. 16.5% stated YTM",
+      "Reinvestment risk is the risk that coupons cannot be reinvested at the assumed YTM rate",
+      "The annual coupon IRR (treating each coupon as a separate cash flow) still shows 16.5% — it ignores reinvestment drag",
+      "The lump-sum IRR method correctly captures reinvestment rate impact",
+      "In an interview: directional answer is sufficient — lower reinvestment rate unambiguously lowers actual realized return"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-021",
+    "question": "Let's imagine you have three bonds: A, B, and C. All have a 4% coupon and all are trading at 95 cents on the dollar. Bond A matures in 20 years, Bond B matures in 20 years, and Bond C matures in 50 years. The YTMs are 4.5% for Bond A, 3.5% for Bond B, and 4.5% for Bond C. Do you see anything wrong with these bonds?",
+    "model_answer": "There are several problems. First, Bond A and Bond C should not have the same YTM given their very different maturities (50-year bond is longer-dated and should typically have a higher YTM to compensate for greater duration risk, not the same). Second, Bond A and Bond B have identical characteristics (same coupon, same maturity, same price) and therefore should have the same YTM — but they don't (A is 4.5%, B is 3.5%), which is contradictory. Third, Bond B's YTM of 3.5% is wrong on its face: when a bond trades at a discount to par (95 cents), the YTM must be higher than the coupon rate (4%). A YTM of 3.5% is below the coupon, which would only be possible if the bond traded at a premium — not a discount.",
+    "key_points": [
+      "Bond A and Bond C have the same YTM (4.5%) despite very different maturities — longer-dated bond should have higher YTM",
+      "Bond A and Bond B are identical but have different YTMs (4.5% vs. 3.5%) — identical bonds must have identical YTMs",
+      "Bond B's YTM (3.5%) is below its coupon (4%), which is impossible when the bond trades at a discount to par",
+      "When a bond trades below par, YTM must exceed the coupon rate",
+      "Three distinct errors: duration anomaly (A vs. C), identical bond anomaly (A vs. B), and discount/premium contradiction (Bond B)"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-022",
+    "question": "Let's say we have a bond trading at 80 with a 10% coupon and four years to maturity. Assuming we know with certainty that the bond will return par, can you tell me the YTM without using the estimated YTM formula?",
+    "model_answer": "YTM can be broken into two components: (1) current yield (income from coupons) and (2) yield from price appreciation. Current yield = Coupon / Price = 10 / 80 = 12.5%. Price appreciation yield = (Par - Price) / Price / Years to Maturity = ($100 - $80) / $80 / 4 years = $20 / $80 / 4 = 6.25% per year. However, a simpler back-of-envelope approach divides the total appreciation over the price: $20 / $80 = 25% spread over 4 years = approximately 5% per year (using $80 as the denominator for simplicity). Estimated YTM = 12.5% + 5.0% = 17.5% (the actual YTM is approximately 17.3%).",
+    "key_points": [
+      "YTM has two components: current yield (coupon income) and price appreciation yield",
+      "Current yield = 10 / 80 = 12.5%",
+      "Price appreciation = $20 over 4 years on $80 purchase price = ~5% per year",
+      "Estimated YTM = 12.5% + 5.0% = 17.5% (actual is ~17.3%)",
+      "This approach tests intuitive understanding of what drives YTM, not just formula application"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-023",
+    "question": "Let's say we have a bond trading at 80 with a 10% coupon and four years to maturity. Assuming we hold this bond until maturity, and we know that the bond will return par with certainty, can you tell me the return?",
+    "model_answer": "If your interviewer wants a simple non-YTM approach, calculate the return using MOIC and a rough IRR approximation. You spend $80 to buy the bond. Over four years you collect $40 in coupons (4 * $10) and $100 in principal at maturity, for total cash inflows of $140. MOIC = $140 / $80 = 1.75x. Rough IRR = (MOIC - 1) / Years = (1.75 - 1) / 4 = 0.75 / 4 = 18.75% ≈ 18.8%. This ignores the time value of money but gives a quick approximation. The actual IRR is approximately 17.3%.",
+    "key_points": [
+      "Total cash inflows: $40 coupons + $100 principal = $140 on an $80 investment",
+      "MOIC = $140 / $80 = 1.75x",
+      "Rough IRR = (1.75 - 1) / 4 years = 18.75% ≈ 18.8%",
+      "Actual IRR (using time value of money) = ~17.3%",
+      "This method ignores time value of money but provides a quick directional estimate",
+      "Interviewers may ask this to test MOIC/IRR intuition rather than YTM formula recall"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-024",
+    "question": "Would a DCF or a liquidation valuation give a better valuation for a distressed company?",
+    "model_answer": "It depends. A liquidation valuation sets a hard floor on the value of a company — it asks: if we liquidated all assets, how much cash would we get and how would that cover creditors down the capital structure? This is the worst-case scenario supervised by a U.S. Trustee. A DCF gives a higher valuation if the company is not overly distressed, but much of its value comes from the terminal value (year 5 to infinity), which is problematic if the company may go bankrupt before year 5. For a distressed company that can almost certainly get right-sized out-of-court, a DCF gives a higher valuation. For one that will almost certainly go through an in-court procedure, a liquidation valuation may be closer to reality.",
+    "key_points": [
+      "Liquidation valuation sets the floor — assets liquidated in worst-case scenario, supervised by U.S. Trustee",
+      "DCF gives higher valuation for companies not overly distressed, but relies heavily on terminal value",
+      "Terminal value (year 5+) is problematic if the company may not survive to year 5",
+      "Out-of-court restructuring candidate: DCF likely gives higher valuation",
+      "In-court (Chapter 11/7) candidate: liquidation valuation may be more realistic",
+      "The choice depends on the probability and nature of the restructuring path"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-025",
+    "question": "How do we calculate levered FCF and unlevered FCF? For distressed companies, what matters more?",
+    "model_answer": "Unlevered FCF = EBIT*(1-T) + non-cash items - changes in operating assets/liabilities - capex. Levered FCF = net income + non-cash items - changes in operating assets/liabilities - capex - mandatory repayments. For a distressed company, you want to see how it looks without interest expense and principal repayments to understand what capital structure it can actually bear. Unlevered FCF is associated with enterprise value (available to all capital providers) — in distress we care more about this because we're dealing with debt holders. Levered FCF is associated with equity value; for a truly distressed company, levered FCF will likely be very small given the mounds of debt.",
+    "key_points": [
+      "Unlevered FCF = EBIT*(1-T) + non-cash items - changes in operating assets/liabilities - capex",
+      "Levered FCF = net income + non-cash items - changes in operating assets/liabilities - capex - mandatory repayments",
+      "Unlevered FCF corresponds to enterprise value; levered FCF corresponds to equity value",
+      "In distress, unlevered FCF matters more — determines what capital structure the business can bear",
+      "Levered FCF for a highly distressed company is often near zero or negative",
+      "Unlevered FCF is used to determine how much debt the business can service"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-026",
+    "question": "Why would it not make sense to use equity value / EBITDA? Would this number, even if it shouldn't be used, be high or low for a distressed company?",
+    "model_answer": "Because EBITDA belongs to the entire capital structure — including debt holders — so you can't use equity value; you have to use enterprise value (which takes into account all stakeholders). It would be low for a distressed company, perhaps below 1, because equity holders have the lowest claim in the capital structure. As a company nears distress, equity value declines severely even if EBITDA can still be quite stable. If the market believes restructuring is likely, equity will plummet (as it has the lowest possible claim in any waterfall).",
+    "key_points": [
+      "EBITDA belongs to all capital structure stakeholders — must pair with enterprise value, not equity value",
+      "Equity value / EBITDA is technically incorrect because EBITDA is available to all claimants",
+      "For a distressed company this ratio would be very low, potentially below 1x",
+      "Equity plummets as distress becomes apparent — equity is the most junior claim",
+      "EBITDA can remain relatively stable while equity collapses"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-027",
+    "question": "Would you expect EBITDA to be higher or lower with large lease expenses vs. outright ownership?",
+    "model_answer": "EBITDA will be higher when you own vs. lease because D&A is tacked onto the end (added back in EBITDA). Lease expenses are categorized within general operating expenses (which come before EBITDA), while under ownership the equivalent cost is reflected as depreciation, which is added back. For RX interviews, it's worth distinguishing between capital leases (effectively debt, not expenses) and operating leases (normal expenses that reduce EBITDA).",
+    "key_points": [
+      "EBITDA is higher under ownership vs. leasing because D&A is added back in EBITDA calculation",
+      "Operating lease payments are operating expenses — they reduce EBITDA",
+      "Under ownership, equivalent cost = depreciation, which is added back to get EBITDA",
+      "Capital leases are treated as debt in RX, not operating expenses",
+      "Distinction between capital leases (debt) and operating leases (expense) is important for RX"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-028",
+    "question": "Will EPS and P/E be higher for a public company in distress vs. a healthy company (say comparables that are part of the S&P 500)?",
+    "model_answer": "Don't be quick to answer — it could go either way for the P/E ratio. If the company has diminished earnings but the market believes there's a viable turnaround plan, the price could be more 'sticky' making P/E higher. However, earnings could decline only modestly while the capital structure is so onerous that equity declines sharply (reflecting Chapter 11 risk), making the ratio very low. EPS is almost always lower for a distressed company because: roughly the same denominator (avg. shares outstanding, as distressed companies don't have buyback programs) combined with lower and declining earnings.",
+    "key_points": [
+      "P/E ratio is ambiguous for distressed companies — could be higher or lower",
+      "If market believes in turnaround, price remains elevated with declining earnings → high P/E",
+      "If market prices in Chapter 11, equity collapses even with modest earnings decline → low P/E",
+      "EPS is almost always lower for distressed companies — same share count, declining earnings",
+      "Distressed companies don't engage in buybacks, so the share count denominator stays elevated",
+      "EPS decline reflects fundamental earnings deterioration in distress"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-029",
+    "question": "Can sum-of-parts valuations be used for a distressed company?",
+    "model_answer": "Absolutely. If a company has quite a few business lines, the capital structure may assume all are doing well when in reality only some are. For a large enough company, you may break out business lines and assign EBITDA multiples in line with comparables for the healthy lines and much lower ones for unhealthy lines to come up with an EV. This is normally done when advising a company on asset sales prior to bankruptcy — to bring in cash to help restructure the remaining capital structure. When asset sales are involved, an M&A team will typically join the RX group to do the modeling.",
+    "key_points": [
+      "Sum-of-parts is applicable and useful for distressed multi-segment companies",
+      "Each business line gets assigned different EBITDA multiples based on its health",
+      "Healthy segments: market-rate multiples; unhealthy segments: deeply discounted multiples",
+      "Most commonly used when advising on asset sales prior to bankruptcy filing",
+      "Asset sale proceeds used to right-size remaining capital structure",
+      "M&A team typically joins RX group for asset sale modeling"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-030",
+    "question": "What is the enterprise value formula?",
+    "model_answer": "EV = equity value + debt (including capital leases) + preferred stock + non-controlling interests - cash - NOLs - securities and equity investments. Notes: NCI is added because you consolidate financials if you own over 50%. Capital leases are included in debt because they are functionally debt-like obligations. NOLs are deducted because they allow for cash savings via reduced taxes in the future and represent a meaningful asset for distressed companies. Equity interests (investments where you own 20-50%) are only taken off if the financials do not include net income attributable to equity interests.",
+    "key_points": [
+      "EV = equity value + debt (incl. capital leases) + preferred stock + NCI - cash - NOLs - securities/equity investments",
+      "Capital leases included because they are functionally equivalent to debt obligations",
+      "NCI added because consolidated financials include 100% of subsidiary",
+      "NOLs subtracted because they represent future tax savings (a valuable asset)",
+      "Equity investments (20-50% stakes) subtracted only if income not already reflected in financials",
+      "NOLs are especially important and valuable for distressed companies emerging from Chapter 11"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-031",
+    "question": "What's the diluted equity value if you have 1,000 shares outstanding, a share price of $5 and 100 options struck at $3?",
+    "model_answer": "Equity value prior to adjustment = 1,000 shares * $5 = $5,000. To utilize the option, holder buys at $3, generating $300 in cash (100 options * $3). The company uses this cash to buy back shares at the market price of $5, repurchasing 60 shares ($300 / $5). Net new shares = 100 issued - 60 repurchased = 40 new shares. Total diluted shares = 1,000 + 100 - 60 = 1,040. Diluted equity value = 1,040 * $5 = $5,200 (an increase of $200 from the undiluted value).",
+    "key_points": [
+      "Start with undiluted equity value: 1,000 * $5 = $5,000",
+      "Options generate proceeds: 100 options * $3 strike = $300",
+      "Company buys back shares with proceeds: $300 / $5 market price = 60 shares repurchased",
+      "Net new dilutive shares: 100 issued - 60 repurchased = 40",
+      "Diluted share count: 1,040; diluted equity value: $5,200",
+      "Treasury stock method: options proceeds are used to buy back shares at market price"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-032",
+    "question": "What are the steps to finding the dilutive effects of convertibles?",
+    "model_answer": "1. Find out how many convertible bonds you have: take the nominal amount of converts divided by the par value ($1,000). 2. Find out how many shares you get per bond: par value ($1,000) divided by the convert price. 3. Find the total new shares: shares per bond (from step 2) multiplied by number of convertible bonds (from step 1). 4. Add total new shares to pre-existing share count to get total diluted number of shares. 5. Multiply total diluted number of shares by the prevailing market price to get the fully diluted equity value.",
+    "key_points": [
+      "Step 1: Number of convertible bonds = total nominal amount / $1,000 par value",
+      "Step 2: Shares per bond = $1,000 par value / conversion price",
+      "Step 3: Total new shares = shares per bond * number of convertible bonds",
+      "Step 4: Total diluted shares = existing shares + total new shares from conversion",
+      "Step 5: Fully diluted equity value = total diluted shares * current market price",
+      "Only applies if converts are in-the-money (ITM); OTM converts stay as debt"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-033",
+    "question": "Philosophically, why do we even care about enterprise value (EV) for a distressed company?",
+    "model_answer": "In restructuring we care about two things: what a company is worth, and the debt load the company can handle (from a liquidity perspective). At the most basic level, we care about EV because it informs whether a company should be restructured or simply liquidated. That's why in a Chapter 11, the court uses a fairness test to determine if it's even worthwhile to have a company restructure — or if it should be liquidated (Chapter 7) and creditors paid back by absolute priority.",
+    "key_points": [
+      "EV tells you what the company is worth in aggregate — informs restructuring vs. liquidation decision",
+      "In Chapter 11, court uses a fairness test comparing going-concern EV to liquidation value",
+      "If liquidation value > going-concern value, Chapter 7 may be preferred over restructuring",
+      "EV also determines how much debt the capital structure can support",
+      "EV is the foundation for the waterfall analysis showing what each creditor class recovers"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-034",
+    "question": "What is a DCF really doing? How does it apply to RX?",
+    "model_answer": "A DCF is fundamentally about taking the free cash flow of a company over its entire duration and asking: 'What is that worth today?' Near-term cash flows matter much more than far-away ones because of discounting. The terminal value represents the company's value from the near-term projection end to infinity. In RX, a DCF matters insofar as it gives you an enterprise value, but given that a company likely to be restructured will have volatile FCF, it's hard to rely on it. It's much more common to see a liquidity roll-forward (which uses FCF) in a pitch or live deal than a full-blown DCF.",
+    "key_points": [
+      "DCF values a company by discounting all future free cash flows to present value",
+      "Near-term cash flows matter more than far-term because of discounting",
+      "Terminal value represents present value of all cash flows from year 5 to infinity",
+      "In RX, DCF is less useful because distressed companies have highly volatile, unpredictable FCF",
+      "Liquidity roll-forwards using FCF are more common in RX pitches and live deals",
+      "DCF assumes ongoing concern — problematic if company may not survive to year 5"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-035",
+    "question": "How about levered FCF?",
+    "model_answer": "Start at either revenue (minus COGS and operating expenses) or start at EBIT. Subtract interest expense (and add interest income). Multiply this number by (1-t) to adjust for taxes. Add back D&A and all non-cash expenses. Account for changes in operating assets/liabilities. Take out capex. Take out mandatory debt repayments. Note: for distressed companies, mandatory debt repayments will often make levered FCF an almost nonsensical number over the short term. Note: levered FCF applies to equity value — it's essentially the cash available to shareholders after adjusting for what is owed to the rest of the capital structure.",
+    "key_points": [
+      "Start at EBIT, subtract net interest expense, then multiply by (1-t)",
+      "Add back D&A and non-cash items",
+      "Adjust for working capital changes",
+      "Subtract capex",
+      "Subtract mandatory debt repayments",
+      "Result is levered FCF — belongs to equity holders, associated with equity value",
+      "For distressed companies, levered FCF is often near zero or negative due to heavy debt burden"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-036",
+    "question": "Would you expect a bigger difference in levered vs. unlevered FCF for a healthy company or an unhealthy company?",
+    "model_answer": "The difference will almost certainly be much larger for an unhealthy (distressed) company. Levered FCF 'belongs' to shareholders. If a company is distressed, there's pressure somewhere in the debt-side of the capital structure (senior to equity). So if things are rocky up higher in the capital structure, things must be much worse for equity, meaning there must be very little levered FCF left for equity. In a healthy company, with a non-onerous capital structure, there may be substantial cash left over for equity holders, making the spread between levered and unlevered FCF relatively smaller.",
+    "key_points": [
+      "The levered vs. unlevered FCF gap is much larger for distressed/unhealthy companies",
+      "Levered FCF = what's left for equity after all obligations to senior claimants",
+      "Distressed companies have onerous debt levels that consume most or all of unlevered FCF",
+      "Healthy companies have modest debt — more unlevered FCF trickles down to equity",
+      "Large spread signals highly leveraged capital structure absorbing most cash flows"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-037",
+    "question": "What is (unlevered) FCF really telling us?",
+    "model_answer": "We're really saying, after adjusting for things that are non-recurring, what is our actual cash position that the company can put to work. In RX, more than in any other area of finance, cash is very important. It informs the way MDs think about what options really exist for a company out-of-court. This is why we do things like liquidity roll-forwards that use FCF to find out the liquidity available to the company moving forward.",
+    "key_points": [
+      "Unlevered FCF = adjusted cash available to the company from operations, before financing obligations",
+      "In RX, unlevered FCF determines what options a company has for an out-of-court restructuring",
+      "Informs liquidity runway analysis and what debt load the business can support",
+      "Liquidity roll-forwards use FCF to project future cash position",
+      "More important in RX than in any other finance discipline because cash is paramount in distress"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-038",
+    "question": "What's the formula for WACC? How do we determine costs for a distressed company?",
+    "model_answer": "WACC = Cost of equity * (% equity) + cost of debt * (% debt) * (1-t) + cost of preferred * (% preferred). The percent refers to the % of each component relative to the entire capital structure. For a distressed company things get tricky. Cost of equity is typically derived using the CAPM model with a large distressed premium added. For cost of debt, we normally take prevailing yields and depreciate them if highly distressed (because yields would bounce back with a proper restructuring, so prevailing yields could be too high). Preferred shares are treated similarly to cost of debt if present in the capital structure.",
+    "key_points": [
+      "WACC = (cost of equity * % equity) + (cost of debt * % debt * (1-t)) + (cost of preferred * % preferred)",
+      "Each % weight is based on proportion of total capital structure",
+      "Cost of equity for distressed companies uses CAPM plus a distressed premium",
+      "Cost of debt uses prevailing yields, often adjusted downward if yields are distress-inflated",
+      "Prevailing yields may overstate true cost of debt because they reflect distress, not normalized state",
+      "Preferred stock treated similarly to debt for cost purposes"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-039",
+    "question": "What's the CAPM model?",
+    "model_answer": "The CAPM model is used for determining the cost of equity: Cost of Equity = risk-free rate + equity risk premium * levered beta + distressed premium. The risk-free rate is almost always the ten-year treasury rate. Beta refers to the risk of comparable companies (ideally companies that are not too healthy/distressed). Equity risk premium is a set number pulled from Bloomberg. The distressed premium is a percentage bolted onto the end to bump up the cost of equity, reflecting the distressed nature of the company and that the comparable beta set may be much healthier (making the base cost of equity artificially low).",
+    "key_points": [
+      "Cost of Equity (CoE) = risk-free rate + equity risk premium * levered beta + distressed premium",
+      "Risk-free rate = 10-year U.S. Treasury rate",
+      "Equity risk premium = market excess return over risk-free rate, pulled from Bloomberg",
+      "Levered beta derived from comparable companies — unlever and then re-lever to company's capital structure",
+      "Distressed premium added to reflect outsized risk/return potential of distressed equity",
+      "Distressed premium accounts for the fact that comps are likely healthier than the subject company"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-040",
+    "question": "How do we get to the beta we use in the CAPM model?",
+    "model_answer": "There are two steps: (1) Selecting comparable companies — ideally in a similar industry and not doing overly well (to get as close to our distressed company as possible). If fewer than four or five distressed comps exist, use healthy companies (that's what the distressed premium is for). (2) Unlevering those betas (since they are levered to their own capital structures) and then re-levering them based on the actual company's capital structure. Pull levered betas from Bloomberg, unlever all of them (Unlevered Beta = Levered Beta / (1 + (1-t) * (debt/equity))), choose the average (small range) or median (large range), then re-lever: Levered Beta = ULB * (1 + (1-t) * (debt/equity)).",
+    "key_points": [
+      "Step 1: Select comparable companies in similar industry, preferably not overly healthy",
+      "Step 2: Pull levered betas from Bloomberg, unlever all of them, then re-lever to subject company's capital structure",
+      "Unlevered Beta = Levered Beta / (1 + (1-t) * (debt/equity))",
+      "Levered Beta = Unlevered Beta * (1 + (1-t) * (debt/equity))",
+      "Use average of unlevered betas if range is small; use median if range is large",
+      "Distressed premium in CAPM compensates for using healthier comps if no distressed comps available"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-041",
+    "question": "For a distressed company — with bonds trading down to say even 75 — will cost of debt or cost of equity be greater?",
+    "model_answer": "It may be tempting to say cost of equity will be less than cost of debt if bonds are trading down enough. However, when in doubt remember the capital structure is a waterfall. You begin with debt; you end with equity. No matter how high the cost of debt may be, the cost of equity per se must be more — because equity is even further down the capital structure and thus buying equity is even more risky and volatile than buying debt.",
+    "key_points": [
+      "Cost of equity is always greater than cost of debt in the same capital structure",
+      "Capital structure is a waterfall — debt is senior, equity is junior",
+      "Greater seniority = lower risk = lower required return (lower cost)",
+      "Even if bonds trade at 75 cents on the dollar (high yield/cost), equity is riskier still",
+      "This is a fundamental principle of capital structure hierarchy — equity is always the most expensive",
+      "Never confuse a low bond price (high yield) with cost of equity being lower"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-042",
+    "question": "Will a company with more debt have a higher or lower levered beta? What does this lead to?",
+    "model_answer": "Higher. More debt leads to a higher levered beta, which leads to a higher cost of equity in the WACC, which leads to a higher discount rate, and thus a lower EV (all else being equal).",
+    "key_points": [
+      "More debt → higher levered beta (more financial risk for equity holders)",
+      "Higher levered beta → higher cost of equity via CAPM",
+      "Higher cost of equity → higher WACC",
+      "Higher WACC → lower present value of future cash flows → lower EV",
+      "Levered Beta = Unlevered Beta * (1 + (1-t) * (debt/equity)) — demonstrates relationship directly"
+    ],
+    "category": "bond-math",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-bond-math-and-valuation-043",
+    "question": "Let's imagine we have a bond trading at 80 with a 10% coupon and five years to maturity. Rank the YTMs from highest to lowest if we receive coupons annually, semi-annually, or quarterly? What explains this?",
+    "model_answer": "For a bond trading below par, YTM declines as coupon payment frequency increases. Annual YTM ≈ 16.126%, semi-annual ≈ 15.955%, quarterly ≈ 15.870%. So ranking from highest to lowest: Annual > Semi-Annual > Quarterly. Explanation: YTM is the reinvestment rate (discount rate) that makes the PV of all cash flows equal to the current bond price ($80). When you receive coupons more frequently (quarterly vs. annual), you get money sooner and can reinvest it, earning more reinvestment income in total even though each individual coupon is smaller. Because you're generating slightly more reinvestment income through more frequent payments, you need a slightly lower YTM (reinvestment rate) to still make the PV of total proceeds equal $80. Alternatively: more frequent payments mean the discount factor (denominator) in the PV calculation grows faster, so you need a lower rate to match the same price. The inverse is true for bonds trading above par (YTM increases with frequency).",
+    "key_points": [
+      "For bond below par: YTM declines as coupon frequency increases; Annual > Semi-annual > Quarterly",
+      "Annual YTM ≈ 16.13%, semi-annual ≈ 15.96%, quarterly ≈ 15.87%",
+      "More frequent payments → earlier receipt of coupons → more reinvestment income",
+      "Because reinvestment income is higher with more frequent compounding, a lower YTM is sufficient to make PV = $80",
+      "Inverse is true for bonds above par: YTM increases with payment frequency",
+      "Key intuition: the YTM is the required reinvestment rate; more frequent payments reduce the required rate for below-par bonds"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-044",
+    "question": "Let's say you're a hedge fund analyst. Assuming that everything returns par, would you rather invest in a bond trading at 90 with a maturity of one year or a bond trading at 50 maturing in five years? What kind of factors would you need to consider?",
+    "model_answer": "Assuming both bonds return par, the primary analysis is yield, but several secondary factors matter. First, determine the coupon rates: a bond trading at 90 is likely more senior (lower coupon), while a bond at 50 likely has a higher coupon. Using estimated YTM with assumed coupons (e.g., 4% for the 90-bond, 8% for the 50-bond), the 90-bond yields ~14.73% and the 50-bond yields ~24% — making the 50-bond obviously superior on a pure yield basis if both return par. However, if credit markets are tight, the 50-bond (issued more recently or with 5 years remaining) may have a lower coupon than assumed (say 5%), narrowing the YTM difference to 14.73% vs. 20%. Beyond yield, consider: (1) reinvestment risk — YTM assumes coupon income is reinvested at the prevailing yield; for the 5-year bond this is a major assumption that may not hold, while the 1-year bond has minimal reinvestment risk; (2) investment mandate — does the fund invest in lower capital structure positions, and can capital be tied up for 5 years? (3) optionality/market price appreciation — the 50-bond may trade up significantly if the market recognizes its par return potential within the first year, allowing an early sale at a large gain. In reality, given the large pricing difference, one would likely prefer the 50-bond but must acknowledge the reinvestment risk and mandate constraints.",
+    "key_points": [
+      "Assuming par recovery, primary driver is YTM — the 50-bond (lower price, longer tenor, likely higher coupon) typically has a much higher YTM",
+      "Example YTMs: 90-bond at ~14.73%, 50-bond at ~24% with assumed coupon differential",
+      "Credit market environment affects coupon rates — if tight markets, coupons may be more comparable",
+      "Reinvestment risk: YTM assumes coupons reinvested at prevailing yield; 5-year bond carries far more reinvestment risk than 1-year bond",
+      "Investment mandate matters: can the fund hold a lower-rated 5-year credit? Does it have a hold-to-maturity constraint?",
+      "If market recognizes the 50-bond will return par, it may trade up to 80-90 within a year — allowing early sale with spectacular return",
+      "The open-ended nature means how you reason through it matters more than the final choice"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-045",
+    "question": "Let's say we have a company with a $500M term loan trading at par. The company also has three tranches of $500M Senior Notes (all pari with each other and totaling $1.5B in aggregate). One tranche of Senior Notes is trading at 80, the other two are trading at 60. All have a YTM of 20%. What explains how the YTM is the same?",
+    "model_answer": "All three tranches of Senior Notes are pari passu with one another, so they have the same recovery value in a restructuring and the same relative claim. The only way to explain a 20% YTM for all three tranches despite different prices (80 vs. 60) is that they have different maturity dates. A bond trading at a higher price with the same YTM must have a shorter maturity, because getting principal back sooner boosts the effective annual return. For example, if debt trades at 50 with a 10% coupon and matures in one year, the YTM is ~80%. If the same bond matures in two years, the YTM drops to ~47%. Applying this logic, the 80-Notes must be maturing sooner (e.g., in two years) while the 60-Notes mature later (e.g., in five years) — which would reconcile both having a 20% YTM.",
+    "key_points": [
+      "All three tranches are pari passu — same seniority and recovery in any restructuring",
+      "Different prices (80 vs. 60) with the same 20% YTM can only be explained by different maturity dates",
+      "Getting principal back sooner increases effective YTM for a given price — so the higher-priced tranche must mature sooner",
+      "Shorter maturity compresses the discount on principal repayment, boosting effective return at a given price",
+      "Example: a $50 bond with 10% coupon has YTM of ~80% if 1-year maturity but ~47% if 2-year maturity",
+      "In this scenario, 80-Notes mature in ~2 years; 60-Notes mature in ~5 years — both consistent with 20% YTM"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-046",
+    "question": "Let's say that I didn't believe that YTM actually assumes coupons are being reinvested at the YTM rate. How could you try to convince me it's actually true?",
+    "model_answer": "This question is flagged as not interview-appropriate (too conceptual) but builds foundational understanding. To prove YTM assumes coupon reinvestment at the YTM rate, compare two strategies for a bond with a 10% coupon, 4-year maturity, YTM of 16.5%, trading at 82: Strategy A — invest the purchase price (82) in a bank account at the YTM rate (16.5%) for four years. Strategy B — hold the bond, collect coupons annually and immediately reinvest each at the YTM rate until maturity, then collect par. Both strategies produce the same total proceeds at maturity (151.03) and the same IRR (16.5%). The PV of those maturity proceeds discounted at 16.5% equals the current price (82). If instead coupons were reinvested at a lower rate, total proceeds at maturity would be less, and the IRR would be lower than the stated YTM. This proves that YTM mathematically assumes coupon reinvestment at the YTM rate. When coupons are actually reinvested at the YTM rate, the bond investment is equivalent to a lump-sum investment at the same rate — Strategy A = Strategy B.",
+    "key_points": [
+      "YTM assumes coupons are reinvested at the YTM rate — this is a core mathematical property, not an assumption",
+      "Strategy A: invest purchase price in a bank account at the YTM rate for life of bond",
+      "Strategy B: hold bond, reinvest coupons at YTM rate, collect par at maturity",
+      "Both strategies produce identical total proceeds at maturity and identical IRR equal to YTM",
+      "The PV of proceeds from either strategy discounted at YTM equals the current bond price",
+      "If coupons are reinvested at a lower rate, total proceeds fall and actual IRR is below stated YTM",
+      "This is why reinvestment risk matters: failure to reinvest at YTM lowers actual realized return",
+      "When coupon = YTM (bond at par), IRR is 10% under both lump sum and annual coupon methods"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-047",
+    "question": "In prior questions we've said that the current yield captures the portion of the YTM stemming from the coupons. But is that really true? Does the current yield really capture not only the coupons but their reinvestment earnings? How would you go about showing that?",
+    "model_answer": "This question is flagged as not interview-appropriate. For a bond with 5 years to maturity, 10% coupon, YTM of 16.126%, trading at $80: The current yield (C/P) = 10/80 = 12.5%. To test whether current yield captures coupon reinvestment earnings, compute total excess proceeds above the purchase price at maturity. Total proceeds at maturity = $168.94 (coupons $50 + reinvestment earnings $18.94 + price appreciation $20 + return of principal $80). Excess proceeds = $168.94 - $80 = $88.94. Breaking down: coupons = $50 (56.22% of excess), reinvestment earnings = $18.94 (21.30%), price appreciation = $20 (22.49%). Translating to YTM contributions: coupons = 9.07%, reinvestment earnings = 3.43%, price appreciation = 3.63%, total YTM = 16.13%. The sum of coupon contribution (9.07%) + reinvestment contribution (3.43%) = 12.5%, which equals the current yield (C/P). Therefore, the current yield does capture both the coupons earned and their reinvestment at the YTM rate — it's not just the coupon component in isolation.",
+    "key_points": [
+      "Current yield (C/P = 10/80 = 12.5%) actually captures both the coupons AND their reinvestment at the YTM rate",
+      "Total proceeds at maturity: $168.94 = $50 coupons + $18.94 reinvestment earnings + $20 price appreciation + $80 return of principal",
+      "Excess proceeds over purchase price = $88.94, broken into coupons (56.22%), reinvestment earnings (21.30%), price appreciation (22.49%)",
+      "YTM contributions: coupons = 9.07%, reinvestment = 3.43%, price appreciation = 3.63%; total = 16.13%",
+      "Coupon YTM contribution (9.07%) + reinvestment YTM contribution (3.43%) = 12.5% = current yield",
+      "The price appreciation portion of YTM (3.63%) is distinct from the current yield component",
+      "This confirms: YTM = current yield (capturing coupons + reinvestment) + appreciation spread yield"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-048",
+    "question": "Let's say that we have a bond maturing in four years with a 5% coupon and a YTM of 10%. Can you tell me, without doing any real math, what the price roughly is?",
+    "model_answer": "This is an interview-style question — the reverse of finding YTM given price. Since the YTM (10%) is substantially higher than the coupon (5%), the bond must be trading well below par. We use the insight that the spread between YTM and coupon rate reflects the required annual appreciation. Initial estimate: assume all of the excess yield (10% - 5% = 5%) is driven by annual principal pickup. With four years to maturity, that implies $5 of price appreciation per year, or $20 total. Starting estimate: $100 - $20 = $80. However, this understates the true price because: (1) by assuming the bond is at $80, the coupon yield contribution is being treated as 5/100 = 5% (par equivalent), when actually it should be current yield = 5/80 = 6.25% — we are understating the coupon's yield contribution; (2) annual price appreciation is not constant but grows as the price rises. Better estimate: using the $80 starting price, compute current yield = 5/80 = 6.25%, so appreciation yield = 10% - 6.25% = 3.75%, implying total appreciation = 3.75% x 4 = $15, and implied price = 100 - 15 = $85. The real answer is $84.15. In an interview, give $80 as the first-pass estimate, acknowledge it understates the true price, and iterate to ~$85 using the current yield adjustment.",
+    "key_points": [
+      "When YTM > coupon rate, the bond must trade below par",
+      "Initial estimate: excess yield = YTM - coupon = 10% - 5% = 5%; annual appreciation = $5; total = $20; implied price = $80",
+      "This understates the true price because it misattributes too much yield to principal pickup and too little to coupons",
+      "Correction: use $80 as starting price to find current yield = 5/80 = 6.25%; implied appreciation yield = 10% - 6.25% = 3.75%",
+      "Revised total appreciation = 3.75% x 4 years x $80 implied price = $15; revised price = $85",
+      "Real answer (DCF method) = $84.15 — the iterated estimate ($85) is very close",
+      "In an interview: give the $80 first estimate, explain the direction of the error, and iterate to ~$85",
+      "Interviewer wants intuition and correct directional reasoning, not precision"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-049",
+    "question": "We use diluted equity in the EV equation. Is that really necessary for RX? Are there dilutive effects really occurring when the stock price of a distressed company probably is falling?",
+    "model_answer": "You always use diluted equity value in the EV equation to account for options, converts, and preferred stock. While it's easy to assume options won't be in-the-money (ITM) for a distressed company, management options can often have very low strike prices and could very well vest and convert to equity. Convertible debt has been very popular; while it's unlikely to be ITM, it could be the case, and if converts do convert you have a different debt load. For options, use the treasury stock method. For converts, the dilutive effect is pre-determined by the terms of issuance; if converts are OTM, they're just added to debt.",
+    "key_points": [
+      "Always use diluted equity value in EV equation to capture options, converts, and preferred stock",
+      "Management options often have very low strike prices — can be ITM even for distressed companies",
+      "Convertible debt: if OTM, treated as debt; if ITM, converts to equity and changes debt load",
+      "Treasury stock method used for options to calculate dilutive effect",
+      "Convert dilution is predetermined by terms of issuance (par value / conversion price)",
+      "Failing to use diluted shares understates equity value for companies with low-strike management options"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-050",
+    "question": "Is adding back the book value of debt really giving a fair reading of EV?",
+    "model_answer": "In M&A, adding back book value of debt makes sense because the debt will be repaid in an acquisition. In RX, this is less clear. By definition we're going to be changing the terms of debt, trying to get rid of some of it, so why use the book value pre-restructuring? Also, market price is likely at a heavy discount to book value. In RX, where possible, we show cap tables with market prices and calculate leverage ratios based on market pricing — this prompts the hypothetical: what if we convince holders to exchange current debt (at book value) for an equivalent amount at market prices, heavily reducing principal? There's no single right answer — restructurings don't always end with less face value debt (sometimes PIK is added, or bonds are exchanged for slightly larger issuances at lower rates). Debt in RX is much more malleable than in M&A.",
+    "key_points": [
+      "In M&A, book value of debt in EV makes sense because debt is repaid at par in acquisitions",
+      "In RX, book value is questionable — debt terms will change and market price is at a discount",
+      "RX practitioners show both book value and market value of debt in cap tables",
+      "Market value of debt prompts exchange offer hypothetical: exchange at market to reduce principal",
+      "Restructurings don't always reduce face value — can add PIK or exchange for larger issuances",
+      "Debt in RX is malleable — not a fixed number as it is in M&A"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-051",
+    "question": "Does cost of equity even make sense for a distressed company? What is it really telling you?",
+    "model_answer": "Cost of equity isn't telling us what the cost of raising new debt is — it's telling you what an equity investor could expect to earn. For a distressed company, things get much more binary: equity could either go to zero (in a heavy restructuring resulting in Chapter 11) or a turnaround could occur from already distressed equity values, resulting in large equity gains. So the notion that a distressed premium would be added makes directional sense — it reflects the fact that there are potentially outsized gains from holding distressed equity.",
+    "key_points": [
+      "Cost of equity = expected return for an equity investor, not cost of raising new capital",
+      "For distressed companies, equity outcomes are binary: zero (Chapter 11 wipeout) or large gains (turnaround)",
+      "Distressed premium in CAPM reflects potential for outsized returns from distressed equity",
+      "Distressed equity is highly volatile — much more so than healthy company equity",
+      "CAPM cost of equity reflects this binary, high-variance return profile"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-052",
+    "question": "Would you expect distressed companies to have positive betas or negative betas?",
+    "model_answer": "Almost all companies have positive betas as a high tide lifts all boats. However, for a distressed company this is not necessarily true. Very few distressed companies will have their stock price moving up significantly even in a bull market. In a bull market you would expect negative betas for distressed companies. In a bear market you would expect very high positive betas — because if the market is going down, distressed companies will be going down even more than the aggregate market (as they are the weakest companies). A negative beta means the equity moves counter to the market in aggregate.",
+    "key_points": [
+      "Most companies have positive betas — they move with the overall market",
+      "Distressed companies in a bull market may have negative betas — their stock falls even as market rises",
+      "Distressed companies in a bear market have very high positive betas — fall faster than the market",
+      "Negative beta: equity moves counter to the market in aggregate",
+      "This is why distressed premium is added to CAPM — standard beta may not reflect true risk"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-053",
+    "question": "What will a DCF of a distressed company end up looking like?",
+    "model_answer": "It can look 'off' in a number of ways. Traditionally the terminal value makes up a big chunk of EV. For a distressed company with negative FCF over the near-term, the entire EV is composed of the terminal value — which is questionable if the company may not even exist before year 5. You can apply a very low multiple to the far-term segment to account for distress, but then you have an EV made up heavily of discounted FCF over a very short time segment. RX is ultimately focused on near-term realities (maturity walls, cash burn) rather than long-term projections, and a DCF is fundamentally a long-term tool.",
+    "key_points": [
+      "Distressed company DCF often has the terminal value comprising 100% of EV (near-term FCF is negative)",
+      "Terminal value is unreliable if the company may not survive to year 5",
+      "Applying a low multiple to terminal value creates an EV driven entirely by short-term discounted FCF",
+      "Neither approach is fully satisfactory for truly distressed companies",
+      "DCF is a long-term tool — RX focuses on near-term liquidity crises",
+      "Liquidity roll-forwards are more practical in live RX situations than full DCFs"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-bond-math-and-valuation-054",
+    "question": "What is the philosophical flaw with a DCF that precludes its use for seriously distressed companies?",
+    "model_answer": "A DCF is predicated on unlevered FCF and EBITDA (via near-term and far-term periods respectively). Both formulas try to regularize finances, which is great for traditional companies where you don't want non-recurring items distorting the long-term financial picture. However, in distress you're dealing with near-term disruptions due to the capital structure in conjunction with the company not having great growth on a levered basis — making it hard to envision the company as a stable, ongoing concern for years into the future. That's why we care much more about liquidity roll-forwards and what EBITDA and FCF are right now. M&A is about long-term fair value; RX is about right-sizing the company right now.",
+    "key_points": [
+      "DCF predicated on regularized, normalized FCF and EBITDA — assumes stable ongoing concern",
+      "Distressed companies have near-term disruptions, capital structure pressure, and non-recurring charges that distort both metrics",
+      "Terminal value assumes company survives indefinitely — unrealistic for seriously distressed companies",
+      "RX focuses on immediate liquidity and current EBITDA/FCF, not 5+ year normalized projections",
+      "Liquidity roll-forwards are preferred in RX because they capture near-term cash reality",
+      "M&A goal is long-term fair value; RX goal is right-sizing the capital structure now"
+    ],
+    "category": "bond-math",
+    "difficulty": 3
+  },
+  {
+    "question": "A bond has a current price of 80, 10% coupon, and matures next year. What's the YTM? Will the YTM be higher if it matures in two years?",
+    "model_answer": "For a bond maturing next year: YTM = (c + (FV - P)) / P = (10 + (100-80)) / 80 = 30/80 = 37.5%. If the bond matures in two years, YTM will be lower because the $20 capital gain (FV - price) is spread over two years instead of one. Use the estimate formula: (C + (FV-P)/n) / ((F+P)/2) = (10 + (20/2)) / (180/2) = 20/90 = 22.22%. Assume annual coupons and FV of 100 unless told otherwise.",
+    "key_points": [
+      "YTM (1-year) = (coupon + (par - price)) / price",
+      "YTM decreases as maturity extends — capital gain spread over more years",
+      "Estimate formula for 2+ years: (C + (FV-P)/n) / ((F+P)/2)",
+      "YTM decreases as coupon frequency increases (quarterly < annual)"
+    ],
+    "category": "bond-math",
+    "difficulty": 2,
+    "id": "rx-bond-math-and-valuation-055"
+  },
+  {
+    "question": "A company has $50m in EBITDA with comparables trading at 6x. The company has $400m in debt with 0 in cash. What's the company's enterprise value and equity value? What does the debt trade at?",
+    "model_answer": "EV = 50×6 = $300m. Equity value cannot be negative in economic terms — it will be marginally above zero (some embedded optionality). Debt trades at a discount when debt exceeds EV. Since EV is $300m and debt is $400m, debt trades at 75 cents on the dollar (0.75×400=300). In a Chapter 11 scenario, equity would be essentially zero but there's always some residual optionality pre-filing.",
+    "key_points": [
+      "EV = EBITDA × comparable multiple = $300m",
+      "When EV < debt, equity is ~0 but not exactly zero (optionality)",
+      "Debt trades at discount: $300m EV / $400m debt = 75 cents on dollar",
+      "Equity has non-zero value due to call option-like nature"
+    ],
+    "category": "bond-math",
+    "difficulty": 2,
+    "id": "rx-bond-math-and-valuation-056"
+  },
+  {
+    "question": "What if the CEO actually finds $100m under his cushions at home. What happens to debt and equity value?",
+    "model_answer": "Debt trades up to par (100) because there is now full asset coverage ($300m EV + $100m cash = $400m = debt outstanding). Equity still has some very small non-zero or slightly positive value. In a rational efficient market, the CEO would immediately announce finding $100m, bonds would respond by trading up to par, and then the company could go buy back debt at par. The key insight is that an influx of cash (when bonds trade at a discount) accrues to the benefit of debt holders, not equity holders.",
+    "key_points": [
+      "Additional cash restores full debt coverage → debt trades up to par",
+      "Equity remains marginally positive",
+      "Cash infusion when bonds trade at discount benefits debtholders, not equity",
+      "Rational market: announcement alone moves bonds to par"
+    ],
+    "category": "bond-math",
+    "difficulty": 2,
+    "id": "rx-bond-math-and-valuation-057"
+  },
+  {
+    "question": "What's the COD (cost of debt) for a company in distress? Where should new bonds be priced?",
+    "model_answer": "Conventional wisdom is that the YTM corresponds to what the cost of debt should be. However, for distressed companies this isn't quite right. Bonds may be trading down because the market doubts they can be refinanced at all. The correct answer for COD is somewhere around the YTM, but if the YTM is being driven by lots of default bets then it's likely lower than the YTM (if you can raise debt at all). New bonds will often price well below the implied YTM of existing distressed bonds.",
+    "key_points": [
+      "Theoretical COD = YTM, but this overstates it for distressed companies",
+      "High YTM in distress reflects default probability, not new issuance rate",
+      "New bonds price lower than implied YTM of distressed existing bonds",
+      "COD ≈ YTM adjusted downward for default premium already baked in"
+    ],
+    "category": "bond-math",
+    "difficulty": 3,
+    "id": "rx-bond-math-and-valuation-058"
+  },
+  {
+    "question": "Why are YTM or YTC not really correct?",
+    "model_answer": "Because YTM assumes you can reinvest coupon payments at the same rate as the bond is paying. This is only really true for zero coupon bonds since there are no bi-annual interest payments. For distressed bonds trading at very high yields, it is clearly unrealistic to assume you can reinvest those cash flows at the same high yield. This is why YTM is not used by all RX shops in cap tables.",
+    "key_points": [
+      "YTM assumes reinvestment of coupons at the same rate — usually unrealistic",
+      "Zero coupon bonds are the only case where YTM is exactly correct",
+      "Distressed high YTMs especially problematic — can't reinvest at 30%+",
+      "Some RX shops avoid YTM in cap tables for this reason"
+    ],
+    "category": "bond-math",
+    "difficulty": 2,
+    "id": "rx-bond-math-and-valuation-059"
+  },
+  {
+    "question": "What's original issue discount?",
+    "model_answer": "Original issue discount (OID) refers to bonds issued below par (100) at origination. It is essentially a form of yield enhancement. The cash interest is still the same for the company (set coupon rate), but the yield for the buyer is higher because they put in, for example, $90 at issuance but get $100 back at maturity. The $10 discount amortizes as income over the bond's life.",
+    "key_points": [
+      "Bond issued below par (e.g., at 90 cents on the dollar)",
+      "Yield to buyer is enhanced because they receive par at maturity",
+      "Cash coupon stays the same for the issuer",
+      "OID accretes to par over the bond's life as additional yield"
+    ],
+    "category": "bond-math",
+    "difficulty": 2,
+    "id": "rx-bond-math-and-valuation-061"
+  }
+]

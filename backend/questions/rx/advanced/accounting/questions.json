@@ -1,0 +1,492 @@
+[
+  {
+    "id": "rx-accounting-and-financial-statements-013",
+    "question": "Let's say there's a company with a 20x P/E, a 10x EV/EBITDA, $20mm of annual interest expense, $20mm of annual D&A, an interest rate of 5% on its debt, and a $200mm market cap. Given all this, what's the company's tax rate?",
+    "model_answer": "Start by working from the given building blocks. Debt = Interest Expense / Interest Rate = $20mm / 0.05 = $400mm. EV = Market Cap + Debt = $200mm + $400mm = $600mm. Since EV/EBITDA = 10x, EBITDA = $60mm. Pre-tax earnings = EBITDA - Interest - D&A = $60mm - $20mm - $20mm = $20mm. P/E = Market Cap / Earnings, so Earnings = $200mm / 20 = $10mm (after-tax). Taxes = Pre-tax earnings - After-tax earnings = $20mm - $10mm = $10mm. Tax rate = $10mm / $20mm = 50%.",
+    "key_points": [
+      "Derive debt from Interest Expense / Interest Rate: $20mm / 0.05 = $400mm",
+      "EV = Market Cap + Debt = $200mm + $400mm = $600mm",
+      "EBITDA = EV / EV multiple = $600mm / 10x = $60mm",
+      "Pre-tax earnings = EBITDA - D&A - Interest = $60mm - $20mm - $20mm = $20mm",
+      "After-tax earnings from P/E: Market Cap / P/E = $200mm / 20 = $10mm",
+      "Tax = $20mm - $10mm = $10mm; tax rate = 50%",
+      "Key approach: build from known building blocks step-by-step rather than solving all at once"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-014",
+    "question": "Let's say that a company has some Senior Notes trading at fifty cents on the dollar and they go and buy back $100 (face value) worth of these Notes. Can you walk me through the three statements?",
+    "model_answer": "The company is buying back $100 face value of Senior Notes but only paying $50 (since they trade at 50 cents on the dollar). Income Statement: The $50 spread between face value ($100) and purchase price ($50) is recognized as a gain on retirement of debt — an 'Other Income' item below operating income. Applying a 40% tax rate, the after-tax gain is $30 (net income increases by $30). Cash Flow Statement: Under CFO, net income is up $30, but we must subtract the non-cash gain of $50 (since the gain is not a cash inflow), leaving CFO down $20. Under CFF, we record the cash paid to retire the debt: -$50. Net change in cash = -$20 (CFO) + (-$50) (CFF) = -$70. Balance Sheet: Cash is down $70. Debt is down $100 (face value retired). Retained earnings is up $30 (net income gain). Assets: -$70 cash; Liabilities: -$100 debt; Equity: +$30 retained earnings. Check: -$70 = -$100 + $30. Balanced.",
+    "key_points": [
+      "Company pays $50 cash to retire $100 face value debt — creates a $50 gain on retirement of debt on the income statement",
+      "Income statement: $50 pre-tax gain × (1 - 40% tax) = $30 net income increase",
+      "CFO: net income up $30, subtract non-cash gain of $50, so CFO = -$20",
+      "CFF: cash outflow to retire debt = -$50",
+      "Net change in cash = -$70 (CFO -$20 + CFF -$50)",
+      "Balance sheet: cash -$70, debt -$100, retained earnings +$30; assets down $70 = liabilities down $100 + equity up $30 (balanced)"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-015",
+    "question": "Let's say we have $50 in PIK interest and $50 in cash interest. Can you walk through the three statements?",
+    "model_answer": "This question combines PIK and cash interest mechanics simultaneously. For cash interest: $50 cash interest is expensed on the income statement (reducing pre-tax income by $50), flows through net income, and appears as a cash outflow under CFO (or sometimes CFF depending on treatment). For PIK interest: $50 PIK interest is also expensed on the income statement (reducing pre-tax income by $50), but since it is non-cash (it accretes onto the principal of the debt rather than being paid in cash), it must be added back on the cash flow statement under CFO as a non-cash item. On the balance sheet, the PIK interest increases the face value of the debt by $50. The cash interest reduces cash by $50. Both reduce retained earnings proportionally after tax. The key mechanic is that PIK and cash interest are treated identically on the income statement (both are interest expense) but differ on the cash flow statement and balance sheet — cash interest reduces cash, while PIK interest increases debt principal.",
+    "key_points": [
+      "Both PIK and cash interest are expensed on the income statement as interest expense",
+      "Cash interest: reduces cash on the balance sheet and is a cash outflow on the cash flow statement",
+      "PIK interest: non-cash — must be added back on the CFO section of the cash flow statement",
+      "PIK interest accretes onto (increases) the face value/principal of the debt on the balance sheet",
+      "Net income is reduced by both equally (before the CFO add-back for PIK)",
+      "The question tests ability to combine two known mechanics simultaneously — treat each piece separately and sum effects"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-016",
+    "question": "Let's say that a company sells $100 worth of products that have a cost of $50. At the same time, it also bought $150 worth of inventory. Can you walk me through the three statements?",
+    "model_answer": "Income Statement: Revenue of $100, COGS of $50, pre-tax income of $50. Applying a 20% tax rate, net income = $40.\n\nCash Flow Statement: Start with net income of +$40. The company sold $50 worth of inventory (source of cash, +$50) but also purchased $150 worth of new inventory (use of cash, -$150). Net change in working capital = -$100. Overall cash flow = $40 - $100 = -$60.\n\nBalance Sheet: Cash is down $60 on the asset side. Inventory: sold $50 worth, bought $150, so net inventory is +$100. Net asset change = -$60 + $100 = +$40. On the liabilities and equity side, retained earnings increase by $40 (from net income). Balance sheet balances.",
+    "key_points": [
+      "Income statement: $100 revenue - $50 COGS = $50 pre-tax; net income = $40 at 20% tax",
+      "Cash flow: net income +$40, add back $50 source from inventory sold, subtract $150 use from inventory purchased",
+      "Net operating cash flow = -$60 overall",
+      "Balance sheet: cash down $60, inventory up net $100; asset side net +$40",
+      "Retained earnings up $40 on the liabilities/equity side; balance sheet balances",
+      "Key insight: inventory purchased but not yet sold is a working capital use of cash, not an income statement hit"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-017",
+    "question": "Let's say that a company has $100 in interest expense (50% PIK / 50% cash) and $50 in interest income. Can you walk through the three statements?",
+    "model_answer": "Income Statement: Interest expense is $100, interest income is $50, so net interest cost is $50. Pre-tax income is down $50. At a 20% tax rate, net income is down $40.\n\nCash Flow Statement: Start with net income down $40. Add back the PIK interest ($50) since it is non-cash. Net cash flow is up $10 overall.\n\nBalance Sheet: Cash is up $10 on the asset side. On the liabilities and equity side, debt increases by $50 (due to the PIK interest accreting onto the principal), and retained earnings decrease by $40 (from net income flowing in). Balance sheet balances: +$10 assets = +$50 debt - $40 retained earnings.",
+    "key_points": [
+      "50% PIK on $100 interest = $50 cash interest and $50 PIK (non-cash) interest",
+      "Net income is down $40 (pre-tax income down $50, tax benefit at 20%)",
+      "PIK interest is added back on the cash flow statement because it is non-cash",
+      "Cash is up $10 (net income -$40 + PIK add-back +$50)",
+      "Debt increases by $50 on the balance sheet to reflect PIK accrual",
+      "Balance: assets +$10 = liabilities +$50 debt - $40 retained earnings"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-018",
+    "question": "Let's say you're looking at a bank. Loans comprise the majority of the assets and they all have a 10% interest rate. Deposits comprise 80% of the capital structure and depositors get paid 5%. Forgetting about tax implications, etc., can you quickly tell me what the ROE is?",
+    "model_answer": "Assume $100 in loans (assets). At a 10% interest rate, the bank earns $10 in interest income. Deposits make up 80% of the capital structure, so deposits = $80 and equity = $20. The bank pays 5% on deposits: $80 * 5% = $4 in interest expense. Net income = $10 - $4 = $6. ROE = Net Income / Equity = $6 / $20 = 30%.",
+    "key_points": [
+      "From a bank's perspective, loans are assets and deposits are liabilities",
+      "Interest income = $100 * 10% = $10",
+      "Deposits = 80% of $100 capital structure = $80; equity = $20",
+      "Interest expense = $80 * 5% = $4",
+      "Net income = $10 - $4 = $6",
+      "ROE = $6 / $20 = 30%"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-019",
+    "question": "Let's say we're looking at a company and they have negative shareholders' equity. What could give rise to this?",
+    "model_answer": "Negative shareholders' equity is not inherently alarming and does not necessarily reflect financial distress. It can arise from: (1) heavy or cumulative dividend payments that exceed retained earnings; (2) accumulated net losses over time; (3) dividend recapitalizations (where a company takes on debt and pays it out as a dividend, reducing equity); (4) an aggressive share buyback program, which creates a negative treasury stock line item within shareholders' equity. Note that negative book equity says nothing about equity market value (market cap) — a company can have negative book equity but positive market cap if investors expect future earnings.",
+    "key_points": [
+      "Negative SE can result from cumulative dividends or dividend recaps reducing retained earnings below zero",
+      "Accumulated net losses over time create negative retained earnings",
+      "Share buyback programs reduce equity via the treasury stock line item",
+      "Negative book equity does not mean equity market cap is zero or negative",
+      "Not inherently a sign of distress — many healthy companies have negative book equity"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-020",
+    "question": "Given the current economy, if a company wants to boost EPS what method should they use for reporting inventory (LIFO or FIFO)? What about if they want to boost cash flow?",
+    "model_answer": "In an inflationary environment, inventory purchased earlier is cheaper than inventory purchased recently. Under FIFO, you match revenue against the cost of the oldest (cheapest) inventory first, resulting in lower COGS and higher gross profit and net income, which boosts EPS. Under LIFO, you match revenue against the most recently purchased (more expensive) inventory, resulting in higher COGS, lower net income, but also lower ending inventory on the balance sheet, which means a larger inventory drawdown on the cash flow statement — thus higher operating cash flow. So: to boost EPS, use FIFO. To boost cash flow, use LIFO.",
+    "key_points": [
+      "In an inflationary environment, older inventory is cheaper than newer inventory",
+      "FIFO: matches revenue with cheap old inventory costs → lower COGS → higher net income → higher EPS",
+      "LIFO: matches revenue with expensive recent inventory costs → higher COGS → lower net income but higher CFO",
+      "LIFO produces a larger inventory decline on the balance sheet, which is a source of cash on the cash flow statement",
+      "To boost EPS: use FIFO; to boost cash flow: use LIFO"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-021",
+    "question": "What will result in a higher multiple, using capital or operating leases? If we want to try to increase EBITDA, what would be the downsides to using capital leases?",
+    "model_answer": "Operating leases result in a higher EV/EBITDA multiple because operating lease payments flow through as operating expenses, reducing EBITDA. Lower EBITDA with a fixed EV means a higher multiple. Capital leases, by contrast, split the lease payment into depreciation and interest expense — depreciation is below EBITDA (does not reduce it), so EBITDA is higher with capital leases, leading to a lower EV/EBITDA multiple. If you want to increase EBITDA, use capital leases. The downside of capital leases is that they tie you to the asset financially for a long duration and reduce flexibility. To qualify as a capital lease, the arrangement must involve: transfer of ownership after the lease ends, a discount purchase option, a duration exceeding 75% of the asset's useful life, or lease payments that exceed 90% of the asset's fair value in present value terms.",
+    "key_points": [
+      "Operating leases are pure operating expenses that reduce EBITDA, leading to a higher EV/EBITDA multiple",
+      "Capital leases split into depreciation (below EBITDA line) and interest; EBITDA is higher",
+      "Higher EBITDA from capital leases → lower EV/EBITDA multiple",
+      "Downside of capital leases: long-term financial commitment to the asset, reduced flexibility",
+      "Capital lease criteria: ownership transfer, discount purchase option, >75% of useful life, or PV of payments >90% of fair value"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-022",
+    "question": "Philosophically what really is an asset or a liability? Does it differ if the company is distressed?",
+    "model_answer": "For a company, an asset is something that can generate additional cash, or contributes to it in an essential way, in some period(s) in the future. Assets are valued using a form of discounted cash flows. Liabilities are the opposite — they strip away cash, directly or indirectly, sometime in the future. For a distressed company, assets suddenly are deemed to have less capacity to generate cash while liabilities strip away roughly the same amount of cash. Assets lose value in distress (e.g., PP&E for a company whose products are no longer in vogue is worth less), while debt liabilities remain at book value until restructured or bankruptcy occurs. The key insight: liabilities are more 'sticky' in their cash drain than assets are in their cash gain.",
+    "key_points": [
+      "Asset = something that generates or contributes to cash in future periods",
+      "Liability = something that strips away cash directly or indirectly in the future",
+      "In distress, assets lose capacity to generate cash while liabilities remain sticky",
+      "Debt book value stays the same until restructuring or bankruptcy — market value may be lower",
+      "PP&E for a distressed company is worth less as its cash-generating capacity is diminished",
+      "Liabilities are more sticky in their cash drain than assets are in their cash gain"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-023",
+    "question": "How do we think about capitalizing vs. expensing things? Anything to be mindful of in the context of restructuring?",
+    "model_answer": "We capitalize things when their useful life is over a year, then depreciate or amortize them over the relevant period. In distressed situations, capital leases are particularly important because they are considered debt and are often added (if large) to cap tables. Capital leases are generally leases where: (1) the lease runs for at least 75% of the useful life of the asset, (2) there is a bargain purchase option at end of lease, (3) there is optional ownership takeover language when the lease ends, or (4) the PV of lease payments represents over 90% of the asset's fair market value. Note: In Chapter 11 a company can assign or reject leases — these can be normal operating leases for retail space, not necessarily capital leases.",
+    "key_points": [
+      "Capitalize items with useful life over one year; expense items consumed in the current period",
+      "Capitalized items are depreciated or amortized over their useful life",
+      "In distress, capital leases matter because they are treated as debt and added to cap tables",
+      "Capital lease criteria: lease runs 75%+ of asset life, bargain purchase option, ownership transfer language, or PV of payments >90% of FMV",
+      "In Chapter 11, a company can assign or reject leases (including operating leases for retail space)"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-024",
+    "question": "Walk me through the distinction between how we handle debt repayments (principal) and interest payments on the IS vs. the CFS.",
+    "model_answer": "Interest payments are tax deductible and occur at frequent intervals, so they qualify for the IS. Interest will not appear within CFO because, unlike depreciation, you actually have to pay out cash (unless it's PIK interest) so no addback is needed — the IS already reflects the cash diminishing. Debt repayments (principal) are cash but are not tax deductible, which is why they show up in cash flow from financing (CFF), not the IS. The IS would look absurd if major debt paydowns or raises appeared on it — they are purely balance sheet events that affect the financing section of the CFS.",
+    "key_points": [
+      "Interest is tax deductible and period-specific — goes on IS",
+      "Interest does NOT get added back in CFO because it is actually paid in cash (unless PIK)",
+      "Debt principal repayments are cash but not tax deductible — go in CFF, not IS",
+      "Principal repayment: CFF down, cash down, debt on BS down",
+      "The IS would be distorted if principal repayments appeared on it",
+      "PIK interest is the exception — non-cash and therefore added back in CFO"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-025",
+    "question": "What is deferred revenue? Do distressed companies have more or less of it than average?",
+    "model_answer": "Deferred revenue is a liability. It reflects the fact that you've brought in cash for a good or service but haven't yet actually provided that good or rendered that service. It's a liability until the good or service is provided, after which it becomes revenue on the IS with deferred revenue being brought down. Distressed companies will often have more deferred revenue than normal because they try to put together deals or sales in which they're promising to deliver something in the future to get cash now. You see this a lot with TMT companies and sometimes natural resource companies — they put together annual deals and then quarterly IS shows deferred revenue being decremented to reflect services actually provided.",
+    "key_points": [
+      "Deferred revenue is a liability — cash received but service/good not yet delivered",
+      "When the good or service is delivered, it converts from liability to revenue on IS",
+      "Distressed companies typically have more deferred revenue than average",
+      "Distressed companies seek upfront cash by promising future delivery — increases DR",
+      "Common in TMT and natural resource companies",
+      "Contrast with AR: AR is asset (service delivered, cash not yet received); DR is liability (cash received, service not yet delivered)"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-026",
+    "question": "So deferred revenue can be quite large for a distressed company. What about accounts receivable? What's the difference between them anyway?",
+    "model_answer": "AR (an asset) is when a company has provided a good or rendered a service but has not yet received cash. DR (a liability) is when cash has come in but the good hasn't been provided or service fully rendered. AR is important for distressed companies because it's usually part of the borrowing base that determines the size of the revolver a company can get. AR can be large for distressed companies, but this is not always an indication of strength — AR Days over 45 indicates it takes longer than 45 days to convert AR to cash. If customers know a company is distressed, they may be less likely to pay, extending AR Days further.",
+    "key_points": [
+      "AR (asset): service delivered, cash not yet received",
+      "Deferred revenue (liability): cash received, service not yet delivered",
+      "AR is part of the borrowing base determining revolver capacity",
+      "AR Days under 45 is traditionally healthy — takes <45 days to convert AR to cash",
+      "Distressed company customers may delay payment, extending AR Days",
+      "Large AR is not always positive — can reflect collection difficulties"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-027",
+    "question": "What's the difference between noncontrolling interest and investments in equity interests?",
+    "model_answer": "NCI (noncontrolling interest) means you own between 50-100% of a company. Within liabilities, you reflect the amount of the company you do NOT own. Investments in equity interests is when you own between 20-50% of a company. This is reflected on the balance sheet as an asset, for the amount of the company you DO own.",
+    "key_points": [
+      "NCI: you own 50-100% of a subsidiary — you reflect what you do NOT own as a liability (within SE section)",
+      "Investments in equity interests: you own 20-50% — reflected as an asset for the amount you DO own",
+      "NCI requires consolidated financials because you control the company",
+      "Below 20% ownership: treated as a security — only recognize dividend income or sale of shares",
+      "Key distinction: NCI = majority ownership with consolidation; equity interests = minority ownership with equity method"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-028",
+    "question": "Let's say you own 80% of a company that has generated $100 of net income. Because you own 80% of it, you have consolidated financials. However, you don't own all of it. So how is this $100 in net income reflected?",
+    "model_answer": "On the IS you are reflecting 100% of the company but only own 80%, which is incorrect. So you add a line item 'Net Income Attributable to Noncontrolling Interests' prior to net income and subtract $20 (20% of the $100 net income). On the CFS you add back the $20 because you have control and thus the cash is yours 'in trust' — the CFS remains unchanged. On the BS, there is $20 in net income not in retained earnings (stripped out before net income on IS), but you add the $20 to 'Noncontrolling interests' within SE. This is a reclassification — overall SE is unchanged because you consolidated the full IS but stripped out the NCI portion.",
+    "key_points": [
+      "Consolidated financials reflect 100% of subsidiary even though you own only 80%",
+      "IS: subtract 'Net Income Attributable to NCI' of $20 before net income line",
+      "CFS: add back $20 NCI — cash is effectively yours in trust since you control the entity",
+      "BS: retained earnings reflects only your $80 share; NCI within SE gets the $20",
+      "Net effect: SE is unchanged — it's a reclassification between retained earnings and NCI"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-029",
+    "question": "If the company instead is one that you own between 20-50% of, how would you think about having $100 in income?",
+    "model_answer": "When you own 20-50% you don't consolidate financials, but you need to reflect the income. On the IS you create a note or line item below net income called 'net income attributable to equity interests' showing the increase of $20-50 (depending on % owned), then consolidate that into actual net income (often called 'net income attributable to HoldCo'). On the CFS, net income is up $20-50 but you subtract that out because you don't actually have cash (you have income that could only become cash via a dividend from the company you own part of). On the BS, 'Investments in Equity Interests' (an asset) goes up by $20-50, while retained earnings (in SE) also goes up by $20-50 as 'net income attributable to HoldCo' flows into it.",
+    "key_points": [
+      "20-50% ownership uses the equity method — no consolidation of financials",
+      "IS: add line item below net income 'net income attributable to equity interests' for your proportional share",
+      "CFS: net income up $20-50 but subtract it back out — you don't have actual cash, only a claim",
+      "BS: 'Investments in Equity Interests' asset up $20-50; retained earnings up $20-50",
+      "Cash only arrives if the subsidiary pays a dividend"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-030",
+    "question": "What is a common form of interest for distressed companies besides cash? How, if you have $100 of this, do you reflect it through the statements?",
+    "model_answer": "PIK (payment-in-kind) interest is common for distressed companies as it reduces cash interest expense. With $100 of PIK interest: Pre-tax income falls by $100 (PIK is a form of interest), so net income falls by $60 (at 40% tax rate). On the CFS, cash starts down $60 but you add back $100 since PIK is non-cash — so cash is up by $40. On the BS: cash is up $40; liabilities are up $100 (new debt from PIK accrual); and within SE, retained earnings fall by $60.",
+    "key_points": [
+      "PIK (payment-in-kind) interest is common in distressed — avoids cash outflow",
+      "IS: pre-tax income down $100, net income down $60 (at 40% tax)",
+      "CFS: start with -$60 net income, add back $100 PIK (non-cash) = cash up $40",
+      "BS: cash up $40; debt/liabilities up $100 (PIK accrues to principal); retained earnings down $60",
+      "PIK is non-cash interest — it accretes onto the principal balance of the debt"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-031",
+    "question": "Are deferred tax assets and deferred tax liabilities common for distressed companies? What are they really? What is more common to see?",
+    "model_answer": "A DTA means you are paying too much tax now and as a result will pay less in the future. DTAs normally originate from net operating losses (NOLs) that come from negative pre-tax income. NOLs that result in DTAs are an incredibly important asset for a company, especially one coming out of Chapter 11. A DTL is the opposite — you paid too little taxes today and will have to pay more cash taxes in the future. For complex companies or companies with earnings volatility, you'll see both DTLs and DTAs sitting on the balance sheet, reflecting different origins and timing. Not all companies can retain their NOLs — see the RX guide for how NOLs are treated in bankruptcy regarding retention and wipeout.",
+    "key_points": [
+      "DTA: paying too much tax now, will pay less later — often from NOLs generated by losses",
+      "NOLs resulting in DTAs are critically important assets, especially post-Chapter 11",
+      "DTL: paid too little tax now, will pay more cash taxes in the future",
+      "Both DTAs and DTLs can coexist on BS for complex companies with volatile earnings",
+      "DTAs from NOLs are more commonly seen for distressed companies",
+      "NOL retention in bankruptcy is subject to Section 382 limitations — not always preserved"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-032",
+    "question": "Speaking of NOLs, how do they intersect with DTAs? Are they two sides of the same coin?",
+    "model_answer": "More or less yes. NOLs are represented through DTAs. Or another way to think about it: NOLs are the precursor to DTAs. When NOLs are utilized, the DTA will change by (NOLs new or existing minus NOLs used) times the tax rate. For example, if you have $500 in pre-tax income you'll have $200 in income taxes. If you have $100 NOL you will be able to offset cash taxes by $40, so you really only have $160 in income taxes to pay in cash. NOLs are not how much you can reduce cash taxes by directly — they are the amount that, multiplied by the prevailing tax rate, reduces cash taxes.",
+    "key_points": [
+      "NOLs are represented through DTAs — they are closely linked",
+      "NOLs are the precursor to DTAs; as NOLs are utilized, DTA changes by (NOLs utilized * tax rate)",
+      "NOL does not equal tax savings directly — multiply NOL by tax rate to get cash tax reduction",
+      "Example: $100 NOL at 40% tax rate = $40 reduction in cash taxes",
+      "DTA change = (new NOLs - NOLs used) * tax rate",
+      "Using an NOL reduces the DTA balance on the balance sheet"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-033",
+    "question": "Walk me through the three statements when accrued expenses increases by $100.",
+    "model_answer": "Accrued expenses are expenses that have been accrued but not yet paid. Pre-tax income goes down by $100, net income goes down by $60 (at 40% tax). On the CFS, it starts down $60, but since accrued expenses are non-cash you add back $100, so CFO is up $40. On the BS: cash is up $40, liabilities are up $100 (accrued expenses are a liability), and equity is down $60 (retained earnings falls due to -$60 net income). Note: when accrued expenses are then paid in cash, nothing happens on the IS (the expense occurred in a prior period). Cash is down $100 on the CFS, which flows to assets down $100 and liabilities down $100 on the BS.",
+    "key_points": [
+      "IS: pre-tax income down $100, net income down $60 (40% tax rate)",
+      "CFS: start -$60 net income, add back $100 (non-cash accrual) = CFO up $40",
+      "BS: cash up $40, accrued expense liability up $100, SE (retained earnings) down $60",
+      "When subsequently paid in cash: IS is unaffected (prior period expense)",
+      "Payment of accrued expense: cash down $100, accrued expense liability down $100"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-034",
+    "question": "Let's say a company sells an asset for $200 that had a book value of $100. What happens?",
+    "model_answer": "On the IS you record the gain of $100, which is reflected in a $60 increase in net income (at 40% tax). CFO is up $60 (from net income), but you net out the entire gain (reclassified to CFI), so CFO is actually down $40. CFI is up $200 (the sale proceeds), so the CFS in totality is up $160. On the BS: cash is up $160, the asset is off the books (down $100 on asset side), so total assets are up $60. No change in liabilities. SE is up $60 (retained earnings via net income). Everything balances.",
+    "key_points": [
+      "IS: record $100 gain on sale, net income up $60 (at 40% tax)",
+      "CFO: starts +$60 (net income) but subtract the full $100 gain to reclassify to CFI, so CFO is -$40",
+      "CFI: +$200 (full sale proceeds)",
+      "Total CFS: up $160 ($200 CFI - $40 CFO)",
+      "BS: cash up $160, asset removed at $100 book value, net assets up $60; SE up $60 via retained earnings",
+      "Gain on asset sale is reclassified from CFO to CFI in full to avoid double counting"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-035",
+    "question": "Asset write downs are more common than asset gains for distressed companies. So, what happens when you have an asset write-down of $100?",
+    "model_answer": "Asset write-downs affect the IS since losses operate as a tax shield. IS: pre-tax down $100, net income down $60 (at 40% tax). Within CFO it begins with -$60, but an asset write-down is non-cash, so add back $100 making CFO up $40. On the BS: cash is up $40, but the actual asset (say PP&E) is down $100, so the asset side of the BS is down $60. Nothing occurs in liabilities, but SE is obviously down $60 as net income flows into retained earnings.",
+    "key_points": [
+      "Asset write-down is non-cash and hits IS as a loss",
+      "IS: pre-tax income down $100, net income down $60",
+      "CFO: start -$60 (net income), add back $100 (non-cash write-down) = +$40",
+      "BS: cash up $40; PP&E (or the asset) down $100; net assets down $60; SE down $60",
+      "Tax shield from asset write-down = $40 in cash savings (vs. paying full tax on positive income)",
+      "Contrast with debt write-down: asset write-down reduces net income; debt write-down increases it"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-036",
+    "question": "Deferred taxes are quite common in distressed companies. Let's say that you have an income tax expense of $100, but $50 is paid in cash and $50 is paid sometime in the future. What happens here?",
+    "model_answer": "The IS stays the same — it doesn't matter whether something is cash or non-cash. On the CFS, the $50 non-cash portion is added back (remember when you hear CFO you ask: 'are we dealing with something non-cash here?'). On the BS: cash is up $50 (from the addback within CFO), but we now have a liability of $50 for deferred taxes, reflecting the fact that the company will have to pay $50 in cash at some point for these taxes.",
+    "key_points": [
+      "IS: unchanged — total tax expense of $100 regardless of cash vs. deferred split",
+      "CFS: add back $50 deferred portion (non-cash) in CFO",
+      "BS: cash up $50; deferred tax liability up $50",
+      "Deferred tax liability reflects future cash obligation for taxes not yet paid",
+      "Common in distressed companies where cash tax payments are managed/deferred"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-037",
+    "question": "Asset write downs are common in distressed companies, but so are debt write downs if a company is really distressed. Let's say we have $100 in a debt write down. What happens?",
+    "model_answer": "Unlike asset write-downs where net income fell, when debt is written down net income increases. This makes sense: when an asset is written down it reflects that the cash flows attached to it have diminished. When debt is written down it reflects that cash flows that would have been directed toward paying that debt have been freed up. So: pre-tax income goes up by $100, net income goes up by $60. On the CFS we have cash up $60, but we need to reflect that this is a non-cash item, so we subtract $100 to get -$40 in CFO. On the BS: cash down $40, liabilities (debt) down $100, and SE (retained earnings) up by $60. Balance is achieved.",
+    "key_points": [
+      "Debt write-down increases net income (opposite of asset write-down)",
+      "IS: pre-tax income up $100, net income up $60",
+      "CFS: start +$60 (net income), subtract $100 (non-cash gain) = CFO -$40",
+      "BS: cash down $40; debt/liabilities down $100; retained earnings (SE) up $60",
+      "Economic intuition: debt write-down frees up cash flows previously committed to debt repayment",
+      "This is a cancellation of debt (COD) income event with tax implications"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-038",
+    "question": "How do you calculate trailing twelve months (TTM) EBITDA? Do we use that?",
+    "model_answer": "For companies that have cyclical earnings, TTM EBITDA can be used. However, in distress EBITDA tends to fluctuate a lot because of one-time adjustments and outright revenue decline, so we tend to focus on the trend of EBITDA rather than just the TTM figure. The trailing twelve months formula is: TTM = new partial period + twelve-month period - old partial period (with the same length as the new partial period).",
+    "key_points": [
+      "TTM formula: most recent partial period + last full annual period - equivalent prior partial period",
+      "Useful for cyclical businesses but limited in distress contexts",
+      "In distress, EBITDA fluctuates due to one-time charges and revenue decline",
+      "RX practitioners focus on EBITDA trend rather than just TTM snapshot",
+      "Example: if Q1 2024 is the new partial period, TTM = Q1 2024 + FY2023 - Q1 2023"
+    ],
+    "category": "accounting",
+    "difficulty": 2
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-039",
+    "question": "Let's say that a company purchases equipment for $100 and funds the purchase via 50% debt (10% interest rate) and 50% equity. The company has a 5x EBITDA multiple, and the equipment will have a useful life of ten years with no salvage value. Can you walk me through what happens on the three statements at the end of Year 1 including the EBITDA impact?",
+    "model_answer": "First, determine the EBITDA impact. EV = Debt + Equity - Cash = $50 + $50 - $0 = $100 (cash was immediately spent on the purchase). EV increased by $100, and EV/EBITDA = 5x, so EBITDA increased by $20.\n\nIncome Statement: EBITDA up $20. Depreciation = $100 / 10 years = $10. Cash interest expense = $50 * 10% = $5. Pre-tax income = $20 - $10 - $5 = +$5. At 20% tax rate, net income = +$4.\n\nCash Flow Statement: Start with net income of +$4. Add back depreciation of $10 (non-cash). Net operating cash flow = +$14.\n\nBalance Sheet: Cash is up $14. PP&E is down $10 (depreciation). Net asset change = +$4. Retained earnings up $4. Balance sheet balances.",
+    "key_points": [
+      "Use EV = Debt + Equity - Cash to find that EV increased by $100 (cash immediately spent)",
+      "EBITDA increase = $100 EV / 5x multiple = $20",
+      "Depreciation = $100 / 10 years = $10; cash interest = $50 * 10% = $5",
+      "Net income = ($20 - $10 - $5) * (1 - 20%) = $4",
+      "Cash flow = net income $4 + depreciation add-back $10 = $14",
+      "Balance sheet: PP&E down $10, cash up $14; retained earnings up $4"
+    ],
+    "category": "accounting",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-040",
+    "question": "Let's say that a company purchases PP&E for $1,000. They fund this purchase with 50% PIK debt and 50% cash. The equipment has a useful life of ten years with no salvage value. Assume that pro forma leverage is 2.5x, interest coverage is 4x, and the tax rate is 20%. Can you walk through the three statements at time zero and after the first year (include the incremental increase in EBITDA)?",
+    "model_answer": "At time zero: Nothing on the income statement. Cash flow statement: CFI down $1,000 (purchase), CFF up $500 (PIK debt raised). Net cash flow = -$500. Balance sheet: Cash down $500, PP&E up $1,000; net asset increase = +$500. Debt up $500 on liabilities/equity side.\n\nFor Year 1: First derive EBITDA. Leverage = Debt/EBITDA = 2.5x; debt increased by $500, so incremental EBITDA = $500 / 2.5 = $200. Then derive interest expense using coverage ratio: EBITDA / Interest = 4x, so Interest = $200 / 4 = $50. This implies the $500 PIK debt has a 10% interest rate.\n\nIncome Statement: EBITDA up $200. Depreciation = $1,000 / 10 = $100. PIK interest expense = $50. Pre-tax income = $200 - $100 - $50 = $50. Net income = $50 * (1 - 20%) = $40.\n\nCash Flow Statement: Start with net income +$40. Add back depreciation $100 and PIK interest $50 (both non-cash). Total = +$190.\n\nBalance Sheet: Cash up $190. PP&E down $100 (depreciation); net asset up $90. On liabilities/equity side: debt up $50 (PIK accrual), retained earnings up $40. Net = +$90. Balanced.",
+    "key_points": [
+      "At time zero: CFI down $1,000, CFF up $500 (PIK debt); net cash down $500; PP&E up $1,000, debt up $500",
+      "Derive EBITDA from leverage ratio: $500 debt / 2.5x leverage = $200 incremental EBITDA",
+      "Derive interest expense from coverage: $200 EBITDA / 4x coverage = $50 (implies 10% rate on $500 PIK debt)",
+      "Year 1 income statement: $200 EBITDA - $100 D&A - $50 PIK interest = $50 pre-tax; net income $40",
+      "Cash flow: +$40 net income + $100 D&A add-back + $50 PIK add-back = +$190",
+      "Balance sheet: cash +$190, PP&E -$100; debt +$50 (PIK accrual), retained earnings +$40"
+    ],
+    "category": "accounting",
+    "difficulty": 3
+  },
+  {
+    "id": "rx-accounting-and-financial-statements-041",
+    "question": "Let's say there are $100 in NOLs on the books — from being in a distressed situation — but they just pull in $100 in pre-tax income. What happens?",
+    "model_answer": "NOLs are a conduit so we proceed with the IS as normal: $100 pre-tax income leads to $60 net income (meaning $40 in taxes were 'paid' on the IS). The actual cash taxes paid reflect the use of NOLs: $100 in NOLs times 40% tax rate means $40 is eligible to be applied against the $40 in taxes, so zero cash taxes are paid. On the CFS: $60 from net income, then add back $40 since the DTA (which houses the NOLs) decreased — when assets decrease that's a source of cash. So CFS shows a $100 increase. On the BS: cash up $100, DTA down $40, retained earnings up $60.",
+    "key_points": [
+      "IS proceeds normally: $100 pre-tax income, -$40 tax expense, $60 net income",
+      "Actual cash taxes paid = $0 because $100 NOL * 40% = $40 fully offsets the tax bill",
+      "CFS: start with $60 net income + $40 addback for DTA decrease = $100 cash increase",
+      "DTA decreases when NOLs are utilized — a decrease in assets is a source of cash",
+      "BS: cash up $100, DTA down $40, retained earnings up $60",
+      "The DTA effectively 'converts' to cash as NOLs are utilized"
+    ],
+    "category": "accounting",
+    "difficulty": 3
+  },
+  {
+    "question": "What things would you expect to change most for a distressed company on the three financial statements?",
+    "model_answer": "Key changes across the three financial statements for a distressed company include: (1) Capex is often too high and should be lowered moving forward; (2) Working capital will decrease as you have write-downs on inventory and accounts receivable may decline; (3) One-time legal, RX, and other restructuring fees appear as charges.",
+    "key_points": [
+      "Capex: typically too high, needs to be reduced",
+      "Working capital: write-downs on inventory; A/R declines",
+      "One-time charges: legal fees, RX advisory fees, restructuring costs",
+      "These items feed into why Adjusted EBITDA diverges from GAAP EBITDA in distress"
+    ],
+    "category": "accounting",
+    "difficulty": 2,
+    "id": "rx-accounting-and-financial-statements-042"
+  },
+  {
+    "question": "Would you expect Adjusted EBITDA of a company in need of restructuring to be higher than it was, say, a year ago?",
+    "model_answer": "Yes. You're adjusting for more one-time expenses. For example, you'd add back goodwill impairment, litigation expense, and any losses on asset disposal. Distressed companies tend to have more one-time charges, which means the gap between GAAP EBITDA and Adjusted EBITDA widens.",
+    "key_points": [
+      "Distressed companies have more one-time charges → larger GAAP vs. Adjusted EBITDA gap",
+      "Common add-backs: goodwill impairment, litigation, asset disposal losses",
+      "Adjusted EBITDA should be higher than GAAP EBITDA for distressed companies",
+      "Cap tables use Adjusted EBITDA for leverage/coverage ratios"
+    ],
+    "category": "accounting",
+    "difficulty": 2,
+    "id": "rx-accounting-and-financial-statements-043"
+  },
+  {
+    "question": "When does GAAP require restructuring costs to be filed?",
+    "model_answer": "Charged against income in the year in which the decision to restructure is made, even though the actual expenditures will take place over time. A liability reserve is created and the actual expenses are charged against this reserve.",
+    "key_points": [
+      "Charge in year decision to restructure is made, not when costs incurred",
+      "Creates a liability reserve for future expenditures",
+      "Actual costs drawn down against the reserve over time",
+      "Results in large one-time charge in the year of decision"
+    ],
+    "category": "accounting",
+    "difficulty": 2,
+    "id": "rx-accounting-and-financial-statements-044"
+  },
+  {
+    "question": "What do NOLs become after a Chapter 11?",
+    "model_answer": "Deferred tax assets for a reorganized company.",
+    "key_points": [
+      "NOLs (Net Operating Losses) become deferred tax assets post-reorg",
+      "Can be carried forward to offset future taxable income",
+      "Subject to Section 382 limitations on carryforward",
+      "Valuable asset of the reorganized company"
+    ],
+    "category": "accounting",
+    "difficulty": 2,
+    "id": "rx-accounting-and-financial-statements-045"
+  },
+  {
+    "question": "How to qualify for section 382 election for NOLs (allowing NOLs to be carried forward into the newly reorganized company)?",
+    "model_answer": "Requirements: (1) Shareholders and creditors of the company must end up owning at least 50% of reorganized debtor's stock; (2) Shareholders and creditors must receive their 50% stock ownership in discharge of their interest and claims against the debtor; (3) Stock received by creditors can be counted toward the 50% test only if it was received in satisfaction of debt that: (a) had been held by the creditor for at least 18 months on the date of bankruptcy filing, or (b) arose in the ordinary course of the debtor's business and was held by the person who at all times held the beneficial interest in that indebtedness.",
+    "key_points": [
+      "Must own ≥50% of reorganized company's stock",
+      "50% received in discharge of pre-petition claims",
+      "Creditor stock counts if held ≥18 months at filing or arose in ordinary course",
+      "If creditors/shareholders don't own 50%+ of reorganized equity, NOLs are void"
+    ],
+    "category": "accounting",
+    "difficulty": 3,
+    "id": "rx-accounting-and-financial-statements-046"
+  }
+]
