@@ -25,6 +25,8 @@ console.log("[questions-store] QUESTIONS_ROOT resolved to:", QUESTIONS_ROOT);
 
 // Module-level cache: keyed "${mode}/${slug}" -> Question[]
 const _cache = new Map();
+// Category slug list cache: keyed mode -> string[]
+const _slugCache = new Map();
 
 /**
  * Returns the known category slugs for the given mode.
@@ -39,31 +41,35 @@ const _cache = new Map();
  * @returns {Promise<string[]>}
  */
 export async function listCategories(mode) {
+  if (_slugCache.has(mode)) return _slugCache.get(mode);
+
   const dir = MODE_DIR[mode];
   if (!dir) throw Object.assign(new Error(`Unknown mode: ${mode}`), { status: 400 });
 
+  let slugs;
   if (mode === "ib") {
     try {
       const manifestPath = join(QUESTIONS_ROOT, dir, "manifest.json");
       const raw = await readFile(manifestPath, "utf8");
       const manifest = JSON.parse(raw);
-      const slugs = manifest.sections.map((s) => s.slug);
-      return slugs;
+      slugs = manifest.sections.map((s) => s.slug);
     } catch {
-      // Fallback: enumerate non-empty immediate subdirs (recursive depth-1)
-      return _enumSubdirs(join(QUESTIONS_ROOT, dir));
+      slugs = await _enumSubdirs(join(QUESTIONS_ROOT, dir));
+    }
+  } else {
+    // RX: read taxonomy.json categories[].slug (basic/advanced layout)
+    try {
+      const taxonomyPath = join(QUESTIONS_ROOT, dir, "taxonomy.json");
+      const raw = await readFile(taxonomyPath, "utf8");
+      const taxonomy = JSON.parse(raw);
+      slugs = taxonomy.categories.map((c) => c.slug);
+    } catch {
+      slugs = [];
     }
   }
 
-  // RX: read taxonomy.json categories[].slug (basic/advanced layout)
-  try {
-    const taxonomyPath = join(QUESTIONS_ROOT, dir, "taxonomy.json");
-    const raw = await readFile(taxonomyPath, "utf8");
-    const taxonomy = JSON.parse(raw);
-    return taxonomy.categories.map((c) => c.slug);
-  } catch {
-    return [];
-  }
+  _slugCache.set(mode, slugs);
+  return slugs;
 }
 
 /**

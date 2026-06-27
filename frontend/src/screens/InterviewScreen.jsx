@@ -4,7 +4,8 @@
  * Core interview experience loop.
  *
  * State machine (useReducer):
- *   LOADING → SPEAKING → IDLE → LISTENING → PROCESSING → FEEDBACK → DONE
+ *   LOADING → IDLE → LISTENING → PROCESSING → FEEDBACK → DONE
+ *   (SPEAKING removed as a blocked phase — TTS plays in background while IDLE)
  *
  * Session config loaded from sessionStorage('jamie_session_config').
  * Config shape (from Phase 6 SessionConfig):
@@ -16,6 +17,11 @@
  *
  * Skip-erasure: skipped questions are NEVER added to results[], so they
  * don't appear in any downstream calculation. See 7.6.
+ *
+ * Speed optimizations:
+ *   - Question text shown immediately on load (TTS fetches in background)
+ *   - TTS audio cached by text content (Blob cache, survives re-renders)
+ *   - Next question + TTS prefetched during FEEDBACK phase
  */
 
 import React, { useReducer, useEffect, useRef, useCallback, useState } from 'react';
@@ -45,7 +51,7 @@ const SPEECH_SUPPORTED = Boolean(SpeechRecognitionAPI);
 /* ------------------------------------------------------------------ */
 
 const INITIAL_STATE = {
-  phase: 'LOADING',         // LOADING|SPEAKING|IDLE|LISTENING|PROCESSING|FEEDBACK|DONE
+  phase: 'LOADING',         // LOADING|IDLE|LISTENING|PROCESSING|FEEDBACK|DONE
   config: null,             // session config from sessionStorage
   mode: null,               // derived from config
   currentQuestion: null,    // { id, question, key_points, star_hints, category, ... }
@@ -64,8 +70,7 @@ function interviewReducer(state, action) {
       return {
         ...state,
         currentQuestion: action.question,
-        phase: action.nextPhase ?? 'SPEAKING',
-        // TranscriptPreview reset: transcript is managed outside reducer
+        phase: action.nextPhase ?? 'IDLE',
         error: null,
       };
 
@@ -87,8 +92,6 @@ function interviewReducer(state, action) {
     }
 
     case 'QUESTION_SKIPPED':
-      // Skip-erasure: do NOT add to results, do NOT increment completedCount.
-      // Add to askedIds to avoid re-fetching the same question.
       return {
         ...state,
         askedIds: state.currentQuestion
@@ -131,16 +134,23 @@ export default function InterviewScreen() {
   // Transcript state (managed outside reducer for performance)
   const [interimTranscript, setInterimTranscript] = useState('');
   const [finalTranscript, setFinalTranscript]     = useState('');
-  const [textFallback, setTextFallback]           = useState(''); // textarea fallback
+  const [textFallback, setTextFallback]           = useState('');
 
   // TTS playback
   const audioRef      = useRef(null);   // HTMLAudioElement for TTS
-  const audioObjUrl   = useRef(null);   // object URL to revoke
+  const audioObjUrl   = useRef(null);   // object URL to revoke on cleanup
   const [isPlayingTts, setIsPlayingTts] = useState(false);
+
+  // TTS blob cache: text → Blob (persists across re-renders, revived per playback)
+  const ttsCacheRef = useRef(new Map());
+
+  // Prefetch slot: { question, ttsBlob: Blob | null } | null
+  const prefetchRef     = useRef(null);
+  const prefetchingRef  = useRef(false);
 
   // SpeechRecognition instance
   const recognitionRef = useRef(null);
-  const isRecordingRef = useRef(false);  // guard for re-entrant start calls
+  const isRecordingRef = useRef(false);
 
   // MediaStream ref (passed to JamieBlob for amplitude analysis)
   const micStreamRef = useRef(null);
@@ -164,14 +174,161 @@ export default function InterviewScreen() {
     dispatch({ type: 'SET_CONFIG', config: cfg });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  /* Once config is set, fetch first question */
   useEffect(() => {
     if (!config) return;
     fetchQuestion(config, []);
   }, [config]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  /* -------- TTS helpers -------- */
+
+  // Fetch TTS audio for text, returning a Blob (cached after first fetch).
+  const fetchTtsBlob = useCallback(async (text) => {
+    if (ttsCacheRef.current.has(text)) {
+      return ttsCacheRef.current.get(text);
+    }
+
+    const token = localStorage.getItem('jamie_token');
+    const headers = { 'Content-Type': 'application/json' };
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+
+    const fetchRes = await fetch('/api/tts', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ text }),
+    });
+
+    if (!fetchRes.ok) return null;
+
+    const blob = await fetchRes.blob();
+
+    // Evict oldest entry when cache exceeds 20 items
+    if (ttsCacheRef.current.size >= 20) {
+      const firstKey = ttsCacheRef.current.keys().next().value;
+      ttsCacheRef.current.delete(firstKey);
+    }
+
+    ttsCacheRef.current.set(text, blob);
+    return blob;
+  }, []);
+
+  // Play audio from a blob URL. shouldRevoke controls whether to call
+  // URL.revokeObjectURL after playback (true when the URL is ephemeral).
+  const playTtsFromUrl = useCallback((url, onEnd, shouldRevoke = true) => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+    if (shouldRevoke) {
+      audioObjUrl.current = url;
+    }
+
+    const audio = new Audio(url);
+    audioRef.current = audio;
+    setIsPlayingTts(true);
+
+    const cleanup = () => {
+      setIsPlayingTts(false);
+      if (shouldRevoke && audioObjUrl.current === url) {
+        URL.revokeObjectURL(url);
+        audioObjUrl.current = null;
+      }
+      onEnd?.();
+    };
+
+    audio.addEventListener('ended', cleanup);
+    audio.addEventListener('error', cleanup);
+    audio.play().catch(cleanup);
+  }, []);
+
+  // High-level: fetch (with cache) then play.
+  const playTts = useCallback(async (text, onEnd) => {
+    stopAudio();
+    try {
+      const blob = await fetchTtsBlob(text);
+      if (!blob) { onEnd?.(); return; }
+      const url = URL.createObjectURL(blob);
+      playTtsFromUrl(url, onEnd, true);
+    } catch {
+      setIsPlayingTts(false);
+      onEnd?.();
+    }
+  }, [fetchTtsBlob, playTtsFromUrl]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  function stopAudio() {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+    setIsPlayingTts(false);
+    if (audioObjUrl.current) {
+      URL.revokeObjectURL(audioObjUrl.current);
+      audioObjUrl.current = null;
+    }
+  }
+
+  /* -------- Prefetch: fetch next question + TTS during FEEDBACK -------- */
+  const startPrefetch = useCallback(async (cfg, excludeIds) => {
+    if (prefetchingRef.current) return;
+    prefetchingRef.current = true;
+    prefetchRef.current = null;
+
+    try {
+      const params = new URLSearchParams({ mode: cfg.mode });
+      if (cfg.categories?.length > 0) params.set('category', cfg.categories.join(','));
+      if (excludeIds?.length > 0) params.set('exclude', excludeIds.join(','));
+
+      const res = await apiGet(`/api/question?${params.toString()}`);
+      if (!res.ok || !res.data) return;
+
+      const question = res.data.question ?? res.data;
+
+      // Pre-warm TTS cache
+      let ttsBlob = null;
+      const voiceActive = cfg.voiceEnabled && user?.hasElevenLabsKey;
+      if (voiceActive) {
+        ttsBlob = await fetchTtsBlob(question.question).catch(() => null);
+      }
+
+      prefetchRef.current = { question, ttsBlob };
+    } catch {
+      // Prefetch failures are silent — fallback to normal fetch
+    } finally {
+      prefetchingRef.current = false;
+    }
+  }, [user, fetchTtsBlob]);
+
+  // Trigger prefetch as soon as FEEDBACK phase starts
+  useEffect(() => {
+    if (phase !== 'FEEDBACK' || !config) return;
+    const nextExclude = currentQuestion
+      ? [...askedIds, currentQuestion.id]
+      : askedIds;
+    startPrefetch(config, nextExclude);
+  }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
+
   /* -------- 7.2 Fetch a question -------- */
   const fetchQuestion = useCallback(async (cfg, excludeIds) => {
+    // Use prefetch slot if available
+    if (prefetchRef.current) {
+      const { question, ttsBlob } = prefetchRef.current;
+      prefetchRef.current = null;
+
+      dispatch({ type: 'QUESTION_LOADED', question, nextPhase: 'IDLE' });
+
+      const voiceActive = cfg.voiceEnabled && user?.hasElevenLabsKey;
+      if (voiceActive && ttsBlob) {
+        const url = URL.createObjectURL(ttsBlob);
+        playTtsFromUrl(url, () => {}, true);
+      } else if (voiceActive) {
+        // Blob wasn't ready (rare) — fetch now
+        playTts(question.question, () => {});
+      }
+
+      // Kick off prefetch for the question after this one
+      startPrefetch(cfg, [...excludeIds, question.id]);
+      return;
+    }
+
     dispatch({ type: 'PHASE', phase: 'LOADING' });
 
     const params = new URLSearchParams({ mode: cfg.mode });
@@ -185,33 +342,24 @@ export default function InterviewScreen() {
     const res = await apiGet(`/api/question?${params.toString()}`);
 
     if (!res.ok || !res.data) {
-      // Bank exhausted or error — go to summary with what we have
       dispatch({ type: 'DONE' });
       return;
     }
 
-    const question = res.data.question ?? res.data; // handle { question: {...} } or raw obj
+    const question = res.data.question ?? res.data;
 
-    // Determine next phase based on voice config
+    // Show question text immediately — don't wait for TTS blob
+    dispatch({ type: 'QUESTION_LOADED', question, nextPhase: 'IDLE' });
+
     const voiceActive = cfg.voiceEnabled && user?.hasElevenLabsKey;
-    const nextPhase = voiceActive ? 'SPEAKING' : 'IDLE';
-
-    dispatch({ type: 'QUESTION_LOADED', question, nextPhase });
-  }, [user]);
-
-  /* -------- 7.2 Auto-play TTS when phase = SPEAKING -------- */
-  useEffect(() => {
-    if (phase !== 'SPEAKING' || !currentQuestion || !config) return;
-    if (!config.voiceEnabled || !user?.hasElevenLabsKey) {
-      // Voice disabled — go straight to IDLE
-      dispatch({ type: 'PHASE', phase: 'IDLE' });
-      return;
+    if (voiceActive) {
+      // Fetch TTS in background; plays as soon as blob arrives
+      playTts(question.question, () => {});
     }
 
-    playTts(currentQuestion.question, () => {
-      dispatch({ type: 'PHASE', phase: 'IDLE' });
-    });
-  }, [phase, currentQuestion]); // eslint-disable-line react-hooks/exhaustive-deps
+    // Start prefetching the next question while user reads/hears this one
+    startPrefetch(cfg, [...excludeIds, question.id]);
+  }, [user, playTts, playTtsFromUrl, startPrefetch]);
 
   /* -------- Navigate to summary when phase = DONE -------- */
   useEffect(() => {
@@ -223,76 +371,6 @@ export default function InterviewScreen() {
     }
   }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  /* -------- TTS helper -------- */
-  const playTts = useCallback(async (text, onEnd) => {
-    // Stop any existing audio
-    stopAudio();
-
-    try {
-      // Use raw fetch for TTS because the response is binary audio/mpeg,
-      // not JSON/text — apiFetch in api.js is for JSON payloads.
-      const token = localStorage.getItem('jamie_token');
-      const headers = { 'Content-Type': 'application/json' };
-      if (token) headers['Authorization'] = `Bearer ${token}`;
-
-      const fetchRes = await fetch('/api/tts', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ text }),
-      });
-
-      if (!fetchRes.ok) {
-        onEnd?.();
-        return;
-      }
-
-      const blob = await fetchRes.blob();
-
-      const url = URL.createObjectURL(blob);
-      audioObjUrl.current = url;
-
-      const audio = new Audio(url);
-      audioRef.current = audio;
-      setIsPlayingTts(true);
-
-      audio.addEventListener('ended', () => {
-        setIsPlayingTts(false);
-        revokeTtsUrl();
-        onEnd?.();
-      });
-      audio.addEventListener('error', () => {
-        setIsPlayingTts(false);
-        revokeTtsUrl();
-        onEnd?.();
-      });
-
-      await audio.play().catch(() => {
-        setIsPlayingTts(false);
-        revokeTtsUrl();
-        onEnd?.();
-      });
-    } catch {
-      setIsPlayingTts(false);
-      onEnd?.();
-    }
-  }, []);
-
-  function stopAudio() {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current = null;
-    }
-    setIsPlayingTts(false);
-    revokeTtsUrl();
-  }
-
-  function revokeTtsUrl() {
-    if (audioObjUrl.current) {
-      URL.revokeObjectURL(audioObjUrl.current);
-      audioObjUrl.current = null;
-    }
-  }
-
   /* -------- 7.3 SpeechRecognition setup -------- */
   function startRecognition() {
     if (isRecordingRef.current) return;
@@ -301,7 +379,6 @@ export default function InterviewScreen() {
     setInterimTranscript('');
     setFinalTranscript('');
 
-    // Request mic for amplitude analysis
     if (navigator.mediaDevices?.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ audio: true })
         .then(stream => { micStreamRef.current = stream; })
@@ -336,7 +413,6 @@ export default function InterviewScreen() {
     };
 
     recog.onend = () => {
-      // Only finalize if we're still in LISTENING (not stopped externally)
       if (isRecordingRef.current) {
         isRecordingRef.current = false;
         dispatch({ type: 'PHASE', phase: 'IDLE' });
@@ -360,14 +436,12 @@ export default function InterviewScreen() {
     }
     isRecordingRef.current = false;
 
-    // Stop mic stream
     if (micStreamRef.current) {
       micStreamRef.current.getTracks().forEach(t => t.stop());
       micStreamRef.current = null;
     }
 
     if (!skipFinalize) {
-      // Finalize — setFinalTranscript is async; trigger evaluation via effect
       dispatch({ type: 'PHASE', phase: 'IDLE' });
     }
   }
@@ -379,8 +453,6 @@ export default function InterviewScreen() {
     prevPhaseRef.current = phase;
 
     if (phase === 'IDLE' && waListening) {
-      // Use functional update pattern — finalTranscript state may lag 1 tick
-      // so we read it in next microtask
       setTimeout(() => {
         setFinalTranscript(t => {
           if (t.trim()) {
@@ -418,7 +490,6 @@ export default function InterviewScreen() {
 
     dispatch({ type: 'EVALUATION_DONE', answer, evaluation });
 
-    // 7.5 Auto-play feedback_line TTS if voice enabled
     if (config.voiceEnabled && user?.hasElevenLabsKey && evaluation.feedback_line) {
       playTts(evaluation.feedback_line, () => {
         setIsPlayingTts(false);
@@ -445,13 +516,12 @@ export default function InterviewScreen() {
       return;
     }
 
-    // Build updated askedIds including current question
     const newAskedIds = currentQuestion
       ? [...askedIds, currentQuestion.id]
       : askedIds;
 
     dispatch({ type: 'NEXT_QUESTION_ASKED' });
-    fetchQuestion({ ...config, _excludeOverride: newAskedIds }, newAskedIds);
+    fetchQuestion({ ...config }, newAskedIds);
   }, [completedCount, config, results, mode, currentQuestion, askedIds, navigate, fetchQuestion]);
 
   /* -------- 7.6 Skip -------- */
@@ -463,55 +533,19 @@ export default function InterviewScreen() {
     setTextFallback('');
     prevPhaseRef.current = 'LOADING';
 
-    // Skip-erasure: do not record result, do not increment completedCount
     const newAskedIds = currentQuestion
       ? [...askedIds, currentQuestion.id]
       : askedIds;
 
     dispatch({ type: 'QUESTION_SKIPPED' });
-
-    // Immediately fetch the next question — if bank exhausted go to summary
-    fetchNextSkip(newAskedIds);
-  }, [currentQuestion, askedIds, config]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const fetchNextSkip = useCallback(async (excludeIds) => {
-    if (!config) return;
-    dispatch({ type: 'PHASE', phase: 'LOADING' });
-
-    const params = new URLSearchParams({ mode: config.mode });
-    if (config.categories && config.categories.length > 0) {
-      params.set('category', config.categories.join(','));
-    }
-    if (excludeIds && excludeIds.length > 0) {
-      params.set('exclude', excludeIds.join(','));
-    }
-
-    const res = await apiGet(`/api/question?${params.toString()}`);
-
-    if (!res.ok || !res.data) {
-      // No more questions — go to summary with what we have
-      navigate('/app/summary', {
-        state: { results, mode, config },
-        replace: false,
-      });
-      return;
-    }
-
-    const question = res.data.question ?? res.data;
-    const voiceActive = config.voiceEnabled && user?.hasElevenLabsKey;
-    const nextPhase = voiceActive ? 'SPEAKING' : 'IDLE';
-
-    dispatch({ type: 'QUESTION_LOADED', question, nextPhase });
-  }, [config, results, mode, user, navigate]);
+    fetchQuestion({ ...config }, newAskedIds);
+  }, [currentQuestion, askedIds, config, fetchQuestion]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* -------- 7.6 Repeat -------- */
   const handleRepeat = useCallback(() => {
     if (!currentQuestion || !config?.voiceEnabled || !user?.hasElevenLabsKey) return;
     stopAudio();
-    dispatch({ type: 'PHASE', phase: 'SPEAKING' });
-    playTts(currentQuestion.question, () => {
-      dispatch({ type: 'PHASE', phase: 'IDLE' });
-    });
+    playTts(currentQuestion.question, () => {});
   }, [currentQuestion, config, user, playTts]);
 
   /* -------- 7.6 End session -------- */
@@ -542,24 +576,22 @@ export default function InterviewScreen() {
   ---------------------------------------------------------------- */
   const voiceActive    = config?.voiceEnabled && user?.hasElevenLabsKey;
   const isRecording    = phase === 'LISTENING';
-  const canRecord      = phase === 'IDLE' && !isRecording;
   const showPtt        = SPEECH_SUPPORTED;
   const showTextarea   = !SPEECH_SUPPORTED;
 
-  // Question N of M: current = completedCount + 1 (during answer), cap at config.count
   const displayedQuestionNum = Math.min(completedCount + 1, config?.count ?? 1);
 
-  // Blob state mapping
+  // JamieBlob animation state — isPlayingTts covers TTS speaking
   const blobState =
-    phase === 'SPEAKING'    ? 'speaking'   :
-    phase === 'LISTENING'   ? 'listening'  :
-    phase === 'PROCESSING'  ? 'processing' :
-                              'idle';
+    isPlayingTts             ? 'speaking'   :
+    phase === 'LISTENING'    ? 'listening'  :
+    phase === 'PROCESSING'   ? 'processing' :
+                               'idle';
 
   const isLastQuestion = completedCount + 1 >= (config?.count ?? 1);
 
   /* ----------------------------------------------------------------
-     Render: loading
+     Render: loading (no question yet)
   ---------------------------------------------------------------- */
   if (!config || phase === 'LOADING') {
     return (
@@ -623,17 +655,17 @@ export default function InterviewScreen() {
           {/* JamieBlob */}
           <JamieBlob blobState={blobState} streamRef={micStreamRef} />
 
-          {/* aria-live region for phase state and TTS status */}
+          {/* aria-live region */}
           <div
             role="status"
             aria-live="polite"
             aria-atomic="true"
             className="sr-only"
           >
-            {phase === 'LISTENING'  && 'Recording...'}
-            {phase === 'PROCESSING' && 'Evaluating your answer...'}
-            {phase === 'SPEAKING'   && 'Jamie is speaking...'}
-            {phase === 'FEEDBACK'   && 'Feedback ready.'}
+            {isPlayingTts                && 'Jamie is speaking...'}
+            {phase === 'LISTENING'       && 'Recording...'}
+            {phase === 'PROCESSING'      && 'Evaluating your answer...'}
+            {phase === 'FEEDBACK'        && 'Feedback ready.'}
           </div>
 
           {/* Error message */}
@@ -641,7 +673,7 @@ export default function InterviewScreen() {
             <p className="error-text interview-error">{error}</p>
           )}
 
-          {/* Recording UI (shown in IDLE, LISTENING phases) */}
+          {/* Recording UI — shown in IDLE and LISTENING */}
           {(phase === 'IDLE' || phase === 'LISTENING') && (
             <div className="interview-recording-ui">
               {showPtt && (
@@ -649,12 +681,11 @@ export default function InterviewScreen() {
                   <PushToTalkButton
                     inputMode={config.inputMode}
                     isRecording={isRecording}
-                    isDisabled={phase === 'PROCESSING' || phase === 'SPEAKING'}
+                    isDisabled={phase === 'PROCESSING' || isPlayingTts}
                     onStart={startRecognition}
                     onStop={() => stopRecognition(false)}
                   />
 
-                  {/* Live transcript */}
                   <TranscriptPreview
                     transcript={finalTranscript || interimTranscript}
                     isFinal={!!finalTranscript && !interimTranscript}
@@ -662,7 +693,6 @@ export default function InterviewScreen() {
                 </>
               )}
 
-              {/* Textarea fallback for non-Chrome/Edge */}
               {showTextarea && (
                 <div className="interview-textarea-wrap">
                   <label htmlFor="answer-textarea" className="label">
@@ -709,8 +739,8 @@ export default function InterviewScreen() {
             />
           )}
 
-          {/* Controls (skip, repeat, end) — shown outside PROCESSING & FEEDBACK */}
-          {(phase === 'IDLE' || phase === 'LISTENING' || phase === 'SPEAKING') && (
+          {/* Controls (skip question, repeat audio, end) */}
+          {(phase === 'IDLE' || phase === 'LISTENING') && (
             <div className="interview-controls">
               <button
                 className="btn-ghost interview-ctrl-btn"
@@ -721,11 +751,20 @@ export default function InterviewScreen() {
                 Skip
               </button>
 
-              {voiceActive && (
+              {voiceActive && isPlayingTts && (
+                <button
+                  className="btn-ghost interview-ctrl-btn"
+                  onClick={handleSkipTts}
+                  title="Stop audio and answer now"
+                >
+                  Stop audio
+                </button>
+              )}
+
+              {voiceActive && !isPlayingTts && (
                 <button
                   className="btn-ghost interview-ctrl-btn"
                   onClick={handleRepeat}
-                  disabled={phase === 'SPEAKING'}
                   title="Replay the question out loud"
                 >
                   Repeat
@@ -876,7 +915,7 @@ export default function InterviewScreen() {
           border: 0;
         }
 
-        /* Responsive — full-bleed on mobile */
+        /* Responsive */
         @media (max-width: 480px) {
           .interview-main {
             padding: 0.75rem 0 1.5rem;
