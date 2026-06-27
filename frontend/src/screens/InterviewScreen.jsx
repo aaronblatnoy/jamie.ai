@@ -278,9 +278,10 @@ export default function InterviewScreen() {
       if (excludeIds?.length > 0) params.set('exclude', excludeIds.join(','));
 
       const res = await apiGet(`/api/question?${params.toString()}`);
-      if (!res.ok || !res.data) return;
+      if (!res.ok || !res.data || res.data.done) return;
 
-      const question = res.data.question ?? res.data;
+      // Backend returns the question object flat: { id, question, key_points, ... }
+      const question = res.data;
 
       // Pre-warm TTS cache
       let ttsBlob = null;
@@ -341,12 +342,14 @@ export default function InterviewScreen() {
 
     const res = await apiGet(`/api/question?${params.toString()}`);
 
-    if (!res.ok || !res.data) {
+    if (!res.ok || !res.data || res.data.done) {
+      // Error or bank exhausted ({ done: true }) — go to summary
       dispatch({ type: 'DONE' });
       return;
     }
 
-    const question = res.data.question ?? res.data;
+    // Backend returns the question object flat: { id, question, key_points, ... }
+    const question = res.data;
 
     // Show question text immediately — don't wait for TTS blob
     dispatch({ type: 'QUESTION_LOADED', question, nextPhase: 'IDLE' });
