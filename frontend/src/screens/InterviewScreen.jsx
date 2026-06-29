@@ -449,23 +449,23 @@ export default function InterviewScreen() {
     }
   }
 
-  // When phase returns to IDLE after LISTENING, trigger evaluation
+  // Tracks prior phase (kept for any phase-transition logic / resets)
   const prevPhaseRef = useRef('LOADING');
   useEffect(() => {
-    const waListening = prevPhaseRef.current === 'LISTENING';
     prevPhaseRef.current = phase;
+  }, [phase]);
 
-    if (phase === 'IDLE' && waListening) {
-      setTimeout(() => {
-        setFinalTranscript(t => {
-          if (t.trim()) {
-            evaluateAnswer(t.trim());
-          }
-          return t;
-        });
-      }, 50);
+  /* -------- Submit recorded answer (manual) --------
+     Combines finalized + any trailing interim words so the last
+     un-finalized phrase isn't dropped. Stops recognition first. */
+  const handleSubmitAnswer = useCallback(() => {
+    if (isRecordingRef.current) {
+      stopRecognition(true);
     }
-  }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
+    const answer = `${finalTranscript} ${interimTranscript}`.trim();
+    if (!answer) return;
+    evaluateAnswer(answer);
+  }, [finalTranscript, interimTranscript, evaluateAnswer]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* -------- 7.4 Evaluate answer -------- */
   const evaluateAnswer = useCallback(async (answer) => {
@@ -581,6 +581,7 @@ export default function InterviewScreen() {
   const isRecording    = phase === 'LISTENING';
   const showPtt        = SPEECH_SUPPORTED;
   const showTextarea   = !SPEECH_SUPPORTED;
+  const hasTranscript  = !!(finalTranscript.trim() || interimTranscript.trim());
 
   const displayedQuestionNum = Math.min(completedCount + 1, config?.count ?? 1);
 
@@ -693,6 +694,18 @@ export default function InterviewScreen() {
                     transcript={finalTranscript || interimTranscript}
                     isFinal={!!finalTranscript && !interimTranscript}
                   />
+
+                  {/* Submit — appears once there's something to evaluate.
+                      Manual so the user controls when the answer is graded. */}
+                  {hasTranscript && (
+                    <button
+                      className="btn-primary interview-submit-ptt"
+                      onClick={handleSubmitAnswer}
+                      disabled={phase === 'PROCESSING' || isPlayingTts}
+                    >
+                      Submit Answer
+                    </button>
+                  )}
                 </>
               )}
 
@@ -871,6 +884,13 @@ export default function InterviewScreen() {
         .interview-submit-btn {
           align-self: flex-end;
           padding: 0.625rem 1.5rem;
+        }
+
+        /* PTT submit — centered under the transcript */
+        .interview-submit-ptt {
+          margin-top: 1rem;
+          padding: 0.625rem 2rem;
+          align-self: center;
         }
 
         /* Processing inline */
