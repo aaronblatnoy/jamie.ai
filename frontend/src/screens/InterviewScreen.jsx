@@ -176,8 +176,11 @@ export default function InterviewScreen() {
 
   useEffect(() => {
     if (!config) return;
+    // Safe forward-ref: called in effect BODY (runs post-render, after
+    // fetchQuestion's const is initialized) — not in a deps array, so no TDZ.
+    // eslint-disable-next-line no-use-before-define, react-hooks/exhaustive-deps
     fetchQuestion(config, []);
-  }, [config]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [config]);
 
   /* -------- TTS helpers -------- */
 
@@ -455,18 +458,6 @@ export default function InterviewScreen() {
     prevPhaseRef.current = phase;
   }, [phase]);
 
-  /* -------- Submit recorded answer (manual) --------
-     Combines finalized + any trailing interim words so the last
-     un-finalized phrase isn't dropped. Stops recognition first. */
-  const handleSubmitAnswer = useCallback(() => {
-    if (isRecordingRef.current) {
-      stopRecognition(true);
-    }
-    const answer = `${finalTranscript} ${interimTranscript}`.trim();
-    if (!answer) return;
-    evaluateAnswer(answer);
-  }, [finalTranscript, interimTranscript, evaluateAnswer]); // eslint-disable-line react-hooks/exhaustive-deps
-
   /* -------- 7.4 Evaluate answer -------- */
   const evaluateAnswer = useCallback(async (answer) => {
     if (!currentQuestion || !config) return;
@@ -499,6 +490,19 @@ export default function InterviewScreen() {
       });
     }
   }, [currentQuestion, config, user, playTts]);
+
+  /* -------- Submit recorded answer (manual) --------
+     Combines finalized + any trailing interim words so the last
+     un-finalized phrase isn't dropped. Stops recognition first.
+     Defined AFTER evaluateAnswer so the dependency isn't in the TDZ. */
+  const handleSubmitAnswer = useCallback(() => {
+    if (isRecordingRef.current) {
+      stopRecognition(true);
+    }
+    const answer = `${finalTranscript} ${interimTranscript}`.trim();
+    if (!answer) return;
+    evaluateAnswer(answer);
+  }, [finalTranscript, interimTranscript, evaluateAnswer]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
   /* -------- 7.5 Next question -------- */
